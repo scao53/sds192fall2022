@@ -1,7 +1,7 @@
 # SDS 192
 
 Source code to generate the course webpage for 2019-09 Fall Smith College SDS
-192: Introduction to Data Science <https://rudeboybert.github.io/SDS192/>. Most
+192: Introduction to Data Science <https://scao53.github.io/sds192fall2022/>. Most
 of the content is in either:
 
 * `_site.yml`: Set theme of webpage along with links in navigational bar.
