@@ -27,7 +27,7 @@ For this problem set I worked with:
 
 # Getting started
 
-* At the top of this document replace `"WRITE YOUR NAME HERE"` with your name, including the quotation marks. Ex: `"Albert Y. Kim"`
+* At the top of this document replace `"WRITE YOUR NAME HERE"` with your name, including the quotation marks. Ex: `"Shiya Cao"`
 * In the Honor code section above, indicate who (if anyone) you worked with. 
 
 
