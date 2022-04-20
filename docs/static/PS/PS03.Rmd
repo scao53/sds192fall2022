@@ -43,7 +43,7 @@ library(lubridate)
 
 # Getting started
 
-* At the top of this document replace `"WRITE YOUR NAME HERE"` with your name, including the quotation marks. Ex: `"Albert Y. Kim"`
+* At the top of this document replace `"WRITE YOUR NAME HERE"` with your name, including the quotation marks. Ex: `"Shiya Cao"`
 * Knit this file to PDF and read over the questions
 
 
