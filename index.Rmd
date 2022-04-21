@@ -190,7 +190,6 @@ data_frame_clean
 
 ## Announcements
 
-* MTH/SDS tenure track search email
 * Final project:
     + Open Slack to `#final_project` channel
     + Group leader: Create a Slack DM with all members AND myself and say "we're a group"
