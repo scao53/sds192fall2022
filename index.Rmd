@@ -1530,8 +1530,8 @@ Welcome!
 
 ## Today's topics/activities
 
-* Course webpage: bit.ly/sds192kim
-* My story
+* Course webpage: https://scao53.github.io/sds192fall2022/index.html
+* Class slides: slides/Day1-Intro.html
 * "Knock on wood if you're with me"
 * What this class is about: Answering questions with data
     1. Data viz
