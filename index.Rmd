@@ -1532,14 +1532,6 @@ Welcome!
 
 * Course webpage: https://scao53.github.io/sds192fall2022/index.html
 * Class slides: slides/Day1-Intro.html
-* "Knock on wood if you're with me"
-* What this class is about: Answering questions with data
-    1. Data viz
-    1. Data wrangling
-    1. Maps
-    1. Websites
-* Break!
-* Executive summary of syllabus
 * This weekend: Complete [intro survey](https://docs.google.com/forms/d/e/1FAIpQLSdA6uWnig5oR3ITCsVBFDxC6IC5Nq1tYzo-atdChe8CVTTqag/viewform){target="_blank"}
 
 
