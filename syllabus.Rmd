@@ -31,7 +31,7 @@ h1{font-weight: 400;}
 # Basic information {#basicinfo}
 
 * **Course title:** SDS 192 Introduction to Data Science
-* **Instructor:** [Albert Y. Kim (he/him)](https://rudeboybert.rbind.io/){target="_blank"} - Assistant Professor of Statistical & Data Sciences. Please call me "Professor Kim"
+* **Instructor:** Shiya Cao - Assistant Professor of Statistical & Data Sciences
 * **Office location:** McConnell Hall 215 (accessible from stairwell closest to Bass Hall)
 * **~~Email:~~ Slack team**: Click hashtag icon in navbar for the browser interface or use the [desktop/mobile app](https://slack.com/downloads/){target="_blank"}.
 * **Meeting locations/times:** 
@@ -214,6 +214,18 @@ in particular all external sources must be cited in your submissions.
 # Accommodations {#accommodations}
  
 Smith is committed to providing support services and reasonable accommodations to all students with disabilities. To request an accommodation, please register with the Disability Services Office at the beginning of the semester. To do so, call 413.585.2071 to arrange an appointment with Laura Rauscher, Director of Disability Services.
+
+
+
+***
+
+
+
+# Student Well-being {#studentwellbeing}
+ 
+College life is stressful, and life outside of college can be overwhelming. It is my position that attending to your physical and mental health and well-being should be a top priority. I will remind you of this often throughout the quarter. I encourage you to schedule a time to talk with me if you are struggling with this course. If you, or anyone you know, is experiencing distress, there are numerous campus resources that can provide support via the Schacht Center (https://www.smith.edu/student-life/health-wellness). I can point you to these resources at any time throughout the quarter.
+
+Getting help is a smart and courageous thing to do -- for yourself and for those who care about you.
 
 
 
