@@ -1,0 +1,189 @@
+---
+title: "Day One: Introductions"
+subtitle: "SDS 192: Introduction to Data Science"
+author: |
+  Lindsay Poirier<br/>
+  <span style = 'font-size: 70%;'>
+  [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
+  </span>
+date: |
+  Spring 2022<br/>
+  `r sds::img_logo(width = 64)`
+output:
+  sds::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+# sds::duo_smith()
+sds::mono_light_smith()
+```
+
+# What is data science?: Common view
+
+.pull-left[
+
+* interdisciplinary field combining computer science, mathematics/statistics, and domain expertise to extract meaningful information from unstructured data points
+]
+
+.pull-right[
+
+![](https://upload.wikimedia.org/wikipedia/commons/b/b4/Data_science.png)
+Hckum, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+
+]
+
+---
+
+# What is data science?: My view
+
+.pull-left[
+
+* interdisciplinary field combining computer science, mathematics/statistics, and domain expertise to extract meaningful information from unstructured data points
+* also involves art, design, hermeneutics, communication, and ability to grapple with ethical dilemmas
+]
+
+.pull-right[
+
+![](https://upload.wikimedia.org/wikipedia/commons/b/b4/Data_science.png)
+Hckum, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+
+]
+---
+
+# Case Study 1: ACLU Fights Discriminatory Housing 
+
+.pull-left[
+
+* American Civil Liberties Union employs [data scientists](https://medium.com/aclu-tech-analytics/meet-the-aclu-analytics-team-4644d4f20dae) to produce insights regarding discriminatory laws and practices
+* Findings are presented in courts, legislatures, and public reports
+* In [this study](https://www.aclu.org/blog/racial-justice/race-and-economic-justice/lawsuit-challenges-discriminatory-housing-policy), they use public data to show that excluding people with criminal records from housing can be viewed as a violation of the US Fair Housing Act. 
+
+]
+
+.pull-right[
+
+![](https://www.aclu.org/sites/default/files/maps-desktop2.png)
+
+]
+---
+
+# Case Study 2: EPA Tracks Environmental Injustice
+
+.pull-left[
+
+* Environmental Protection Agency hires [data scientists](https://www.epa.gov/careers/science-careers-epa) to produce insights regarding environmental health risks
+* Findings implicate environmental policies, funding allocations, and legal actions against states and industries
+* [This tool](https://www.epa.gov/ejscreen), visualizes environmental and demographic indicators to highlight communities experiencing environmental injustices.  
+
+]
+
+.pull-right[
+
+![](https://www.epa.gov/system/files/images/2021-07/map_data.png)
+
+]
+---
+
+# Case Study 3: Geena Davis Institute Studies Gender Biases in Films
+
+.pull-left[
+
+* Geena Davis Institute collaborated with University of Southern California’s Signal Analysis and Interpretation Laboratory (SAIL)
+* Developed a machine learning tool to measure representation of diverse groups in films by studying screen time and speaking
+
+]
+
+.pull-right[
+
+![](https://seejane.org/wp-content/uploads/geena-davis-inclusion-quotient-logo-tm.png)
+
+]
+---
+
+# Topics covered in this course
+
+.pull-left[
+
+* data visualization
+* data wrangling
+* mapping
+* data science infrastructures and workflows
+* data science ethics
+]
+
+.pull-right[
+
+![](https://miro.medium.com/max/1400/1*g945d5qBHDh_HjvdXStvNg.jpeg)
+ <https://towardsdatascience.com/the-25-best-data-visualizations-of-2018-93643f0aad04>
+
+]
+---
+
+# Who is the professor? Why is an anthropologist teaching data science?
+
+.pull-left[
+* Please call me Lindsay (preferred), Professor Poirier, or Dr. Poirier
+* Previously Assistant Professor of Science and Technology Studies at UC Davis
+* Lab Manager at [BetaNYC](https://beta.nyc/)
+* M.S./Ph.D. in Science and Technology Studies from Rensselaer Polytechnic Institute
+* B.S. in Information Technology and Web Science from Rensselaer Polytechnic Institute
+* Dancing, crafting, cooking, re-watching the same TV series over and over again.
+* I have a *very* spunky dog Madison who you may hear on Zoom calls. 
+]
+
+.pull-right[
+![](img/canyon.jpg)
+]
+  
+---
+
+# Exercise
+
+* In break-out rooms, navigate to the Jamboard in the chat window.
+* Navigate to the slide associated with your breakout room number. 
+* Elect one person to serve as a facilitator. This person is responsible for calling on students as they raise their hands. 
+* Everyone should add a sticky note with their name, their major, and the number of cups of coffee they drink per day to slide. 
+* Using the sticky notes, talk through the following prompt: 
+  * Find the non-STEM major in your group in which students with that major on average drink the most cups of coffee per day. Repeat for STEM majors.
+* In the text box, formally write-out the steps you took to come to your answers in as much detail as possible. 
+
+---
+
+# Coding can be intimidating!
+
+* Coding is like learning a new language. When you are first learning it, it all feels completely unfamiliar. I will work to support you in building the vocabulary and syntax to code in R.
+* Coding can be frustrating. I regularly lose hours of my day in trying to find bugs in my code. I will work to give you resources and skills to navigate coding frustrations. 
+* Coding social environments have historically been exclusionary. I will work to reduce barriers to coding in whatever ways I can. 
+
+---
+
+
+# Syllabus Review
+
+* Policies
+* Standards Grading
+* Course Website
+* Moodle
+* Perusall
+* Slack
+
+---
+
+
+# For Wednesday
+
+* Review Syllabus and Grading Contract in Perusall
+* Install Slack Desktop and set notifications
+* Fill out first day of class questionnaire
+* Next time: Datasets, Data Ethics Framework, More on Standards Grading
+
