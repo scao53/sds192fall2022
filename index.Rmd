@@ -1,6 +1,6 @@
 ---
 title: "SDS 192: Introduction to Data Science"
-author: "Albert Y. Kim"
+author: "Shiya Cao"
 date: "Last updated on `r Sys.Date()`"
 output:
   html_document:
