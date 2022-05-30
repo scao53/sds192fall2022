@@ -1522,7 +1522,7 @@ plot1 + plot2
 
 
 
-# Lec 01: Fri 9/3 {#Lec01}
+# Lec 01: Wed 9/7 {#Lec01}
 
 ## Announcements
 
