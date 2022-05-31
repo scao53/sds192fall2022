@@ -105,6 +105,22 @@ Eric Schmidt, Goolge (and others)
       
 ---
 
+# Development of Tools
+
+.pull-left[
+
+* 1940s: [Monroe LN-160X](http://www.vintagecalculators.com/html/monroe_ln-160x.html)
+* 1947: [Victor is the world's largest exclusive manufacturer of adding machines](https://en.wikipedia.org/wiki/Victor_Technology)
+
+]
+
+.pull-right[
+
+![](http://www.vintagecalculators.com/assets/images/autogen/MonroeLN160X_1.jpg)
+
+]
+---
+
 # Topics covered in this course
 
 .pull-left[
