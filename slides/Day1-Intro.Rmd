@@ -30,14 +30,8 @@ sds::mono_light_smith()
 
 # What is data science?
 
-.pull-left[
-      
 * interdisciplinary field combining computer science, mathematics/statistics, and domain expertise to extract meaningful information from unstructured data points
-           
-]
-
-.pull-right[
-
+      
 <img src="https://miro.medium.com/max/1400/1*Vzq8xBKgmRIFs8fT2i1xJA.png" width="375" height="340" align="center" />
 
 ]
