@@ -32,33 +32,6 @@ library(tidyverse)
 sds::mono_light_smith()
 ```
 
----
-
-# Quiz 1 Posted
-
-.pull-left[
-**What does it cover?**
-* tracing data provenance
-  * reviewing data dictionaries and metadata
-  * determining the unit of observation and variables
-* data fundamentals
-  * types of variables
-  * data object types in `R`
-* error resolution and problem-solving
-  * fixing errors in code
-  * reviewing help pages
-]
-
-.pull-right[
-**How should I prepare?**
-* review lectures slides and lecture notes, especially on the above topics
-* review problem sets, especially those you found challenging
-* visit office hours or schedule a time to meet with me on Moodle
-* visit drop-in tutoring at Spinelli Center with specific topics you'd like help on
-]
-
----
-
 # For Today
 
 * grammar of graphics
