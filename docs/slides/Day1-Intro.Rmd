@@ -124,7 +124,7 @@ Eric Schmidt, Goolge (and others)
 .pull-left[
 
 * 1973: [TI SR-10](https://en.wikipedia.org/wiki/Calculator#History) pocket calculator
-* 1974: [Ingres](https://en.wikipedia.org/wiki/Ingres_(database)
+* 1974: [Ingres](https://en.wikipedia.org/wiki/Ingres_(database))
 * 1977: [Apple II](https://en.wikipedia.org/wiki/Apple_II) 
 * 1981: [MS-DOS](https://en.wikipedia.org/wiki/MS-DOS) first released
 * 1986: [SQL](https://en.wikipedia.org/wiki/SQL) becomes a standard of the American National Standards Institute (ANSI)
