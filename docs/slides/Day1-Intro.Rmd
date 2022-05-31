@@ -137,6 +137,21 @@ Eric Schmidt, Goolge (and others)
 ]
 ---
 
+.pull-left[
+
+* 1990: [Windows 3.0](https://en.wikipedia.org/wiki/Windows_3.0)
+* 1995: [Excel 7.0](https://en.wikipedia.org/wiki/Microsoft_Excel#Number_of_rows_and_columns) can handle at most 16k rows
+* 1998: [iMac G3](https://en.wikipedia.org/wiki/IMac_G3)
+
+]
+
+.pull-right[
+
+![](img./Lec1_Excel_chart.png)
+
+]
+---
+
 # Topics covered in this course
 
 .pull-left[
