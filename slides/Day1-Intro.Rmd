@@ -1,5 +1,5 @@
 ---
-title: "Day One: Introductions"
+title: "Lec 01: Introductions"
 subtitle: "SDS 192: Introduction to Data Science"
 author: |
   Shiya Cao<br/>
