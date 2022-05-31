@@ -37,27 +37,11 @@ sds::mono_light_smith()
 
 .pull-right[
 
-![](https://upload.wikimedia.org/wikipedia/commons/b/b4/Data_science.png)
-Hckum, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
+![](https://miro.medium.com/max/1400/1*Vzq8xBKgmRIFs8fT2i1xJA.png)
+Image source: <https://medium.com/@rodrigo.verissimo/the-impact-of-domain-knowledge-on-data-science-508014ee81cd>
 
 ]
 
----
-
-# What is data science?: My view
-
-.pull-left[
-
-* interdisciplinary field combining computer science, mathematics/statistics, and domain expertise to extract meaningful information from unstructured data points
-* also involves art, design, hermeneutics, communication, and ability to grapple with ethical dilemmas
-]
-
-.pull-right[
-
-![](https://upload.wikimedia.org/wikipedia/commons/b/b4/Data_science.png)
-Hckum, CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons
-
-]
 ---
 
 # Case Study 1: ACLU Fights Discriminatory Housing 
