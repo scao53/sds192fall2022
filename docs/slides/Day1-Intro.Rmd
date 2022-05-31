@@ -37,7 +37,7 @@ sds::mono_light_smith()
 
 .pull-right[
 
-![img|750x680,50%](https://miro.medium.com/max/1400/1*Vzq8xBKgmRIFs8fT2i1xJA.png)
+![img|375x340](https://miro.medium.com/max/1400/1*Vzq8xBKgmRIFs8fT2i1xJA.png)
 * Image source: <https://medium.com/@rodrigo.verissimo/the-impact-of-domain-knowledge-on-data-science-508014ee81cd>
 
 ]
