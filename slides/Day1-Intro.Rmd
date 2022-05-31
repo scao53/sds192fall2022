@@ -105,6 +105,69 @@ Eric Schmidt, Goolge (and others)
       
 ---
 
+# Development of Tools
+
+.pull-left[
+
+* 1940s: [Monroe LN-160X](http://www.vintagecalculators.com/html/monroe_ln-160x.html)
+* 1947: [Victor is the world's largest exclusive manufacturer of adding machines](https://en.wikipedia.org/wiki/Victor_Technology)
+
+]
+
+.pull-right[
+
+![](img./Lec1_MonroeLN160X_1.png)
+
+]
+---
+      
+.pull-left[
+
+* 1973: [TI SR-10](https://en.wikipedia.org/wiki/Calculator#History) pocket calculator
+* 1977: [Apple II](https://en.wikipedia.org/wiki/Apple_II) 
+* 1981: [MS-DOS](https://en.wikipedia.org/wiki/MS-DOS) first released
+* 1986: [SQL](https://en.wikipedia.org/wiki/SQL) becomes a standard of the American National Standards Institute (ANSI)
+
+]
+
+.pull-right[
+
+![](img./Lec1_Apple_II.png)
+
+]
+---
+      
+.pull-left[
+
+* 1990: [Windows 3.0](https://en.wikipedia.org/wiki/Windows_3.0)
+* 1995: [Excel 7.0](https://en.wikipedia.org/wiki/Microsoft_Excel#Number_of_rows_and_columns) can handle at most 16k rows
+* 1998: [iMac G3](https://en.wikipedia.org/wiki/IMac_G3)
+
+]
+
+.pull-right[
+
+![](img./Lec1_Excel_chart.png)
+
+]
+---
+      
+.pull-left[
+
+* 2003: [Excel 11.0](https://en.wikipedia.org/wiki/Microsoft_Excel#Number_of_rows_and_columns) can handle at most 64k rows
+* 2005: [MySQL](https://en.wikipedia.org/wiki/MySQL) powers Google      
+* 2007: [Excel 12.0](https://en.wikipedia.org/wiki/Microsoft_Excel#Number_of_rows_and_columns) can handle at most 1M rows
+
+]
+
+.pull-right[
+
+![](img./Lec1_MySQL_logo.svg.png) 
+By Vectorised from <a rel="nofollow" class="external free" href="https://labs.mysql.com/common/logos/mysql-logo.svg">https://labs.mysql.com/common/logos/mysql-logo.svg</a>, <a href="//en.wikipedia.org/wiki/File:MySQL_logo.svg" title="Fair use of copyrighted material in the context of MySQL">Fair use</a>, <a href="https://en.wikipedia.org/w/index.php?curid=67634535">Link</a>
+
+]
+---
+
 # Topics covered in this course
 
 .pull-left[
