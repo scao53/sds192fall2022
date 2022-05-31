@@ -173,8 +173,7 @@ By Vectorised from <a rel="nofollow" class="external free" href="https://labs.my
 .pull-left[
 
 * Thousands years ago:
-science was **emprical**
-      *describing natural phenomena*
+science was ***emprical*** describing natural phenomena
       
 ]
 ---
