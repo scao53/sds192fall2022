@@ -189,8 +189,8 @@ By Vectorised from <a rel="nofollow" class="external free" href="https://labs.my
       
 ---
       
-<img src="img./Lec1_Data Scientists3.png" width="90%" height="90%" align="center" />
-<img src="img./Lec1_Data Scientists4.png" width="90%" height="90%" align="center" />
+<img src="img./Lec1_Data Scientists3.png" width="90%" height="90%" />
+<img src="img./Lec1_Data Scientists4.png" width="90%" height="90%" />
       
 ---
 
