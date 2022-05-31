@@ -1501,11 +1501,12 @@ plot1 + plot2
 ### 1. Chalk talk
 
 * Intro to Slack
-* <a href="https://scao53.github.io/sds192fall2022/slides/Lec2-GrammarGraphics.html"> Class Slides: Grammar of Graphics
 
+### 2. Lecture
 
-
-### 2. In-class exercise
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec2-GrammarGraphics.html"> Class slides: Grammar of Graphics
+ 
+### 3. In-class exercise
 
 ***
 
