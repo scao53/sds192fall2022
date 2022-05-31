@@ -28,7 +28,7 @@ options(htmltools.dir.version = FALSE)
 sds::mono_light_smith()
 ```
 
-# What is data science?: Common view
+# What is data science?
 
 .pull-left[
 
@@ -37,7 +37,7 @@ sds::mono_light_smith()
 
 .pull-right[
 
-![](https://miro.medium.com/max/1400/1*Vzq8xBKgmRIFs8fT2i1xJA.png)
+<img src="https://miro.medium.com/max/1400/1*Vzq8xBKgmRIFs8fT2i1xJA.png" width="340" height="375"/>
 Image source: <https://medium.com/@rodrigo.verissimo/the-impact-of-domain-knowledge-on-data-science-508014ee81cd>
 
 ]
