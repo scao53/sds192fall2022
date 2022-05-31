@@ -63,8 +63,8 @@ sds::mono_light_smith()
 
 .pull-left[
 
-* Environmental Protection Agency hires [data scientists](https://www.epa.gov/careers/science-careers-epa) to produce insights regarding environmental health risks
-* Findings implicate environmental policies, funding allocations, and legal actions against states and industries
+* Environmental Protection Agency hires [data scientists](https://www.epa.gov/careers/science-careers-epa) to produce insights regarding environmental health risks.
+* Findings implicate environmental policies, funding allocations, and legal actions against states and industries.
 * [This tool](https://www.epa.gov/ejscreen), visualizes environmental and demographic indicators to highlight communities experiencing environmental injustices.  
 
 ]
