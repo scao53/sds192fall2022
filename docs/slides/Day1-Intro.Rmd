@@ -88,6 +88,10 @@ Eric Schmidt, Goolge (and others)
 ![](img./Lec1_big data.png)
       
 ---
+      
+![](img./Lec1_big data2.png)
+      
+---
 
 # Topics covered in this course
 
