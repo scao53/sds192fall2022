@@ -57,11 +57,11 @@ sds::mono_light_smith()
 
 ---
 
-<img src="img./Lec2_DataPoints-Ch3_6-6.png" width="70%" height="70%" align="center">
+![](img./Lec2_DataPoints-Ch3_6-6.png)
 
 ---
 
-<img src="img./Lec2_DataPoints-Ch3_16-16.png" width="70%" height="70%" align="center">
+![](img./Lec2_DataPoints-Ch3_16-16.png)
 
 ---
 
@@ -86,11 +86,11 @@ sds::mono_light_smith()
       
 ---
       
-<img src="img./Lec2_DataPoints-Ch3_5-5.png" width="70%" height="70%" align="center">
+![](img./Lec2_DataPoints-Ch3_5-5.png)
       
 ---
       
-<img src="img./Lec2_DataPoints-Ch3_40-40.png" width="70%" height="70%" align="center">
+![](img./Lec2_DataPoints-Ch3_40-40.png)
       
 ---
 
