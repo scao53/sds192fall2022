@@ -40,7 +40,7 @@ sds::mono_light_smith()
 
 ---
 
-# Elements of data graphics
+# Elements of Data Graphics
 
 * Visual cues
       * Position, length, area, etc. 
