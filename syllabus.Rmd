@@ -32,27 +32,24 @@ h1{font-weight: 400;}
 
 * **Course title:** SDS 192 Introduction to Data Science
 * **Instructor:** Shiya Cao - Assistant Professor of Statistical & Data Sciences
-* **Office location:** McConnell Hall 215 (accessible from stairwell closest to Bass Hall)
+* **Office location:** 
 * **~~Email:~~ Slack team**: Click hashtag icon in navbar for the browser interface or use the [desktop/mobile app](https://slack.com/downloads/){target="_blank"}.
-* **Meeting locations/times:** 
-    + Section 01: MWF ~~10:50 AM~~ 10:55 AM - 12:05 PM / ~~McConnell 103~~ Stoddard G2
-    + Section 02: MWF 9:25 AM - 10:35 AM ~~10:40 AM~~ / Sabin-Reed 220
+* **Meeting locations/times:** MWF 10:50 AM - 12:05 PM / Sabin-Reed 220
 * **Getting help**:
-    + For non personal/sensitive questions, ask on the `#questions` channel on Slack. For personal/sensitive matters, Slack DM Professor Kim.
+    + For non personal/sensitive questions, ask on the `#questions` channel on Slack. For personal/sensitive matters, Slack DM me.
     + Spinelli Center [SDS drop-in tutoring hours](https://www.smith.edu/qlc/tutoring.html?colStats=open#PanelStats.){target="_blank"}. In Sabin-Reed 301
         + Sunday through Thursday 7-9pm
-        + Friday 2:35-3:30pm
     + Office hours:
-        + Office hours times will change. The most up-to-date time and location (in-person or on Zoom) info will be posted in this [calendar](https://calendar.google.com/calendar/embed?src=c_hoe7p7ku3rhppoot8e38mponpo%40group.calendar.google.com&ctz=America%2FToronto){target="_blank"}; click on individual entries to get the location. Before coming to office hours, please have your question ready on your computer. 
-        + During virtual office hours, you can stay with your screen off and work or listen to other student's questions. During in-person office hours, you can work in the nearby SDS student lounge in McConnell 209.
-        + For personal/sensitive matters: Book an appointment here, where the location (Zoom or McConnell 215) is indicated in the calendar entry: [bit.ly/meet_with_albert](https://calendar.google.com/calendar/selfsched?sstoken=UVBidEVzZlJ3a2dYfGRlZmF1bHR8NmExNDk4OGM5ZWZiYWNmOWYxYWRkZDM0NmU3ZGRmMzE){target="_blank"}. If none of the listed times work for you, please Slack me.
+        + Before coming to office hours, please have your question ready on your computer. 
+        + During in-person office hours, you can work in the nearby SDS student lounge in McConnell 209. During virtual office hours, you can stay with your screen off and work or listen to other student's questions. 
+        + If the regularly scheduled times do not work for you, please Slack DM me.
     + [Data Research and Statistics Counselor](https://www.smith.edu/qlc/tutoring.html?colDataCnslr=open#PanelDataCnslr){target="_blank"} Osman Keshawarz
 
 
 
 ## Instructor work-life balance {#work-life-balance}
 
-* I will respond to Slack messages sent during the week within 24h. I will respond to Slack messages sent during the weekend at my own discretion.
+* I will respond to Slack messages sent during the week within 24h. I will respond to Slack messages sent during the weekend at my own discretion. It is important that you plan when you start your assignments accordingly.
 * If possible, please only Slack me with briefer and administrative questions; I prefer having more substantive conversations in person as it takes me less energy to understand where you are at.
 * I will do my best to return all grading as promptly as possible.
 
@@ -94,7 +91,7 @@ On top of the goals of the above description, this semester you will:
 1. Learn about project workflows such as
     + Getting a ["minimally viable product"](https://www.interaction-design.org/literature/article/minimum-viable-product-mvp-and-design-balancing-risk-to-gain-reward){target="_blank"} done *quickly*.
     + Not ["letting the perfect be the enemy of the good"](https://www.entrepreneur.com/article/249676){target="_blank"}.
-1. Learn how to use internet search engines effectively in a data science setting.
+1. Understand common issues related to data ethics throughout the course.
 
 
 
@@ -112,7 +109,6 @@ The lecture schedule and associated readings can be found on the [main page](ind
 * You are expected to stay until the end of lecture. If you need to leave early, please confirm with me at the beginning of lecture and sit somewhere where your departure will be minimally disruptive. 
 * Attendance will not be explicitly taken and occasional absences are excused. However, extended absences should be mentioned to me.
 * However, you are responsible for asking your peers for what you missed. For example, makeup lectures will not be held during office hours.
-* Lecture will be held as usual on Monday 11/22 (before Thanksgiving). 
 
 
 
@@ -191,7 +187,7 @@ sets, you must submit your own answers and not simple rewordings of
 another's work. Furthermore, all collaborations must be explicitly acknowledged
 in your submissions.
 1. **Honor Code**: All your work must follow the [Smith College Academic Honor
-Code Statement](https://www.smith.edu/sao/handbook/socialconduct/honorcode.php){target="_blank"};
+Code Statement](https://www.smith.edu/about-smith/offices/student-affairs/student-handbook/academic-honor-code-0#:~:text=Honor%20Code%20Statement&text=Smith%20College%20expects%20all%20students,of%20course%20work%20and%20examinations.){target="_blank"};
 in particular all external sources must be cited in your submissions.
 <!--
 1. **Problem sets**:
@@ -213,7 +209,8 @@ in particular all external sources must be cited in your submissions.
 
 # Accommodations {#accommodations}
  
-Smith is committed to providing support services and reasonable accommodations to all students with disabilities. To request an accommodation, please register with the Disability Services Office at the beginning of the semester. To do so, call 413.585.2071 to arrange an appointment with Laura Rauscher, Director of Disability Services.
+It is my goal for everyone to succeed in this course. If you have personal circumstances that may impact your experience of our classroom, I encourage you to contact <a href="https://www.smith.edu/about-smith/disability-services" target="_blank">Office of Disability Services</a> in College Hall 104 or at 413-585-2071 or at <a href="mailto:ods@smith.edu">ods@smith.edu</a>. The Office will generate a letter that indicates to me what kind of support you need and how I can make your classroom experience more accommodating. Once you have this letter, you are welcome to visit my office hours or email me to discuss ideas about how we can tailor the course accordingly. While you can request accommodations at any time, the sooner we start this conversation, the better. If you have concerns about the course that are not addressed through ODS, please contact me. At no point will I ask you to divulge details about your personal circumstances to me.
+
 
 
 
