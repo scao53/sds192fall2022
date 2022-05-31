@@ -79,7 +79,7 @@ sds::mono_light_smith()
 # We have had data for a long time. It is not new. However, those studies were not possible 30 years ago. Why is data science so popular today?
 
 ---
-      
+          
 # Big Data
       
 * "Between the dawn of civilization and 2003, we only created five exabytes of information; now we're creating that amount every two days." 
@@ -88,7 +88,7 @@ Eric Schmidt, Goolge (and others)
 ![](img./Lec1_big data.png)
       
 ---
-
+      
 ![](img./Lec1_big data2.png)
       
 ---
@@ -104,7 +104,7 @@ Eric Schmidt, Goolge (and others)
 ![](img./Lec1_big data5.png)
       
 ---
-
+      
 # Development of Tools
 
 .pull-left[
@@ -180,8 +180,62 @@ By Vectorised from <a rel="nofollow" class="external free" href="https://labs.my
       * Scientist analyzes databases/files using data management and statistics
       
 ---
+      
+![](img./Lec1_Data Scientists1.png)
+      
+---
+      
+![](img./Lec1_Data Scientists2.png)
+      
+---
+      
+<img src="img./Lec1_Data Scientists3.png" width="90%" height="90%" />
+<img src="img./Lec1_Data Scientists4.png" width="90%" height="90%" />
+      
+---
+      
+* "The ability to take ***data*** -- to be able to ***understand*** it, to ***process*** it, to ***extract value*** from it, to ***visualize*** it, to ***communicate*** it is going to be a hugely important skill in the next decades, not only at the professional level but even at the educational level for elementary school kids, for high school kids, for college kids. Because now we really do have essentially free and ***ubiquitous data***." Hal Varian, Prof. Emeritus at UC Berkeley, Chief Economist at Google
 
-# Topics covered in this course
+---
+  
+# About Me
+
+---
+      
+# About You
+
+* What is your name? By what name would you like to be addressed?
+* What are your pronouns if you are comfortable sharing?
+* What is your major and year?
+* Where are you from?
+* What do you hope to get out of this course?
+* What is an ungoogleable fun fact about you?
+      
+---
+      
+# How to Become a Data Scientist?
+
+.pull-left[
+
+* programming with data
+      * R or Python and SQL
+      * see CSC 111 for Python
+* statistical modeling
+      * SDS 220 + SDS 291 + SDS 293
+* communication
+      * SDS 109, 235, or 236
+* domain knowledge
+      
+]
+      
+.pull-right[
+
+<img src="img./Lec1_modern data scientist.png" width="90%" height="90%" /> 
+
+]
+---
+      
+# Topics Covered in This Course
 
 .pull-left[
 
@@ -190,65 +244,28 @@ By Vectorised from <a rel="nofollow" class="external free" href="https://labs.my
 * mapping
 * database querying (SQL)
 * data science ethics
-
+      
 ]
 ---
 
-# Who is the professor? Why is an anthropologist teaching data science?
+# Executive Summary of Syllabus
+      
+---
+      
+# Coding Can Be Intimidating!
 
 .pull-left[
-* Please call me Lindsay (preferred), Professor Poirier, or Dr. Poirier
-* Previously Assistant Professor of Science and Technology Studies at UC Davis
-* Lab Manager at [BetaNYC](https://beta.nyc/)
-* M.S./Ph.D. in Science and Technology Studies from Rensselaer Polytechnic Institute
-* B.S. in Information Technology and Web Science from Rensselaer Polytechnic Institute
-* Dancing, crafting, cooking, re-watching the same TV series over and over again.
-* I have a *very* spunky dog Madison who you may hear on Zoom calls. 
-]
-
-.pull-right[
-![](img/canyon.jpg)
-]
-  
----
-
-# Exercise
-
-* In break-out rooms, navigate to the Jamboard in the chat window.
-* Navigate to the slide associated with your breakout room number. 
-* Elect one person to serve as a facilitator. This person is responsible for calling on students as they raise their hands. 
-* Everyone should add a sticky note with their name, their major, and the number of cups of coffee they drink per day to slide. 
-* Using the sticky notes, talk through the following prompt: 
-  * Find the non-STEM major in your group in which students with that major on average drink the most cups of coffee per day. Repeat for STEM majors.
-* In the text box, formally write-out the steps you took to come to your answers in as much detail as possible. 
-
----
-
-# Coding can be intimidating!
-
+      
 * Coding is like learning a new language. When you are first learning it, it all feels completely unfamiliar. I will work to support you in building the vocabulary and syntax to code in R.
 * Coding can be frustrating. I regularly lose hours of my day in trying to find bugs in my code. I will work to give you resources and skills to navigate coding frustrations. 
 * Coding social environments have historically been exclusionary. I will work to reduce barriers to coding in whatever ways I can. 
 
----
+]
+      
+.pull-right[
 
+![](img./Lec1_mvp.png) 
 
-# Syllabus Review
+]
 
-* Policies
-* Standards Grading
-* Course Website
-* Moodle
-* Perusall
-* Slack
-
----
-
-
-# For Wednesday
-
-* Review Syllabus and Grading Contract in Perusall
-* Install Slack Desktop and set notifications
-* Fill out first day of class questionnaire
-* Next time: Datasets, Data Ethics Framework, More on Standards Grading
 
