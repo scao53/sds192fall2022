@@ -76,22 +76,6 @@ sds::mono_light_smith()
 ]
 ---
 
-# Case Study 3: Geena Davis Institute Studies Gender Biases in Films
-
-.pull-left[
-
-* Geena Davis Institute collaborated with University of Southern California’s Signal Analysis and Interpretation Laboratory (SAIL)
-* Developed a machine learning tool to measure representation of diverse groups in films by studying screen time and speaking
-
-]
-
-.pull-right[
-
-![](https://seejane.org/wp-content/uploads/geena-davis-inclusion-quotient-logo-tm.png)
-
-]
----
-
 # Topics covered in this course
 
 .pull-left[
