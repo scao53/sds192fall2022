@@ -50,6 +50,8 @@ sds::mono_light_smith()
       * How does distance translate into meaning?
 * Context
       * In relation to what?
+* Small multiples and layers
+      * How is multivariate information incorporated into a two-dimensional data graphic?
 
 (Framework drawn from: Yau, Nathan. 2013. *Data Points: Visualization That Means Something*. 1st edition. Indianapolis, IN: Wiley.)
 
