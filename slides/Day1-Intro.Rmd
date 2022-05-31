@@ -34,7 +34,6 @@ sds::mono_light_smith()
       
 <img src="https://miro.medium.com/max/1400/1*Vzq8xBKgmRIFs8fT2i1xJA.png" width="375" height="340" align="center" />
 
-]
 ---
 
 # Case Study 1: ACLU Fights Discriminatory Housing 
