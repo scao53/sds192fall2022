@@ -168,6 +168,17 @@ By Vectorised from <a rel="nofollow" class="external free" href="https://labs.my
 ]
 ---
 
+# Science Paradigms
+
+.pull-left[
+
+* Thousands years ago:
+science was **emprical**
+      *describing natural phenomena*
+      
+]
+---
+
 # Topics covered in this course
 
 .pull-left[
