@@ -1690,55 +1690,6 @@ Our department is offering a pre-application review service (PARS) initiative to
 <h2>Today’s topics/activities</h2>
 <div id="chalk-talk-26" class="section level3">
 <h3>1. Chalk talk</h3>
-<ul>
-<li>Recap of histograms</li>
-<li>Facets to split a visualization by the values of another variable</li>
-<li>Default ordering of functions such as <code>ggplot()</code> where <code>data =</code> is assumed first and <code>mapping =</code> is assumed second</li>
-<li>Boxplots! Powerful, but tricky!</li>
-</ul>
-<p>Say we want to study the distribution of the following 12 values which are pre-sorted:</p>
-<blockquote>
-<p>1, 3, 5, 6, 7, 8, 9, 12, 13, 14, 15, 30</p>
-</blockquote>
-<p>They have the following <em>summary statistics</em>. A summary statistic is a single numerical value <em>summarizing</em> many values. Examples include the immediately obvious mean AKA average and median. Other less immediately obvious examples include:</p>
-<ul>
-<li>Quartiles (1st, 2nd, and 3rd) that cut up the data into 4 parts, each containing roughly one quarter = 25% of the data</li>
-<li>Minimum &amp; maximum</li>
-<li>Interquartile-range (IQR): the distance between the 3rd and 1st quartiles</li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>Min.</th>
-<th>1st Quartile</th>
-<th>Median = 2nd Quartile</th>
-<th>3rd Quartile</th>
-<th>Max.</th>
-<th>IQR</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>5.5</td>
-<td>8.5</td>
-<td>13.5</td>
-<td>30</td>
-<td>8 = 13.5 - 5.5</td>
-</tr>
-</tbody>
-</table>
-<p>Let’s compare the points and the corresponding boxplot side-by-side with the values on the <span class="math inline">\(y\)</span>-axis matching:</p>
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="768" /></p>
-<ul>
-<li>Color theory
-<ol style="list-style-type: decimal">
-<li><code>color</code> vs <code>fill</code> aesthetics in <code>ggplot2</code></li>
-<li>Selecting an appropriate color palette from <a href="http://colorbrewer2.org/" target="_blank">colorbrewer2.org</a> <img src="static/images/colorbrewer.png" width="600" /></li>
-<li>How does <code>ggplot2</code> pick default colors? Using a <a href="https://stackoverflow.com/questions/21490210/how-to-plot-a-colour-wheel-by-using-ggplot" target="_blank">color wheel</a></li>
-<li>Also define colors in terms of <a href="https://www.color-hex.com/color/f8766d" target="_blank">hex codes</a></li>
-</ol></li>
-</ul>
 </div>
 <div id="in-class-exercise-30" class="section level3">
 <h3>2. In-class exercise</h3>
@@ -1793,6 +1744,15 @@ Our department is offering a pre-application review service (PARS) initiative to
 </table>
 <p>Let’s compare the points and the corresponding boxplot side-by-side with the values on the <span class="math inline">\(y\)</span>-axis matching:</p>
 <p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="768" /></p>
+<ul>
+<li>Color theory
+<ol style="list-style-type: decimal">
+<li><code>color</code> vs <code>fill</code> aesthetics in <code>ggplot2</code></li>
+<li>Selecting an appropriate color palette from <a href="http://colorbrewer2.org/" target="_blank">colorbrewer2.org</a> <img src="static/images/colorbrewer.png" width="600" /></li>
+<li>How does <code>ggplot2</code> pick default colors? Using a <a href="https://stackoverflow.com/questions/21490210/how-to-plot-a-colour-wheel-by-using-ggplot" target="_blank">color wheel</a></li>
+<li>Also define colors in terms of <a href="https://www.color-hex.com/color/f8766d" target="_blank">hex codes</a></li>
+</ol></li>
+</ul>
 </div>
 <div id="in-class-exercise-31" class="section level3">
 <h3>2. In-class exercise</h3>
