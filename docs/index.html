@@ -1563,7 +1563,6 @@ Our department is offering a pre-application review service (PARS) initiative to
 <div id="chalk-talk-24" class="section level3">
 <h3>1. Chalk talk</h3>
 <ul>
-<li>Recap of barplots: Exercise on pie charts vs barplots below</li>
 <li>Color theory
 <ol style="list-style-type: decimal">
 <li><code>color</code> vs <code>fill</code> aesthetics in <code>ggplot2</code></li>
@@ -1731,6 +1730,15 @@ Our department is offering a pre-application review service (PARS) initiative to
 </table>
 <p>Let’s compare the points and the corresponding boxplot side-by-side with the values on the <span class="math inline">\(y\)</span>-axis matching:</p>
 <p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="768" /></p>
+<ul>
+<li>Color theory
+<ol style="list-style-type: decimal">
+<li><code>color</code> vs <code>fill</code> aesthetics in <code>ggplot2</code></li>
+<li>Selecting an appropriate color palette from <a href="http://colorbrewer2.org/" target="_blank">colorbrewer2.org</a> <img src="static/images/colorbrewer.png" width="600" /></li>
+<li>How does <code>ggplot2</code> pick default colors? Using a <a href="https://stackoverflow.com/questions/21490210/how-to-plot-a-colour-wheel-by-using-ggplot" target="_blank">color wheel</a></li>
+<li>Also define colors in terms of <a href="https://www.color-hex.com/color/f8766d" target="_blank">hex codes</a></li>
+</ol></li>
+</ul>
 </div>
 <div id="in-class-exercise-30" class="section level3">
 <h3>2. In-class exercise</h3>
@@ -1742,43 +1750,96 @@ Our department is offering a pre-application review service (PARS) initiative to
 </div>
 </div>
 <div id="Lec06" class="section level1">
-<h1>Lec 06: Fri 9/17</h1>
+<h1>Lec 06: Mon 9/19</h1>
 <div id="todays-topicsactivities-31" class="section level2">
 <h2>Today’s topics/activities</h2>
 <div id="chalk-talk-27" class="section level3">
 <h3>1. Chalk talk</h3>
 <ul>
-<li>In-class demo of using RMarkdown features in a <code>classnotes.Rmd</code> file to save lecture code</li>
-<li>Take screenshots of your screen!
-<ul>
-<li>macOS: Command+Shift+3 to take shot of whole screen, Command+Shift+4 to take subportion</li>
-<li>Windows: <a href="https://www.pcmag.com/how-to/how-to-take-screenshots-in-windows-10" target="_blank">Shift-Windows Key-S and Snip &amp; Sketch</a></li>
-</ul></li>
-<li>Histograms for visualizing the <em>distribution</em> of a numerical variable</li>
+<li>Recap of 5NG</li>
+<li>Boxplots! Powerful, but tricky!</li>
 </ul>
-<div id="section-1-stoddard-g6-demo" class="section level4">
-<h4>Section 1 (Stoddard G6) Demo</h4>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AhRxFl3k_5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
-<div id="section-2-sabin-reed-220-demo" class="section level4">
-<h4>Section 2 (Sabin-Reed 220) Demo</h4>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Xrf6ymv6o7E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</div>
+<p>Say we want to study the distribution of the following 12 values which are pre-sorted:</p>
+<blockquote>
+<p>1, 3, 5, 6, 7, 8, 9, 12, 13, 14, 15, 30</p>
+</blockquote>
+<p>They have the following <em>summary statistics</em>. A summary statistic is a single numerical value <em>summarizing</em> many values. Examples include the immediately obvious mean AKA average and median. Other less immediately obvious examples include:</p>
+<ul>
+<li>Quartiles (1st, 2nd, and 3rd) that cut up the data into 4 parts, each containing roughly one quarter = 25% of the data</li>
+<li>Minimum &amp; maximum</li>
+<li>Interquartile-range (IQR): the distance between the 3rd and 1st quartiles</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Min.</th>
+<th>1st Quartile</th>
+<th>Median = 2nd Quartile</th>
+<th>3rd Quartile</th>
+<th>Max.</th>
+<th>IQR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>5.5</td>
+<td>8.5</td>
+<td>13.5</td>
+<td>30</td>
+<td>8 = 13.5 - 5.5</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s compare the points and the corresponding boxplot side-by-side with the values on the <span class="math inline">\(y\)</span>-axis matching:</p>
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="768" /></p>
 </div>
 <div id="in-class-exercise-31" class="section level3">
 <h3>2. In-class exercise</h3>
 <ul>
-<li>If you still haven’t been able to “Knit to PDF”, please ask for help</li>
-<li>Go over ModernDive reading in schedule above.</li>
+<li>Changing default <code>color</code> and <code>fill</code> color aesthetics:
+<ol style="list-style-type: decimal">
+<li>Copy and paste the code below into your <code>classnotes.Rmd</code> file</li>
+<li>Change both the color of the scatterplot points and the fill of the bars. You can do this by selecting a palette from <a href="http://colorbrewer2.org/" target="_blank">colorbrewer2.org</a> or by setting them manually</li>
+<li>Run <code>colors()</code> in your console to get English names of all colors in R</li>
+</ol></li>
 </ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">library</span>(nycflights13)</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">library</span>(gapminder)</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co"># 1. Recreate plot from PS02, but change default &quot;color&quot; palette of points:</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>gapminder_<span class="dv">2007</span> &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>)</span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">size =</span> pop, <span class="dt">color =</span> continent)) <span class="op">+</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co"># 2.a) Recreate Figure 2.26 but change default &quot;fill&quot; color of bars by adding a </span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="co"># palette layer:</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> carrier, <span class="dt">fill =</span> origin)) <span class="op">+</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">preserve =</span> <span class="st">&quot;single&quot;</span>)) <span class="op">+</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="st">  </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>)</span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co"># 2.b) Recreate Figure 2.26 but change default &quot;fill&quot; color of bars by manually </span></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="co"># changing colors in a layer:</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> carrier, <span class="dt">fill =</span> origin)) <span class="op">+</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">preserve =</span> <span class="st">&quot;single&quot;</span>)) <span class="op">+</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;darkorange&quot;</span>, <span class="st">&quot;forestgreen&quot;</span>, <span class="st">&quot;navyblue&quot;</span>))</span>
+<span id="cb5-24"><a href="#cb5-24"></a></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="co"># 2.c) Recreate Figure 2.26 but change default &quot;fill&quot; color of bars by manually </span></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="co"># changing colors in a layer using hex codes from: </span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="co"># https://www.color-hex.com/color-palette/114219</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="kw">ggplot</span>(flights, <span class="kw">aes</span>(<span class="dt">x =</span> carrier, <span class="dt">fill =</span> origin)) <span class="op">+</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">preserve =</span> <span class="st">&quot;single&quot;</span>)) <span class="op">+</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#dc323a&quot;</span>, <span class="st">&quot;#003f77&quot;</span>, <span class="st">&quot;#c4c1c1&quot;</span>))</span></code></pre></div>
 <hr />
 </div>
 </div>
 </div>
 <div id="Lec05" class="section level1">
-<h1>Lec 05: Wed 9/15</h1>
+<h1>Lec 05: Fri 9/16</h1>
 <div id="announcements-32" class="section level2">
 <h2>Announcements</h2>
 <ul>
@@ -1790,23 +1851,27 @@ Our department is offering a pre-application review service (PARS) initiative to
 <div id="chalk-talk-28" class="section level3">
 <h3>1. Chalk talk</h3>
 <ul>
-<li>Overplotting and two approaches for addressing it</li>
-<li>Linegraphs</li>
+<li>Recap of previous lecture</li>
+</ul>
+</div>
+<div id="lecture-4" class="section level3">
+<h3>2. Lecture</h3>
+<ul>
+<li>Class slides: Boxplots and Facets</a></li>
 </ul>
 </div>
 <div id="in-class-exercise-32" class="section level3">
-<h3>2. In-class exercise</h3>
+<h3>3. In-class exercise</h3>
 <ul>
-<li>Explore the different formatting tools in R Markdown: go to RStudio top menu bar -&gt; Help -&gt; Markdown quick reference.</li>
-<li>Sec01 in Stoddard: There was an typo in Step 8 in last lecture’s in-class exercise. If you weren’t able to Knit directly to PDF, please re-attempt Steps 8-9. Knitting directly to PDF, instead of Knitting to Word and then saving to PDF, is the preferred submission format for all problem sets. It will be less hassle for you and provide consistency for the graders.</li>
-<li>Go over ModernDive reading in schedule above.</li>
+<li>Create boxplots using ggplot2.</li>
+<li>Create facets using ggplot2.</li>
 </ul>
 <hr />
 </div>
 </div>
 </div>
 <div id="Lec04" class="section level1">
-<h1>Lec 04: Mon 9/13</h1>
+<h1>Lec 04: Wed 9/14</h1>
 <div id="announcements-33" class="section level2">
 <h2>Announcements</h2>
 <ul>
@@ -1819,85 +1884,20 @@ Our department is offering a pre-application review service (PARS) initiative to
 <h3>1. Chalk talk</h3>
 <ul>
 <li>Recap of previous lecture</li>
-<li>“Where can I save all the code I run in class?” In an R Markdown <code>.Rmd</code> file; R Markdown is a tool for <em>reproducible research</em></li>
 </ul>
-<table>
-<thead>
-<tr class="header">
-<th><strong>Input</strong>: An <code>.Rmd</code> file</th>
-<th><strong>Output</strong>: An <code>.html</code>, <code>.docx</code>, or <code>.pdf</code> file.</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><img src="static/images/rmd_input.png" width="800" /></td>
-<td><img src="static/images/rmd_output.png" width="800" /></td>
-</tr>
-</tbody>
-</table>
+</div>
+<div id="lecture-3" class="section level3">
+<h3>2. Lecture</h3>
+<ul>
+<li>Class slides: Frequency Plots</a></li>
+</ul>
 </div>
 <div id="in-class-exercise-33" class="section level3">
-<h3>2. In-class exercise</h3>
-<p><strong>In-class battle-testing and practicing for PS02:</strong></p>
-<ol style="list-style-type: decimal">
-<li>At a couple of steps in this process, you will be asked to install packages. Say yes to all of them.</li>
-<li>If at any point your code won’t knit, go through these <a href="https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/" target="_blank">6 R Markdown Fixes</a> first, then seek assistance. <strong>These 6 fixes will resolve 85% of issues.</strong></li>
-<li><strong>Create new R Markdown <code>.Rmd</code> file</strong>:
+<h3>3. In-class exercise</h3>
 <ul>
-<li>Go to RStudio menu bar -&gt; File -&gt; New File -&gt; R Markdown</li>
-<li>Set “Title” to “My first R Markdown report” and “Author” as your name.</li>
-<li>Save this file as <code>testing</code> somewhere on your computer. This will create a file called <code>testing.Rmd</code></li>
-</ul></li>
-<li><strong>Method 1: “Knit” a report to HTML</strong>:
-<ul>
-<li>Click the arrow next to “Knit” -&gt; “Knit to HTML”.</li>
-<li>An HTML webpage should pop up. However, it may be blocked by your browser. If so, in your browser’s URL bar, click on “Always allow pop-ups”.</li>
-</ul></li>
-<li><strong>Method 1: Publish HTML report on web</strong>:
-<ul>
-<li>Click on blue “Publish” button on top right of the resulting <strong>pop-up html</strong>.</li>
-<li>Select RPubs.</li>
-<li>If you haven’t previously, create an account on Rpubs.com. If you have previously, login.</li>
-<li>Set “Title” to “My first R Markdown report” and “Slug” to “testing”</li>
-<li>You should end up with a webpage that looks like this <a href="http://rpubs.com/rudeboybert/testing" target="_blank">one</a>. This is live on the web!</li>
-</ul></li>
-<li><strong>Method 1: Update HTML report on web</strong>:
-<ul>
-<li>Make some trivial change to your <code>testing.Rmd</code> file.</li>
-<li>“Re-knit” your report and make sure your trivial change is reflected.</li>
-<li>The blue “Publish” button should now read “Republish”</li>
-<li>Click “Update existing”</li>
-<li>Your updates are now live on the web!</li>
-</ul></li>
-<li><strong>Method 2: “Knit” a report to Word</strong>
-<ul>
-<li>Click the arrow next to “Knit” -&gt; “Knit to Word”.</li>
-<li>Save the resulting Word document as a pdf file.</li>
-</ul></li>
-<li><strong>Only if you are a macOS user</strong>:
-<ul>
-<li>Next to “Console” go to “Terminal”</li>
-<li>Run this line of code:</li>
+<li>Create histograms using ggplot2.</li>
+<li>Create barplots using ggplot2.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>sudo chown <span class="op">-</span>R <span class="st">`</span><span class="dt">whoami</span><span class="st">`</span><span class="op">:</span>admin <span class="op">/</span>usr<span class="op">/</span>local<span class="op">/</span>bin</span></code></pre></div>
-<ul>
-<li>Enter your password. Note: Terminal has weird behavior whereby as you enter your password, the cursor will not move. Don’t worry your password is registering.</li>
-</ul></li>
-<li><strong>Method 3: “Knit” a report to PDF</strong>
-<ul>
-<li>Run the following code in your console just once:</li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>tinytex<span class="op">::</span><span class="kw">install_tinytex</span>()</span></code></pre></div>
-<ul>
-<li>Click the arrow next to “Knit” -&gt; “Knit to PDF”.</li>
-</ul></li>
-</ol>
-<!--
-1. **Fiddle with RStudio settings**:
-    + Go to RStudio menu bar -> Tools -> Global Options... -> R Markdown
-    + Uncheck box next to "Show output inline for all R Markdown Documents"
--->
 <hr />
 </div>
 </div>
