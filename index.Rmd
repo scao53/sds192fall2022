@@ -1125,14 +1125,6 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 ### 1. Chalk talk
 
-* Recap of barplots: Exercise on pie charts vs barplots below
-* Color theory
-    1. `color` vs `fill` aesthetics in `ggplot2`
-    1. Selecting an appropriate color palette from [colorbrewer2.org](http://colorbrewer2.org/){target="_blank"}
-    ![](static/images/colorbrewer.png){ width=600px }
-    1. How does `ggplot2` pick default colors? Using a [color wheel](https://stackoverflow.com/questions/21490210/how-to-plot-a-colour-wheel-by-using-ggplot){target="_blank"}
-    1. Also define colors in terms of [hex codes](https://www.color-hex.com/color/f8766d){target="_blank"}
-
 
     
 ### 2. Exercise on pie charts vs barplots
@@ -1153,45 +1145,6 @@ Compare that to using barplots. Which do you prefer?
 
 
 ### 3. In-class exercise
-
-* Go over ModernDive reading in schedule above.
-* Changing default `color` and `fill` color aesthetics: 
-    1. Copy and paste the code below into your `classnotes.Rmd` file
-    1. Change both the color of the scatterplot points and the fill of the bars. You can do this by selecting a palette from [colorbrewer2.org](http://colorbrewer2.org/){target="_blank"} or by setting them manually
-    1. Run `colors()` in your console to get English names of all colors in R
-
-```{r, eval=FALSE}
-library(ggplot2)
-library(dplyr)
-library(nycflights13)
-library(gapminder)
-
-# 1. Recreate plot from PS02, but change default "color" palette of points:
-gapminder_2007 <- gapminder %>% 
-  filter(year == 2007)
-ggplot(gapminder_2007, aes(x = gdpPercap, y = lifeExp, size = pop, color = continent)) +
-  geom_point() +
-  scale_color_brewer(palette = "Set1")
-
-# 2.a) Recreate Figure 2.26 but change default "fill" color of bars by adding a 
-# palette layer:
-ggplot(flights, aes(x = carrier, fill = origin)) +
-  geom_bar(position = position_dodge(preserve = "single")) +
-  scale_fill_brewer(palette = "Set1")
-
-# 2.b) Recreate Figure 2.26 but change default "fill" color of bars by manually 
-# changing colors in a layer:
-ggplot(flights, aes(x = carrier, fill = origin)) +
-  geom_bar(position = position_dodge(preserve = "single")) +
-  scale_fill_manual(values = c("darkorange", "forestgreen", "navyblue"))
-
-# 2.c) Recreate Figure 2.26 but change default "fill" color of bars by manually 
-# changing colors in a layer using hex codes from: 
-# https://www.color-hex.com/color-palette/114219
-ggplot(flights, aes(x = carrier, fill = origin)) +
-  geom_bar(position = position_dodge(preserve = "single")) +
-  scale_fill_manual(values = c("#dc323a", "#003f77", "#c4c1c1"))
-```
 
 
 
@@ -1229,7 +1182,6 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ### 2. In-class exercise
 
-* Go over ModernDive reading in schedule above.
 
 
 
@@ -1253,9 +1205,24 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ### 1. Chalk talk
 
-* Recap of histograms
-* Facets to split a visualization by the values of another variable
-* Default ordering of functions such as `ggplot()` where `data = ` is assumed first and `mapping = ` is assumed second
+
+
+### 2. In-class exercise
+
+
+
+***
+
+
+
+
+# Lec 06: Mon 9/19 {#Lec06}
+
+## Today's topics/activities
+
+### 1. Chalk talk
+
+* Recap of 5NG
 * Boxplots! Powerful, but tricky!
 
 
@@ -1305,11 +1272,53 @@ plot2 <- ggplot(example, aes(x=factor(1), y=values)) +
 plot1 + plot2
 ```
 
+* Color theory
+    1. `color` vs `fill` aesthetics in `ggplot2`
+    1. Selecting an appropriate color palette from [colorbrewer2.org](http://colorbrewer2.org/){target="_blank"}
+    ![](static/images/colorbrewer.png){ width=600px }
+    1. How does `ggplot2` pick default colors? Using a [color wheel](https://stackoverflow.com/questions/21490210/how-to-plot-a-colour-wheel-by-using-ggplot){target="_blank"}
+    1. Also define colors in terms of [hex codes](https://www.color-hex.com/color/f8766d){target="_blank"}
 
 
 ### 2. In-class exercise
 
-* Go over ModernDive reading in schedule above.
+* Changing default `color` and `fill` color aesthetics: 
+    1. Copy and paste the code below into your `classnotes.Rmd` file
+    1. Change both the color of the scatterplot points and the fill of the bars. You can do this by selecting a palette from [colorbrewer2.org](http://colorbrewer2.org/){target="_blank"} or by setting them manually
+    1. Run `colors()` in your console to get English names of all colors in R
+
+```{r, eval=FALSE}
+library(ggplot2)
+library(dplyr)
+library(nycflights13)
+library(gapminder)
+
+# 1. Recreate plot from PS02, but change default "color" palette of points:
+gapminder_2007 <- gapminder %>% 
+  filter(year == 2007)
+ggplot(gapminder_2007, aes(x = gdpPercap, y = lifeExp, size = pop, color = continent)) +
+  geom_point() +
+  scale_color_brewer(palette = "Set1")
+
+# 2.a) Recreate Figure 2.26 but change default "fill" color of bars by adding a 
+# palette layer:
+ggplot(flights, aes(x = carrier, fill = origin)) +
+  geom_bar(position = position_dodge(preserve = "single")) +
+  scale_fill_brewer(palette = "Set1")
+
+# 2.b) Recreate Figure 2.26 but change default "fill" color of bars by manually 
+# changing colors in a layer:
+ggplot(flights, aes(x = carrier, fill = origin)) +
+  geom_bar(position = position_dodge(preserve = "single")) +
+  scale_fill_manual(values = c("darkorange", "forestgreen", "navyblue"))
+
+# 2.c) Recreate Figure 2.26 but change default "fill" color of bars by manually 
+# changing colors in a layer using hex codes from: 
+# https://www.color-hex.com/color-palette/114219
+ggplot(flights, aes(x = carrier, fill = origin)) +
+  geom_bar(position = position_dodge(preserve = "single")) +
+  scale_fill_manual(values = c("#dc323a", "#003f77", "#c4c1c1"))
+```
 
 
 
@@ -1318,41 +1327,7 @@ plot1 + plot2
 
 
 
-# Lec 06: Fri 9/17 {#Lec06}
-
-## Today's topics/activities
-
-### 1. Chalk talk
-
-* In-class demo of using RMarkdown features in a `classnotes.Rmd` file to save lecture code
-* Take screenshots of your screen!
-    + macOS: Command+Shift+3 to take shot of whole screen, Command+Shift+4 to take subportion
-    + Windows: [Shift-Windows Key-S and Snip & Sketch](https://www.pcmag.com/how-to/how-to-take-screenshots-in-windows-10){target="_blank"}
-* Histograms for visualizing the *distribution* of a numerical variable
-
-
-#### Section 1 (Stoddard G6) Demo
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AhRxFl3k_5E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-#### Section 2 (Sabin-Reed 220) Demo
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Xrf6ymv6o7E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-### 2. In-class exercise
-
-* If you still haven't been able to "Knit to PDF", please ask for help
-* Go over ModernDive reading in schedule above.
-
-
-
-***
-
-
-
-
-# Lec 05: Wed 9/15 {#Lec05}
+# Lec 05: Wed 9/16 {#Lec05}
 
 ## Announcements
 
@@ -1362,14 +1337,16 @@ plot1 + plot2
 
 ### 1. Chalk talk
 
-* Overplotting and two approaches for addressing it
-* Linegraphs
+* Recap of previous lecture
 
-### 2. In-class exercise
+### 2. Lecture
 
-* Explore the different formatting tools in R Markdown: go to RStudio top menu bar -> Help -> Markdown quick reference.
-* Sec01 in Stoddard: There was an typo in Step 8 in last lecture's in-class exercise. If you weren't able to Knit directly to PDF, please re-attempt Steps 8-9. Knitting directly to PDF, instead of Knitting to Word and then saving to PDF, is the preferred submission format for all problem sets. It will be less hassle for you and provide consistency for the graders. 
-* Go over ModernDive reading in schedule above. 
+* Class slides: Boxplots and Facets
+
+### 3. In-class exercise
+
+* Create boxplots using ggplot2.
+* Create facets using ggplot2.
 
 
 
@@ -1377,7 +1354,7 @@ plot1 + plot2
 
 
 
-# Lec 04: Mon 9/13 {#Lec04}
+# Lec 04: Wed 9/14 {#Lec04}
 
 ## Announcements
 
@@ -1389,68 +1366,20 @@ plot1 + plot2
 ### 1. Chalk talk
 
 * Recap of previous lecture
-* "Where can I save all the code I run in class?" In an R Markdown `.Rmd` file; R Markdown is a tool for *reproducible research*
 
-**Input**: An `.Rmd` file  | **Output**: An `.html`, `.docx`, or `.pdf` file.
-------------- | -------------
-![](static/images/rmd_input.png){ width=800px } | ![](static/images/rmd_output.png){ width=800px }
+### 2. Lecture
 
+* Class slides: Frequency Plots
 
-### 2. In-class exercise
+### 3. In-class exercise
 
-**In-class battle-testing and practicing for PS02:**
-
-1. At a couple of steps in this process, you will be asked to install packages. Say yes to all of them.
-1. If at any point your code won't knit, go through these [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"} first, then seek assistance. **These 6 fixes will resolve 85% of issues.**
-1. **Create new R Markdown `.Rmd` file**:
-    + Go to RStudio menu bar -> File -> New File -> R Markdown 
-    + Set "Title" to "My first R Markdown report" and "Author" as your name.
-    + Save this file as `testing` somewhere on your computer. This will create a file called `testing.Rmd`
-1. **Method 1: "Knit" a report to HTML**:
-    + Click the arrow next to "Knit" -> "Knit to HTML".
-    + An HTML webpage should pop up. However, it may be blocked by your browser. If so, in your browser's URL bar, click on "Always allow pop-ups".
-1. **Method 1: Publish HTML report on web**:
-    + Click on blue "Publish" button on top right of the resulting **pop-up html**.
-    + Select RPubs.
-    + If you haven't previously, create an account on Rpubs.com. If you have previously, login.
-    + Set "Title" to "My first R Markdown report" and "Slug" to "testing"
-    + You should end up with a webpage that looks like this [one](http://rpubs.com/rudeboybert/testing){target="_blank"}. This is live on the web!
-1. **Method 1: Update HTML report on web**:
-    + Make some trivial change to your `testing.Rmd` file.
-    + "Re-knit" your report and make sure your trivial change is reflected.
-    + The blue "Publish" button should now read "Republish"
-    + Click "Update existing"
-    + Your updates are now live on the web!
-1. **Method 2: "Knit" a report to Word**
-    + Click the arrow next to "Knit" -> "Knit to Word".
-    + Save the resulting Word document as a pdf file.
-1. **Only if you are a macOS user**:
-    + Next to "Console" go to "Terminal"
-    + Run this line of code:   
-    ```{r, eval = FALSE}
-    sudo chown -R `whoami`:admin /usr/local/bin
-    ```
-    + Enter your password. Note: Terminal has weird behavior whereby as you enter your password, the cursor will not move. Don't worry your password is registering. 
-1. **Method 3: "Knit" a report to PDF**
-    + Run the following code in your console just once:  
-    ```{r, eval=FALSE}
-    install.packages('tinytex')
-    tinytex::install_tinytex()
-    ```
-    + Click the arrow next to "Knit" -> "Knit to PDF".
-
-
-
-<!--
-1. **Fiddle with RStudio settings**:
-    + Go to RStudio menu bar -> Tools -> Global Options... -> R Markdown
-    + Uncheck box next to "Show output inline for all R Markdown Documents"
--->
+* Create histograms using ggplot2.
+* Create barplots using ggplot2.
 
 ***
 
 
-# Lec 03: Fri 9/10 {#Lec03}
+# Lec 03: Fri 9/12 {#Lec03}
 
 ## Announcements
 
