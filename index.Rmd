@@ -1454,17 +1454,6 @@ plot1 + plot2
 
 ## Announcements
 
-* Spinelli Center [SDS drop-in tutoring hours](https://www.smith.edu/qlc/tutoring.html?colStats=open#PanelStats.){target="_blank"} now open! Get individual attention from SDS majors! In Sabin-Reed 301
-    + Sunday through Thursday 7-9pm
-    + Friday 2:35-3:30pm
-* By popular request:
-    + Sec 01 in Stoddard G2 will now start 5 minutes later: 10:55 AM instead of 10:50AM
-    + Sec 02 in Sabin-Reed 220 will now end 5 minutes earlier: 10:35 AM instead of 10:40 AM
-* I added extra instructions for Problem Set 01 after lecture, posted under [Problem Sets](PS.html)
-    + Show don't tell how to tag questions on gradescope
-* ASA StatFest 2021 Sat 9/18 thru Sun 9/19 [flyer](static/images/announcements/statfest2021.pdf){target="_blank"} and [event webpage](https://community.amstat.org/cmis/events/statfest/statfest-2021){target="_blank"}
-    + Sunday 9/19 at 11:50AM: Opportunities in Statistics & Data Science in Academia, Government, & Non-Profit featuring SDS's **Prof. Randi Garcia**!
-    + Keynote address by **Robert Santos**, 116th President of the ASA, and President Biden's nominee to serve as Director of the United States Census Bureau! If approved by the Senate, he would be the first Latinx Director of the Bureau!
 
 
 
@@ -1475,13 +1464,15 @@ plot1 + plot2
 * Recap of previous lecture
 * Grammar of Graphics
 * 5NG1: Scatterplots
-* Next time:
-    + Question: Do I need to re-type my code in the Console every single time?
-    + Answer: No! Save your work in an [RMarkdown document](https://rmarkdown.rstudio.com/){target="_blank"}
 
-### 2. In-class exercise
+### 2. Lecture
 
-* Go over ModernDive reading in schedule above. 
+* Class slides: Graphical Integrity
+
+### 3. In-class exercise
+
+* Create linegraphs using ggplot2.
+ 
 
 
 
