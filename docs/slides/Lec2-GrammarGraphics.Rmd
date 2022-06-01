@@ -99,51 +99,6 @@ class: center, middle
 
 ---
 
-# What visual cues, scales, and context are represented on this plot?
-
-```{r echo=FALSE, fig.height=5, fig.retina=2, fig.width=10}
-pioneer_valley_census_data <- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/pioneer_valley_census.csv")
-hampshire_census_data <- pioneer_valley_census_data %>% 
-  filter(COUNTY == "Hampshire")
-
-ggplot(hampshire_census_data, 
-       aes(x = COMMUNITY, 
-           y = CEN_MEDHHINC)) +
-  geom_col() +
-  theme_minimal() +
-  coord_flip() +
-  labs(title = "Median Household Income of Municipalities in Hampshire County, MA 2018",
-       x = "Municipality",
-       y = "Median Household Income")
-```
-
----
-
-# What visual cues, scales, and context are represented on this plot?
-
-```{r echo=FALSE, fig.height=5, fig.retina=2, fig.width=10}
-pioneer_valley_census_data$CEN_PAINC_RATE <- 
-  pioneer_valley_census_data$CEN_PAINC / pioneer_valley_census_data$CEN_HOUSEHOLDS
-pioneer_valley_census_data$CEN_SINGPARHOU_RATE <- 
-  pioneer_valley_census_data$CEN_SINGPARHOU / pioneer_valley_census_data$CEN_HOUSEHOLDS
-
-ggplot(data = pioneer_valley_census_data, 
-       aes(x = CEN_PAINC_RATE, 
-           y = CEN_SINGPARHOU_RATE, 
-           col = COUNTY,
-           size = CEN_HOUSEHOLDS)) +
-  geom_point() + 
-  theme_minimal() +
-  labs(title = "Household Characteristics of Pioneer Valley Municipalities, 2018",
-       x = "Proportion of Households on Public Assistance Income",
-       y = "Proportion of Single Parent Households ",
-       col = "County",
-       size = "Number of Households") 
-```
-
----
-
-
 # Let's create the following data frame to motivate today's lecture. 
 
 > This dataset comes from [Pioneer Valley Data](https://pioneervalleydata.org/data-download-page/) and documents estimates of population characteristics for each municipality in the Pioneer Valley. 
