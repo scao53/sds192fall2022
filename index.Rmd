@@ -1507,6 +1507,8 @@ plot1 + plot2
 * <a href="https://scao53.github.io/sds192fall2022/slides/Lec2-GrammarGraphics.html"> Class slides: Grammar of Graphics
  
 ### 3. In-class exercise
+  
+* Understand basic functions of ggplot2.
 
 ***
 
