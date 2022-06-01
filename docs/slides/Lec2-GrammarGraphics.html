@@ -17,11 +17,10 @@ class: center, middle, inverse, title-slide
 
 ---
 
-# For Today
+# Today's Learning Goals
 
-* grammar of graphics
-* cartesian plots in ggplot
-* visualization context
+* Understand basic concepts of grammar of graphics
+* Understand basic functions of ggplot2
 
 ---
 
@@ -78,13 +77,22 @@ class: center, middle, inverse, title-slide
 ![](img./Lec2_DataPoints-Ch3_40-40.png)
       
 ---
+      
+# Grammar of Graphics
 
-class: center, middle
-# Today, and in the upcoming weeks, we are going to focus on creating Cartesian plots in `R`. 
+* A statistical graphic is a mapping of ***data*** variables to ***aes***thetic attributes of ***geom***etric objects.
+* Implemented in R as ggplot2
+* `ggplot2` is included in the Tidyverse. We can load `ggplot` by calling `library(ggplot2)`
+* Load `ggplot` in your environment. 
+
+
+```r
+library(ggplot2)
+```
 
 ---
 
-# Let's create the following data frame to motivate today's lecture. 
+# In-class Exercise
 
 &gt; This dataset comes from [Pioneer Valley Data](https://pioneervalleydata.org/data-download-page/) and documents estimates of population characteristics for each municipality in the Pioneer Valley. 
 
@@ -98,39 +106,11 @@ hampshire_census_data &lt;- pioneer_valley_census_data %&gt;%
 
 ---
 
-# Data Ethics Questions
+# Basic Formula `ggplot()` Functions
 
-1. What assumptions and commitments informed the design of this dataset?
-  * Definitions for certain census categories like "Unemployed" or "Poverty" may exclude certain people.
-  * Shifting categorizations for race, gender, and other demographics may not represent how people identify.
-2. Who has had a say in data collection and analysis regarding this dataset? Who has been excluded?
-  * US Census Bureau and other governing bodies
-  * Activists and social movements
-3. What are the benefits and harms of this dataset, and how are they distributed amongst diverse social groups? 
-  * Concerns about surveillance or mistreatment amongst those counted.
-  * Concerns about under-representation amongst those uncounted. 
-
----
-
-# ggplot
-
-* Most of the plots we create in this course will rely on a package called `ggplot`
-* `ggplot` is included in the Tidyverse, which you installed on Monday. We can load `ggplot` by calling `library(ggplot2)`
-* Load `ggplot` in your environment. 
-
-
-```r
-library(ggplot2)
-```
-
----
-
-# Basic Formula `ggplot()` functions
-
-* To create plots, we can call the `ggplot()` function. 
-* The first argument in the `ggplot()` function is the dataset we'd like to reference to create a plot.
-* The second argument is called `mapping` and indicates the variables/columns from the dataset we'd like to plot. We wrap a list of these variables in `aes()`
-  * In a Cartesian plot, we must supply the variables/columns that will appear on the axes (via `x = ` and `y = `)
+* data: the dataset containing the variables of interest.
+* aes(): aesthetic mappings (mapped to variables in the dataset). For example, x/y position, color, shape, and size.
+  * In a Cartesian plot, we must supply the variables that will appear on the axes (via `x = ` and `y = `)
   
 ---
   
@@ -145,24 +125,16 @@ ggplot(data = hampshire_census_data,
 
 ---
 
-class: center, middle
-# When we supply a nominal variable in our dataset to the x-axis mapping, what will the scale be? 
-
----
-
-class: center, middle
-# When we supply a continuous variable in our dataset to the x-axis mapping, what will the scale be? 
-
-&gt; If you were confused regarding these questions, you should study up on Data Fundamentals before starting Quiz 1!
----
-
-# Where's the data?
+# Where is the Data?
 
 * In the previous plot, we told `R` *what* variables to plot, but we didn't indicate *how* to plot them.
   * What visual marks should appear on the graph?
-* To do this, we need to add a *geom function* to our `ggplot` call, indicating the type of plot we'd like to create. Examples:
-  * Bar plots: `geom_bar()`
-  * Scatterplots: `geom_point()`
+* geom_*(): geometric objects (the literal stuff we draw). For example, the five named graph (5NG):
+  * Scatterplot: `geom_point()`
+  * Linegraph: `geom_line()`
+  * Histogram: `geom_histogram()`
+  * Boxplot: `geom_boxplot()`
+  * Barplot: `geom_bar()` `geom_col()`
 * We append this function, along with additional functions for styling the plot, using a `+` sign.
 
 ---
@@ -189,8 +161,6 @@ ggplot(data = hampshire_census_data,
   * Geographic Scope
   * Temporal Scope
 * We can add this context via titles and labels, using the `labs()` function. 
-  
-&gt; Hint: This **will** make an appearance on your next quiz!
 
 ---
   
@@ -210,7 +180,13 @@ ggplot(data = hampshire_census_data,
 
 ---
 
+# Adjust the Scale
 
+* scale_*(): range of values, colors, etc.
+
+---
+  
+      
 ```r
 # Adjust the Scale
 ggplot(data = pioneer_valley_census_data, 
@@ -225,10 +201,34 @@ ggplot(data = pioneer_valley_census_data,
 
 ---
 
-# For Friday
+# Facets (Small Multiples and Layers)
 
-* Reading on Visualization Conventions
-* Quiz 1 posted
+* facet_wrap()
+
+---
+  
+      
+```r
+ggplot(data = pioneer_valley_census_data, 
+       aes(x = COUNTY,y = CEN_WORKERS)) +
+  geom_point() +
+  facet_wrap(~COUNTY) + # faceting
+  coord_flip() +
+  scale_y_log10() +
+  labs(title = "Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018", x = "County", y = "Workers Age 16+")
+```
+
+&lt;img src="Day7-8-GrammarGraphics_files/figure-html/unnamed-chunk-13-1.png" width="720" /&gt;
+
+---
+      
+# For the Upcoming Several Sessions
+
+* Graphical Integrity + Linegraphs
+* Histogram + Barplots
+* Facets
+* Histogram + Barplots
+* Recap 5NG + Color Theory
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
