@@ -77,7 +77,7 @@ class: center, middle, inverse, title-slide
 
 .pull-left[
       
-* <a href="https://qz.com/122921/the-chart-tim-cook-doesnt-want-you-to-see/">A Misleading Chart from Apple </a>
+* <a href="https://qz.com/122921/the-chart-tim-cook-doesnt-want-you-to-see/">A misleading chart from Apple </a>
 
 ]
 
@@ -111,164 +111,23 @@ class: center, middle, inverse, title-slide
 
 ---
 
-# What visual cues, scales, and context are represented on this plot?
+.pull-left[
+      
+* <a href="https://infovis-wiki.net/wiki/Lie_Factor">The lie factor </a>
+  * Often not very clearly defined.
+  * Easy to lie by manipulating scales.
+  * Why perspective?
+  * Width of lines?
 
-&lt;img src="Day7-8-GrammarGraphics_files/figure-html/unnamed-chunk-6-1.png" width="720" /&gt;
+]
 
+.pull-right[
+      
+![](img./Lec3_Lie_factor_example1_image.png)
+
+]
+      
 ---
-
-# What visual cues, scales, and context are represented on this plot?
-
-&lt;img src="Day7-8-GrammarGraphics_files/figure-html/unnamed-chunk-7-1.png" width="720" /&gt;
-
----
-
-
-# Let's create the following data frame to motivate today's lecture. 
-
-&gt; This dataset comes from [Pioneer Valley Data](https://pioneervalleydata.org/data-download-page/) and documents estimates of population characteristics for each municipality in the Pioneer Valley. 
-
-
-```r
-library(tidyverse)
-pioneer_valley_census_data &lt;- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/pioneer_valley_census.csv")
-hampshire_census_data &lt;- pioneer_valley_census_data %&gt;% 
-  filter(COUNTY == "Hampshire")
-```
-
----
-
-# Data Ethics Questions
-
-1. What assumptions and commitments informed the design of this dataset?
-  * Definitions for certain census categories like "Unemployed" or "Poverty" may exclude certain people.
-  * Shifting categorizations for race, gender, and other demographics may not represent how people identify.
-2. Who has had a say in data collection and analysis regarding this dataset? Who has been excluded?
-  * US Census Bureau and other governing bodies
-  * Activists and social movements
-3. What are the benefits and harms of this dataset, and how are they distributed amongst diverse social groups? 
-  * Concerns about surveillance or mistreatment amongst those counted.
-  * Concerns about under-representation amongst those uncounted. 
-
----
-
-# ggplot
-
-* Most of the plots we create in this course will rely on a package called `ggplot`
-* `ggplot` is included in the Tidyverse, which you installed on Monday. We can load `ggplot` by calling `library(ggplot2)`
-* Load `ggplot` in your environment. 
-
-
-```r
-library(ggplot2)
-```
-
----
-
-# Basic Formula `ggplot()` functions
-
-* To create plots, we can call the `ggplot()` function. 
-* The first argument in the `ggplot()` function is the dataset we'd like to reference to create a plot.
-* The second argument is called `mapping` and indicates the variables/columns from the dataset we'd like to plot. We wrap a list of these variables in `aes()`
-  * In a Cartesian plot, we must supply the variables/columns that will appear on the axes (via `x = ` and `y = `)
-  
----
-  
-
-```r
-ggplot(data = hampshire_census_data, 
-       aes(x = COMMUNITY, 
-           y = CEN_EARLYED))
-```
-
-&lt;img src="Day7-8-GrammarGraphics_files/figure-html/unnamed-chunk-10-1.png" width="720" /&gt;
-
----
-
-class: center, middle
-# When we supply a nominal variable in our dataset to the x-axis mapping, what will the scale be? 
-
----
-
-class: center, middle
-# When we supply a continuous variable in our dataset to the x-axis mapping, what will the scale be? 
-
-&gt; If you were confused regarding these questions, you should study up on Data Fundamentals before starting Quiz 1!
----
-
-# Where's the data?
-
-* In the previous plot, we told `R` *what* variables to plot, but we didn't indicate *how* to plot them.
-  * What visual marks should appear on the graph?
-* To do this, we need to add a *geom function* to our `ggplot` call, indicating the type of plot we'd like to create. Examples:
-  * Bar plots: `geom_bar()`
-  * Scatterplots: `geom_point()`
-* We append this function, along with additional functions for styling the plot, using a `+` sign.
-
----
-
-
-```r
-ggplot(data = hampshire_census_data, 
-       aes(x = COMMUNITY, 
-           y = CEN_EARLYED)) +
-  geom_col() +
-  coord_flip() # Flipping the x and y coordinates here makes the labels more legible.
-```
-
-&lt;img src="Day7-8-GrammarGraphics_files/figure-html/unnamed-chunk-11-1.png" width="720" /&gt;
-
----
-
-# Adding Context to Plots
-
-* What context should *always* be included on a plot?
-  * Unit of Observation
-  * Variables Represented
-  * Filters
-  * Geographic Scope
-  * Temporal Scope
-* We can add this context via titles and labels, using the `labs()` function. 
-  
-&gt; Hint: This **will** make an appearance on your next quiz!
-
----
-  
-
-```r
-ggplot(data = hampshire_census_data, 
-       aes(x = COMMUNITY, 
-           y = CEN_EARLYED)) +
-  geom_col() +
-  coord_flip()  + # Flipping the x and y coordinates here makes the labels more legible.
-  labs(title = "Hampshire County Early Education Enrollment Rates, 2018", 
-       x = "Enrollment Rate for 3-4 yr old", 
-       y = "Municipality in Hampshire County, MA")
-```
-
-&lt;img src="Day7-8-GrammarGraphics_files/figure-html/unnamed-chunk-12-1.png" width="720" /&gt;
-
----
-
-
-```r
-# Adjust the Scale
-ggplot(data = pioneer_valley_census_data, 
-       aes(x = COUNTY,y = CEN_WORKERS)) +
-  geom_point() +
-  coord_flip() +
-  scale_y_log10() +
-  labs(title = "Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018", x = "County", y = "Workers Age 16+")
-```
-
-&lt;img src="Day7-8-GrammarGraphics_files/figure-html/unnamed-chunk-13-1.png" width="720" /&gt;
-
----
-
-# For Friday
-
-* Reading on Visualization Conventions
-* Quiz 1 posted
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
