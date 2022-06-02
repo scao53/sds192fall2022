@@ -1,0 +1,534 @@
+---
+title: "Day Eleven: Boxplots"
+subtitle: "SDS 192: Introduction to Data Science"
+author: |
+  Lindsay Poirier<br/>
+  <span style = 'font-size: 70%;'>
+  [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
+  </span>
+date: |
+  Spring 2022<br/>
+  `r sds::img_logo(width = 64)`
+output:
+  sds::moon_reader:
+    lib_dir: libs
+    css: xaringan-custom.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false    
+      navigation:
+        scroll: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dpi=300,fig.width=7, fig.height = 4)
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+# sds::duo_smith()
+sds::mono_light_smith()
+```
+
+```{r include=FALSE}
+library(spotifyr)
+library(tidyverse)
+id <- Sys.getenv("SPOTIFY_CLIENT_ID")
+secret <- Sys.getenv("SPOTIFY_CLIENT_SECRET")
+Sys.setenv(SPOTIFY_CLIENT_ID = id)
+Sys.setenv(SPOTIFY_CLIENT_SECRET = secret)
+access_token <- get_spotify_access_token()
+
+artist <- get_artist_audio_features(artist = "Led Zeppelin") %>%
+  select(-c(album_images, artists, available_markets))
+```
+
+# Announcements
+
+* Quiz 1 grades by Friday
+* Quiz 2 posted
+
+---
+
+# For Today
+
+* Measures of Central Tendency and Dispersion
+* Boxplots
+
+---
+
+class: center, middle
+# A measure of central tendency is a single numeric quantity describing data by identifying a central position.
+
+---
+
+# Mean
+
+.pull-left[
+* Sum of values divided by number of values summed
+* Takes every value into consideration
+* Model of entire dataset
+* Heavily influenced by outliers
+
+]
+.pull-right[
+```{r echo=FALSE, fig.height=3, fig.width=5}
+ggplot(artist, aes(x = acousticness)) +
+  geom_histogram(color = "white", binwidth = 0.1) +
+  geom_vline(aes(xintercept = mean(acousticness)), 
+             color = "blue", 
+             linetype="dashed") +
+  theme_bw() +
+  labs(title = "Distribution of Acousticness of Songs by Led Zeppelin, Spotify, 2022", 
+       x = "Acousticness", 
+       y = "Count of Songs") + 
+  geom_label(aes(x = mean(acousticness), y = 100, label="Mean"),
+           color = "blue", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  theme(plot.title = element_text(size=10))
+```
+]
+
+---
+
+# Median
+
+.pull-left[
+* Middle value(s) of the dataset when all values are lined from smallest to largest
+* Does not model entire dataset
+* Limited influence from outliers 
+
+
+]
+.pull-right[
+```{r echo=FALSE, fig.height=3, fig.width=5}
+ggplot(artist, aes(x = acousticness, y="")) + 
+  geom_jitter(alpha = 0.2, height = 0.2) +
+  geom_vline(aes(xintercept = median(acousticness)), 
+             color = "orange", 
+             linetype="dashed") +
+  theme_bw() + 
+  geom_label(aes(x = median(acousticness), y = "", label="Median"),
+           color = "orange", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" )
+
+ggplot(artist, aes(x = acousticness)) +
+  geom_histogram(color = "white", binwidth = 0.1) +
+  geom_vline(aes(xintercept = mean(acousticness)), 
+             color = "blue", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = median(acousticness)), 
+             color = "orange", 
+             linetype="dashed") +
+  theme_bw() +
+  labs(title = "Distribution of Acousticness of Songs by Led Zeppelin, Spotify, 2022", 
+       x = "Acousticness", 
+       y = "Count of Songs") + 
+  geom_label(aes(x = median(acousticness), y = 70, label="Median"),
+           color = "orange", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = mean(acousticness), y = 100, label="Mean"),
+           color = "blue", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  theme(plot.title = element_text(size=10))
+```
+]
+
+---
+
+# Normal Distributions
+
+.pull-left[
+* More values huddle around some center line and taper off as we move away from center
+* Histogram is symmetrical with a perfectly normal distribution
+* Median and mean should be about the same; mean is a good measure of central tendency
+]
+.pull-right[
+```{r echo=FALSE, fig.height=3, fig.width=5}
+library(tidyverse)
+
+ggplot(artist, aes(x = duration_ms)) +
+  geom_histogram(color = "white", binwidth = 100000) +
+  geom_vline(aes(xintercept = mean(duration_ms)), 
+             color = "blue", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = median(duration_ms)), 
+             color = "orange", 
+             linetype="dashed") + 
+  theme_bw() +
+  labs(title = "Distribution of Duration of Songs by Led Zeppelin, Spotify, 2022", 
+       x = "Duration", 
+       y = "Count of Songs") + 
+  geom_label(aes(x = median(duration_ms), y = 70, label="Median"),
+           color = "orange", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = mean(duration_ms), y = 100, label="Mean"),
+           color = "blue", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  theme(plot.title = element_text(size=10))
+```
+]
+
+> Why aren't the medians and means aligned here? Any guess what those songs to the right are?
+
+---
+
+# Skew
+
+.pull-left[
+* Histogram is non-symmetrical when there is skew
+* Long trail to the right of center indicates a *right skew* 
+* Median becomes more representative measure of central tendency than mean
+]
+.pull-right[
+```{r echo=FALSE, fig.height=3, fig.width=5}
+library(tidyverse)
+
+ggplot(artist, aes(x = acousticness)) +
+  geom_histogram(color = "white", binwidth = 0.1) +
+  geom_vline(aes(xintercept = mean(acousticness)), 
+             color = "blue", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = median(acousticness)), 
+             color = "orange", 
+             linetype="dashed") + 
+  theme_bw() +
+  labs(title = "Distribution of Acousticness of Songs by Led Zeppelin, Spotify, 2022", 
+       x = "Acousticness", 
+       y = "Count of Songs")  + 
+  geom_label(aes(x = median(acousticness), y = 70, label="Median"),
+           color = "orange", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = mean(acousticness), y = 100, label="Mean"),
+           color = "blue", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  theme(plot.title = element_text(size=10))
+```
+]
+
+---
+
+# Summarizing Data
+
+* Measures of central tendency summarize swaths of information into single value
+* Can be reductionist
+  * Example: Measures of central tendency related to wealth in the US only tell us about those in the middle
+  * Hide the experiences of the most impoverished communities. 
+* Degree of spread or *dispersion* is just as important as center
+
+---
+
+# Range
+
+.pull-left[
+* Maximum value minus the minimum value
+* Evaluates the spread of the entire dataset
+]
+.pull-right[
+```{r echo=FALSE, fig.height=3, fig.width=5}
+ggplot(artist, aes(x = danceability, y="")) + 
+  geom_jitter(alpha = 0.3, height = 0.2) +
+  geom_vline(aes(xintercept = min(danceability)), 
+              color = "red", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = max(danceability)), 
+              color = "red", 
+             linetype="dashed") +
+  theme_bw() +
+  geom_label(aes(x = min(danceability), y = "", label="Min"),
+           color = "red", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = max(danceability), y = "", label="Max"),
+           color = "red", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" )
+
+
+ggplot(artist, aes(x = danceability)) +
+  geom_histogram(color = "white", binwidth = 0.01) +
+  geom_vline(aes(xintercept = min(danceability)), 
+              color = "red", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = max(danceability)), 
+              color = "red", 
+             linetype="dashed") + 
+  theme_bw() +
+  labs(title = "Distribution of Danceability of Songs by Led Zeppelin, Spotify, 2022", 
+       x = "Danceability", 
+       y = "Count of Songs") + 
+  geom_label(aes(x = min(danceability), y = 15, label="Min"),
+           color = "red", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = max(danceability), y = 15, label="Max"),
+           color = "red", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  theme(plot.title = element_text(size=10))
+```
+]
+
+---
+
+# Interquartile Range (IQR)
+
+.pull-left[
+* 1st quartile is middle value between minimum and median
+  * Splits the data into 1st and 2nd 25%
+* 3rd quartile is middle value between median and maximum
+  * Splits the data into 3rd and 4th 25%
+* IQR is the difference between the 1st and 3rd quartile
+* Represents the middle 50% of values
+]
+.pull-right[
+```{r echo=FALSE, fig.height=3, fig.width=5}
+ggplot(artist, aes(x = danceability, y="")) + 
+  geom_jitter(alpha = 0.3, height = 0.2) +
+  geom_vline(aes(xintercept = min(danceability)), 
+              color = "red", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = max(danceability)), 
+              color = "red", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = median(danceability)), 
+              color = "orange", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = quantile(danceability)[2]), 
+              color = "purple", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = quantile(danceability)[4]), 
+              color = "purple", 
+             linetype="dashed") +
+  theme_bw() + 
+  geom_label(aes(x = min(danceability), y = "", label="Min"),
+           color = "red", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = max(danceability), y = "", label="Max"),
+           color = "red", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = quantile(danceability)[2], y = "", label="1st Quartile"),
+           color = "purple", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = quantile(danceability)[4], y = "", label="3rd Quartile"),
+           color = "purple", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = median(danceability), y = "", label="Median"),
+           color = "orange", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" )
+
+
+ggplot(artist, aes(x = danceability)) +
+  geom_histogram(color = "white", binwidth = 0.01) +
+  geom_vline(aes(xintercept = min(danceability)), 
+              color = "red", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = max(danceability)), 
+              color = "red", 
+             linetype="dashed") + 
+  geom_vline(aes(xintercept = median(danceability)), 
+              color = "orange", 
+             linetype="dashed") + 
+  geom_vline(aes(xintercept = quantile(danceability)[2]), 
+              color = "purple", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = quantile(danceability)[4]), 
+              color = "purple", 
+             linetype="dashed") +
+  theme_bw() +
+  labs(title = "Distribution of Danceability of Songs by Led Zeppelin, Spotify, 2022", 
+       x = "Danceability", 
+       y = "Count of Songs") + 
+  geom_label(aes(x = min(danceability), y = 15, label="Min"),
+           color = "red", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = max(danceability), y = 15, label="Max"),
+           color = "red", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = quantile(danceability)[2], y = 15, label="1st Quartile"),
+           color = "purple", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = quantile(danceability)[4], y = 15, label="3rd Quartile"),
+           color = "purple", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = median(danceability), y = 10, label="Median"),
+           color = "orange", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  theme(plot.title = element_text(size=10))
+```
+]
+
+---
+
+# Boxplot
+
+```{r echo=FALSE}
+ggplot(artist, aes(x = danceability)) +
+  geom_boxplot() +
+  theme_bw() + 
+  geom_vline(aes(xintercept = median(danceability)), 
+              color = "orange", 
+             linetype="dashed") + 
+  geom_vline(aes(xintercept = quantile(danceability)[2]), 
+              color = "purple", 
+             linetype="dashed") +
+  geom_vline(aes(xintercept = quantile(danceability)[4]), 
+              color = "purple", 
+             linetype="dashed") +
+  labs(title = "Distribution of Danceability of Songs by Led Zeppelin, Spotify, 2022", 
+       x = "Danceability") +
+  geom_label(aes(x = quantile(danceability)[2], y = 0.1, label="1st Quartile"),
+           color = "purple", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = quantile(danceability)[4], y = 0.1, label="3rd Quartile"),
+           color = "purple", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" ) + 
+  geom_label(aes(x = median(danceability), y = 0, label="Median"),
+           color = "orange", 
+           size = 3, 
+           angle = 45, 
+           fontface = "bold" )
+```
+
+---
+
+# Grouped Boxplots
+
+```{r echo=FALSE}
+ggplot(artist, aes(x = album_name, y = duration_ms)) +
+  geom_boxplot() +
+  coord_flip() 
+```
+
+---
+
+# Interpreting Boxplots Step 1: Check for outliers
+
+.pull-left[
+
+> How many are there? What do they indicate? Do you assume they are errors in teh data? Or do they represent extremes that are important for us to take into consideration? 
+
+]
+.pull-right[
+```{r echo=FALSE, fig.height=5, fig.width=5}
+ggplot(artist, aes(x = album_name, y = duration_ms)) +
+  geom_boxplot() +
+  coord_flip() 
+```
+]
+
+---
+
+# Interpreting Boxplots Step 2: Compare medians
+
+.pull-left[
+
+> Do the medians line up? If not, in which groups are the medians higher and in which are they lower? 
+
+]
+.pull-right[
+```{r echo=FALSE, fig.height=5, fig.width=5}
+ggplot(artist, aes(x = album_name, y = duration_ms)) +
+  geom_boxplot() +
+  coord_flip() 
+```
+]
+
+---
+
+# Interpreting Boxplots Step 3: Compare the range
+
+.pull-left[
+
+> Do certain groups have a wider range of values represented than others? In other words, are the values more distributed for certain groups than for others? This might indicate a greater degree of disparity in some groups than others. 
+
+]
+.pull-right[
+
+```{r echo=FALSE, fig.height=5, fig.width=5}
+ggplot(artist, aes(x = album_name, y = duration_ms)) +
+  geom_boxplot() +
+  coord_flip() 
+```
+]
+---
+
+# Interpreting Boxplots Step 4: Compare the IQR
+
+.pull-left[
+
+> In which groups do the middle 50% of values tend to huddle around a central value? In which are they more spread out from the center?
+
+]
+.pull-right[
+```{r echo=FALSE, fig.height=5, fig.width=5}
+ggplot(artist, aes(x = album_name, y = duration_ms)) +
+  geom_boxplot() +
+  coord_flip() 
+```
+]
+
+---
+
+# Interpreting Boxplots Step 5: Compare the symmetry
+
+.pull-left[
+
+> Does the median appear to be in the center of the range and IQR? Is the median closer to the minimum – or the bottom whisker? Or the top whisker?
+
+]
+.pull-right[
+```{r echo=FALSE, fig.height=5, fig.width=5}
+ggplot(artist, aes(x = album_name, y = duration_ms)) +
+  geom_boxplot() +
+  coord_flip() 
+```
+]
+
+
