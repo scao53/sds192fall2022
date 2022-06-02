@@ -667,10 +667,6 @@ No lecture today, instead optional in-class office hours:
 * Talk about Spring 2022 SDS courses
 * Added "Tips & Tricks" tab to menu bar of course webpage
 * Update to syllabus
-* For a truly unique perspective on Data Visualization: Mona Chalabi [\@monachalabi](https://www.instagram.com/monachalabi/?hl=en){target="_blank"}. See video below:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IRJ2Ac9vI5o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 ## Today's topics/activities
 
@@ -1383,7 +1379,9 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ## Announcements
 
+* For a creative perspective on Data Visualization: Mona Chalabi [\@monachalabi](https://www.instagram.com/monachalabi/?hl=en){target="_blank"}. See video below:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IRJ2Ac9vI5o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ## Today's topics/activities
