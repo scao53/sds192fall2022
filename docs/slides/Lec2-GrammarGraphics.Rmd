@@ -36,6 +36,7 @@ sds::mono_light_smith()
 
 * Understand basic concepts of grammar of graphics.
 * Understand basic functions of ggplot2.
+* Create scatterplots using ggplot2.
 
 ---
 
@@ -240,7 +241,7 @@ ggplot(data = pioneer_valley_census_data,
 # For the Upcoming Several Sessions
 
 * Graphical Integrity + Linegraphs
-* Histogram + Barplots
+* Histograms + Barplots
 * Boxplots + Facets
 * Recap 5NG + Color Theory
 
