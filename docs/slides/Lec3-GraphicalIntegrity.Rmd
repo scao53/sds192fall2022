@@ -1,13 +1,13 @@
 ---
-title: "Day Seven-Eight: Grammar of Graphics"
+title: "Lec 03: Graphical Integrity"
 subtitle: "SDS 192: Introduction to Data Science"
 author: |
-  Lindsay Poirier<br/>
+  Shiya Cao<br/>
   <span style = 'font-size: 70%;'>
   [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
   </span>
 date: |
-  Spring 2022<br/>
+  Fall 2022<br/>
   `r sds::img_logo(width = 64)`
 output:
   sds::moon_reader:
@@ -32,69 +32,58 @@ library(tidyverse)
 sds::mono_light_smith()
 ```
 
+
+# Today's Learning Goals
+
+* Understand Tufte's principles of graphical integrity.
+* Create linegraphs using ggplot2.
+
 ---
 
-# Quiz 1 Posted
+# "Graphical integrity refers to how accurately visual elements represent data. Information can vary widely, even for related data, so there's a desire and tendency to scale the data disproportionately in order to make it fit in the space allowed."
+
+&gt; Framework drawn from: Tufte, Edward R. 2001. *The Visual Display of Quantitative Information*. 2nd edition. Graphics Press.
+
+---
+
+# 6 Principles of Graphical Integrity
+
+* Representations of numbers should match their true proportions.
+* Labeling should be clear and detailed.
+* Designs should not vary from some ulterior motive, but show only data variations.
+* In time-series displays of money, deflated and standardized units of monetary measurement are nearly always better than nominal units.
+* The number of information-carrying (variable) dimensions depicted should not exceed the number of dimensions in the data.
+* Graphics must not quote data out of context.
+
+---
+
+# Principles 1-3
 
 .pull-left[
-**What does it cover?**
-* tracing data provenance
-  * reviewing data dictionaries and metadata
-  * determining the unit of observation and variables
-* data fundamentals
-  * types of variables
-  * data object types in `R`
-* error resolution and problem-solving
-  * fixing errors in code
-  * reviewing help pages
-]
 
+* Republicans from the U.S. Congress questioned Cecile Richards, the president of Planned Parenthood, regarding the misappropriation of $500 million in annual federal funding. This graph/chart was presented as a point of emphasis.
+* Representative Jason Chaffetz of Utah explained: “In pink, that’s the reduction in the breast exams, and the red is the increase in the abortions. That’s what’s going on in your organization.”
+
+]
+      
 .pull-right[
-**How should I prepare?**
-* review lectures slides and lecture notes, especially on the above topics
-* review problem sets, especially those you found challenging
-* visit office hours or schedule a time to meet with me on Moodle
-* visit drop-in tutoring at Spinelli Center with specific topics you'd like help on
+![](img./Lec3_GraphicalIntegrity_1.png)
+
 ]
 
 ---
+      
+.pull-left[
 
-class: center, middle
-# What were some takeaways from class last Monday?
+![](img./Lec3_GraphicalIntegrity_1.png)
+      
+]
+      
+.pull-right[
 
----
+![](img./Lec3_GraphicalIntegrity_2.png)
 
-# For Today
-
-* review of Monday's reading
-* grammar of graphics
-* cartesian plots in ggplot
-* visualization context
-
----
-
-# Elements of data graphics
-
-* visual cues
-* coordinate system
-* scale
-* context
-
-> Framework drawn from: Yau, Nathan. 2013. *Data Points: Visualization That Means Something*. 1st edition. Indianapolis, IN: Wiley.
-
----
-
-# Visual Cues
-
-Depending on the plots we design, the values in our dataset may be represented by combinations of the following visual cues:
-
-* Where is the data *positioned* on the plot?
-* What is the *length* of shapes on the plot?
-* How large is the *angle* between vectors?
-* In what *direction* are slopes on the plot?
-* What *symbols* appear on the plot?
-* How much *area* do shapes take up on a plot?
-* How intense is the *color* presented on the plot?
+]
 
 ---
 
