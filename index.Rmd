@@ -1394,7 +1394,7 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ### 2. Lecture
 
-* Class slides: Graphical Integrity
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec3-GraphicalIntegrity.html"> Class slides: Graphical Integrity
 
 ### 3. In-class exercise
 
