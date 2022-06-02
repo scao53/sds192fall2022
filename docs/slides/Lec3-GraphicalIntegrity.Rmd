@@ -91,35 +91,19 @@ sds::mono_light_smith()
 
 ---
 
-.pull-left[
-      
 * <a href="https://qz.com/122921/the-chart-tim-cook-doesnt-want-you-to-see/">A misleading chart from Apple </a>
-
-]
-
-.pull-right[
       
 ![](img./Lec3_iphone-sales.png)
 
-]
-
 ---
 
-.pull-left[
-      
 * Say the following piecharts represent results of an election poll at time points: A = September, B = October, and C = November. At each time point we present the proportion of the poll respondents who say they will support one of 5 candidates: 1 through 5.
 * Based on these 3 piecharts, answer the following questions:
   * At time point A, is candidate 5 doing better than candidate 4?
   * Did candidate 3 do better at time point B or time point C?
   * Who gained more support between time point A and time point B, candidate 2 or candidate 4?
       
-]
-
-.pull-right[
-      
 ![](img./Lec3_piecharts.png)
-
-]
 
 ---
 
@@ -127,20 +111,54 @@ sds::mono_light_smith()
 
 ---
 
-.pull-left[
-      
 * <a href="https://infovis-wiki.net/wiki/Lie_Factor">The lie factor </a>
   * Often not very clearly defined.
   * Easy to lie by manipulating scales.
   * Why perspective?
   * Width of lines?
-
-]
-
-.pull-right[
       
 ![](img./Lec3_Lie_factor_example1_image.png)
 
-]
-
 ---
+
+# Principle 5
+
+* The number of information-carrying (variable) dimensions depicted should not exceed the number of dimensions in the data.
+
+.pull-left[
+      
+&lt;img src="img./Lec3_3D_confusing_in_bar_graph.svg.png" width="250" /&gt; 
+By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Smallman12q&quot; title=&quot;User:Smallman12q&quot;&gt;Smallman12q&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=20349111">Link</a>
+
+]
+      
+.pull-right[
+      
+&lt;img src="img./Lec3_3D_bar_graph.svg.png" width="250" /&gt; 
+By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Smallman12q&quot; title=&quot;User:Smallman12q&quot;&gt;Smallman12q&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" title="Creative Commons Zero, Public Domain Dedication">CC0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=20377685">Link</a>
+
+]
+      
+---
+      
+# Principle 6
+      
+&lt;img src="img./Lec3_GraphicalIntegrity_4.png" width="600" /&gt;
+      
+---
+
+![](img./Lec3_GraphicalIntegrity_5.png)
+      
+---
+
+![](img./Lec3_GraphicalIntegrity_6.png)
+      
+---
+      
+# Recap Principles of Graphical Integrity
+
+* Show ***data variation***, not design variation.
+* Clear, detailed, and thorough ***labeling*** and ***appropriate scales***.
+* Size of the ***graphic effect*** should be ***directly proportional to the numerical quantities***.
+* Be mindful of ***context*** when designing data graphics.
+* ***Don't*** use pie charts and 3D charts.
