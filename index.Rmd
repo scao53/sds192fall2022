@@ -1365,7 +1365,7 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ### 2. Lecture
 
-* Class slides: Frequency Plots
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec4-FrequencyPlots.html"> Class slides: Frequency Plots
 
 ### 3. In-class exercise
 
