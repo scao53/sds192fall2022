@@ -92,7 +92,7 @@ class: center, middle
 # Histogram
 
 .pull-left[
-1. Create bins for numbers, each with the same range of values [i.e. 10-20, &gt;20-30, &gt;30-40, and so on].
+1. Create bins for numbers, each with the same range of values [i.e. 10-20, 20-30, 30-40, and so on].
 2. Count the numbers in each bin.
 3. Set the height of a bar for that bin to the count. 
 ]
@@ -170,8 +170,8 @@ library(spotifyr)
 
 1. Log-in to Spotify.com or create an account.
 2. Go to <a href="https://developer.spotify.com/dashboard">https://developer.spotify.com/dashboard </a>
-3. Create an app named "SDS 192 Lec 04 In-class Exercise". You can indicate that this is "for frequency plots"
-4. Click "SHOW CLIENT SECRET"
+3. Create an app named "SDS 192 Lec 04 In-class Exercise". You can indicate that this is "for frequency plots".
+4. Click "SHOW CLIENT SECRET".
 5. Copy client id and secret below, and then run the code chunk.
 
 ```{r}
@@ -189,7 +189,7 @@ access_token <- get_spotify_access_token()
 * Replace the text FILL FAVORITE ARTIST NAME HERE below with the name of your favorite artist and then run the code chunk. 
 
 ```{r}
-artist <- get_artist_audio_features(artist = "FILL FAVORITE ARTIST NAME HERE") %>%
+artist <- get_artist_audio_features(artist = "FILL FAVORITE ARTIST NAME HERE") |>
   select(-c(album_images, artists, available_markets))
 ```
 
@@ -265,6 +265,7 @@ ggplot(artist, aes(x = key_mode, fill = album_name)) +
        fill = "Album Name") +
   scale_fill_brewer(palette = "Dark2")
 ```
+&gt; How might I compare this across Janelle Monáe's albums?
 ]
 .pull-right[
 ![](img./Lec4_exercise4.png)&lt;!-- --&gt;
