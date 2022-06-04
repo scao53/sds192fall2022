@@ -1,5 +1,5 @@
 ---
-title: "Lec 04: Frequency Plots"
+title: "Lec 04: Frequency Plots and Facets"
 subtitle: "SDS 192: Introduction to Data Science"
 author: |
   Shiya Cao<br/>
@@ -229,6 +229,27 @@ ggplot(artist, aes(x = danceability)) +
 ```
 
 ![](img./Lec4_exercise2.png)&lt;!-- --&gt;
+]
+
+---
+
+# Faceting a Histogram
+
+.pull-left[
+```r
+ggplot(artist, aes(x = danceability)) +
+  geom_histogram(binwidth = 0.1, color = "white") +
+  labs(title = "Distribution of Danceability of Songs by Janelle Monáe, Spotify, 2022", 
+       x = "Danceability", 
+       y = "Count of Songs") +
+  facet_wrap(vars(album_name))
+```
+
+&gt; What do we learn from this plot?
+
+]
+.pull-right[
+![](img./Lec4_facets.png)&lt;!-- --&gt;
 ]
 
 ---
