@@ -1337,7 +1337,7 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ### 2. Lecture
 
-* Class slides: Boxplots and Facets
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec5-Boxplots.html"> Class slides: Boxplots and Facets
 
 ### 3. In-class exercise
 
