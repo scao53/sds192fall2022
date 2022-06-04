@@ -34,7 +34,7 @@ class: center, middle
 # Levels of Measurement
 
 .pull-left[
-* A categorical variable (a.k.a. qualitative variable) is a variable that can take on one of a limited, and usually fixed, number of possible values.
+* A ***categorical*** variable (a.k.a. qualitative variable) is a variable that can take on one of a limited, and usually fixed, number of possible values.
   * Nominal variable
   * Ordinal variable
 ]
@@ -48,7 +48,7 @@ class: center, middle
 # Levels of Measurement
       
 .pull-left[
-* A continuous variable (a.k.a. quantitative variable, numerical variable) is a variable that can take on any value on the measurement scale that we are using.
+* A ***numerical*** variable (a.k.a. quantitative variable, continuous variable) is a variable that can take on any value on the measurement scale that we are using.
   * Interval variable
   * Ratio variable
 ]
@@ -59,33 +59,30 @@ class: center, middle
 
 ---
       
-# Histogram
+# Histograms
 
 .pull-left[
-* Visualizes *distribution* of a **numeric** variable
+* Visualizes *distribution* of a ***numerical*** variable
   * What are maximum and minimum values?
   * How spread out are the values?
-  * What is the center of the values. 
+  * What is the "center" or "most typical" value?
+  * What are frequent and infrequent values?
 ]
 .pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;![](Day10-Frequency_files/figure-html/unnamed-chunk-1-2.png)&lt;!-- --&gt;
+![](img./Lec4_temp-on-line-1.png)&lt;!-- --&gt;![](img./Lec4_histogramexample-1.png)&lt;!-- --&gt;
 ]
 
 ---
 
-# Histogram
+# Histograms
 
 .pull-left[
-1. Create bins for numbers, each with the same range of values [i.e. 0-10, &gt;10-20, &gt;20-30, and so on]
-  * Converts the linear scale to a categorical scale
-2. Count the numbers in each bin
-3. Set the height of a bar for that bin to the count 
-
-&gt; How does this compare to the `cut()` function we learned in last week's lab?
-
+1. Create bins for numbers, each with the same range of values [i.e. 10-20, &gt;20-30, &gt;30-40, and so on].
+2. Count the numbers in each bin.
+3. Set the height of a bar for that bin to the count. 
 ]
 .pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;![](Day10-Frequency_files/figure-html/unnamed-chunk-2-2.png)&lt;!-- --&gt;
+![](img./Lec4_histogramexample-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -93,18 +90,13 @@ class: center, middle
 # Barplots
 
 .pull-left[
-* Visualizes *counts* of a **categorical** variable
+* Visualizes *counts* of a ***categorical*** variable
   * Which value appears the most?
-  * Which appears the least?
+  * Which value appears the least?
   * How evenly distributed are the counts?
 ]
 .pull-right[
-
-```
-##  [1] "a" "b" "c" "a" "c" "a" "a" "b" "c" "a" "b" "c"
-```
-
-![](Day10-Frequency_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+![](img./Lec4_flightsbar-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -112,53 +104,81 @@ class: center, middle
 # Barplots
 
 .pull-left[
-1. Determine the unique values and places them on the x-axis
-2. Count the number of times each value appears
-3. Set the height of a bar for that category to the count 
+1. Determine the unique values and places them on the x-axis.
+2. Count the number of times each value appears.
+3. Set the height of a bar for that category to the count. 
 ]
 .pull-right[
+![](img./Lec4_flightsbar-1.png)&lt;!-- --&gt;
+]
 
-```
-##  [1] "a" "b" "c" "a" "c" "a" "a" "b" "c" "a" "b" "c"
-```
+---
 
-![](Day10-Frequency_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+# Barplots
+
+.pull-left[
+* Is *not* pre-counted in your data frame, we use `geom_bar()`.
+* Is pre-counted in your data frame, we use `geom_col()` with the y-position aesthetic mapped to the variable that has the counts.
+]
+.pull-right[
+![](img./Lec4_geombar-1.png)&lt;!-- --&gt;![](img./Lec4_geomcol-2.png)&lt;!-- --&gt;
 ]
 
 ---
 
 # Today's Dataset
 
-* Spotify has an Application Programming Interface (API) that allows us to access data about music on the platform
-* We can access data about specific songs, playlists, and artists
-* Today we are going to access data about the tracks for a few different artists
-* Variables include things like acousticness, danceability, and speechiness, album information, and key
+* Spotify has an Application Programming Interface (API) that allows us to access data about music on the platform.
+* We can access data about specific songs, playlists, and artists.
+* Today we are going to access data about the tracks for a few different artists.
+* Variables include things such as acousticness, danceability, and speechiness, album information, and key.
 
 ---
 
-# Data Ethics Questions
+# Step 1: Install and Load Packages
 
-1. What assumptions and commitments informed the design of this dataset? 
-2. Who has had a say in data collection and analysis regarding this dataset? Who has been excluded?
-3. What are the benefits and harms of this dataset, and how are they distributed amongst diverse social groups? 
+* In your console install the Spotify R package:
 
----
+`install.packages("spotifyr")`
 
-# Data Import
+* Then load the packages for this in-class exercise by running the code below. 
 
-Today, for lecture, I'm going to ask that you just follow along. You will have an opportunity to practice this in today's lab. 
-
-
-
-
-```r
-artist &lt;- get_artist_audio_features(artist = "Janelle Monae") %&gt;%
-  select(-c(album_images, artists, available_markets))
+```{r}
+#Load packates
+library(tidyverse)
+library(spotifyr)
 ```
 
 ---
+      
+# Step 2: Create an Spotify Developer Account
 
-# Distribution of Danceability
+1. Log-in to Spotify.com or create an account.
+2. Go to <a href="https://developer.spotify.com/dashboard">https://developer.spotify.com/dashboard </a>
+3. Create an app named "SDS 192 Lec 04 In-class Exercise". You can indicate that this is "for frequency plots"
+4. Click "SHOW CLIENT SECRET"
+5. Copy client id and secret below, and then run the code chunk.
+
+```{r}
+id <- 'COPY_ID_HERE'
+secret <- 'COPY_SECRET_HERE'
+Sys.setenv(SPOTIFY_CLIENT_ID = id)
+Sys.setenv(SPOTIFY_CLIENT_SECRET = secret)
+access_token <- get_spotify_access_token()
+```
+
+---
+                
+# Step 3: Get Song Features for Your Favorite Artist
+
+* Replace the text FILL FAVORITE ARTIST NAME HERE below with the name of your favorite artist and then run the code chunk. 
+
+```{r}
+artist <- get_artist_audio_features(artist = "FILL FAVORITE ARTIST NAME HERE") %>%
+  select(-c(album_images, artists, available_markets))
+```
+
+# Step 4: Create a Histogram Visualizing the Distribution of Values in a Song Feature of Your Choice
 
 .pull-left[
 
@@ -172,18 +192,12 @@ ggplot(artist, aes(x = danceability)) +
 ]
 .pull-right[
 
-```
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-```
-
-![](Day10-Frequency_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+![](img./Lec4_exercise1.png)&lt;!-- --&gt;
 ]
-
-
 
 ---
 
-# Distribution of Danceability
+# Adjusting the Bins
 
 .pull-left[
 * Binwidth indicates the width of the buckets we'd like to categorize our data into.
@@ -197,80 +211,12 @@ ggplot(artist, aes(x = danceability)) +
   geom_histogram(binwidth = 0.1, color = "white")
 ```
 
-![](Day10-Frequency_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+![](img./Lec4_exercise2.png)&lt;!-- --&gt;
 ]
 
 ---
 
-# Labels for this plot
-
-.pull-left[
-
-```r
-ggplot(artist, aes(x = danceability)) +
-  geom_histogram(binwidth = 0.1, color = "white") +
-  labs(title = "Distribution of Danceability of Songs by Janelle Monáe, Spotify, 2022", 
-       x = "Danceability", 
-       y = "Count of Songs")
-```
-
-&gt; How would we describe this distribution?
-
-]
-.pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
-]
-
-
-
----
-
-# Acousticness
-
-.pull-left[
-
-```r
-ggplot(artist, aes(x = acousticness)) +
-  geom_histogram(binwidth = 0.1, color = "white") +
-  labs(title = "Distribution of Acousticness of Songs by Janelle Monáe, Spotify, 2022", 
-       x = "Acousticness", 
-       y = "Count of Songs")
-```
-
-&gt; How would we describe this distribution?
-&gt; How would I compare this across Janelle Monáe's albums?
-
-]
-.pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
-]
-
----
-
-# Faceting a Histogram
-
-.pull-left[
-
-```r
-ggplot(artist, aes(x = danceability)) +
-  geom_histogram(binwidth = 0.1, color = "white") +
-  labs(title = "Distribution of Danceability of Songs by Janelle Monáe, Spotify, 2022", 
-       x = "Danceability", 
-       y = "Count of Songs") +
-  facet_wrap(vars(album_name))
-```
-
-&gt; What do we learn from this plot?
-
-]
-.pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
-]
-
-
----
-
-# Frequency of Key Modes
+# Step 5: Create a Stacked, Dodged, or Filled Barplot Visualizing the Frequency of Songs in Each Album and Key Mode for This Artist
 
 .pull-left[
 
@@ -281,34 +227,12 @@ ggplot(artist, aes(x = key_mode)) +
 ```
 ]
 .pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+![](img./Lec4_exercise3.png)&lt;!-- --&gt;
 ]
 
 ---
 
-# Labels for this plot
-
-.pull-left[
-
-```r
-ggplot(artist, aes(x = key_mode)) +
-  geom_bar() +
-  coord_flip() +
-  labs(title = "Frequency of Key Modes in Songs by Janelle Monáe", 
-       x = "Key Mode", 
-       y = "Count of Songs")
-```
-
-&gt; How might I compare this across Janelle Monáe's albums?
-
-]
-.pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-19-1.png)&lt;!-- --&gt;
-]
-
----
-
-# Stacked Bar Plots
+# Stacked Barplots
 
 &gt; Note `fill = ` gets used for polygons, and `col = ` gets used for points and lines. 
 
@@ -318,28 +242,23 @@ ggplot(artist, aes(x = key_mode)) +
 ggplot(artist, aes(x = key_mode, fill = album_name)) +
   geom_bar() +
   coord_flip() +
-  labs(title = "Frequency of Key Modes in Songs by Janelle Monáe", 
+  labs(title = "Frequency of Key Modes in Songs by Janelle Monae", 
        x = "Key Mode", 
        y = "Count of Songs", 
        fill = "Album Name") +
   scale_fill_brewer(palette = "Dark2")
 ```
-
-&gt; How might I compare this across Janelle Monáe's albums?
-Sys.getenv()
 ]
 .pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+![](img./Lec4_exercise4.png)&lt;!-- --&gt;
 ]
-
-
 
 ---
 
 # Dodging 
 
-&gt; Note `fill = ` gets used for polygons, and `col = ` gets used for points and lines. 
-
+&gt; Setting the position to "dodge".
+      
 .pull-left[
 
 ```r
@@ -354,7 +273,7 @@ ggplot(artist, aes(x = key_name, fill = album_name)) +
 ```
 ]
 .pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+![](img./Lec4_exercise5.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -377,15 +296,8 @@ ggplot(artist, aes(x = key_name, fill = album_name)) +
 ```
 ]
 .pull-right[
-![](Day10-Frequency_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+![](img./Lec4_exercise6.png)&lt;!-- --&gt;
 ]
-
----
-
-# For Wednesday
-
-* Quiz 1
-* No reading
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
