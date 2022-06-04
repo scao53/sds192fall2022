@@ -23,28 +23,35 @@ class: center, middle, inverse, title-slide
 
 # Today's Learning Goals
 
-* Understand measures of central tendency and variability
+* Understand measures of central tendency and variability.
+* Be able to interpret boxplots.
 * Create boxplots using ggplot2.
 * Create facets using ggplot2.
 
 ---
 
 class: center, middle
-# A measure of central tendency is a single numeric quantity describing data by identifying a central position.
+# A descriptive statistic is a summary statistic that quantitatively describes or summarizes features from a collection of information.
 
 ---
 
+# Measures of Central Tendency
+
+* Mean
+* Median
+ 
+---
+      
 # Mean
 
 .pull-left[
-* Sum of values divided by number of values summed
-* Takes every value into consideration
-* Model of entire dataset
-* Heavily influenced by outliers
+* Sum of values divided by number of values summed.
+* Takes every value into consideration.
+* Heavily influenced by outliers.
 
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+![](img./Lec5_mean.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -52,64 +59,69 @@ class: center, middle
 # Median
 
 .pull-left[
-* Middle value(s) of the dataset when all values are lined from smallest to largest
-* Does not model entire dataset
-* Limited influence from outliers 
+* Middle value(s) of the dataset when all values are lined from smallest to largest.
+* Limited influence from outliers. 
 
 
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;![](Day11-Boxplots_files/figure-html/unnamed-chunk-3-2.png)&lt;!-- --&gt;
+![](img./Lec5_median.png)&lt;!-- --&gt;
 ]
 
 ---
 
-# Normal Distributions
+# Normal Distribution
 
 .pull-left[
-* More values huddle around some center line and taper off as we move away from center
-* Histogram is symmetrical with a perfectly normal distribution
-* Median and mean should be about the same; mean is a good measure of central tendency
+* More values huddle around some center line and taper off as we move away from center.
+* Histogram is symmetrical with a perfectly normal distribution.
+* Median and mean should be about the same; mean should be a good measure of central tendency.
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+![](img./Lec5_normalDistrbution.png)&lt;!-- --&gt;
 ]
-
-&gt; Why aren't the medians and means aligned here? Any guess what those songs to the right are?
 
 ---
 
 # Skew
 
 .pull-left[
-* Histogram is non-symmetrical when there is skew
-* Long trail to the right of center indicates a *right skew* 
-* Median becomes more representative measure of central tendency than mean
+* Histogram is non-symmetrical when there is skew.
+* Long trail to the right of center indicates a *right skew*. 
+* Median becomes more representative measure of central tendency than mean.
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+![](img./Lec5_skew.png)&lt;!-- --&gt;
 ]
 
 ---
 
-# Summarizing Data
+# Ethical Implications
 
-* Measures of central tendency summarize swaths of information into single value
-* Can be reductionist
-  * Example: Measures of central tendency related to wealth in the US only tell us about those in the middle
-  * Hide the experiences of the most impoverished communities. 
-* Degree of spread or *dispersion* is just as important as center
-
+.pull-left[
+&gt; The administration pointed out that 92 million Americans would receive an average tax reduction of over $1,000. Would most of people be getting a tax cut of around $1,000?
+]
+.pull-right[
+![](img./Lec5_Relationship_between_mean_and_median_under_different_skewness.png)&lt;!-- --&gt;
+By Diva Jain - &lt;a rel=&quot;nofollow&quot; class=&quot;external free&quot; href=&quot;https://codeburst.io/2-important-statistics-terms-you-need-to-know-in-data-science-skewness-and-kurtosis-388fef94eeaa&quot;&gt;https://codeburst.io/2-important-statistics-terms-you-need-to-know-in-data-science-skewness-and-kurtosis-388fef94eeaa&lt;/a&gt;, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=84219892">Link</a>
+]
 ---
 
+# Measures of Variability
+
+* Range
+* Interquartile Range (IQR) 
+ 
+---
+      
 # Range
 
 .pull-left[
-* Maximum value minus the minimum value
-* Evaluates the spread of the entire dataset
+* Maximum value minus the minimum value.
+* Evaluates the spread of the entire dataset.
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;![](Day11-Boxplots_files/figure-html/unnamed-chunk-6-2.png)&lt;!-- --&gt;
+![](img./Lec5_range.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -117,45 +129,45 @@ class: center, middle
 # Interquartile Range (IQR)
 
 .pull-left[
-* 1st quartile is middle value between minimum and median
-  * Splits the data into 1st and 2nd 25%
-* 3rd quartile is middle value between median and maximum
-  * Splits the data into 3rd and 4th 25%
-* IQR is the difference between the 1st and 3rd quartile
-* Represents the middle 50% of values
+* 1st quartile is middle value between minimum and median.
+  * Splits the data into 1st and 2nd 25%.
+* 3rd quartile is middle value between median and maximum.
+  * Splits the data into 3rd and 4th 25%.
+* IQR is the difference between the 1st and 3rd quartile.
+* Represents the middle 50% of values.
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;![](Day11-Boxplots_files/figure-html/unnamed-chunk-7-2.png)&lt;!-- --&gt;
+![](img./Lec5_IQR.png)&lt;!-- --&gt;
 ]
 
 ---
 
-# Boxplot
+# Boxplots
 
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+![](img./Lec5_boxplot.png)&lt;!-- --&gt;
 
 ---
 
 # Grouped Boxplots
 
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+![](img./Lec5_groupedBoxplot.png)&lt;!-- --&gt;
 
 ---
 
-# Interpreting Boxplots Step 1: Check for outliers
+# Interpreting Boxplots Step 1: Check for Outliers
 
 .pull-left[
 
-&gt; How many are there? What do they indicate? Do you assume they are errors in teh data? Or do they represent extremes that are important for us to take into consideration? 
+&gt; How many are there? What do they indicate? Do you assume they are errors in the data? Or do they represent extremes that are important for us to take into consideration? 
 
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+![](img./Lec5_groupedBoxplot.png)&lt;!-- --&gt;
 ]
 
 ---
 
-# Interpreting Boxplots Step 2: Compare medians
+# Interpreting Boxplots Step 2: Compare Medians
 
 .pull-left[
 
@@ -163,12 +175,12 @@ class: center, middle
 
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](img./Lec5_groupedBoxplot.png)&lt;!-- --&gt;
 ]
 
 ---
 
-# Interpreting Boxplots Step 3: Compare the range
+# Interpreting Boxplots Step 3: Compare the Range
 
 .pull-left[
 
@@ -177,7 +189,7 @@ class: center, middle
 ]
 .pull-right[
 
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+![](img./Lec5_groupedBoxplot.png)&lt;!-- --&gt;
 ]
 ---
 
@@ -189,12 +201,12 @@ class: center, middle
 
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](img./Lec5_groupedBoxplot.png)&lt;!-- --&gt;
 ]
 
 ---
 
-# Interpreting Boxplots Step 5: Compare the symmetry
+# Interpreting Boxplots Step 5: Compare the Symmetry
 
 .pull-left[
 
@@ -202,7 +214,7 @@ class: center, middle
 
 ]
 .pull-right[
-![](Day11-Boxplots_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](img./Lec5_groupedBoxplot.png)&lt;!-- --&gt;
 ]
 
 
