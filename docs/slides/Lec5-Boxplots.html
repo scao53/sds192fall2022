@@ -179,7 +179,7 @@ By Diva Jain - &lt;a rel=&quot;nofollow&quot; class=&quot;external free&quot; hr
 
 ---
 
-# Interpreting Boxplots Step 3: Compare the Range
+# Interpreting Boxplots Step 3: Compare the Ranges
 
 .pull-left[
 
@@ -192,7 +192,7 @@ By Diva Jain - &lt;a rel=&quot;nofollow&quot; class=&quot;external free&quot; hr
 ]
 ---
 
-# Interpreting Boxplots Step 4: Compare the IQR
+# Interpreting Boxplots Step 4: Compare the IQRs
 
 .pull-left[
 
@@ -216,6 +216,60 @@ By Diva Jain - &lt;a rel=&quot;nofollow&quot; class=&quot;external free&quot; hr
 ![](img./Lec5_groupedBoxplot.png)&lt;!-- --&gt;
 ]
 
+---
+      
+# In-class Exercise
+
+* Still use the Spotify data as we did in the previous lecture.
+
+---
+
+# Step 1: Load packages
+
+```{r}
+#Load packates
+library(tidyverse)
+library(spotifyr)
+```
+
+# Step 2: Create an Spotify Developer Account
+
+* Copy client id and secret from your previous in-class exercise into the chunk below, and then run the code chunk.
+
+```{r}
+id <- 'COPY_ID_HERE'
+secret <- 'COPY_SECRET_HERE'
+Sys.setenv(SPOTIFY_CLIENT_ID = id)
+Sys.setenv(SPOTIFY_CLIENT_SECRET = secret)
+access_token <- get_spotify_access_token()
+```
+
+# Step 3: Get Song Features for Your Favorite Artist
+
+Replace the text FILL FAVORITE ARTIST NAME HERE below with the name of your favorite artist and then run the code chunk. 
+
+```{r}
+artist <- get_artist_audio_features(artist = "FILL FAVORITE ARTIST NAME HERE") %>%
+  select(-c(album_images, artists, available_markets))
+```
+
+# Step 4: Create Grouped Boxplots Visualizing the Distribution of Values in a Song Feature of Your Choice, Grouped by Album Name
+
+> Refer to the [`ggplot()` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf) to find the geom function you need to create this plot. 
+Be sure to add labels to your plot. 
+
+```{r}
+# Fill plot here. 
+```
+
+# Step 5: Interpret Results
+
+Turn to a neighbor and discuss the plots. 
+* Check for outliers.
+* Compare medians. 
+* Compare the ranges.
+* Compare the IQRs.
+* Compare the symmetry. 
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
