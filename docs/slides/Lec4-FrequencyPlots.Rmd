@@ -38,6 +38,7 @@ sds::mono_light_smith()
 
 * Create histograms using ggplot2.
 * Create barplots using ggplot2.
+* Create facets using ggplot2.
 
 ---
 
@@ -139,6 +140,18 @@ class: center, middle
 ![](img./Lec4_geombar-1.png)&lt;!-- --&gt;![](img./Lec4_geomcol-2.png)&lt;!-- --&gt;
 ]
 
+---
+
+# Facets (Small Multiples and Layers)
+
+.pull-left[
+* Split a visualization by the values of another variable.
+]
+
+.pull-right[
+![](img./Lec4_histogramexample-1.png)&lt;!-- --&gt;
+]
+      
 ---
 
 # Today's Dataset
