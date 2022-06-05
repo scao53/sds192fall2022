@@ -542,7 +542,7 @@ ggplot(artist, aes(x = album_name, y = duration_ms)) +
 # Step 1: Load packages
 
 ```{r}
-#Load packates
+#Load packages
 library(tidyverse)
 library(spotifyr)
 ```
