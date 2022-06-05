@@ -172,7 +172,7 @@ class: center, middle
 * Then load the packages for this in-class exercise by running the code below. 
 
 ```{r}
-#Load packates
+#Load packages
 library(tidyverse)
 library(spotifyr)
 ```
@@ -246,7 +246,7 @@ ggplot(artist, aes(x = danceability)) +
 
 ---
 
-# Faceting a Histogram
+# Step 5: Facet Your Previous Plot by Album Name
 
 .pull-left[
 ```r
@@ -267,7 +267,7 @@ ggplot(artist, aes(x = danceability)) +
 
 ---
 
-# Step 5: Create a Stacked, Dodged, or Filled Barplot Visualizing the Frequency of Songs in Each Album and Key Mode for This Artist
+# Step 6: Create a Stacked, Dodged, or Filled Barplot Visualizing the Frequency of Songs in Each Album and Key Mode for This Artist
 
 .pull-left[
 
