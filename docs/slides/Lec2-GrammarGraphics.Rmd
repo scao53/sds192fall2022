@@ -134,7 +134,7 @@ hampshire_census_data &lt;- pioneer_valley_census_data %&gt;%
 ```r
 ggplot(data = hampshire_census_data, 
        aes(x = COMMUNITY, 
-           y = CEN_EARLYED))
+           y = CEN_WORKERS))
 ```
 
 &lt;img src="img./Lec2_ggplot_1.png" width="720" /&gt;
@@ -159,8 +159,8 @@ ggplot(data = hampshire_census_data,
 ```r
 ggplot(data = hampshire_census_data, 
        aes(x = COMMUNITY, 
-           y = CEN_EARLYED)) +
-  geom_col() +
+           y = CEN_WORKERS)) +
+  geom_point() +
   coord_flip() # Flipping the x and y coordinates here makes the labels more legible.
 ```
 
@@ -184,12 +184,12 @@ ggplot(data = hampshire_census_data,
 ```r
 ggplot(data = hampshire_census_data, 
        aes(x = COMMUNITY, 
-           y = CEN_EARLYED)) +
-  geom_col() +
-  coord_flip()  + # Flipping the x and y coordinates here makes the labels more legible.
-  labs(title = "Hampshire County Early Education Enrollment Rates, 2018", 
-       x = "Enrollment Rate for 3-4 yr old", 
-       y = "Municipality in Hampshire County, MA")
+           y = CEN_WORKERS)) +
+  geom_point() +
+  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible.
+  labs(title = "Number of Workers Age 16+ in Hampshire County MA, 2018", 
+       x = "COMMUNITY", 
+       y = "WORKERS AGE 16+")
 ```
 
 &lt;img src="img./Lec2_ggplot_3.png" width="720" /&gt;
@@ -205,12 +205,12 @@ ggplot(data = hampshire_census_data,
       
 ```r
 # Adjusting the Scale
-ggplot(data = pioneer_valley_census_data, 
-       aes(x = COUNTY,y = CEN_WORKERS)) +
+ggplot(data = hampshire_census_data, 
+       aes(x = COMMUNITY,y = CEN_WORKERS)) +
   geom_point() +
-  coord_flip() +
+  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible.
   scale_y_log10() +
-  labs(title = "Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018", x = "County", y = "Workers Age 16+")
+  labs(title = "Number of Workers Age 16+ in Hampshire County MA, 2018", x = "COMMUNITY", y = "WORKERS AGE 16+")
 ```
 
 &lt;img src="img./Lec2_ggplot_4.png" width="720" /&gt;
@@ -228,10 +228,10 @@ ggplot(data = pioneer_valley_census_data,
 ggplot(data = pioneer_valley_census_data, 
        aes(x = COUNTY,y = CEN_WORKERS)) +
   geom_point() +
-  facet_wrap(~COUNTY) + # Faceting
-  coord_flip() +
+  facet_wrap(~CEN_EARLYED,nrow=2) + # Faceting
+  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible.
   scale_y_log10() +
-  labs(title = "Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018", x = "County", y = "Workers Age 16+")
+  labs(title = "Number of Workers Age 16+ in Pioneer Valley, MA Municipalities, 2018", x = "COUNTY", y = "WORKERS AGE 16+")
 ```
 
 &lt;img src="img./Lec2_ggplot_5.png" width="600" /&gt;
