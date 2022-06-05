@@ -36,6 +36,7 @@ sds::mono_light_smith()
 # Today's Learning Goals
 
 * Understand Tufte's principles of graphical integrity.
+* Address overplotting using ggplot2.
 * Create linegraphs using ggplot2.
 
 ---
