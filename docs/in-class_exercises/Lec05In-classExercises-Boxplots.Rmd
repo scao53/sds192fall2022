@@ -1,12 +1,17 @@
+
 ---
 title: "Lec 05: In-class Exercise: Boxplots"
-subtitle: "SDS 192: Introduction to Data Science"
-author: |
-   Shiya Cao
-output: pdf_document
+author: "WRITE YOUR NAME HERE"
+output:
+  pdf_document
 ---
 
-# Step 1: Load packages
+```{r, include=FALSE}
+# Do not edit this code block/chunk
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2)
+```
+
+# Step 1: Load Packages
 
 ```{r}
 #Load packages
@@ -54,6 +59,6 @@ Turn to a neighbor and discuss the plots.
 * Compare the IQRs.
 * Compare the symmetry. 
 
-> Call us over if you are having trouble interpreting!
+> Call us over if you are having trouble coding and interpreting!
 
 
