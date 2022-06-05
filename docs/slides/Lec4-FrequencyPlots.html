@@ -157,7 +157,7 @@ class: center, middle
 * Then load the packages for this in-class exercise by running the code below. 
 
 ```{r}
-#Load packates
+#Load packages
 library(tidyverse)
 library(spotifyr)
 ```
@@ -168,9 +168,9 @@ library(spotifyr)
 
 1. Log-in to Spotify.com or create an account.
 2. Go to <a href="https://developer.spotify.com/dashboard">https://developer.spotify.com/dashboard </a>
-3. Create an app named "SDS 192 Lec 04 In-class Exercise". You can indicate that this is "for frequency plots".
+3. Create an app named "SDS 192 Lec 04 In-class Exercise". You can indicate that this is "for frequency plots and facets".
 4. Click "SHOW CLIENT SECRET".
-5. Copy client id and secret below, and then run the code chunk.
+5. Copy client id and secret into the chunk below, and then run the code chunk.
 
 ```{r}
 id <- 'COPY_ID_HERE'
@@ -231,7 +231,7 @@ ggplot(artist, aes(x = danceability)) +
 
 ---
 
-# Faceting a Histogram
+# Step 5: Facet Your Previous Plot by Album Name
 
 .pull-left[
 ```r
@@ -252,7 +252,7 @@ ggplot(artist, aes(x = danceability)) +
 
 ---
 
-# Step 5: Create a Stacked, Dodged, or Filled Barplot Visualizing the Frequency of Songs in Each Album and Key Mode for This Artist
+# Step 6: Create a Stacked, Dodged, or Filled Barplot Visualizing the Frequency of Songs in Each Album and Key Mode for This Artist
 
 .pull-left[
 
