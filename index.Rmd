@@ -1341,7 +1341,7 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ### 3. In-class exercise
 
-* Create boxplots using ggplot2.
+* <a href="https://scao53.github.io/sds192fall2022/in-class_exercises/Lec05In-classExercises-Boxplots.pdf"> Create boxplots using ggplot2.
 
 
 
