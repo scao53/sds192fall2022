@@ -47,18 +47,12 @@ Refer to the [`ggplot()` cheatsheet](https://github.com/rstudio/cheatsheets/blob
 Be sure to add labels to your plot. 
 
 ```{r}
-# Fill your code here. 
+# Write your code below.
+
 ```
 
 # Step 5: Interpret Results
 
-Turn to a neighbor and discuss the plots. 
-* Check for outliers.
-* Compare medians. 
-* Compare the ranges.
-* Compare the IQRs.
-* Compare the symmetry. 
+Turn to a neighbor and discuss the plots: (1) Check for outliers; (2) Compare medians; (3) Compare the ranges; (4) Compare the IQRs; (5) Compare the symmetry. 
 
 > Call us over if you are having trouble coding and interpreting!
-
-

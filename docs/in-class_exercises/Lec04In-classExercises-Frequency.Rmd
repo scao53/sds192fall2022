@@ -1,10 +1,15 @@
+
 ---
 title: "Lec 04: In-class Exercise: Frequency Plots and Facets"
-subtitle: "SDS 192: Introduction to Data Science"
-author: |
-   Shiya Cao
-output: pdf_document
+author: "WRITE YOUR NAME HERE"
+output:
+  pdf_document
 ---
+
+```{r, include=FALSE}
+# Do not edit this code block/chunk
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2)
+```
 
 # Today's Dataset
 
@@ -57,7 +62,8 @@ artist <- get_artist_audio_features(artist = "Janelle Monae") |>
 Be sure to add labels to your plot. 
 
 ```{r}
-# Fill your code here. 
+# Write your code below. 
+
 ```
 
 # Step 5: Facet Your Previous Plot by Album Name
@@ -65,21 +71,19 @@ Be sure to add labels to your plot.
 Be sure to add labels to your plot. 
 
 ```{r}
-# Fill your code here. 
+# Write your code below. 
+
 ```
 
-Turn to a neighbor and discuss the plots. 
-* What do the distributions indicate?
-* What do you learn when comparing distributions across albums?
+Turn to a neighbor and discuss the plots: What do the distributions indicate? What do you learn when comparing distributions across albums?
 
 # Step 6: Create a Stacked, Dodged, or Filled Barplot Visualizing the Frequency of Songs in Each Album and Key Mode for This Artist
 
 Be sure to add labels to your plot. 
 
 ```{r}
-# Fill your code here. 
+# Write your code below. 
+
 ```
 
-Turn to a neighbor and discuss the plots. 
-* What do the frequencies indicate?
-* What do you learn when comparing frequencies across albums?
+Turn to a neighbor and discuss the plots: What do the frequencies indicate? What do you learn when comparing frequencies across albums?
