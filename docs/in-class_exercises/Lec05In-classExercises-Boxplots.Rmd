@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE, fig.width = 1
 # Step 1: Load Packages
 
 ```{r}
-#Load packages
+# Load packages
 library(tidyverse)
 library(spotifyr)
 ```
@@ -47,7 +47,7 @@ Refer to the [`ggplot()` cheatsheet](https://github.com/rstudio/cheatsheets/blob
 Be sure to add labels to your plot. 
 
 ```{r}
-# Write your code below.
+# Write your code below
 
 ```
 

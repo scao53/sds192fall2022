@@ -27,7 +27,7 @@ In your console install the Spotify R package:
 Then load the packages for this lab by running the code below. 
 
 ```{r}
-#Load packages
+# Load packages
 library(tidyverse)
 library(spotifyr)
 ```
@@ -62,7 +62,7 @@ artist <- get_artist_audio_features(artist = "Janelle Monae") |>
 Be sure to add labels to your plot. 
 
 ```{r}
-# Write your code below. 
+# Write your code below 
 
 ```
 
@@ -71,7 +71,7 @@ Be sure to add labels to your plot.
 Be sure to add labels to your plot. 
 
 ```{r}
-# Write your code below. 
+# Write your code below 
 
 ```
 
@@ -82,7 +82,7 @@ Turn to a neighbor and discuss the plots: What do the distributions indicate? Wh
 Be sure to add labels to your plot. 
 
 ```{r}
-# Write your code below. 
+# Write your code below
 
 ```
 
