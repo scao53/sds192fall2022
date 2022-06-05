@@ -1341,7 +1341,7 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ### 3. In-class exercise
 
-* <a href="https://scao53.github.io/sds192fall2022/in-class_exercises/Lec05In-classExercises-Boxplots.Rmd" target="_blank"/> Create boxplots using ggplot2</a>
+* <a href="in-class_exercises/Lec05In-classExercises-Boxplots.Rmd" download>Create boxplots using ggplot2 </a>
 
 
 
@@ -1368,7 +1368,7 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ### 3. In-class exercise
 
-* Create frequency plots and facets using ggplot2.
+* <a href="in-class_exercises/Lec04In-classExercises-Frequency.Rmd" download>Create frequency plots and facets using ggplot2 </a>
 
 ***
 
