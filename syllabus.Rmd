@@ -30,16 +30,16 @@ h1{font-weight: 400;}
 
 # Basic information {#basicinfo}
 
-* **Course title:** SDS 192 Introduction to Data Science
-* **Instructor:** Shiya Cao - Assistant Professor of Statistical & Data Sciences
-* **Office location:** 
+* **Course title**: SDS 192 Introduction to Data Science
+* **Instructor**: Shiya Cao - Assistant Professor of Statistical & Data Sciences
+* **Office location**: 
 * **~~Email:~~ Slack team**: Click hashtag icon in navbar for the browser interface or use the [desktop/mobile app](https://slack.com/downloads/){target="_blank"}.
-* **Meeting locations/times:** MWF 10:50 AM - 12:05 PM / Sabin-Reed 220
+* **Meeting locations/times**: MWF 10:50 AM - 12:05 PM / Sabin-Reed 220
 * **Getting help**:
-    + For non personal/sensitive questions, ask on the `#questions` channel on Slack. For personal/sensitive matters, Slack DM me.
+    + For non personal/sensitive questions, ask on the `#sds-192-questions` channel on Slack. For personal/sensitive matters, Slack DM me.
     + Spinelli Center [SDS drop-in tutoring hours](https://www.smith.edu/qlc/tutoring.html?colStats=open#PanelStats.){target="_blank"}. In Sabin-Reed 301
         + Sunday through Thursday 7-9pm
-    + Office hours:
+    + **Office hours**:
         + Before coming to office hours, please have your question ready on your computer. 
         + During in-person office hours, you can work in the nearby SDS student lounge in McConnell 209. During virtual office hours, you can stay with your screen off and work or listen to other student's questions. 
         + If the regularly scheduled times do not work for you, please Slack DM me.
@@ -65,13 +65,12 @@ Ask yourself:
 
 * **When I have questions or don't understand something:**
     + *"Am I asking questions in class?"*
-    + *"Am I asking questions on Slack in the `#questions` channel?"* Even better: *"Am I answering my peers' questions on Slack?"*
+    + *"Am I asking questions on Slack in the `#sds-192-questions` channel?"* Even better: *"Am I answering my peers' questions on Slack?"*
     + *"Having I been going to the Spinelli tutoring center for help on R and the tidyverse?"*
     + *"Have I been coming to office hours?"*
 * **Lectures and readings:**
     + *"Am I staying on top Slack notifications sent between lectures?"* If you need help developing a notification strategy that best suits your lifestyle, please speak to me. 
     + *"Am I attending lectures consistently?"*
-    + *"During in-class activities, am I actually running code line-by-line and studying the outputs, or am I just going through the motions?"*
     + *"During in-class exercises, am I taking full advantage that I'm in the same place at the same time with the instructor, the lab assistants, and most importantly your peers, or am I browsing the web/texting the whole time?"*
     + *"Have I been doing the associated readings for each lecture?"*
 
@@ -141,7 +140,9 @@ There will be three mini-projects with particular themes. You'll do these mini-p
 
 * Mini-project 1 5%: Data visualization
 * Mini-project 2 10%: Data wrangling
-* Mini-project 3 15%: Maps
+* Mini-project 3 15%: Mapping
+
+**Late Assignments**: I understand that you will sometimes need to prioritize other things over meeting assignment deadlines (e.g., your health, wellness, families, communities, jobs, and other coursework). My late policy attempts to balance flexibility with accountability. There is a 24-hour grace period on all mini-project assignments. There will be no penalties for submitting the mini-project within this 24-hour period, and you do not need to inform me that you intend to take the extra time. You can also request up to a 72-hour extension on any mini-project assignment, as long as you make that request at least 48 hours before the original assignment due date. Please note that because the mini-project assignments are collaborative, communicate in your group about the intended late submission first.
 
 
 ## Final project 20%
@@ -153,15 +154,7 @@ As for whether you should be on Smith campus during exam week, this is for you a
 
 ## Problem sets 10%
 
-There will be 7 problem sets, with only the top 5 scores going towards your grade. ~~Since the lowest two grades will be dropped, no extensions to problem sets will be given.~~ 
-
-**Extension Requests (Added 10/27)**:
-
-* You have an extension "budget" of a maximum of 5 days for the rest of the semester; it's up to you to keep track of your budget
-* Request must be made before due date/time.
-* [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSeCrhqs-iTD5qPcf4FfcFNHE_rwMuaeF37yQuwusRsP9xHJ_Q/viewform){target="_blank"}
-
-
+There will be 7 problem sets, with only the top 5 scores going towards your grade. Since the lowest two grades will be dropped, no extensions to problem sets will be given.
 
 
 ## Engagement 5% {#engagement}
@@ -230,6 +223,24 @@ Getting help is a smart and courageous thing to do -- for yourself and for those
 ***
 
 
+
+# Group Dynamics {#groupdynamics}
+Working in a group can be challenging at times. Sometimes groups may struggle a little, and sometimes they may struggle a lot. I hope that we can foster a collaborative and caring environment in this classroom.
+
+## Care for each other
+
+* If your groupmate (and any other classmate) helps you out on an assignment, says something brilliant that solidifies the material for you, or just listens when you&#39;ve had a bad day, give them a shout-out on our <code>#sds-192-appreciation</code> Slack channel. 
+* Check-in with colleagues before starting collaborative work. &ldquo;What three words describe how you&#39;re feeling?&rdquo; &ldquo;Name one challenge and one success from this week.&rdquo; &ldquo;What are you doing for self-care right now?&rdquo; Thank each other for sharing where they&#39;re at.
+* Cheer on colleagues as they give presentations or try something out for the first time.</li>
+* Ask questions often in our <code>#sds-192-questions</code> channel. Help each other out by answering questions when you can. 
+
+I also suggest that your group defines roles in the group. Your group will function better when everyone has a clear understanding of their roles and responsibilities.
+
+## Define roles
+
+* No one should have a role that doesn’t involve writing R (or SQL) code. Learning how to write code is an essential part of this course, so if you aren’t doing that, you won’t be able to achieve the learning goals of the course.
+* Groups should be non-hierarchical. Leaders may emerge naturally and that is great, but no one in the group is the boss. Decisions should be made as a group.
+* Leaving someone out—regardless of the reasons—exemplifies poor leadership. If a group member is struggling to keep up, help them. If a group member is not carrying their weight, talk to them. Ignoring interpersonal conflicts will not make them go away. The goal of working in groups in this class is to equip you with skills to collaborate effectively and equitably in groups throughout your careers.
 
 # Code of Conduct {#codeofconduct}
 
