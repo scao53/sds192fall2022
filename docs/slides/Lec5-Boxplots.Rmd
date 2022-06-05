@@ -448,8 +448,7 @@ ggplot(artist, aes(x = album_name, y = duration_ms)) +
 
 ---
 
-# Interpreting Boxplots Step 1: 
-# Check for outliers
+# Interpreting Boxplots Step 1: Check for outliers
 
 .pull-left[
 
