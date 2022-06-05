@@ -1,0 +1,59 @@
+---
+title: "Lec 05: In-class Exercise: Boxplots"
+subtitle: "SDS 192: Introduction to Data Science"
+author: |
+   Shiya Cao
+output: pdf_document
+---
+
+# Step 1: Load packages
+
+```{r}
+#Load packages
+library(tidyverse)
+library(spotifyr)
+```
+
+# Step 2: Create an Spotify Developer Account
+
+Copy client id and secret from your previous in-class exercise into the chunk below to replace the current client id and secret, and then run the code chunk.
+
+```{r}
+id <- 'c283abfcc1c94026a6075358ab4ecfbe'
+secret <- '3ee9ec4cd1cf433a8d3be549212f2a67'
+Sys.setenv(SPOTIFY_CLIENT_ID = id)
+Sys.setenv(SPOTIFY_CLIENT_SECRET = secret)
+access_token <- get_spotify_access_token()
+```
+
+# Step 3: Get Song Features for Your Favorite Artist
+
+Replace the text Janelle Monae below with the name of your favorite artist and then run the code chunk. 
+
+```{r}
+artist <- get_artist_audio_features(artist = "Janelle Monae") |>
+  select(-c(album_images, artists, available_markets))
+```
+
+# Step 4: Create Grouped Boxplots Visualizing the Distribution of Values in a Song Feature of Your Choice, Grouped by Album Name
+
+Refer to the [`ggplot()` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf) to find the geom function you need to create this plot. 
+
+Be sure to add labels to your plot. 
+
+```{r}
+# Fill your code here. 
+```
+
+# Step 5: Interpret Results
+
+Turn to a neighbor and discuss the plots. 
+* Check for outliers.
+* Compare medians. 
+* Compare the ranges.
+* Compare the IQRs.
+* Compare the symmetry. 
+
+> Call us over if you are having trouble interpreting!
+
+

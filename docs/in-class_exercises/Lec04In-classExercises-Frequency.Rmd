@@ -1,0 +1,85 @@
+---
+title: "Lec 04: In-class Exercise: Frequency Plots and Facets"
+subtitle: "SDS 192: Introduction to Data Science"
+author: |
+   Shiya Cao
+output: pdf_document
+---
+
+# Today's Dataset
+
+1. Spotify has an Application Programming Interface (API) that allows us to access data about music on the platform.
+2. We can access data about specific songs, playlists, and artists.
+3. Today we are going to access data about the tracks for a few different artists.
+4. Variables include things such as acousticness, danceability, and speechiness, album information, and key.
+
+# Step 1: Install and Load Packages
+
+In your console install the Spotify R package:
+
+`install.packages("spotifyr")`
+
+Then load the packages for this lab by running the code below. 
+
+```{r}
+#Load packages
+library(tidyverse)
+library(spotifyr)
+```
+
+# Step 2: Create an Spotify Developer Account
+
+1. Log-in to Spotify.com or create an account.
+2. Go to [https://developer.spotify.com/dashboard](https://developer.spotify.com/dashboard)
+3. Create an app named "SDS 192 Lec 04 In-class Exercise". You can indicate that this is "for frequency plots and facets".
+4. Click "SHOW CLIENT SECRET".
+5. Copy client id and secret into the chunk below to replace the current client id and secret, and then run the code chunk.
+
+```{r}
+id <- 'c283abfcc1c94026a6075358ab4ecfbe'
+secret <- '3ee9ec4cd1cf433a8d3be549212f2a67'
+Sys.setenv(SPOTIFY_CLIENT_ID = id)
+Sys.setenv(SPOTIFY_CLIENT_SECRET = secret)
+access_token <- get_spotify_access_token()
+```
+
+# Step 3: Get Song Features for Your Favorite Artist
+
+Replace the text Janelle Monae below with the name of your favorite artist and then run the code chunk. 
+
+```{r}
+artist <- get_artist_audio_features(artist = "Janelle Monae") |>
+  select(-c(album_images, artists, available_markets))
+```
+
+# Step 4: Create a Histogram Visualizing the Distribution of Values in a Song Feature of Your Choice
+
+Be sure to add labels to your plot. 
+
+```{r}
+# Fill your code here. 
+```
+
+# Step 5: Facet Your Previous Plot by Album Name
+
+Be sure to add labels to your plot. 
+
+```{r}
+# Fill your code here. 
+```
+
+Turn to a neighbor and discuss the plots. 
+* What do the distributions indicate?
+* What do you learn when comparing distributions across albums?
+
+# Step 6: Create a Stacked, Dodged, or Filled Barplot Visualizing the Frequency of Songs in Each Album and Key Mode for This Artist
+
+Be sure to add labels to your plot. 
+
+```{r}
+# Fill your code here. 
+```
+
+Turn to a neighbor and discuss the plots. 
+* What do the frequencies indicate?
+* What do you learn when comparing frequencies across albums?
