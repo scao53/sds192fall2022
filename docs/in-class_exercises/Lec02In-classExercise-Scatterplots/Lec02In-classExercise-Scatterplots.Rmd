@@ -1,1 +1,64 @@
 
+---
+title: "Lec 02: In-class Exercise: Scatterplots"
+author: "WRITE YOUR NAME HERE"
+output:
+  pdf_document
+---
+
+```{r, include=FALSE}
+# Do not edit this code block/chunk
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2)
+```
+
+# Today's Dataset
+
+This dataset comes from [Pioneer Valley Data](https://pioneervalleydata.org/data-download-page/) and documents estimates of population characteristics for each municipality in the Pioneer Valley.
+
+# Step 1: Load Packages
+
+```{r}
+# Load the ggplot library
+
+```
+
+# Step 2: Read the Data
+
+```{r}
+pioneer_valley_2013 <- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/sds-192-labs/main/Day7-GrammarGraphics/datasets/pioneer_valley_census_2013.csv", skip = 2)
+pioneer_valley_2013_dictionary <- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/sds-192-labs/main/Day7-GrammarGraphics/datasets/pioneer_valley_census_2013_dictionary.csv")
+```
+
+# Step 3: View the Data
+
+```{r}
+# Write your code below to check the column names for pioneer_valley_2013 
+
+```
+
+# Step 4: Recreate This Image Using the `ggplot()` Function
+
+![](img/plot1.png)
+
+```{r, fig.height=5, fig.width=10}
+# Write your code below
+
+```
+
+# Step 5: Recreate This Image Using the `ggplot()` Function
+
+![](img/plot3.png)
+
+> Hint: We need the function scale_y_continuous(), and the labels argument needs to be set to `scales::percent`. Check the help pages for this function to see how to format this!
+
+```{r, fig.height=5, fig.width=8}
+# Write your code below
+
+```
+
+Discussion: Which of the following does each point on this plot indicate?
+
+(1) A person
+(2) A municipality
+(3) A commute
+(4) A county
