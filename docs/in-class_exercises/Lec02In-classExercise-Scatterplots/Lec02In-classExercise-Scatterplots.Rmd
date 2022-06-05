@@ -36,7 +36,9 @@ pioneer_valley_2013_dictionary <- read.csv("https://raw.githubusercontent.com/SD
 
 ```
 
-# Step 4: Recreate This Image Using the `ggplot()` Function
+# Step 4: Recreate This Image Using the `ggplot()` Function 
+
+(Full size image in your downloaded folder/img folder.)
 
 ![](img/plot1.png)
 
@@ -46,6 +48,8 @@ pioneer_valley_2013_dictionary <- read.csv("https://raw.githubusercontent.com/SD
 ```
 
 # Step 5: Recreate This Image Using the `ggplot()` Function
+
+(Full size image in your downloaded folder/img folder.)
 
 ![](img/plot3.png)
 
