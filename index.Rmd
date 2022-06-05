@@ -1389,6 +1389,7 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 * Recap of previous lecture
 * Grammar of Graphics
 * 5NG1: Scatterplots
+* Overplotting and two approaches for addressing it
 
 ### 2. Lecture
 
@@ -1396,7 +1397,7 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 
 ### 3. In-class exercise
 
-* Create linegraphs using ggplot2.
+* <a href="in-class_exercises/Lec03In-classExercise-Linegraphs.zip" download>Create linegraphs using ggplot2</a>.
  
 
 
