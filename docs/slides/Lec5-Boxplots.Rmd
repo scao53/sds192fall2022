@@ -531,6 +531,37 @@ ggplot(artist, aes(x = album_name, y = duration_ms)) +
 ```
 ]
 
+---
+
+# In-class Exercise
+
+* Still use the Spotify data as we did in the previous lecture.
+
+---
+
+# Step 1: Load packages
+
+```{r}
+#Load packates
+library(tidyverse)
+library(spotifyr)
+```
+
+---
+      
+# Step 2: Create an Spotify Developer Account
+
+* Copy client id and secret from your previous in-class exercise into the chunk below, and then run the code chunk.
+
+```{r}
+id <- 'COPY_ID_HERE'
+secret <- 'COPY_SECRET_HERE'
+Sys.setenv(SPOTIFY_CLIENT_ID = id)
+Sys.setenv(SPOTIFY_CLIENT_SECRET = secret)
+access_token <- get_spotify_access_token()
+```
+
+---
 
 # Step 3: Get Song Features for Your Favorite Artist
 
