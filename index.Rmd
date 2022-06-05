@@ -1424,8 +1424,7 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
  
 ### 3. In-class exercise
   
-* Understand basic functions of ggplot2.
-* Create scatterplots using ggplot2.
+* <a href="in-class_exercises/Lec02In-classExercises-Scatterplots.Rmd" download>Create scatterplots using ggplot2</a>
 
 ***
 
