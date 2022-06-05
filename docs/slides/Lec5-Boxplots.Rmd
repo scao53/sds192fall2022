@@ -448,7 +448,7 @@ ggplot(artist, aes(x = album_name, y = duration_ms)) +
 
 ---
 
-# Interpreting Boxplots Step 1: Check for outliers
+# Interpreting Boxplots Step 1: Check for Outliers
 
 .pull-left[
 
@@ -465,7 +465,7 @@ ggplot(artist, aes(x = album_name, y = duration_ms)) +
 
 ---
 
-# Interpreting Boxplots Step 2: Compare medians
+# Interpreting Boxplots Step 2: Compare Medians
 
 .pull-left[
 
@@ -482,7 +482,7 @@ ggplot(artist, aes(x = album_name, y = duration_ms)) +
 
 ---
 
-# Interpreting Boxplots Step 3: Compare the ranges
+# Interpreting Boxplots Step 3: Compare the Ranges
 
 .pull-left[
 
@@ -516,7 +516,7 @@ ggplot(artist, aes(x = album_name, y = duration_ms)) +
 
 ---
 
-# Interpreting Boxplots Step 5: Compare the symmetry
+# Interpreting Boxplots Step 5: Compare the Symmetry
 
 .pull-left[
 
@@ -539,7 +539,7 @@ ggplot(artist, aes(x = album_name, y = duration_ms)) +
 
 ---
 
-# Step 1: Load packages
+# Step 1: Load Packages
 
 ```{r}
 #Load packages
@@ -568,7 +568,7 @@ access_token <- get_spotify_access_token()
 * Replace the text FILL FAVORITE ARTIST NAME HERE below with the name of your favorite artist and then run the code chunk. 
 
 ```{r}
-artist <- get_artist_audio_features(artist = "FILL FAVORITE ARTIST NAME HERE") %>%
+artist <- get_artist_audio_features(artist = "FILL FAVORITE ARTIST NAME HERE") |>
   select(-c(album_images, artists, available_markets))
 ```
 
