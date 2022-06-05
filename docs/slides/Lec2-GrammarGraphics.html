@@ -101,7 +101,7 @@ library(ggplot2)
 ```r
 library(tidyverse)
 pioneer_valley_census_data &lt;- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/pioneer_valley_census.csv")
-hampshire_census_data &lt;- pioneer_valley_census_data %&gt;% 
+hampshire_census_data &lt;- pioneer_valley_census_data |> 
   filter(COUNTY == "Hampshire")
 ```
 
