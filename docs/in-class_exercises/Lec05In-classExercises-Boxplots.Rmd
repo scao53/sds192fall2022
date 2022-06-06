@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r, include=FALSE}
-# Do not edit this code block/chunk
+# Do not edit this code chunk
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2)
 ```
 
@@ -42,7 +42,7 @@ artist <- get_artist_audio_features(artist = "Janelle Monae") |>
 
 # Step 4: Create Grouped Boxplots Visualizing the Distribution of Values in a Song Feature of Your Choice, Grouped by Album Name
 
-Refer to the [`ggplot()` cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf) to find the geom function you need to create this plot. 
+Refer to the [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf) to find the geom function you need to create this plot. 
 
 Be sure to add labels to your plot. 
 
@@ -53,6 +53,6 @@ Be sure to add labels to your plot.
 
 # Step 5: Interpret Results
 
-Turn to a neighbor and discuss the plots: (1) Check for outliers; (2) Compare medians; (3) Compare the ranges; (4) Compare the IQRs; (5) Compare the symmetry. 
+**Discussion**: (1) Check for outliers; (2) Compare medians; (3) Compare the ranges; (4) Compare the IQRs; (5) Compare the symmetry. 
 
-> Call us over if you are having trouble coding and interpreting!
+**Answer**:
