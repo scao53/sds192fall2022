@@ -923,16 +923,12 @@ include_graphics("static/images/ASM.png")
     + What are `.zip` files? Special note for Windows users
     + Computer file hygiene: Delete files you don't need anymore
 * Intro to data wrangling
-    + Pipe operator `%>%` pronounced "then"
+    + Pipe operator `|>` pronounced "then"
     + `filter()` rows that meet a certain criteria
 
 
 
 ### 2. In-class exercise
-
-* Go over ModernDive reading in schedule above
-
-
 
 ***
 
@@ -944,11 +940,10 @@ include_graphics("static/images/ASM.png")
 
 * Midterm:
     + No talking about it until after 5pm today please; there is one or more students who need to take it.
-    + Why student ID and not name? For anonymized grading.
-* Update to office hours on syllabus 
+    + Why student ID and not name? For anonymized grading. 
 * MP1:
     + Lecture schedule for Wed, Fri, and Wed after break
-    + Post questions about MP1 in `#mp1` on Slack
+    + Post questions about MP1 in `#sds-192-mp1` on Slack
 * Discussion on managing group dynamics:
     + Life happens. If it does and it will affect you work, at the very least communicate and give your partner a heads up (text, Slack, etc.)
     + What to do when issues arise? 
@@ -1008,7 +1003,6 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 ### 2. In-class exercise
 
 * Copy the example code above to your `classnotes.Rmd` and go over the code
-* Optional: Go over ModernDive reading in schedule above (this topic is covered in SDS 201/220 intro stats)
 * Work on MP1
 
 
@@ -1026,9 +1020,9 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 * Open Slack at the start of **every** lecture
     + Check for DM's
-    + Check `#midterms` channel
+    + Check `#sds-192-midterms` channel
 * In order to not disadvantage students who take the midterm earlier
-    + I won't be answering any Slack `#midterms` after 3pm today
+    + I won't be answering any Slack `#sds-192-midterms` after 3pm today
     + I've instructed the Friday Spinelli tutor not to answer questions about the midterm
 
 
@@ -1036,22 +1030,6 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 ## Today's topics/activities
 
 ### 1. Chalk talk
-
-* Go over practice Midterm I. Boxplot for question 3.c):
-    ```{r, echo = FALSE}
-    prices <- c(-11, 12, 15, 20, 20, 
-                30, 30, 30, 30, 40, 
-                40, 40, 40, 41, 51)
-    tibble(prices = prices) %>% 
-      ggplot(aes(x = "", y = prices)) +
-      geom_boxplot() +
-      coord_flip() +
-      labs(x = "", y = "Book price in $")
-    ```
-
-
-
-
 
 ### 2. In-class exercise
 
@@ -1068,7 +1046,6 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 ## Announcements
 
 * Sit next to your MP1 partner; your partner was posted in the `#mp1` channel on Sunday 5pm.
-* If have an Office of Disability Services accommodations letter and you haven't already, please Slack DM it to me. 
 * [Midterm I](midterms.html#midtermI) info posted
 * [Mini-Project 1](projects.html#MP1) info posted
 
@@ -1108,12 +1085,10 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 ## Announcements
 
-* On Slack `#general`: new SDS student lounge in McConnell 209
-* Additional resource: Prof. Ben Baumer's book [Modern Data Science with R](https://mdsr-book.github.io/mdsr2e/){target="_blank"} used in his version of SDS 192.
 * Mini-project 1 (MP1) assigned on Monday
-    + Slack demo of how to subscribe to a `#channel`: Adding yourselves to the `#mp1` channel. Please ask all questions about MP1 there
+    + Slack demo of how to subscribe to a `#channel`: Adding yourselves to the `#sds-192-mp1` channel. Please ask all questions about MP1 there
     + You will be assigned groups for MP1, MP2, and MP3. You can choose your groups for the final project.
-    + By Sunday 5pm I will post the groups (of two) in the `#mp1` channel. Until `#mp1` is due, **you will sit next to your partner in class**.
+    + By Sunday 5pm I will post the groups (of two) in the `#sds-192-mp1` channel. Until `#sds-192-mp1` is due, **you will sit next to your partner in class**.
     + Please reach out to your partner with a Slack DM before Monday's lecture to coordinate meeting before lecture so you can sit next to each other.
 
 
@@ -1123,24 +1098,11 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 
     
-### 2. Exercise on pie charts vs barplots
-
-Say the following piecharts represent results of an election poll at time points: A = September, B = October, and C = November. At each time point we present the proportion of the poll respondents who say they will support one of 5 candidates: 1 through 5. 
-
-![](static/images/piecharts.png){ width=600px }
-
-Based on these 3 piecharts, answer the following questions:
-
-1. At time point A, is candidate 5 doing better than candidate 4?
-1. Did candidate 3 do better at time point B or time point C?
-1. Who gained more support between time point A and time point B, candidate 2 or candidate 4?
-
-Compare that to using barplots. Which do you prefer?
-
-![](static/images/barplots.png){ width=600px }
+<!--### 2. Exercise on pie charts vs barplots-->
 
 
-### 3. In-class exercise
+
+### 2. In-class exercise
 
 
 
@@ -1167,14 +1129,6 @@ Compare that to using barplots. Which do you prefer?
 ### 1. Chalk talk
 
 * Searching the internet effectively: a critical data science tool
-* Wrapping-up boxplots:
-    + For a side-by-side boxplot, the x variable has to be categorical
-    + Summary statistics that are robust to outliers: median and IQR
-    + Why 1.5 x IQR?
-* Barplots
-    + `geom_bar()` when counts are not pre-computed i.e. listed individually
-    + `geom_col()` when counts are pre-computed and saved in a variable
-
 
 ### 2. In-class exercise
 
@@ -1218,55 +1172,6 @@ Compare that to using barplots. Which do you prefer?
 ### 1. Chalk talk
 
 * Recap of 5NG
-* Boxplots! Powerful, but tricky!
-
-
-```{r, eval=TRUE, echo=FALSE}
-library(ggplot2)
-library(dplyr)
-example <- tibble(
-  values = c(1, 3, 5, 6, 7, 8, 9, 12, 13, 14, 15, 30)
-)
-```
-
-Say we want to study the distribution of the following `r nrow(example)` values which are pre-sorted: 
-
-> `r example %>% pull(values)`
-
-They have the following *summary statistics*. A summary statistic is a single numerical value *summarizing* many values. Examples include the immediately obvious mean AKA average and median. Other less immediately obvious examples include:
-
-* Quartiles (1st, 2nd, and 3rd) that cut up the data into 4 parts, each containing roughly one quarter = 25% of the data
-* Minimum & maximum
-* Interquartile-range (IQR): the distance between the 3rd and 1st quartiles
-
-Min. | 1st Quartile | Median = 2nd Quartile  | 3rd Quartile  |  Max. | IQR
----- | ------- | ------  |  ------- | --- | ---
-`r min(example$values)`  |  `r quantile(example$values, probs=0.25, type = 2)` |  `r median(example$values)`  |  `r quantile(example$values, probs=0.75, type=2)`  | `r max(example$values)` | 8 = 13.5 - 5.5
-
-
-Let's compare the points and the corresponding boxplot side-by-side with the values on the $y$-axis matching:
-
-```{r, echo=FALSE, eval=TRUE}
-plot1 <- ggplot(example, aes(x=factor(1), y=values)) +
-  geom_point() +
-  labs(title = "Points") +
-  theme(
-    axis.title.x = element_blank(),
-    axis.text.x = element_blank(),
-    axis.ticks.x = element_blank()
-  )
-
-plot2 <- ggplot(example, aes(x=factor(1), y=values)) +
-  geom_boxplot() +
-  labs(title = "Boxplot") +
-  theme(
-    axis.title.x = element_blank(),
-    axis.text.x = element_blank(),
-    axis.ticks.x = element_blank()
-  )
-plot1 + plot2
-```
-
 * Color theory
     1. `color` vs `fill` aesthetics in `ggplot2`
     1. Selecting an appropriate color palette from [colorbrewer2.org](http://colorbrewer2.org/){target="_blank"}
