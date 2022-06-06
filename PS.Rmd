@@ -44,7 +44,7 @@ h1{font-weight: 400;}
 
 
 
-# Problem set 07 {#PS07}
+# Problem Set 07 {#PS07}
 
 *Due Monday 12/6 9pm*
 
@@ -134,7 +134,7 @@ How do I know if I've successfully completed the assignment?
 
 
 
-# Problem set 06 {#PS06}
+# Problem Set 06 {#PS06}
 
 *Due Monday 11/15 9pm*
 
@@ -161,7 +161,7 @@ Submission:
 
 
 
-# Problem set 05 {#PS05}
+# Problem Set 05 {#PS05}
 
 *Due Monday 10/25 9pm*
 
@@ -230,7 +230,7 @@ ggplot(example, aes(x = x, y = y)) +
 
 
 
-# Problem set 04 {#PS04}
+# Problem Set 04 {#PS04}
 
 *Due Monday 10/18 9pm*
 
@@ -261,7 +261,7 @@ ggplot(example, aes(x = x, y = y)) +
 
 
 
-# Problem set 03 {#PS03}
+# Problem Set 03 {#PS03}
 
 *Due Tuesday 9/28 9pm*
 
@@ -291,7 +291,7 @@ ggplot(example, aes(x = x, y = y)) +
 
 
 
-# Problem set 02 {#PS02}
+# Problem Set 02 {#PS02}
 
 *Due Monday 9/20 5pm*
 
@@ -320,7 +320,7 @@ ggplot(example, aes(x = x, y = y)) +
 
 
 
-# Problem set 01 {#PS01}
+# Problem Set 01 {#PS01}
 
 *Due Monday 9/13 5pm*
 
