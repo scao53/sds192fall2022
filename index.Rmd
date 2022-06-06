@@ -1386,9 +1386,8 @@ ggplot(flights, aes(x = carrier, fill = origin)) +
 ### 1. Chalk talk
 
 * Recap of previous lecture
-* Grammar of Graphics
-* 5NG1: Scatterplots
 * Overplotting and two approaches for addressing it
+* <a href="https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf"> Data visualization with ggplot2 cheatsheet</a>
 
 ### 2. Lecture
 
