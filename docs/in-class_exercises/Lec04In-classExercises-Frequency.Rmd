@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r, include=FALSE}
-# Do not edit this code block/chunk
+# Do not edit this code chunk
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2)
 ```
 
@@ -75,7 +75,9 @@ Be sure to add labels to your plot.
 
 ```
 
-Turn to a neighbor and discuss the plots: What do the distributions indicate? What do you learn when comparing distributions across albums?
+**Discussion**: What do the distributions indicate? What do you learn when comparing distributions across albums?
+
+**Answer**:
 
 # Step 6: Create a Stacked, Dodged, or Filled Barplot Visualizing the Frequency of Songs in Each Album and Key Mode for This Artist
 
@@ -86,4 +88,6 @@ Be sure to add labels to your plot.
 
 ```
 
-Turn to a neighbor and discuss the plots: What do the frequencies indicate? What do you learn when comparing frequencies across albums?
+**Discussion**: What do the frequencies indicate? What do you learn when comparing frequencies across albums?
+
+**Answer**:
