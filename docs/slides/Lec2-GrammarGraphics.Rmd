@@ -164,7 +164,86 @@ ggplot(data = hampshire_census_data,
   coord_flip() # Flipping the x and y coordinates here makes the labels more legible.
 ```
 
-&lt;img src="img./Lec2_ggplot_5.png" width="600" /&gt;
+&lt;img src="img./Lec2_ggplot_2.png" width="720" /&gt;
+
+---
+
+# Adding Context to Plots
+
+* What context should *always* be included on a plot?
+  * Unit of Observation
+  * Variables Represented
+  * Filters
+  * Geographic Scope
+  * Temporal Scope
+* We can add this context via titles and labels, using the `labs()` function. 
+
+---
+  
+
+```r
+ggplot(data = hampshire_census_data, 
+       aes(x = EDUCATT_COLLEGE, 
+           y = CEN_WORKERS)) +
+  geom_point() +
+  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible.
+  labs(title = "Number of Workers Age 16+ in Hampshire County MA, 2018",
+       subtitle = "Relationship with College Educational Attainment Rate", 
+       x = "COLLEGE EDUCATIONAL ATTAINMENT RATE", 
+       y = "WORKERS AGE 16+")
+```
+
+&lt;img src="img./Lec2_ggplot_3.png" width="500" /&gt;
+
+---
+
+# Adjusting the Scale
+
+* scale_*(): range of values, colors, etc.
+
+---
+  
+      
+```r
+# Adjusting the Scale
+ggplot(data = hampshire_census_data, 
+       aes(x = EDUCATT_COLLEGE, 
+           y = CEN_WORKERS)) +
+  geom_point() +
+  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible.
+  scale_y_log10() +
+  labs(title = "Number of Workers Age 16+ in Hampshire County MA, 2018",
+       subtitle = "Relationship with College Educational Attainment Rate", 
+       x = "COLLEGE EDUCATIONAL ATTAINMENT RATE", 
+       y = "WORKERS AGE 16+")
+```
+
+&lt;img src="img./Lec2_ggplot_4.png" width="450" /&gt;
+
+---
+
+# Facets (Small Multiples and Layers)
+
+* facet_wrap()
+
+---
+  
+      
+```r
+ggplot(data = pioneer_valley_census_data, 
+       aes(x = EDUCATT_COLLEGE, 
+           y = CEN_WORKERS)) +
+  geom_point() +
+  facet_wrap(~COUNTY) + # Faceting
+  coord_flip() + # Flipping the x and y coordinates here makes the labels more legible.
+  scale_y_log10() +
+  labs(title = "Number of Workers Age 16+ in Hampshire County MA, 2018",
+       subtitle = "Relationship with College Educational Attainment Rate", 
+       x = "COLLEGE EDUCATIONAL ATTAINMENT RATE", 
+       y = "WORKERS AGE 16+")
+```
+
+&lt;img src="img./Lec2_ggplot_5.png" width="450" /&gt;
 
 ---
       
