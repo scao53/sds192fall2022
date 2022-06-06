@@ -1366,16 +1366,13 @@ You can also use the keyboard shortcuts:
 </ul></li>
 <li>Intro to data wrangling
 <ul>
-<li>Pipe operator <code>%&gt;%</code> pronounced “then”</li>
+<li>Pipe operator <code>|></code> pronounced “then”</li>
 <li><code>filter()</code> rows that meet a certain criteria</li>
 </ul></li>
 </ul>
 </div>
 <div id="in-class-exercise-24" class="section level3">
 <h3>2. In-class exercise</h3>
-<ul>
-<li>Go over ModernDive reading in schedule above</li>
-</ul>
 <hr />
 </div>
 </div>
@@ -1390,7 +1387,6 @@ You can also use the keyboard shortcuts:
 <li>No talking about it until after 5pm today please; there is one or more students who need to take it.</li>
 <li>Why student ID and not name? For anonymized grading.</li>
 </ul></li>
-<li>Update to office hours on syllabus</li>
 <li>MP1:
 <ul>
 <li>Lecture schedule for Wed, Fri, and Wed after break</li>
@@ -1454,7 +1450,6 @@ You can also use the keyboard shortcuts:
 <h3>2. In-class exercise</h3>
 <ul>
 <li>Copy the example code above to your <code>classnotes.Rmd</code> and go over the code</li>
-<li>Optional: Go over ModernDive reading in schedule above (this topic is covered in SDS 201/220 intro stats)</li>
 <li>Work on MP1</li>
 </ul>
 <hr />
@@ -1469,11 +1464,11 @@ You can also use the keyboard shortcuts:
 <li>Open Slack at the start of <strong>every</strong> lecture
 <ul>
 <li>Check for DM’s</li>
-<li>Check <code>#midterms</code> channel</li>
+<li>Check <code>#sds-192-midterms</code> channel</li>
 </ul></li>
 <li>In order to not disadvantage students who take the midterm earlier
 <ul>
-<li>I won’t be answering any Slack <code>#midterms</code> after 3pm today</li>
+<li>I won’t be answering any Slack <code>#sds-192-midterms</code> after 3pm today</li>
 <li>I’ve instructed the Friday Spinelli tutor not to answer questions about the midterm</li>
 </ul></li>
 </ul>
@@ -1500,18 +1495,10 @@ You can also use the keyboard shortcuts:
 <div id="announcements-27" class="section level2">
 <h2>Announcements</h2>
 <ul>
-<li>Sit next to your MP1 partner; your partner was posted in the <code>#mp1</code> channel on Sunday 5pm.</li>
-<li>If have an Office of Disability Services accommodations letter and you haven’t already, please Slack DM it to me.</li>
+<li>Sit next to your MP1 partner; your partner was posted in the <code>#sds-192-mp1</code> channel on Sunday 5pm.</li>
 <li><a href="midterms.html#midtermI">Midterm I</a> info posted</li>
 <li><a href="projects.html#MP1">Mini-Project 1</a> info posted</li>
 </ul>
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">
-Our department is offering a pre-application review service (PARS) initiative to provide support and mentorship to PhD applicants from from historically marginalized groups. See details here: <a href="https://t.co/1g8lol4dRf">https://t.co/1g8lol4dRf</a> <a href="https://t.co/rHaMFHr5GF">pic.twitter.com/rHaMFHr5GF</a>
-</p>
-— UW Statistics (<span class="citation">@UWStat</span>) <a href="https://twitter.com/UWStat/status/1441591608709812227?ref_src=twsrc%5Etfw">September 25, 2021</a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </div>
 <div id="todays-topicsactivities-27" class="section level2">
 <h2>Today’s topics/activities</h2>
@@ -1563,20 +1550,9 @@ Our department is offering a pre-application review service (PARS) initiative to
 <h3>1. Chalk talk</h3>
 </div>
 <div id="exercise-on-pie-charts-vs-barplots" class="section level3">
-<h3>2. Exercise on pie charts vs barplots</h3>
-<p>Say the following piecharts represent results of an election poll at time points: A = September, B = October, and C = November. At each time point we present the proportion of the poll respondents who say they will support one of 5 candidates: 1 through 5.</p>
-<p><img src="static/images/piecharts.png" width="600" /></p>
-<p>Based on these 3 piecharts, answer the following questions:</p>
-<ol style="list-style-type: decimal">
-<li>At time point A, is candidate 5 doing better than candidate 4?</li>
-<li>Did candidate 3 do better at time point B or time point C?</li>
-<li>Who gained more support between time point A and time point B, candidate 2 or candidate 4?</li>
-</ol>
-<p>Compare that to using barplots. Which do you prefer?</p>
-<p><img src="static/images/barplots.png" width="600" /></p>
 </div>
 <div id="in-class-exercise-28" class="section level3">
-<h3>3. In-class exercise</h3>
+<h3>2. In-class exercise</h3>
 <hr />
 </div>
 </div>
@@ -1602,17 +1578,6 @@ Our department is offering a pre-application review service (PARS) initiative to
 <h3>1. Chalk talk</h3>
 <ul>
 <li>Searching the internet effectively: a critical data science tool</li>
-<li>Wrapping-up boxplots:
-<ul>
-<li>For a side-by-side boxplot, the x variable has to be categorical</li>
-<li>Summary statistics that are robust to outliers: median and IQR</li>
-<li>Why 1.5 x IQR?</li>
-</ul></li>
-<li>Barplots
-<ul>
-<li><code>geom_bar()</code> when counts are not pre-computed i.e. listed individually</li>
-<li><code>geom_col()</code> when counts are pre-computed and saved in a variable</li>
-</ul></li>
 </ul>
 </div>
 <div id="in-class-exercise-29" class="section level3">
@@ -1652,43 +1617,6 @@ Our department is offering a pre-application review service (PARS) initiative to
 <h3>1. Chalk talk</h3>
 <ul>
 <li>Recap of 5NG</li>
-<li>Boxplots! Powerful, but tricky!</li>
-</ul>
-<p>Say we want to study the distribution of the following 12 values which are pre-sorted:</p>
-<blockquote>
-<p>1, 3, 5, 6, 7, 8, 9, 12, 13, 14, 15, 30</p>
-</blockquote>
-<p>They have the following <em>summary statistics</em>. A summary statistic is a single numerical value <em>summarizing</em> many values. Examples include the immediately obvious mean AKA average and median. Other less immediately obvious examples include:</p>
-<ul>
-<li>Quartiles (1st, 2nd, and 3rd) that cut up the data into 4 parts, each containing roughly one quarter = 25% of the data</li>
-<li>Minimum &amp; maximum</li>
-<li>Interquartile-range (IQR): the distance between the 3rd and 1st quartiles</li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>Min.</th>
-<th>1st Quartile</th>
-<th>Median = 2nd Quartile</th>
-<th>3rd Quartile</th>
-<th>Max.</th>
-<th>IQR</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>5.5</td>
-<td>8.5</td>
-<td>13.5</td>
-<td>30</td>
-<td>8 = 13.5 - 5.5</td>
-</tr>
-</tbody>
-</table>
-<p>Let’s compare the points and the corresponding boxplot side-by-side with the values on the <span class="math inline">\(y\)</span>-axis matching:</p>
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" width="768" /></p>
-<ul>
 <li>Color theory
 <ol style="list-style-type: decimal">
 <li><code>color</code> vs <code>fill</code> aesthetics in <code>ggplot2</code></li>
