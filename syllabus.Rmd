@@ -28,7 +28,7 @@ h1{font-weight: 400;}
 </style>
 
 
-# Basic information {#basicinfo}
+# Basic Information {#basicinfo}
 
 * **Course title**: SDS 192 Introduction to Data Science
 * **Instructor**: Shiya Cao - Assistant Professor of Statistical & Data Sciences
@@ -59,7 +59,7 @@ h1{font-weight: 400;}
 
 
 
-# How can I succeed in this class?
+# How Can I Succeed in This Class?
 
 Ask yourself:
 
@@ -98,7 +98,7 @@ On top of the goals of the above description, this semester you will:
 
 
 
-# Lecture schedule {#topicschedule}
+# Lecture Schedule {#topicschedule}
 
 The lecture schedule and associated readings can be found on the [main page](index.html){target="_blank"} of this course webpage. The ModernDive textbook is accessible on the navigational bar of this webpage. 
 
@@ -142,7 +142,7 @@ There will be three mini-projects with particular themes. You'll do these mini-p
 * Mini-project 2 10%: Data wrangling
 * Mini-project 3 15%: Mapping
 
-**Late Assignments**: I understand that you will sometimes need to prioritize other things over meeting assignment deadlines (e.g., your health, wellness, families, communities, jobs, and other coursework). My late policy attempts to balance flexibility with accountability. There is a 24-hour grace period on all mini-project assignments. There will be no penalties for submitting the mini-project within this 24-hour period, and you do not need to inform me that you intend to take the extra time. You can also request up to a 72-hour extension on any mini-project assignment, as long as you make that request at least 48 hours before the original assignment due date. Please note that because the mini-project assignments are collaborative, communicate in your group about the intended late submission first.
+**Late assignments**: I understand that you will sometimes need to prioritize other things over meeting assignment deadlines (e.g., your health, wellness, families, communities, jobs, and other coursework). My late policy attempts to balance flexibility with accountability. There is a 24-hour grace period on all mini-project assignments. There will be no penalties for submitting the mini-project within this 24-hour period, and you do not need to inform me that you intend to take the extra time. You can also request up to a 72-hour extension on any mini-project assignment, as long as you make that request at least 48 hours before the original assignment due date. Please note that because the mini-project assignments are collaborative, communicate in your group about the intended late submission first.
 
 
 ## Final project 20%
