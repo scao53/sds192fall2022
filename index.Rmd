@@ -886,9 +886,6 @@ include_graphics("static/images/ASM.png")
 
 ## Announcements
 
-* You are responsible for completing the ModernDive readings for Lec13 on the `%>%` operator and `filter()` before Wednesday's lecture
-* A shorter PS04 will be assigned on Wednesday, due on Monday 10/18 9pm
-
 
 ## Today's topics/activities
 
@@ -898,7 +895,6 @@ include_graphics("static/images/ASM.png")
 
 ### 2. In-class exercise
 
-* Work on MP1
 
 
 
@@ -921,13 +917,11 @@ include_graphics("static/images/ASM.png")
     + How does R Markdown find the `.ics` file?
     + What are `.zip` files? Special note for Windows users
     + Computer file hygiene: Delete files you don't need anymore
-* Intro to data wrangling
-    + Pipe operator `|>` pronounced "then"
-    + `filter()` rows that meet a certain criteria
+
 
 ### 2. Lecture
 
-* <a href="https://scao53.github.io/sds192fall2022/slides/Lec13-DataFundamentals.html">Class slides: Data Fundamentals
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec13-DataFundamentals.html">Class slides: Data Fundamentals and Intro to Data Wrangling
 
 ### 3. In-class exercise
 
