@@ -225,7 +225,7 @@ hospitals |>
 ## 3       440235         TN             25
 ## 4        50523         CA            145
 ## 5        50305         CA            337
-## 6.       50043         CA            296
+## 6        50043         CA            296
 ```
 
 ---
@@ -279,7 +279,7 @@ hospitals |>
 
 # `select()`
 
-* `starts_with()` is a helper function that enables us to select columns by matching string patterns at the start of their names
+* `starts_with()` is a helper function that enables us to select columns by matching string patterns at the start of their names.
 
 
 ```r
@@ -302,7 +302,7 @@ hospitals |>
       
 # `select()`
 
-* `ends_with()` is a helper function that enables us to select columns by matching string patterns at the end of their names
+* `ends_with()` is a helper function that enables us to select columns by matching string patterns at the end of their names.
 
 
 ```r
