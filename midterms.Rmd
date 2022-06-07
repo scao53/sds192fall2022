@@ -68,12 +68,12 @@ h1{font-weight: 400;}
 ## Topics
     
 * Topics: Lectures 1-10 inclusive (up to and including color theory in-class exercises).
-* Join the `#midterms` channel on Slack and post all questions there
+* Join the `#sds-192-midterms` channel on Slack and post all questions there.
 * What to study:
-    + Lecture notes: both "chalk talk" and what's on webpage. 
+    + Lecture notes: both "chalk talk" and lecture slides. 
     + Problem sets and solutions.
-    + ModernDive readings and learning checks.
-    + Practice midterm posted on `#midterms` channel on Slack, which we'll go over on Friday.
+    + ModernDive readings and learning checks, MDSR readings.
+    + Practice midterm posted on `#sds-192-midterms` channel on Slack, which we'll go over on Friday.
     
 
 
