@@ -1,0 +1,283 @@
+---
+title: "Day Four: Data Fundamentals and Intro to RStudio Environment"
+subtitle: "SDS 192: Introduction to Data Science"
+author: |
+  Lindsay Poirier<br/>
+  <span style = 'font-size: 70%;'>
+  [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
+  </span>
+date: |
+  Spring 2022<br/>
+  `r sds::img_logo(width = 64)`
+output:
+  sds::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+# sds::duo_smith()
+sds::mono_light_smith()
+```
+
+class: center, middle
+# What were some takeaways from class last Wednesday?
+
+---
+
+# For Today
+
+* Types of Variables
+* Review R Basics
+* Identifying Rows, Columns, and Missing Values
+
+---
+
+# Functions
+
+* Think of functions like imperative sentences. 
+* Imagine I requested someone to "go", "stay", or "sleep."
+* Functions indicate to R that you want it to take an action. 
+* Function calls are typically immediately followed by open and closed parentheses. 
+* What were some functions referenced this week's reading?
+
+> Now imagine I requested someone to "close" or "bring."
+
+---
+
+# Arguments
+
+* Now imagine I requested someone to "close" or "bring"
+  * They're next questions might be "close what" or "bring what", and I might say back "close *the door*" or "bring *dessert*"
+* Arguments fill that second part of the sentence with a subject to perform an action on and additional information that may need to be considered when running the function.
+* Arguments are listed inside of the parentheses.
+* Some arguments are required. A function will not operate without them. Others are optional. 
+* What are some examples of argument parameters from this week's reading?
+
+---
+
+# Finding Help
+
+* When we want to learn more about a function, we can type `?FUNCTION_NAME` in to the Console. 
+* Type the function `round()` into the console. What happens? How can we interpret this error message?
+* Look up the help page for the function `round()`
+* What arguments are required for the function `round()`?
+* What arguments are optional for this function?
+* Add a code chunk to your notebook to round pi to 2 decimal points. 
+
+---
+
+# Assigning Variables
+
+* The `<-` symbol is used to assign a value to a variable. 
+* Variable names should be descriptive. Poor or confusing variables names include:
+  * `a` and `data1`: Be descriptive!
+  * `student.test.scores`: Avoid periods!
+  * `student test scores`: Use separator characters!
+  * `3rd_test`: Variables can't start with numbers!
+* I will ask you to write variable names in snake case in this course. In snake case, all letters are lowercase, and words are separated by the underscore (_) character. 
+* Convert the following variable name into something descriptive in snake case: `a <- round(pi, digits = 2)`. Run the code in your Console. How can we find this variable in RStudio once we run this code? 
+
+---
+
+class: center, middle
+# Other notes: R is case-sensitive! White space is your friend!
+
+---
+
+# Don't save your workspace!
+
+.pull-left[
+
+* The textbook provided you with some options for saving your RStudio workspace. We won't be doing this in this course. 
+* In fact, we are going to explicitly turn this off. In RStudio, click on Tools > Global Options, and then set the following. Click Apply and then OK. 
+* Why? Sometimes when we load data and code that we've previously run, it permits us to skip steps in our coding, which can cause issues down the road. If we start with a clean slate every time we open RStudio, it forces us to take better care of our code. 
+
+]
+
+.pull-right[
+```{r echo=FALSE, out.width=300}
+knitr::include_graphics("img/global_options.png")
+```
+
+]
+
+---
+
+# Vectors
+
+.pull-left[
+* A vector is a data object with several entries. 
+* We define a vector by listing these entries (separated by commas) in the function `c()`, which is shorthand for *combine*.
+* Let's create a vector representing the point values of this hand of cards. What is a good variable name for this vector. 
+* Next let's create a vector representing the colors of this hand of cards. Good variable name?
+* Let's create a vector representing the suits of this hand of cards. Good variable name?
+* How would I measure the length of this vector?
+]
+
+.pull-right[
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/AcetoFive.JPG/1920px-AcetoFive.JPG)
+By Ron Maijen - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=15300536
+]
+
+
+
+---
+
+# Uniqueness
+
+* We can use the function `unique()` to determine the distinct values in the vector.
+* Call `unique()` on the vector of playing card colors you created in the last slide. 
+
+```{r}
+playing_card_colors <- c("black", "red", "black", "red", "black")
+unique(playing_card_colors)
+```
+
+> Challenge: How would we write code to computationally determine the number of unique values in a vector?
+
+---
+
+# Class
+
+* Values in a vector will all be of the same class.
+* We can check the class of a vector by calling `class()` and passing the name of the vector as an argument. 
+* What were some data classes discussed in this week's reading?
+* What is the class of each of these vectors?
+  * `playing_card_values <- c(1, 2, 3, 4, 5)`
+  * `playing_card_colors <- c("black", "red", "black", "red", "black")`
+  * `playing_card_values <- c("1", "2", "3", "4", "5")`
+
+---
+
+# Types of Variables
+
+* Categorical Variables (Qualitative)
+  * Nominal Variables: Named or classified labels (e.g. names, zip codes, hair color)
+    * These will be of class character.
+  * Ordinal Variables: Ordered labels (e.g. letter grades, pollution levels)
+    * These will be of class factor.
+* Numeric Variables (Quantitative)
+  * Discrete Variables: Countable variables (e.g. number of students in this class)
+    * These will be of class integer or numeric.
+  * Continuous Variables: Measured variables (e.g. temperature, height)
+    * These will be of class numeric. 
+
+---
+
+# Data Frames
+
+* Data frames are in the format of the rectangular datasets we discussed last week. 
+* Refresher: What makes a dataset rectangular?
+* Every column in a data frame is a vector. The column names acts as a variable name for that vector. 
+* We can turn a series of vectors into a data frame, by listing them (separated by commas) in `data.frame()`. 
+
+```{r}
+playing_card_values <- c(1, 2, 3, 4, 5)
+playing_card_colors <- c("black", "red", "black", "red", "black")
+playing_card_suits <- c("spade", "diamond", "spade", "heart", "club")
+  
+# Create a new data frame for playing cards
+playing_card_data <- data.frame(playing_card_values, 
+                                playing_card_colors, 
+                                playing_card_suits)
+```
+
+---
+
+# Removing Variables from your Environment
+
+* Our environment may end up with more variables than we need, which can take up memory unnecessarily and slow things down. 
+* Since we just created that data frame, we no longer need the original vectors. Let's remove those from our environment. 
+
+```{r}
+# Remove unneeded variables
+rm(playing_card_values)
+rm(playing_card_colors)
+rm(playing_card_suits)
+```
+
+
+---
+
+# Reviewing Data Frames
+
+* The data frame we just created is quite small, so we can enter `playing_card_data` into our console and see the whole thing. This often doesn't work when working with larger datasets. 
+* Other ways to review data frames:
+  * `View(playing_card_data)`
+  * Click on the playing_card_data variable in your console (same as above)
+  * `head(playing_card_data)`: returns first six rows of dataset
+  * `names(playing_card_data)`: returns the dataset's column names
+  * `nrow(playing_card_data)`: returns the number of rows in the dataset
+  * `ncol(playing_card_data)`: returns the number of columns in the dataset
+---
+
+# Renaming Columns
+
+* The column names in our new data frame are a bit redundant now since they are all in the variable `playing_card_data`.
+* We can rename them by creating a new vector of column names, and then assigning that vector the names of the data frame:
+
+```{r}
+playing_card_column_names <- c("values", "colors", "suits")
+names(playing_card_data) <- playing_card_column_names
+```
+
+---
+
+# Accessing Columns
+
+* There are many ways to reference certain columns in a data frame. 
+* This week we will use the `$` to access columns (e.g. `playing_card_data$playing_card_values`)
+* Call the `table()` function on the `suit` variable. What returns?
+
+---
+
+# Today's Activity
+
+.pull-left[
+* R Markdown files allow us to mix executable code with narrative text. 
+  * We can type narrative text directly into the document.
+  * We can add code snippets by clicking the green button indicated in the photo to the left and clicking R. (There are other shortcuts as well.) 
+  * Every code snippet starts with three backticks and needs to be closed with three backticks. If you are missing these, then certain code snippets in your document likely won't run.
+  * We can run code by clicking the green arrow to the right of the code snippet. 
+]
+
+.pull-right[
+```{r echo=FALSE, out.width=300}
+knitr::include_graphics("img/code_button.png")
+```
+
+]
+
+---
+
+# Today's Activity
+  
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qMM6-c74aDA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+
+# Data Ethics Questions
+
+1. What assumptions and commitments informed the design of this dataset?
+2. Who has had a say in data collection and analysis regarding this dataset? Who has been excluded?
+3. What are the benefits and harms of this dataset, and how are they distributed amongst diverse social groups? 
+
+---
+
+# For Wednesday
+
+* No reading. Keep working through problem sets!
+* Wednesday: Applying functions to data frame values
+* Friday: Learning to code: debugging, cheatsheets, etc. 
+
