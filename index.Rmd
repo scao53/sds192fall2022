@@ -906,11 +906,10 @@ include_graphics("static/images/ASM.png")
 
 
 
-# Lec 13: Wed 10/6 {#Lec13}
+# Lec 13: Wed 10/5 {#Lec13}
 
 ## Announcements
 
-* ["File not found"](https://www.theverge.com/22684730/students-file-folder-directory-structure-education-gen-z){target="_blank"}; the struggle is real for instructors. 
 
 
 ## Today's topics/activities
@@ -934,20 +933,13 @@ include_graphics("static/images/ASM.png")
 
 
 
-# Lec 12: Mon 10/4 {#Lec12}
+# Lec 12: Mon 10/3 {#Lec12}
 
 ## Announcements
 
 * Midterm:
-    + No talking about it until after 5pm today please; there is one or more students who need to take it.
-    + Why student ID and not name? For anonymized grading. 
-* MP1:
-    + Lecture schedule for Wed, Fri, and Wed after break
-    + Post questions about MP1 in `#sds-192-mp1` on Slack
-* Discussion on managing group dynamics:
-    + Life happens. If it does and it will affect you work, at the very least communicate and give your partner a heads up (text, Slack, etc.)
-    + What to do when issues arise? 
-    + Don't forget you'll be filling out peer evaluation [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSd6w4CC9-PrWrpupNfosQUBVoCWBihRwdezYb2jJEj7-kNdfg/viewform){target="_blank"}
+    + No talking about it until after 5pm today please; there is one or more students who need to take it
+    + Why student ID and not name? For anonymized grading 
 
 
 <!--
@@ -1014,7 +1006,7 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 
 
-# Lec 11: Fri 10/1 {#Lec11}
+# Lec 11: Fri 9/30 {#Lec11}
 
 ## Announcements
 
@@ -1023,7 +1015,7 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
     + Check `#sds-192-midterms` channel
 * In order to not disadvantage students who take the midterm earlier
     + I won't be answering any Slack `#sds-192-midterms` after 3pm today
-    + I've instructed the Friday Spinelli tutor not to answer questions about the midterm
+    + I've instructed the Sunday Spinelli tutor not to answer questions about the midterm
 
 
 
@@ -1033,7 +1025,6 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 ### 2. In-class exercise
 
-* Work on MP1
 
 
 
@@ -1041,13 +1032,11 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 
 
-# Lec 10: Wed 9/29 {#Lec10}
+# Lec 10: Wed 9/28 {#Lec10}
 
 ## Announcements
 
-* Sit next to your MP1 partner; your partner was posted in the `#mp1` channel on Sunday 5pm.
 * [Midterm I](midterms.html#midtermI) info posted
-* [Mini-Project 1](projects.html#MP1) info posted
 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Our department is offering a pre-application review service (PARS) initiative to provide support and mentorship to PhD applicants from from historically marginalized groups. See details here: <a href="https://t.co/1g8lol4dRf">https://t.co/1g8lol4dRf</a> <a href="https://t.co/rHaMFHr5GF">pic.twitter.com/rHaMFHr5GF</a></p>&mdash; UW Statistics (@UWStat) <a href="https://twitter.com/UWStat/status/1441591608709812227?ref_src=twsrc%5Etfw">September 25, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -1057,15 +1046,11 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 ### 1. Chalk talk
 
-* Recap of color palettes from [colorbrewer2.org](http://colorbrewer2.org/){target="_blank"}
-    + `fill` vs `color` aesthetics and `brewer` vs `manual`
-    + You can also download color palettes in R packages, like [`viridis`](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html){target="_blank"}
 * Discuss [Midterm I](midterms.html#midtermI)
-* Discuss [Mini-Project 1](projects.html#MP1)
 
 ### 2. In-class exercise
 
-* With your partner, build a minimally viable product of your MP1
+* Work on MP1
 
 <!--
 
@@ -1081,15 +1066,10 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 
 
-# Lec 09: Fri 9/24 {#Lec09}
+# Lec 09: Mon 9/26 {#Lec09}
 
 ## Announcements
 
-* Mini-project 1 (MP1) assigned on Monday
-    + Slack demo of how to subscribe to a `#channel`: Adding yourselves to the `#sds-192-mp1` channel. Please ask all questions about MP1 there
-    + You will be assigned groups for MP1, MP2, and MP3. You can choose your groups for the final project.
-    + By Sunday 5pm I will post the groups (of two) in the `#sds-192-mp1` channel. Until `#sds-192-mp1` is due, **you will sit next to your partner in class**.
-    + Please reach out to your partner with a Slack DM before Monday's lecture to coordinate meeting before lecture so you can sit next to each other.
 
 
 ## Today's topics/activities
@@ -1111,13 +1091,10 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 
 
-# Lec 08: Wed 9/22 {#Lec08}
+# Lec 08: Fri 9/23 {#Lec08}
 
 ## Announcements
 
-* Problem sets:
-    + PS01 graded
-    + PS03 posted
 
 <!--
 * What kind of questions are appropriate for `#questions` Slack channel
@@ -1140,13 +1117,13 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 
 
-# Lec 07: Mon 9/20 {#Lec07}
+# Lec 07: Wed 9/21 {#Lec07}
 
 ## Announcements
 
-* Problem sets:
-    + PS02 due today at 5pm
-    + PS03 to be posted by 6pm today
+* <a href="projects.html#MP1">Mini-Project 1</a> assigned today
+* Sit next to your MP1 partner; your partner was posted in the <code>#sds-192-mp1</code> channel on Monday
+
 
 
 
@@ -1154,10 +1131,15 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
 
 ### 1. Chalk talk
 
+* Recap of color palettes from <a href="http://colorbrewer2.org/" target="_blank">colorbrewer2.org
+    + <code>fill</code> vs <code>color</code> aesthetics and <code>brewer</code> vs <code>manual</code>
+    + You can also download color palettes in R packages, like <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html" target="_blank"><code>viridis</code></a>
+* Discuss <a href="projects.html#MP1">Mini-Project 1
 
 
 ### 2. In-class exercise
 
+* With your partner, build a minimally viable product of your MP1
 
 
 ***
@@ -1178,6 +1160,15 @@ ggplot(data = gapminder_2007, mapping = aes(x = gdpPercap, y = lifeExp, size = p
     ![](static/images/colorbrewer.png){ width=600px }
     1. How does `ggplot2` pick default colors? Using a [color wheel](https://stackoverflow.com/questions/21490210/how-to-plot-a-colour-wheel-by-using-ggplot){target="_blank"}
     1. Also define colors in terms of [hex codes](https://www.color-hex.com/color/f8766d){target="_blank"}
+* Mini-project 1 (MP1) will be assigned on Wednesday
+    + Slack demo of how to subscribe to a <code>#channel</code>: Adding yourselves to the <code>#sds-192-mp1</code> channel. Please ask all questions about MP1 there
+    + You will be assigned groups for MP1, MP2, and MP3. You can choose your groups for the final project
+    + By today I will post the groups (of two) in the <code>#sds-192-mp1</code> channel. Until <code>#sds-192-mp1</code> is due, <strong>you will sit next to your partner in class</strong>
+    + Please reach out to your partner with a Slack DM before Wednesday’s lecture to coordinate meeting before lecture so you can sit next to each other
+* Discussion on managing group dynamics:
+    + Life happens. If it does and it will affect you work, at the very least communicate and give your partner a heads up (text, Slack, etc.)
+    + What to do when issues arise?
+    + Don’t forget you’ll be filling out peer evaluation <a href="https://docs.google.com/forms/d/e/1FAIpQLSd6w4CC9-PrWrpupNfosQUBVoCWBihRwdezYb2jJEj7-kNdfg/viewform" target="_blank">Google Form
 
 
 ### 2. In-class exercise
