@@ -882,7 +882,7 @@ include_graphics("static/images/ASM.png")
 
 
 
-# Lec 14: Fri 10/8 {#Lec14}
+# Lec 14: Fri 10/7 {#Lec14}
 
 ## Announcements
 
