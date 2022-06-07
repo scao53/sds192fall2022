@@ -925,9 +925,11 @@ include_graphics("static/images/ASM.png")
     + Pipe operator `|>` pronounced "then"
     + `filter()` rows that meet a certain criteria
 
+### 2. Lecture
 
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec13-DataFundamentals.html">Class slides: Data Fundamentals
 
-### 2. In-class exercise
+### 3. In-class exercise
 
 ***
 
