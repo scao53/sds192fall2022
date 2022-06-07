@@ -21,7 +21,8 @@ class: center, middle, inverse, title-slide
 
 # Today's Learning Goals
 
-* Identify rows, columns, and missing values.
+* Understand rows, columns, and datasets.
+* Be able to select variables and filter rows.
 
 ---
 
@@ -99,7 +100,7 @@ playing_card_data &lt;- data.frame(playing_card_values,
 * Other ways to review data frames:
   * `View(playing_card_data)`
   * `glimpse(playing_card_data)`
-  * `head(playing_card_data)`: returns first five rows of dataset
+  * `head(playing_card_data)`: returns first six rows of dataset
   * `names(playing_card_data)`: returns the dataset's column names
   * `nrow(playing_card_data)`: returns the number of rows in the dataset
   * `ncol(playing_card_data)`: returns the number of columns in the dataset
@@ -126,9 +127,387 @@ names(playing_card_data) &lt;- playing_card_column_names
 
 ---
 
+# What is a Dataset?
+
+.pull-left[
+
+![](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png)
+
+Grolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 31, 2019. https://r4ds.had.co.nz/.
+
+]
+
+.pull-right[
+
+* A collection of data points organized into a structured format.
+* In this course, we will mainly work with datasets that are structured in a  two-dimensional format.
+* We will refer to these as *rectangular* datasets.
+  * Rectangular datasets are organized into a series of rows and columns; ideally:
+    * We refer to rows as *observations*.
+    * We refer to columns as *variables*.
+]
+
+---
+      
+# Observations vs. Variables vs. Values
+
+.right-column[
+
+* Observations refer to individual units or cases of the data being collected.
+  * If I was collecting data about each student in this course, one student would be an observation.
+  * If I was collecting census data and aggregating it at the county level, one county would be an observation. 
+* Variables describe something about an observation. 
+  * If I was collecting data about each student in this course, 'major' might be one variable.
+  * If I was collecting county-level census data, 'population' might be one variable.
+* Values refer to the actual value associated with a variable for a given observation. 
+  * If I was collecting data about each student's major in this course, one value might be SDS.
+]
+
+.left-column[
+
+![](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png)
+
+Grolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 31, 2019. https://r4ds.had.co.nz/.
+
+]
+
+---
+
+class: center, middle
+# Data wrangling is a process for transforming a dataset from its original form into a more relevant form to suit your needs.
+      
+---
+      
+# Intro to Data Wrangling
+      
+The dplyr package presents a grammar for data wrangling (H. Wickham and Francois 2020). This package is loaded when `library(tidyverse)` is run.
+      
+* `select()`
+* `filter()`
+* `summarize()`
+* `group_by()`
+* `mutate()`
+* `arrange()`
+* `join()`
+
+---
+      
+# Today's Dataset
+
+* Hospital Cost Reports, 2018
 
 
+```r
+library(tidyverse)
+hospitals &lt;- read.csv("data/Hospital_Cost_Report_2018.csv")
+```
+      
+---
+      
+# `select()`
 
+* `select()` enables us to select variables (columns) of interest.
+
+
+```r
+hospitals |>
+  select(Provider.CCN, State.Code, Number.of.Beds) |>
+  head()
+```
+
+```
+##   Provider.CCN State.Code Number.of.Beds
+## 1        10032         AL             34
+## 2       250042         MS            181
+## 3       440235         TN             25
+## 4        50523         CA            145
+## 5        50305         CA            337
+## 6.       50043         CA            296
+```
+
+---
+      
+# `select()`
+
+* `:` enables us to select consecutive variables (columns) of interest.
+
+
+```r
+hospitals |>
+  select(Provider.CCN, State.Code:County) |>
+  head()
+```
+
+```
+##   Provider.CCN State.Code Zip.Code       County
+## 1        10032         AL    36278     RANDOLPH
+## 2       250042         MS    38614      COAHOMA
+## 3       440235         TN    37841        SCOTT
+## 4        50523         CA   94509- CONTRA COSTA
+## 5        50305         CA   94705-      ALAMEDA
+## 6        50043         CA   94609-      ALAMEDA
+```
+      
+---
+      
+# `select()`
+
+* `!` enables us to negate selection of certain variables (columns).
+* `last_col()` serves as a reference to the last column. 
+
+
+```r
+hospitals |>
+  select(!(Hospital.Name:last_col()))|>
+  head()
+```
+
+```
+##   rpt_rec_num Provider.CCN
+## 1      623132        10032
+## 2      628158       250042
+## 3      628833       440235
+## 4      631016        50523
+## 5      631094        50305
+## 6      631292        50043
+```
+
+---
+
+# `select()`
+
+* `starts_with()` is a helper function that enables us to select columns by matching string patterns at the start of their names
+
+
+```r
+hospitals |>
+  select(Provider.CCN, starts_with("Fiscal")) |>
+  head()
+```
+
+```
+##   Provider.CCN Fiscal.Year.Begin.Date Fiscal.Year.End.Date
+## 1        10032             2017-09-30           2017-11-12
+## 2       250042             2017-10-31           2017-12-30
+## 3       440235             2017-10-10           2017-12-30
+## 4        50523             2017-12-31           2018-02-27
+## 5        50305             2017-12-31           2018-02-27
+## 6        50043             2017-12-31           2018-02-27
+```
+      
+---
+      
+# `select()`
+
+* `ends_with()` is a helper function that enables us to select columns by matching string patterns at the end of their names
+
+
+```r
+hospitals |>
+  select(Provider.CCN, ends_with("Improvements")) |>
+  head()
+```
+
+```
+##   Provider.CCN Land.Improvements Leasehold.Improvements
+## 1        10032                                         
+## 2       250042                                         
+## 3       440235                                         
+## 4        50523        $9,762,451                 $3,077
+## 5        50305        $6,040,540             $4,268,998
+## 6        50043        $6,040,540             $6,352,542
+```
+      
+---
+      
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* == checks for equivalence and != checks for inequivalence.
+
+
+```r
+hospitals |>
+  filter(City == "Springfield") |>
+  select(Provider.CCN, City, State.Code)
+```
+
+```
+## [1] Provider.CCN City         State.Code  
+## &lt;0 rows&gt; (or 0-length row.names)
+```
+
+&gt; Review the data. Why does this return 0 rows?
+      
+---
+      
+# `filter()`
+
+&gt; What do we need to do now if we would like to explore the provider data in Springfield, MA?
+
+```r
+hospitals |>
+  filter(City == "SPRINGFIELD") |>
+  select(Provider.CCN, City, State.Code)
+```
+
+```
+Provider.CCN        City State.Code
+223303       SPRINGFIELD         MA
+111306       SPRINGFIELD         GA
+144021       SPRINGFIELD         IL
+364040       SPRINGFIELD         OH
+264024       SPRINGFIELD         MO
+263032       SPRINGFIELD         MO
+241352       SPRINGFIELD         MN
+220077       SPRINGFIELD         MA
+140148       SPRINGFIELD         IL
+260040       SPRINGFIELD         MO
+260065       SPRINGFIELD         MO
+262017       SPRINGFIELD         MO
+61311        SPRINGFIELD         CO
+380020       SPRINGFIELD         OR
+220066       SPRINGFIELD         MA
+380102       SPRINGFIELD         OR
+360086       SPRINGFIELD         OH
+140053       SPRINGFIELD         IL
+222046       SPRINGFIELD         MA
+471306       SPRINGFIELD         VT
+440065       SPRINGFIELD         TN
+142014       SPRINGFIELD         IL
+360355       SPRINGFIELD         OH
+```
+
+---
+      
+# `filter()`
+
+* `&amp;` returns rows that meet **both** criteria.
+
+
+```r
+hospitals |>
+  filter(City == "SPRINGFIELD" &amp; State.Code == "MA") |>
+  select(Provider.CCN, City, State.Code)
+```
+
+```
+Provider.CCN        City State.Code
+223303	     SPRINGFIELD	       MA		
+220077	     SPRINGFIELD	       MA		
+220066	     SPRINGFIELD	       MA		
+222046	     SPRINGFIELD	       MA
+```
+      
+---
+      
+# `filter()`
+
+* `|` returns rows that meet **either** criteria.
+
+      
+```r
+hospitals |>
+  filter(City == "SPRINGFIELD" &amp; (State.Code == "MA" | State.Code == "VT")) |>
+  select(Provider.CCN, City, State.Code)
+```
+
+```
+Provider.CCN        City State.Code
+223303	     SPRINGFIELD	       MA		
+220077	     SPRINGFIELD	       MA		
+220066	     SPRINGFIELD	       MA		
+222046	     SPRINGFIELD	       MA
+471306	     SPRINGFIELD	       VT
+```
+      
+---
+      
+# `filter()`
+
+* \&gt;, &lt;, &gt;=, &lt;= checks whether values are greater/less/equal to than other values.
+
+
+```r
+hospitals |>
+  filter(Number.of.Beds &gt; 1500) |>
+  select(Provider.CCN, City, State.Code, Number.of.Beds)
+```
+
+```
+Provider.CCN        City State.Code Number.of.Beds
+450388       SAN ANTONIO         TX           1560
+100007           ORLANDO         FL           2753
+330101          NEW YORK         NY           2272
+```
+      
+---
+      
+# `filter()`
+
+* `%in%` checks for values that match at least one value in a vector of values.
+      
+
+```r
+hospitals |>
+  filter(CCN.Facility.Type %in% c("STH", "LTCH", "CAH")) |>
+  select(Hospital.Name, City, State.Code) |> 
+  head()
+```
+      
+```
+##                   Hospital.Name       City State.Code
+## 1              WEDOWEE HOSPITAL    WEDOWEE         AL
+## 2   NORTHWEST MS MEDICAL CENTER CLARKSDALE         MS
+## 3 BIG SOUTH FORK MEDICAL CENTER     ONEIDA         TN
+## 4   SUTTER DELTA MEDICAL CENTER    ANTIOCH         CA
+## 5     ALTA BATES MEDICAL CENTER   BERKELEY         CA
+## 6         SUMMIT MEDICAL CENTER    OAKLAND         CA
+```
+      
+---
+      
+# `filter()`
+
+* `is.na()` checks for `NA` values and `!is.na()` checks for non-`NA` values.
+
+
+```r
+hospitals |>
+  filter(is.na(Number.of.Beds)) |>
+  select(Hospital.Name, City, State.Code) |>
+  nrow()
+```
+
+```
+## [1] 83
+```
+
+---
+      
+# `filter()`
+
+* `str_detect()` checks for values with strings that match a pattern we provide.
+
+
+```r
+hospitals |>
+  filter(str_detect(Hospital.Name, "SHRINERS")) |>
+  select(Hospital.Name, City, State.Code) |> 
+  head()
+```
+
+```
+##                        Hospital.Name        City State.Code
+## 1     SHRINERS HOSPITAL FOR CHILDREN    ST LOUIS         MO
+## 2                 SHRINERS HOSPITALS  CINCINNATI         OH
+## 3     SHRINERS HOSPITAL FOR CHILDREN     CHICAGO         IL
+## 4     SHRINERS HOSPITAL FOR CHILDREN MINNEAPOLIS         MN
+## 5 THE SHRINERS HOSPITAL FOR CHILDREN SPRINGFIELD         MA
+## 6 THE SHRINERS HOSPITAL FOR CHILDREN      BOSTON         MA
+```      
+            
+      
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
