@@ -1,13 +1,13 @@
 ---
-title: "Day Four: Data Fundamentals and Intro to RStudio Environment"
+title: "Lec 13: Data Fundamentals and Intro to Data Wrangling"
 subtitle: "SDS 192: Introduction to Data Science"
 author: |
-  Lindsay Poirier<br/>
+  Shiya Cao<br/>
   <span style = 'font-size: 70%;'>
   [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
   </span>
 date: |
-  Spring 2022<br/>
+  Fall 2022<br/>
   `r sds::img_logo(width = 64)`
 output:
   sds::moon_reader:
@@ -29,87 +29,11 @@ options(htmltools.dir.version = FALSE)
 sds::mono_light_smith()
 ```
 
-class: center, middle
-# What were some takeaways from class last Wednesday?
 
----
+# Today's Learning Goals
 
-# For Today
-
-* Types of Variables
-* Review R Basics
-* Identifying Rows, Columns, and Missing Values
-
----
-
-# Functions
-
-* Think of functions like imperative sentences. 
-* Imagine I requested someone to "go", "stay", or "sleep."
-* Functions indicate to R that you want it to take an action. 
-* Function calls are typically immediately followed by open and closed parentheses. 
-* What were some functions referenced this week's reading?
-
-> Now imagine I requested someone to "close" or "bring."
-
----
-
-# Arguments
-
-* Now imagine I requested someone to "close" or "bring"
-  * They're next questions might be "close what" or "bring what", and I might say back "close *the door*" or "bring *dessert*"
-* Arguments fill that second part of the sentence with a subject to perform an action on and additional information that may need to be considered when running the function.
-* Arguments are listed inside of the parentheses.
-* Some arguments are required. A function will not operate without them. Others are optional. 
-* What are some examples of argument parameters from this week's reading?
-
----
-
-# Finding Help
-
-* When we want to learn more about a function, we can type `?FUNCTION_NAME` in to the Console. 
-* Type the function `round()` into the console. What happens? How can we interpret this error message?
-* Look up the help page for the function `round()`
-* What arguments are required for the function `round()`?
-* What arguments are optional for this function?
-* Add a code chunk to your notebook to round pi to 2 decimal points. 
-
----
-
-# Assigning Variables
-
-* The `<-` symbol is used to assign a value to a variable. 
-* Variable names should be descriptive. Poor or confusing variables names include:
-  * `a` and `data1`: Be descriptive!
-  * `student.test.scores`: Avoid periods!
-  * `student test scores`: Use separator characters!
-  * `3rd_test`: Variables can't start with numbers!
-* I will ask you to write variable names in snake case in this course. In snake case, all letters are lowercase, and words are separated by the underscore (_) character. 
-* Convert the following variable name into something descriptive in snake case: `a <- round(pi, digits = 2)`. Run the code in your Console. How can we find this variable in RStudio once we run this code? 
-
----
-
-class: center, middle
-# Other notes: R is case-sensitive! White space is your friend!
-
----
-
-# Don't save your workspace!
-
-.pull-left[
-
-* The textbook provided you with some options for saving your RStudio workspace. We won't be doing this in this course. 
-* In fact, we are going to explicitly turn this off. In RStudio, click on Tools > Global Options, and then set the following. Click Apply and then OK. 
-* Why? Sometimes when we load data and code that we've previously run, it permits us to skip steps in our coding, which can cause issues down the road. If we start with a clean slate every time we open RStudio, it forces us to take better care of our code. 
-
-]
-
-.pull-right[
-```{r echo=FALSE, out.width=300}
-knitr::include_graphics("img/global_options.png")
-```
-
-]
+* Understand rows, columns, and datasets.
+* Be able to select variables and filter rows.
 
 ---
 
@@ -118,10 +42,9 @@ knitr::include_graphics("img/global_options.png")
 .pull-left[
 * A vector is a data object with several entries. 
 * We define a vector by listing these entries (separated by commas) in the function `c()`, which is shorthand for *combine*.
-* Let's create a vector representing the point values of this hand of cards. What is a good variable name for this vector. 
+* Let's create a vector representing the point values of this hand of cards. What is a good variable name for this vector? 
 * Next let's create a vector representing the colors of this hand of cards. Good variable name?
 * Let's create a vector representing the suits of this hand of cards. Good variable name?
-* How would I measure the length of this vector?
 ]
 
 .pull-right[
@@ -151,7 +74,6 @@ unique(playing_card_colors)
 
 * Values in a vector will all be of the same class.
 * We can check the class of a vector by calling `class()` and passing the name of the vector as an argument. 
-* What were some data classes discussed in this week's reading?
 * What is the class of each of these vectors?
   * `playing_card_values <- c(1, 2, 3, 4, 5)`
   * `playing_card_colors <- c("black", "red", "black", "red", "black")`
@@ -159,25 +81,8 @@ unique(playing_card_colors)
 
 ---
 
-# Types of Variables
-
-* Categorical Variables (Qualitative)
-  * Nominal Variables: Named or classified labels (e.g. names, zip codes, hair color)
-    * These will be of class character.
-  * Ordinal Variables: Ordered labels (e.g. letter grades, pollution levels)
-    * These will be of class factor.
-* Numeric Variables (Quantitative)
-  * Discrete Variables: Countable variables (e.g. number of students in this class)
-    * These will be of class integer or numeric.
-  * Continuous Variables: Measured variables (e.g. temperature, height)
-    * These will be of class numeric. 
-
----
-
 # Data Frames
 
-* Data frames are in the format of the rectangular datasets we discussed last week. 
-* Refresher: What makes a dataset rectangular?
 * Every column in a data frame is a vector. The column names acts as a variable name for that vector. 
 * We can turn a series of vectors into a data frame, by listing them (separated by commas) in `data.frame()`. 
 
@@ -194,31 +99,16 @@ playing_card_data <- data.frame(playing_card_values,
 
 ---
 
-# Removing Variables from your Environment
-
-* Our environment may end up with more variables than we need, which can take up memory unnecessarily and slow things down. 
-* Since we just created that data frame, we no longer need the original vectors. Let's remove those from our environment. 
-
-```{r}
-# Remove unneeded variables
-rm(playing_card_values)
-rm(playing_card_colors)
-rm(playing_card_suits)
-```
-
-
----
-
-# Reviewing Data Frames
+# Viewing Data Frames
 
 * The data frame we just created is quite small, so we can enter `playing_card_data` into our console and see the whole thing. This often doesn't work when working with larger datasets. 
-* Other ways to review data frames:
+* Other ways to view data frames:
   * `View(playing_card_data)`
-  * Click on the playing_card_data variable in your console (same as above)
-  * `head(playing_card_data)`: returns first six rows of dataset
-  * `names(playing_card_data)`: returns the dataset's column names
-  * `nrow(playing_card_data)`: returns the number of rows in the dataset
-  * `ncol(playing_card_data)`: returns the number of columns in the dataset
+  * `glimpse(playing_card_data)`
+  * `head(playing_card_data)`: returns first six rows of dataset.
+  * `names(playing_card_data)`: returns the dataset's column names.
+  * `nrow(playing_card_data)`: returns the number of rows in the dataset.
+  * `ncol(playing_card_data)`: returns the number of columns in the dataset.
 ---
 
 # Renaming Columns
@@ -236,48 +126,390 @@ names(playing_card_data) <- playing_card_column_names
 # Accessing Columns
 
 * There are many ways to reference certain columns in a data frame. 
-* This week we will use the `$` to access columns (e.g. `playing_card_data$playing_card_values`)
-* Call the `table()` function on the `suit` variable. What returns?
+* Today we will use the `$` to access columns (e.g. `playing_card_data$playing_card_values`).
 
 ---
 
-# Today's Activity
+# What is a Dataset?
 
 .pull-left[
-* R Markdown files allow us to mix executable code with narrative text. 
-  * We can type narrative text directly into the document.
-  * We can add code snippets by clicking the green button indicated in the photo to the left and clicking R. (There are other shortcuts as well.) 
-  * Every code snippet starts with three backticks and needs to be closed with three backticks. If you are missing these, then certain code snippets in your document likely won't run.
-  * We can run code by clicking the green arrow to the right of the code snippet. 
+
+![](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png)
+
+Grolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 31, 2019. https://r4ds.had.co.nz/.
+
 ]
 
 .pull-right[
-```{r echo=FALSE, out.width=300}
-knitr::include_graphics("img/code_button.png")
-```
+
+* A collection of data points organized into a structured format.
+* In this course, we will mainly work with datasets that are structured in a  two-dimensional format.
+* We will refer to these as *rectangular* datasets.
+  * Rectangular datasets are organized into a series of rows and columns; ideally:
+    * We refer to rows as *observations*.
+    * We refer to columns as *variables*.
+]
+
+---
+      
+# Observations vs. Variables vs. Values
+
+.right-column[
+
+* Observations refer to individual units or cases of the data being collected.
+  * If I was collecting data about each student in this course, one student would be an observation.
+  * If I was collecting census data and aggregating it at the county level, one county would be an observation. 
+* Variables describe something about an observation. 
+  * If I was collecting data about each student in this course, 'major' might be one variable.
+  * If I was collecting county-level census data, 'population' might be one variable.
+* Values refer to the actual value associated with a variable for a given observation. 
+  * If I was collecting data about each student's major in this course, one value might be SDS.
+]
+
+.left-column[
+
+![](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png)
+
+Grolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 31, 2019. https://r4ds.had.co.nz/.
 
 ]
 
 ---
 
-# Today's Activity
-  
+class: center, middle
+# Data wrangling is a process for transforming a dataset from its original form into a more relevant form to suit your needs.
+      
+---
+      
+# Intro to Data Wrangling
+      
+The dplyr package presents a grammar for data wrangling (H. Wickham and Francois 2020). This package is loaded when `library(tidyverse)` is run.
+      
+* `select()`
+* `filter()`
+* `summarize()`
+* `group_by()`
+* `mutate()`
+* `arrange()`
+* `join()`
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/qMM6-c74aDA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+---
+      
+# Today's Dataset
+
+* Hospital Cost Reports, 2018
+
+
+```r
+library(tidyverse)
+hospitals &lt;- read.csv("data/Hospital_Cost_Report_2018.csv")
+```
+      
+---
+      
+# `select()`
+
+* `select()` enables us to select variables (columns) of interest.
+
+
+```r
+hospitals |>
+  select(Provider.CCN, State.Code, Number.of.Beds) |>
+  head()
+```
+
+```
+##   Provider.CCN State.Code Number.of.Beds
+## 1        10032         AL             34
+## 2       250042         MS            181
+## 3       440235         TN             25
+## 4        50523         CA            145
+## 5        50305         CA            337
+## 6.       50043         CA            296
+```
+
+---
+      
+# `select()`
+
+* `:` enables us to select consecutive variables (columns) of interest.
+
+
+```r
+hospitals |>
+  select(Provider.CCN, State.Code:County) |>
+  head()
+```
+
+```
+##   Provider.CCN State.Code Zip.Code       County
+## 1        10032         AL    36278     RANDOLPH
+## 2       250042         MS    38614      COAHOMA
+## 3       440235         TN    37841        SCOTT
+## 4        50523         CA   94509- CONTRA COSTA
+## 5        50305         CA   94705-      ALAMEDA
+## 6        50043         CA   94609-      ALAMEDA
+```
+      
+---
+      
+# `select()`
+
+* `!` enables us to negate selection of certain variables (columns).
+* `last_col()` serves as a reference to the last column. 
+
+
+```r
+hospitals |>
+  select(!(Hospital.Name:last_col()))|>
+  head()
+```
+
+```
+##   rpt_rec_num Provider.CCN
+## 1      623132        10032
+## 2      628158       250042
+## 3      628833       440235
+## 4      631016        50523
+## 5      631094        50305
+## 6      631292        50043
+```
 
 ---
 
-# Data Ethics Questions
+# `select()`
 
-1. What assumptions and commitments informed the design of this dataset?
-2. Who has had a say in data collection and analysis regarding this dataset? Who has been excluded?
-3. What are the benefits and harms of this dataset, and how are they distributed amongst diverse social groups? 
+* `starts_with()` is a helper function that enables us to select columns by matching string patterns at the start of their names
+
+
+```r
+hospitals |>
+  select(Provider.CCN, starts_with("Fiscal")) |>
+  head()
+```
+
+```
+##   Provider.CCN Fiscal.Year.Begin.Date Fiscal.Year.End.Date
+## 1        10032             2017-09-30           2017-11-12
+## 2       250042             2017-10-31           2017-12-30
+## 3       440235             2017-10-10           2017-12-30
+## 4        50523             2017-12-31           2018-02-27
+## 5        50305             2017-12-31           2018-02-27
+## 6        50043             2017-12-31           2018-02-27
+```
+      
+---
+      
+# `select()`
+
+* `ends_with()` is a helper function that enables us to select columns by matching string patterns at the end of their names
+
+
+```r
+hospitals |>
+  select(Provider.CCN, ends_with("Improvements")) |>
+  head()
+```
+
+```
+##   Provider.CCN Land.Improvements Leasehold.Improvements
+## 1        10032                                         
+## 2       250042                                         
+## 3       440235                                         
+## 4        50523        $9,762,451                 $3,077
+## 5        50305        $6,040,540             $4,268,998
+## 6        50043        $6,040,540             $6,352,542
+```
+      
+---
+      
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* == checks for equivalence and != checks for inequivalence.
+
+
+```r
+hospitals |>
+  filter(City == "Springfield") |>
+  select(Provider.CCN, City, State.Code)
+```
+
+```
+## [1] Provider.CCN City         State.Code  
+## &lt;0 rows&gt; (or 0-length row.names)
+```
+
+&gt; Review the data. Why does this return 0 rows?
+      
+---
+      
+# `filter()`
+
+&gt; What do we need to do now if we would like to explore the provider data in Springfield, MA?
+
+```r
+hospitals |>
+  filter(City == "SPRINGFIELD") |>
+  select(Provider.CCN, City, State.Code)
+```
+
+```
+Provider.CCN        City State.Code
+223303       SPRINGFIELD         MA
+111306       SPRINGFIELD         GA
+144021       SPRINGFIELD         IL
+364040       SPRINGFIELD         OH
+264024       SPRINGFIELD         MO
+263032       SPRINGFIELD         MO
+241352       SPRINGFIELD         MN
+220077       SPRINGFIELD         MA
+140148       SPRINGFIELD         IL
+260040       SPRINGFIELD         MO
+260065       SPRINGFIELD         MO
+262017       SPRINGFIELD         MO
+61311        SPRINGFIELD         CO
+380020       SPRINGFIELD         OR
+220066       SPRINGFIELD         MA
+380102       SPRINGFIELD         OR
+360086       SPRINGFIELD         OH
+140053       SPRINGFIELD         IL
+222046       SPRINGFIELD         MA
+471306       SPRINGFIELD         VT
+440065       SPRINGFIELD         TN
+142014       SPRINGFIELD         IL
+360355       SPRINGFIELD         OH
+```
 
 ---
+      
+# `filter()`
 
-# For Wednesday
+* `&amp;` returns rows that meet **both** criteria.
 
-* No reading. Keep working through problem sets!
-* Wednesday: Applying functions to data frame values
-* Friday: Learning to code: debugging, cheatsheets, etc. 
+
+```r
+hospitals |>
+  filter(City == "SPRINGFIELD" &amp; State.Code == "MA") |>
+  select(Provider.CCN, City, State.Code)
+```
+
+```
+Provider.CCN        City State.Code
+223303	     SPRINGFIELD	       MA		
+220077	     SPRINGFIELD	       MA		
+220066	     SPRINGFIELD	       MA		
+222046	     SPRINGFIELD	       MA
+```
+      
+---
+      
+# `filter()`
+
+* `|` returns rows that meet **either** criteria.
+
+      
+```r
+hospitals |>
+  filter(City == "SPRINGFIELD" &amp; (State.Code == "MA" | State.Code == "VT")) |>
+  select(Provider.CCN, City, State.Code)
+```
+
+```
+Provider.CCN        City State.Code
+223303	     SPRINGFIELD	       MA		
+220077	     SPRINGFIELD	       MA		
+220066	     SPRINGFIELD	       MA		
+222046	     SPRINGFIELD	       MA
+471306	     SPRINGFIELD	       VT
+```
+      
+---
+      
+# `filter()`
+
+* \&gt;, &lt;, &gt;=, &lt;= checks whether values are greater/less/equal to than other values.
+
+
+```r
+hospitals |>
+  filter(Number.of.Beds &gt; 1500) |>
+  select(Provider.CCN, City, State.Code, Number.of.Beds)
+```
+
+```
+Provider.CCN        City State.Code Number.of.Beds
+450388       SAN ANTONIO         TX           1560
+100007           ORLANDO         FL           2753
+330101          NEW YORK         NY           2272
+```
+      
+---
+      
+# `filter()`
+
+* `%in%` checks for values that match at least one value in a vector of values.
+      
+
+```r
+hospitals |>
+  filter(CCN.Facility.Type %in% c("STH", "LTCH", "CAH")) |>
+  select(Hospital.Name, City, State.Code) |> 
+  head()
+```
+      
+```
+##                   Hospital.Name       City State.Code
+## 1              WEDOWEE HOSPITAL    WEDOWEE         AL
+## 2   NORTHWEST MS MEDICAL CENTER CLARKSDALE         MS
+## 3 BIG SOUTH FORK MEDICAL CENTER     ONEIDA         TN
+## 4   SUTTER DELTA MEDICAL CENTER    ANTIOCH         CA
+## 5     ALTA BATES MEDICAL CENTER   BERKELEY         CA
+## 6         SUMMIT MEDICAL CENTER    OAKLAND         CA
+```
+      
+---
+      
+# `filter()`
+
+* `is.na()` checks for `NA` values and `!is.na()` checks for non-`NA` values.
+
+
+```r
+hospitals |>
+  filter(is.na(Number.of.Beds)) |>
+  select(Hospital.Name, City, State.Code) |>
+  nrow()
+```
+
+```
+## [1] 83
+```
+
+---
+      
+# `filter()`
+
+* `str_detect()` checks for values with strings that match a pattern we provide.
+
+
+```r
+hospitals |>
+  filter(str_detect(Hospital.Name, "SHRINERS")) |>
+  select(Hospital.Name, City, State.Code) |> 
+  head()
+```
+
+```
+##                        Hospital.Name        City State.Code
+## 1     SHRINERS HOSPITAL FOR CHILDREN    ST LOUIS         MO
+## 2                 SHRINERS HOSPITALS  CINCINNATI         OH
+## 3     SHRINERS HOSPITAL FOR CHILDREN     CHICAGO         IL
+## 4     SHRINERS HOSPITAL FOR CHILDREN MINNEAPOLIS         MN
+## 5 THE SHRINERS HOSPITAL FOR CHILDREN SPRINGFIELD         MA
+## 6 THE SHRINERS HOSPITAL FOR CHILDREN      BOSTON         MA
+```
+
+
+ 
 
