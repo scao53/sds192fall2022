@@ -743,6 +743,8 @@ No lecture today, instead optional in-class office hours:
 
 ### 1. Lecture
 
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec18-TidyData.html">Class slides: Tidy Data</a>
+
 ### 2. In-class exercise
 
 
