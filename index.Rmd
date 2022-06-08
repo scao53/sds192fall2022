@@ -895,7 +895,7 @@ include_graphics("static/images/ASM.png")
 
 ### 2. In-class exercise
 
-
+* <a href="in-class_exercises/Lec14In-classExercise-SingleTable.zip" download>Conduct single table analysis</a>
 
 
 ***
