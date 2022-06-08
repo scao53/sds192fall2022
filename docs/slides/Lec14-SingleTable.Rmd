@@ -1,13 +1,13 @@
 ---
-title: "Day Sixteen: Subsetting Data"
+title: "Lec 14: Single Table Analysis"
 subtitle: "SDS 192: Introduction to Data Science"
 author: |
-  Lindsay Poirier<br/>
+  Shiya Cao<br/>
   <span style = 'font-size: 70%;'>
   [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
   </span>
 date: |
-  Spring 2022<br/>
+  Fall 2022<br/>
   `r sds::img_logo(width = 64)`
 output:
   sds::moon_reader:
@@ -37,337 +37,335 @@ library(tidyverse)
 hospitals <- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/Hospital_Cost_Report_2018.csv")
 ```
 
-# For today
+# Today's Learning Goals
 
-* Piping Functions
-* `select()`
-* `filter()`
-* `arrange()`
+* Conduct single table analysis using `arrange()`, `summarize()`, `group_by()`, `mutate()`.
 
 ---
 
-# Today's data
+# Today's Dataset
 
 * Hospital Cost Reports, 2018
 
 ```{r}
 library(tidyverse)
-hospitals <- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/Hospital_Cost_Report_2018.csv")
+hospitals <- read.csv("data/Hospital_Cost_Report_2018.csv")
 ```
 
 ---
 
+# `arrange()`
 
-class: center, middle
-# Data wrangling is a process for transforming a dataset from its original form into a more relevant form.
-
----
-
-# What is that funny symbol I keep seeing in labs?
-
-.pull-left[
-* Up until now, we have been nesting arguments in functions.
-* Let's say I had the vector: `class1$shirt_colors` 
-* `length(unique( class1$shirt_colors))`
-]
-
-.pull-right[
-* The pipe (`%>%`) is imported when we call `library(tidyverse)`
-* The pipe offers a way to string arguments together consecutively. 
-* Reads more like a sentence. 
-* `class1$shirt_colors %>% unique() %>% length()`
-]
-
----
-
-# Six "verbs" for data wrangling
-
-* `select()`
-* `filter()`
-* `arrange()`
-* `summarize()`
-* `group_by()`
-* `mutate()`
-
----
-
-# `select()`
-
-* `select()` enables us to select variables (columns) of interest.
-
-![](http://ohi-science.org/data-science-training/img/rstudio-cheatsheet-select.png)
----
-
-# `select()`
-
-* `select()` enables us to select variables (columns) of interest.
-
-```{r}
-hospitals %>%
-  select(Provider.CCN, State.Code, Number.of.Beds) %>%
-  head()
-```
-
-
----
-
-# `select()`
-
-* `select()` enables us to select variables (columns) of interest.
-* `:` enables us to select consecutive variables (columns) of interest.
-
-```{r}
-hospitals %>%
-  select(Provider.CCN, State.Code:County) %>%
-  head()
-```
-
----
-
-# `select()`
-
-* `select()` enables us to select variables (columns) of interest.
-* `:` enables us to select consecutive variables (columns) of interest.
-
-```{r}
-hospitals %>%
-  select(Provider.CCN, State.Code:County) %>%
-  head()
-```
-
----
-
-# `select()`
-
-* `select()` enables us to select variables (columns) of interest.
-* `!` enables us to negate selection of certain variables (columns).
-* `last_col()` serves as a reference to the last column. 
-
-```{r}
-hospitals %>%
-  select(!(Hospital.Name:last_col())) %>%
-  head()
-```
-
----
-
-# `select()`
-
-* `select()` enables us to select variables (columns) of interest.
-* `starts_with()` is a helper function that enables us to select columns by matching string patterns at the start of their names
-
-```{r}
-hospitals %>%
-  select(Provider.CCN, starts_with("Fiscal")) %>%
-  head()
-```
-
----
-
-# `select()`
-
-* `select()` enables us to select variables (columns) of interest.
-* `ends_with()` is a helper function that enables us to select columns by matching string patterns at the end of their names
-
-```{r}
-hospitals %>%
-  select(Provider.CCN, ends_with("Improvements")) %>%
-  head()
-```
-
----
-
-# `filter()`
-
-* `filter()` subsets observations (rows) according to a certain criteria that we provide.
-
-![](http://ohi-science.org/data-science-training/img/rstudio-cheatsheet-filter.png) 
-
----
-
-# `filter()`
-
-* `filter()` subsets observations (rows) according to a certain criteria that we provide.
-* == checks for equivalence and != checks for inequivalence
-
-```{r}
-hospitals %>%
-  filter(City == "Springfield") %>%
-  select(Provider.CCN, City, State.Code)
-```
-
-> Review the data. Why does this return 0 rows?
-
----
-
-# `filter()`
-
-* `filter()` subsets observations (rows) according to a certain criteria that we provide.
-* == checks for equivalence and != checks for inequivalence
-
-```{r}
-hospitals %>%
-  filter(City == "SPRINGFIELD") %>%
-  select(Provider.CCN, City, State.Code)
-```
-
-> What do we need to do now?
-
----
-
-# `filter()`
-
-* `filter()` subsets observations (rows) according to a certain criteria that we provide.
-* == checks for equivalence and `&` returns rows that meet **both** criteria
-
-```{r}
-hospitals %>%
-  filter(City == "SPRINGFIELD" & State.Code == "Massachusetts") %>%
-  select(Provider.CCN, City, State.Code)
-```
-
-> Review the data. Why does this return 0 rows?
-
----
-
-# `filter()`
-
-* `filter()` subsets observations (rows) according to a certain criteria that we provide.
-* == checks for equivalence and `|` returns rows that meet **either** criteria
-
-```{r}
-hospitals %>%
-  filter(Rural.Versus.Urban == "R" | CCN.Facility.Type == "CAH") %>%
-  select(Hospital.Name, City, State.Code) %>%
-  head()
-```
-
-> CAH refers to a "critical access hospital"
-
----
-
-# `filter()`
-
-* `filter()` subsets observations (rows) according to a certain criteria that we provide.
-* \>, <, >=, <= checks whether values are greater/less/equal to than other values
-
-```{r}
-hospitals %>%
-  filter(Number.of.Beds > 1500) %>%
-  select(Provider.CCN, City, State.Code, Number.of.Beds)
-```
-
----
-
-# `filter()`
-
-* `filter()` subsets observations (rows) according to a certain criteria that we provide.
-* `%in%` checks for values that match at least one value in a vector of values
-
-```{r}
-hospitals %>%
-  filter(CCN.Facility.Type %in% c("STH", "LTCH")) %>%
-  select(Hospital.Name, City, State.Code) %>% 
-  head()
-``` 
-
----
-
-# `filter()`
-
-* `filter()` subsets observations (rows) according to a certain criteria that we provide.
-* `is.na()` checks for `NA` values and `!is.na()` checks for non-`NA` values
-
-```{r}
-hospitals %>%
-  filter(is.na(Number.of.Beds)) %>%
-  select(Hospital.Name, City, State.Code) %>% 
-  nrow()
-``` 
-
----
-
-# `filter()`
-
-* `filter()` subsets observations (rows) according to a certain criteria that we provide.
-* `str_detect()` checks for values with strings that match a pattern we provide
-
-```{r}
-hospitals %>%
-  filter(str_detect(Hospital.Name, "SHRINERS")) %>%
-  select(Hospital.Name, City, State.Code) %>% 
-  head()
-``` 
-
----
-
-`arrange()`
-
-* `arrange()` sorts rows according to values in a column 
+* `arrange()` sorts rows according to values in a column.
 * Defaults to sorting from smallest to largest (numeric) or first character to last character (character).
 
 ```{r}
-hospitals %>%
-  filter(City == "SPRINGFIELD" & State.Code == "MA") %>%
-  arrange(Number.of.Beds) %>%
+hospitals |>
+  filter(City == "SPRINGFIELD" &amp; State.Code == "MA") |>
+  arrange(Number.of.Beds) |>
   select(Hospital.Name, Number.of.Beds)
 ```
 
 ---
 
-`arrange()`
+# `arrange()`
 
-* `arrange()` sorts rows according to values in a column 
 * `desc()` sorts from largest to smallest (numeric) or last character to first character (character).
 
 ```{r}
-hospitals %>%
-  filter(City == "SPRINGFIELD" & State.Code == "MA") %>%
-  arrange(desc(Number.of.Beds)) %>%
+hospitals |>
+  filter(City == "SPRINGFIELD" &amp; State.Code == "MA") |>
+  arrange(desc(Number.of.Beds)) |>
   select(Hospital.Name, Number.of.Beds)
 ```
 
 ---
 
+# `summarize()`
+
+* `summarize()` computes a value across a vector of values and stores it in a new data frame.
+
+
+```r
+summary_hospitals_ma <- hospitals |>
+  filter(State.Code == "MA") |>
+  summarize(total_beds = sum(Number.of.Beds))
+summary_hospitals_ma
+```
+
+```
+## # A tibble: 1 × 1
+##   total_beds
+##        &lt;int&gt;
+## 1         NA
+```
+
+&gt; Why did we get an `NA` value?
+
+---
+      
+# Let's filter to MA
+
+
+```r
+hospitals_ma &lt;-
+  hospitals |>
+  filter(State.Code == "MA")
+```
+ 
+---
+      
+# `summarize()`
+
+* Setting `na.rm` to TRUE ignore any missing values and only returns the summary value for all non-missing values.
+* `sum(is.na())` computes the total `NA` values in the vector.
+
+
+```r
+summary_hospitals_ma <- hospitals_ma |>
+  summarize(total_beds = sum(Number.of.Beds, na.rm = TRUE), 
+            total_beds_na = sum(is.na(Number.of.Beds)))
+summary_hospitals_ma
+```
+
+```
+## # A tibble: 1 × 2
+##         total_beds       total_beds_na
+##        &lt;int&gt;         &lt;int&gt;
+## 1            18804                   2
+```
+
+&gt; What if I wanted to know the percentage of rows with `NA` values in the `Number.of.Beds` column?
+      
+---
+      
+# `summarize()`
+
+* `n()` computes the total observations in the vector.
+
+
+```r
+summary_hospitals_ma <- hospitals_ma |>
+  summarize(total_beds = sum(Number.of.Beds, na.rm = TRUE), 
+            percent_beds_na = sum(is.na(Number.of.Beds)) / n() * 100)
+summary_hospitals_ma
+```
+
+```
+## # A tibble: 1 × 2
+##         total_beds       percent_beds_na
+##        &lt;int&gt;           &lt;dbl&gt;
+## 1            18804                  2.04
+```
+
+---
+ 
 class: center, middle
-# Quiz Review
+# But there are very different types of hospitals represented in this dataset. Maybe I want to know the number of beds for each type of hospital.
 
 ---
+      
+# `group_by()` |> `summarize()`
 
-# What is the y label?
+* `group_by()` groups observations with a shared value in a variable.
+* When we combine `group_by()` and `summarize()` we can perform operations *within* groups.
 
-```{r fig.height=3, fig.width=6}
-hospitals %>%
-  ggplot(aes(x = CCN.Facility.Type)) +
-  geom_bar() +
-  coord_flip() +
-  labs(x = "Facility Type", y = "Number of ______")
+
+```r
+hospitals_ma |>
+  group_by(CCN.Facility.Type) |>
+  summarize(total_beds = sum(Number.of.Beds, na.rm = TRUE), 
+            total_hopsitals = n(),
+            percent_beds_na = sum(is.na(Number.of.Beds)) / n() * 100)
 ```
 
 ---
 
-# What is the y label?
+```
+## `summarize()` has grouped output by 'CCN.Facility.Type'.
+```
+      
+```
+## # A tibble: 7 × 4
+##   CCN.Facility.Type total_beds total_hopsitals percent_beds_na
+##   &lt;chr&gt;      &lt;int&gt;     &lt;int&gt;     &lt;dbl&gt;
+## 1 CAH                       74               3               0
+## 2 CH                       527               4              50
+## 3 LTCH                    2416              11               0
+## 4 PH                      1704              17               0
+## 5 RH                       752               6               0
+## 6 RNMHC                     20               1               0
+## 7 STH                    13311              56               0
+```
 
-```{r fig.height=2.5, fig.width=6, warning=FALSE}
-hospitals %>%
-  ggplot(aes(x = Number.of.Beds)) +
-  geom_histogram(binwidth = 100) +
-  labs(x = "", y = "Number of ______")
+---
+      
+# `group_by()`
+
+* Grouping only changes the metadata of a data frame.
+* `ungroup()` removes the grouping structure metadata.
+
+
+```r
+hospitals_ma |>
+  group_by(CCN.Facility.Type) |>
+  ungroup()
+```
+  
+---
+      
+# `mutate()`
+
+* `mutate()` creates a new variable (column) in a data frame and fills values according to criteria we provide.
+
+&gt; What would the following lines of code do?
+
+
+```r
+hospitals_ma |>
+  mutate(Address = paste(Street.Address, City, State.Code, Zip.Code))
+
+hospitals_ma |>
+  mutate(Hospital.Name.Lower = tolower(Hospital.Name))
+
+hospitals_ma |>
+  mutate(Percentage.State.Beds = Number.of.Beds/sum(Number.of.Beds, na.rm = TRUE) * 100)
+```
+---
+      
+# `mutate()`
+
+
+```r
+hospitals_ma |>
+  mutate(Address = paste(Street.Address, City, State.Code, Zip.Code)) |>
+  select(Street.Address, City, Address) |>
+  head()
+```
+
+```
+## # A tibble: 6 × 3
+##   Street.Address       City       Address                              
+##   &lt;chr&gt;          &lt;chr&gt;&lt;chr&gt;                                
+## 1 ONE HOSPITAL ROAD    OAK BLUFFS ONE HOSPITAL ROAD OAK BLUFFS MA 2557 
+## 2 2033 MAIN STREET     ATHOL      2033 MAIN STREET ATHOL MA 1331       
+## 3 450 BROOKLINE AVE    BOSTON     450 BROOKLINE AVE BOSTON MA 2215     
+## 4 145 WARD HILL AVENUE BRADFORD   145 WARD HILL AVENUE BRADFORD MA 1835
+## 5 222 STATE STREET     LUDLOW     222 STATE STREET LUDLOW MA 1056      
+## 6 1200 CENTRE STREET   ROSLINDALE 1200 CENTRE STREET ROSLINDALE MA 2127
+```
+---
+      
+# `mutate()`
+
+
+```r
+hospitals_ma |>
+  mutate(Hospital.Name.Lower = tolower(Hospital.Name)) |>
+  select(Hospital.Name, Hospital.Name.Lower) |>
+  head()
+```
+
+```
+## # A tibble: 6 × 2
+##   Hospital.Name                       Hospital.Name.Lower                
+##   &lt;chr&gt;                         &lt;chr&gt;                              
+## 1 MARTHAS VINEYARD HOSPITAL           marthas vineyard hospital          
+## 2 ATHOL MEMORIAL HOSPITAL             athol memorial hospital            
+## 3 DANA-FARBER CANCER INSTITUTE        dana-farber cancer institute       
+## 4 WHITTIER HOSPITAL-BRADFORD          whittier hospital-bradford         
+## 5 HEALTHSOUTH REHABILITATION HOSPITAL healthsouth rehabilitation hospital
+## 6 HEBREW REHABILITATION CENTER        hebrew rehabilitation center
+```
+---
+      
+# `mutate()`
+
+
+```r
+hospitals_ma |>
+  mutate(Percentage.State.Beds = Number.of.Beds/sum(Number.of.Beds, na.rm = TRUE) * 100) |>
+  select(Number.of.Beds, Percentage.State.Beds) |>
+  head()
+```
+
+```
+## # A tibble: 6 × 2
+##   Number.of.Beds Percentage.State.Beds
+##      &lt;int&gt;           &lt;dbl&gt;
+## 1             25                 0.133
+## 2             25                 0.133
+## 3             30                 0.160
+## 4             60                 0.319
+## 5             53                 0.282
+## 6            667                 3.55
 ```
 
 ---
 
-class: center, middle
-# Other than `CCN.Facility.Type` what other variables would be appropriate to apply to the x aesthetic when calling `geom_bar()`?
+# `group_by()` |> `mutate()`
+      
+&gt; How do you expect this to be different than `group_by()` |> `summarize()`?    
+&gt; What do you expect this line of code to do?
 
+
+```r
+hospitals_ma |>
+  group_by(City) |>
+  mutate(Total.Beds.City = sum(Number.of.Beds, na.rm = TRUE))
+```
+      
 ---
+      
+# `group_by()` |> `mutate()`
 
-# Which of visual cues are represented on this plot? Overplotting? Palette?
 
-```{r fig.height=2.5, fig.width=6, warning=FALSE}
-ggplot(hospitals, aes(x = CCN.Facility.Type, Number.of.Beds, col = Rural.Versus.Urban)) +
-  geom_point() +
-  coord_flip()
+```r
+hospitals_ma |>
+  group_by(City) |>
+  mutate(Total.Beds.City = sum(Number.of.Beds, na.rm = TRUE)) |>
+  arrange(desc(City)) |>
+  select(City, Total.Beds.City) |>
+  head()
 ```
 
+```
+## # A tibble: 6 × 3
+## # Groups:   City [2]
+##   City      Total.Beds.City
+##   &lt;chr&gt;   &lt;int&gt;
+## 1 WORCESTER            1373
+## 2 WORCESTER            1373
+## 3 WORCESTER            1373
+## 4 WORCESTER            1373
+## 5 WORCESTER            1373
+## 6 WOBURN                210
+```      
+
+---
+      
+# `group_by()` |> `mutate()`
+
+
+```r
+hospitals_ma |>
+  group_by(City) |>
+  mutate(Total.Beds.City = sum(Number.of.Beds, na.rm = TRUE)) |>
+  arrange(desc(Total.Beds.City)) |>
+  select(City, Total.Beds.City) |>
+  head()
+```
+      
+```
+## # A tibble: 6 × 3
+## # Groups:   City [2]
+##   City      Total.Beds.City
+##   &lt;chr&gt;   &lt;int&gt;
+## 1 BOSTON               4300
+## 2 BOSTON               4300
+## 3 BOSTON               4300
+## 4 BOSTON               4300
+## 5 BOSTON               4300
+## 6 BOSTON               4300
+```
 
