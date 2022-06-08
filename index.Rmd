@@ -855,26 +855,17 @@ include_graphics("static/images/ASM.png")
 
 ## Announcements
 
-* See Slack `#general` for info about presentation of SDS major
-* PS04 (shorter) will be posted this afternoon
-* Keyboard shortcuts for:
-    1. `%>%` in RStudio: command + shift + m on macOS, control + shift + m on Windows
-    1. Running code in RStudio: command + enter on macOS, control + enter on Windwos
-    1. Quickly jumping between apps: command + tab on macOS, alt + tab on Windows
-    1. Selecting many files at once: click first file, hold shift, click last file
-    1. Deleting files: command + delete on macOS, delete on Windows
+* PS04 will be posted this afternoon
 
 
 ## Today's topics/activities
 
-### 1. Chalk talk
+### 1. Lecture
 
-* `summarize()` rows and `group_by() %>% summarize()`
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec15-JoinTables.html">Class slides: Join Tables + Other Verbs</a>
 
 ### 2. In-class exercise
 
-* Put finishing touches on MP1
-* Go over ModernDive reading in schedule above
 
 
 
