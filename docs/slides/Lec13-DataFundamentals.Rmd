@@ -177,6 +177,35 @@ Grolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 
 
 ---
 
+# How do I find out more information about a dataset?
+
+* Metadata can be referred to as "data about data".
+* Metadata provides important contextual information to help us interpret a dataset.
+* There are two types of metadata associated with datasets:
+
+* Administrative metadata tells us how a dataset is managed and its *provenance*, or the history of how it came to be in its current form:
+    * Who created it?
+    * When was it created?
+    * When was it last updated?
+    * Who is permitted to use it?  
+* Descriptive metadata tells us information about the contents of a dataset:
+    * What does each row refer to?
+    * What does each column refer to?
+    * What values might appear in each cell?
+      
+---
+      
+# Where do I find metadata for a dataset?
+
+* Oftentimes metadata is recorded in a dataset codebook or data dictionary.
+* These documents provide definitions for the observations and variables in a dataset and tell you the accepted values for each variable. 
+* Let's say that I have a dataset of student names, majors, and class years. A codebook or data dictionary might tell me that:
+  * Each row in the dataset refers to one student.
+  * The 'Class Year' variable refers to "the year the student is expected to graduate."
+  * Possible values for the 'Major' variable are Economics, SDS, and Psychology.
+      
+---
+
 class: center, middle
 # Data wrangling is a process for transforming a dataset from its original form into a more relevant form to suit your needs.
       
