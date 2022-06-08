@@ -33,7 +33,7 @@ sds::mono_light_smith()
 # Today's Learning Goals
 
 * Understand rows, columns, and datasets.
-* Be able to select variables and filter rows using ggplot2.
+* Be able to select variables and filter rows using R.
 
 ---
 
