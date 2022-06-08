@@ -862,11 +862,11 @@ include_graphics("static/images/ASM.png")
 
 ### 1. Lecture
 
-* <a href="https://scao53.github.io/sds192fall2022/slides/Lec15-JoinTables.html">Class slides: Join Tables + Other Verbs</a>
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec15-JoinTables.html">Class slides: Join Two Tables + Other Verbs</a>
 
 ### 2. In-class exercise
 
-
+* <a href="in-class_exercises/Lec15In-classExercise-JoinTables.zip" download>Join two tables</a>
 
 
 ***
