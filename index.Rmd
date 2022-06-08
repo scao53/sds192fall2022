@@ -657,24 +657,22 @@ No lecture today, instead optional in-class office hours:
 
 
 
-# Lec 21: Wed 10/27 {#Lec21}
+# Lec 21: Wed 10/26 {#Lec21}
 
 ## Announcements
 
 * Mid-Semester Assessment:
     + 1m26s [video](https://smith.zoom.us/rec/play/O14VUQdkLmLYk8rVIUTiZV5srowJnD1WY0ea32Src58MxBebmzApFoLj6QC7yIP07qryBdY_BTyC0mMr.uem-p46i7C1polTP?startTime=1632337008000&_x_zm_rtaid=xnfz95AGRVq1Q6k5BMaobg.1635335436110.113b109a84ea1ad5c5d637f778892a5a&_x_zm_rhtaid=173){target="_blank"}
     + [Link to survey](https://smithcollege.qualtrics.com/jfe/form/SV_6rPDOKOBtfkvWJw){target="_blank"}
-* Talk about Spring 2022 SDS courses
-* Added "Tips & Tricks" tab to menu bar of course webpage
-* Update to syllabus
 
 ## Today's topics/activities
 
+<!--
 ### 1. Chalk talk
 
-* None
+* None-->
 
-### 2. In-class exercise
+### 1. In-class exercise
 
 * Work on MP2
 
@@ -684,31 +682,22 @@ No lecture today, instead optional in-class office hours:
 
 
 
-# Lec 20: Mon 10/25 {#Lec20}
+# Lec 20: Mon 10/24 {#Lec20}
 
 ## Announcements
 
-* MP1 grades posted: See Slack `#mp1` for details
 
 
 ## Today's topics/activities
 
 ### 1. Chalk talk
 
-* Recap of Lec19: Why did we use `inner_join()` for solution to LC 3.20 on computing Available Seat Miles
-* Importing spreadsheet data into R. Either Excel files or `.csv` Comma-Separated Values files. See image of example `.csv` file below.
-* [Data formats](https://en.wikipedia.org/wiki/Wide_and_narrow_data){target="_blank"}: "tidy" AKA long/tall/narrow format versue "non-tidy" AKA wide format
-
-<center>
-![](static/images/CSV.png){ width=500px }
-</center>
-<br>
-
 
 
 ### 2. In-class exercise
 
-* Go over ModernDive reading in schedule above
+* Work on MP2
+
 
 
 
@@ -716,13 +705,10 @@ No lecture today, instead optional in-class office hours:
 
 
 
-# Lec 19: Fri 10/22 {#Lec19}
+# Lec 19: Fri 10/21 {#Lec19}
 
 ## Announcements
 
-* MP1 returned by Monday
-* E-commerce concept: [conversion funnel](https://sleeknote.com/blog/e-commerce-sales-funnel){target="_blank"}
-* Check out the Smith [Common Goods Resource Center](https://www.smith.edu/student-life/commongoods){target="_blank"}
 * Struggling with data wrangling? Don't worry, that's normal since ["90% of data science is data wrangling."](https://blog.rstudio.com/2020/05/05/wrangling-unruly-data/){target="_blank"}
 * There are lots of "90% of data science is ..." quotes:
 
@@ -745,15 +731,32 @@ No lecture today, instead optional in-class office hours:
 
 
 
-# Lec 18: Wed 10/20 {#Lec18}
+# Lec 18: Wed 10/19 {#Lec18}
 
 ## Announcements
 
-* Slack:
-    + See `#general` Slack channel and give feedback on Spinelli tutors
-    + Practice making text look like `code`: create a DM with your project partner and let's practice.
-* Discuss [Mini-Project 2](projects.html#MP2) in full detail
-* Feel free to message me on weekends, I just likely won't respond.
+
+
+## Today's topics/activities
+
+<!--### 1. Chalk talk-->
+
+### 1. Lecture
+
+### 2. In-class exercise
+
+
+
+***
+
+
+
+# Lec 17: Mon 10/17 {#Lec17}
+
+## Announcements
+
+* PS05 to be posted by this evening
+* Discuss <a href="projects.html#MP2">Mini-Project 2</a> in full detail
 
 
 ## Today's topics/activities
@@ -761,14 +764,6 @@ No lecture today, instead optional in-class office hours:
 ### 1. Chalk talk
 
 * What is pseudocode?
-* Types of joins:
-    + Copy code below to your `classnotes.Rmd`
-    + Refer to image (ignore `semi_join()`)
-    ```{r, echo=FALSE, fig.align='center'}
-      include_graphics("static/images/joins.png")
-    ```
-
-<script src="https://gist.github.com/rudeboybert/968dbf26d5f9407703ae7b24d217af67.js"></script>
 
 
 ### 2. In-class exercise
@@ -784,17 +779,21 @@ include_graphics("static/images/ASM.png")
 
 
 
-
 ***
 
 
 
-# Lec 17: Mon 10/18 {#Lec17}
+
+
+
+# Lec 16: Fri 10/14 {#Lec16}
 
 ## Announcements
 
-* [Mini-Project 2](projects.html#MP2) posted
-* PS05 to be posted by this evening
+* Mini-project 2 (MP2) assigned today
+    + Add yourselves to the `#sds-192-mp2` channel. Please ask all questions about MP2 in `#sds-192-mp2`, not in `#sds-192-questions`
+    + By Sunday 5pm I will post the new groups (of two) in the `#sds-192-mp2` channel. Until `#sds-192-mp2` is due, you will sit next to your partner in class
+    + Please reach out to your partner with a Slack DM before Monday's lecture to coordinate meeting before lecture so you can sit next to each other
 
 
 ## Today's topics/activities
@@ -802,48 +801,13 @@ include_graphics("static/images/ASM.png")
 ### 1. Chalk talk
 
 * Adding to previous lectures:
-    + Lec15 on `group_by()` and `summarize()`: difference between `sum()` and `n()` summary functions.
-    + Lec16 on `mutate()`: `ifelse()` function
-* `_join()`, `select()`, and `rename()` functions
+    + <code>ifelse()</code> function
 
-<!--
-2021/10 fall note: Focus on inner_join first, do left & right later
--->
-
-### 2. In-class exercise
-
-* Go over ModernDive reading in schedule above
+### 2. Lecture
 
 
+### 3. In-class exercise
 
-***
-
-
-
-
-
-
-# Lec 16: Fri 10/15 {#Lec16}
-
-## Announcements
-
-* Mini-project 2 (MP2) assigned on Monday
-    + Add yourselves to the `#mp2` channel. Please ask all questions about MP2 in `#mp2`, not in `#questions`
-    + By Sunday 5pm I will post the new groups (of two) in the `#mp2` channel. Until `#mp2` is due, you will sit next to your partner in class.
-    + Please reach out to your partner with a Slack DM before Monday's lecture to coordinate meeting before lecture so you can sit next to each other.
-    + If you have seating restrictions due to hearing, sight, or mobility issues, please DM me.
-
-
-## Today's topics/activities
-
-### 1. Chalk talk
-
-* `mutate()` new columns/variables and `arrange()` i.e. sort rows
-
-
-### 2. In-class exercise
-
-* Go over ModernDive reading in schedule above
 
 
 
