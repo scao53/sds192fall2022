@@ -1,13 +1,13 @@
 ---
-title: "Day Twenty-Two: Pivoting Data"
+title: "Lec 18: Tidy Data"
 subtitle: "SDS 192: Introduction to Data Science"
 author: |
-  Lindsay Poirier<br/>
+  Shiya Cao<br/>
   <span style = 'font-size: 70%;'>
   [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
   </span>
 date: |
-  Spring 2022<br/>
+  Fall 2022<br/>
   `r sds::img_logo(width = 64)`
 output:
   sds::moon_reader:
@@ -32,47 +32,17 @@ options(htmltools.dir.version = FALSE)
 sds::mono_light_smith()
 ```
 
-# Reminders
 
-* Quiz 3 review first 15 minutes of office hours on Wednesday
-* Quiz 4 will be posted Wednesday
 
----
+# Today's Learning Goals
 
-# For Today
-
-* Tidy data
-* Pivot longer
-* Recoding values
-* Pivot wider
-* Renaming columns
+* Be able to pivot longer, pivot wider, and recode values using R.
 
 ---
 
-# How would you produce this plot?
+# How Would You Produce This Plot?
 
-```{r echo=FALSE, fig.height=3, fig.width=5, message=FALSE, warning=FALSE}
-library(tidyverse)
-ct_school_attendance <- read.csv("https://data.ct.gov/resource/t4hx-jd4c.csv?$limit=3000") %>%
-  filter(studentgroup == "All Students" & reportingdistrictname != "Connecticut") %>%
-  select(reportingdistrictname, starts_with("attrate_"))
-
-ct_school_attendance %>%
-  select(reportingdistrictname, starts_with("attrate_")) %>%
-  pivot_longer(cols = starts_with("attrate_"), 
-               names_to = "school_year",
-               values_to = "attendance_rates",
-               names_prefix = "attrate_") %>%
-  mutate(school_year = case_when(
-    school_year == "ytd" ~ "Year to Date", 
-    school_year == "202021" ~ "2020-2021",
-    school_year == "201920" ~ "2019-2020")) %>%
-  ggplot(aes(x = attendance_rates)) +
-  geom_histogram(binwidth = 0.05, color = "white") +
-  facet_wrap(vars(school_year)) +
-  labs(x = "Attendance Rates", y = "Count of Schools in CT")
-
-```
+![](img./Lec18_tidydata_1.png)&lt;!-- --&gt;
 
 ---
 
@@ -95,7 +65,7 @@ Grolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 
 
 ---
 
-# What is tidy data?
+# What Is Tidy Data?
 
 * Every row is an observation.
 * Every column is a variable. 
@@ -103,7 +73,7 @@ Grolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 
 
 ---
 
-# Is this tidy?
+# Is This Tidy?
 
 > What variables are displayed on this plot?
 
@@ -121,12 +91,12 @@ df
 
 ---
 
-# What will it look like when tidy?
+# What Will It Look Like When Tidy?
 
 ```{r}
-df %>% pivot_longer(-Date, 
+df |> pivot_longer(-Date, 
                     names_to = "City", 
-                    values_to = "AQI") %>%
+                    values_to = "AQI") |>
   mutate(City = str_replace(City, "_AQI", ""))
 ```
 
@@ -136,11 +106,11 @@ df %>% pivot_longer(-Date,
 
 * We use `pivot_longer()` to pivot a datasets from wider to longer format:
 * `pivot_longer()` takes the following arguments: 
-  1. `cols = `: Identify a series of columns to pivot
+  1. `cols = `: Identify a series of columns to pivot.
     * The names of those columns will become repeated rows in the pivoted data frame, and the values in those columns will be stored in a new column.
-  2. `names_to = `: Identify a name for the column where the column names will be store
-  3. `values_to = `: Identify a name for the column were the values associated with those names will be stored
-  4. Various arguments to support transformations to names
+  2. `names_to = `: Identify a name for the column where the column names will be store.
+  3. `values_to = `: Identify a name for the column were the values associated with those names will be stored.
+  4. Various arguments to support transformations to names.
 
 ---
 
@@ -159,18 +129,18 @@ df
 
 .pull-left[
 ```{r eval=FALSE}
-df %>% pivot_longer(cols = -Date, 
+df |> pivot_longer(cols = -Date, 
                     names_to = "City", 
-                    values_to = "AQI") %>%
+                    values_to = "AQI") |>
   mutate(City = str_replace(City, "_AQI", ""))
 ```
 ]
 
 .pull-right[
 ```{r echo=FALSE}
-df %>% pivot_longer(cols = -Date, 
+df |> pivot_longer(cols = -Date, 
                     names_to = "City", 
-                    values_to = "AQI") %>%
+                    values_to = "AQI") |>
   mutate(City = str_replace(City, "_AQI", ""))
 ```
 ]
@@ -179,36 +149,36 @@ df %>% pivot_longer(cols = -Date,
 
 # Recoding Values
 
-* `case_when()`: allows us to assign new values to a cell when a certain condition is met
-* Vectorized 'if/else' statement
+* `case_when()` allows us to assign new values to a cell when a certain condition is met.
+* Vectorized 'if/else' statement.
 * Argument format: CONDITION ~ REPLACEMENT VALUE WHEN CONDITION MET
 
 .pull-left[
 ```{r eval=FALSE}
-df %>% pivot_longer(cols = -Date, 
+df |> pivot_longer(cols = -Date, 
                     names_to = "City", 
-                    values_to = "AQI") %>%
-  mutate(City = str_replace(City, "_AQI", "")) %>%
+                    values_to = "AQI") |>
+  mutate(City = str_replace(City, "_AQI", "")) |>
   mutate(City = case_when(
     City == "Nrthmptn" ~ "Northampton",
     City == "NYC" ~ "New York City",
     City == "Bstn" ~ "Boston"
-  )) %>%
+  )) |>
   select(Date, City)
 ```
 ]
 
 .pull-right[
 ```{r echo=FALSE}
-df %>% pivot_longer(cols = -Date, 
+df |> pivot_longer(cols = -Date, 
                     names_to = "City", 
-                    values_to = "AQI") %>%
-  mutate(City = str_replace(City, "_AQI", "")) %>%
+                    values_to = "AQI") |>
+  mutate(City = str_replace(City, "_AQI", "")) |>
   mutate(City = case_when(
     City == "Nrthmptn" ~ "Northampton",
     City == "NYC" ~ "New York City",
     City == "Bstn" ~ "Boston"
-  )) %>%
+  )) |>
   select(Date, City)
 ```
 
@@ -218,13 +188,11 @@ df %>% pivot_longer(cols = -Date,
 
 # Pivoting Wider
 
-> Note: I use this far less often than `pivot_longer()`
-
 * We use `pivot_wider()` to pivot a datasets from longer to wider format:
 * `pivot_wider()` takes the following arguments: 
-  1. `names_from = `: Identify the column to get the new column names from
-  2. `values_from = `: Identify the column to get the cell values from
-  3. Various arguments to support transformations to names
+  1. `names_from = `: Identify the column to get the new column names from.
+  2. `values_from = `: Identify the column to get the cell values from.
+  3. Various arguments to support transformations to names.
 
 ---
 
@@ -232,30 +200,29 @@ df %>% pivot_longer(cols = -Date,
 
 .pull-left[
 ```{r echo=FALSE}
-df <- data.frame(
-  Date = c("03/19/2022", "03/18/2022"),
-  Nrthmptn_AQI = c(70, 69),
-  NYC_AQI = c(72, 60),
-  Bstn_AQI = c(43, 59)) %>% 
-  pivot_longer(cols = -Date, 
+df |> pivot_longer(cols = -Date, 
                     names_to = "City", 
-                    values_to = "AQI") %>%
-  mutate(City = str_replace(City, "_AQI", ""))
-
-df
+                    values_to = "AQI") |>
+  mutate(City = str_replace(City, "_AQI", "")) |>
+  mutate(City = case_when(
+    City == "Nrthmptn" ~ "Northampton",
+    City == "NYC" ~ "New York City",
+    City == "Bstn" ~ "Boston"
+  )) |>
+  select(Date, City)
 ```
 ]
 
 .pull-right[
 ```{r eval=FALSE}
-df %>% pivot_wider(names_from = "Date", 
+df |> pivot_wider(names_from = "Date", 
                    values_from = "AQI", 
                    names_repair = make.names)
 ```
 ]
 
 ```{r echo=FALSE}
-df %>% pivot_wider(names_from = "Date", 
+df |> pivot_wider(names_from = "Date", 
                    values_from = "AQI", 
                    names_repair = make.names)
 ```
@@ -267,9 +234,9 @@ df %>% pivot_wider(names_from = "Date",
 > Use `rename(NEW_COLUMN_NAME = EXISTING_COLUMN_NAME)` 
 
 ```{r}
-df %>% pivot_wider(names_from = "Date", 
+df |> pivot_wider(names_from = "Date", 
                    values_from = "AQI", 
-                   names_repair = make.names) %>%
+                   names_repair = make.names) |>
   rename(Mar19 = X03.19.2022,
          Mar18 = X03.18.2022)
 ```
@@ -280,19 +247,8 @@ df %>% pivot_wider(names_from = "Date",
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
-ct_school_attendance <- read_csv("https://data.ct.gov/resource/t4hx-jd4c.csv?$limit=3000")
-
-head(ct_school_attendance)
-```
-
----
-
-# CT School Attendance Example
-
-```{r message=FALSE, warning=FALSE}
-library(tidyverse)
-ct_school_attendance <- read_csv("https://data.ct.gov/resource/t4hx-jd4c.csv?$limit=3000") %>%
-  filter(studentgroup == "All Students" & 
+ct_school_attendance &lt;- read_csv("data/ct_school_attendance.csv") |>
+  filter(studentgroup == "All Students" &amp; 
            reportingdistrictname != "Connecticut")
 
 head(ct_school_attendance)
@@ -301,38 +257,26 @@ head(ct_school_attendance)
 --- 
 
 ```{r}
-ct_school_attendance %>%
-  select(reportingdistrictname, starts_with("attrate_")) %>%
+ct_school_attendance_tidy <- ct_school_attendance |>
+  select(reportingdistrictname, starts_with("attrate_")) |>
   pivot_longer(cols = starts_with("attrate_"), 
                names_to = "school_year",
                values_to = "attendance_rates",
-               names_prefix = "attrate_") %>% head()
+               names_prefix = "attrate_") 
+      
+head(ct_school_attendance_tidy)
 ```
 
 ---
 
 ```{r}
-ct_school_attendance_pivoted <- 
-  ct_school_attendance %>%
-  select(reportingdistrictname, starts_with("attrate_")) %>%
+ct_school_attendance_tidy &lt;- 
+  ct_school_attendance |>
+  select(reportingdistrictname, starts_with("attrate_")) |>
   pivot_longer(cols = starts_with("attrate_"), 
                names_to = "school_year",
                values_to = "attendance_rates",
-               names_prefix = "attrate_")
-
-head(ct_school_attendance_pivoted)
-```
-
----
-
-```{r}
-ct_school_attendance_pivoted <- 
-  ct_school_attendance %>%
-  select(reportingdistrictname, starts_with("attrate_")) %>%
-  pivot_longer(cols = starts_with("attrate_"), 
-               names_to = "school_year",
-               values_to = "attendance_rates",
-               names_prefix = "attrate_") %>%
+               names_prefix = "attrate_") |>
   mutate(school_year = case_when(
     school_year == "ytd" ~ "Year to Date", 
     school_year == "202021" ~ "2020-2021",
@@ -342,7 +286,7 @@ ct_school_attendance_pivoted <-
 ---
 
 ```{r fig.height=2, fig.width=5, message=FALSE, warning=FALSE}
-ct_school_attendance_pivoted %>%
+ct_school_attendance_tidy |>
   ggplot(aes(x = attendance_rates)) +
   geom_histogram(binwidth = 0.05, color = "white") +
   facet_wrap(vars(school_year)) +
@@ -352,21 +296,20 @@ ct_school_attendance_pivoted %>%
 ---
 
 ```{r message=FALSE, warning=FALSE}
-library(tidyverse)
-ct_school_attendance <- read_csv("https://data.ct.gov/resource/t4hx-jd4c.csv?$limit=3000") %>%
-  filter(reportingdistrictname != "Connecticut") %>%
+ct_school_attendance <- read_csv("data/ct_school_attendance.csv") |>
+  filter(reportingdistrictname != "Connecticut") |>
   select(reportingdistrictname, studentgroup, attrate_202021) 
 
-head(ct_school_attendance)  
+head(ct_school_attendance)
 ```
 
 ---
 
 ```{r}
-ct_school_attendance %>%
+ct_school_attendance |>
   pivot_wider(names_from = studentgroup,
                values_from = attrate_202021,
-               names_repair = make.names) %>% head()
+               names_repair = make.names) |> head()
 ```
 
 
