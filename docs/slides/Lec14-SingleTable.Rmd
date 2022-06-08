@@ -1,0 +1,373 @@
+---
+title: "Day Sixteen: Subsetting Data"
+subtitle: "SDS 192: Introduction to Data Science"
+author: |
+  Lindsay Poirier<br/>
+  <span style = 'font-size: 70%;'>
+  [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
+  </span>
+date: |
+  Spring 2022<br/>
+  `r sds::img_logo(width = 64)`
+output:
+  sds::moon_reader:
+    lib_dir: libs
+    css: xaringan-custom.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false    
+      navigation:
+        scroll: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(dpi=300)
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+# sds::duo_smith()
+sds::mono_light_smith()
+```
+
+```{r include=FALSE}
+library(tidyverse)
+hospitals <- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/Hospital_Cost_Report_2018.csv")
+```
+
+# For today
+
+* Piping Functions
+* `select()`
+* `filter()`
+* `arrange()`
+
+---
+
+# Today's data
+
+* Hospital Cost Reports, 2018
+
+```{r}
+library(tidyverse)
+hospitals <- read.csv("https://raw.githubusercontent.com/SDS-192-Intro/SDS-192-public-website/main/slides/datasets/Hospital_Cost_Report_2018.csv")
+```
+
+---
+
+
+class: center, middle
+# Data wrangling is a process for transforming a dataset from its original form into a more relevant form.
+
+---
+
+# What is that funny symbol I keep seeing in labs?
+
+.pull-left[
+* Up until now, we have been nesting arguments in functions.
+* Let's say I had the vector: `class1$shirt_colors` 
+* `length(unique( class1$shirt_colors))`
+]
+
+.pull-right[
+* The pipe (`%>%`) is imported when we call `library(tidyverse)`
+* The pipe offers a way to string arguments together consecutively. 
+* Reads more like a sentence. 
+* `class1$shirt_colors %>% unique() %>% length()`
+]
+
+---
+
+# Six "verbs" for data wrangling
+
+* `select()`
+* `filter()`
+* `arrange()`
+* `summarize()`
+* `group_by()`
+* `mutate()`
+
+---
+
+# `select()`
+
+* `select()` enables us to select variables (columns) of interest.
+
+![](http://ohi-science.org/data-science-training/img/rstudio-cheatsheet-select.png)
+---
+
+# `select()`
+
+* `select()` enables us to select variables (columns) of interest.
+
+```{r}
+hospitals %>%
+  select(Provider.CCN, State.Code, Number.of.Beds) %>%
+  head()
+```
+
+
+---
+
+# `select()`
+
+* `select()` enables us to select variables (columns) of interest.
+* `:` enables us to select consecutive variables (columns) of interest.
+
+```{r}
+hospitals %>%
+  select(Provider.CCN, State.Code:County) %>%
+  head()
+```
+
+---
+
+# `select()`
+
+* `select()` enables us to select variables (columns) of interest.
+* `:` enables us to select consecutive variables (columns) of interest.
+
+```{r}
+hospitals %>%
+  select(Provider.CCN, State.Code:County) %>%
+  head()
+```
+
+---
+
+# `select()`
+
+* `select()` enables us to select variables (columns) of interest.
+* `!` enables us to negate selection of certain variables (columns).
+* `last_col()` serves as a reference to the last column. 
+
+```{r}
+hospitals %>%
+  select(!(Hospital.Name:last_col())) %>%
+  head()
+```
+
+---
+
+# `select()`
+
+* `select()` enables us to select variables (columns) of interest.
+* `starts_with()` is a helper function that enables us to select columns by matching string patterns at the start of their names
+
+```{r}
+hospitals %>%
+  select(Provider.CCN, starts_with("Fiscal")) %>%
+  head()
+```
+
+---
+
+# `select()`
+
+* `select()` enables us to select variables (columns) of interest.
+* `ends_with()` is a helper function that enables us to select columns by matching string patterns at the end of their names
+
+```{r}
+hospitals %>%
+  select(Provider.CCN, ends_with("Improvements")) %>%
+  head()
+```
+
+---
+
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+
+![](http://ohi-science.org/data-science-training/img/rstudio-cheatsheet-filter.png) 
+
+---
+
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* == checks for equivalence and != checks for inequivalence
+
+```{r}
+hospitals %>%
+  filter(City == "Springfield") %>%
+  select(Provider.CCN, City, State.Code)
+```
+
+> Review the data. Why does this return 0 rows?
+
+---
+
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* == checks for equivalence and != checks for inequivalence
+
+```{r}
+hospitals %>%
+  filter(City == "SPRINGFIELD") %>%
+  select(Provider.CCN, City, State.Code)
+```
+
+> What do we need to do now?
+
+---
+
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* == checks for equivalence and `&` returns rows that meet **both** criteria
+
+```{r}
+hospitals %>%
+  filter(City == "SPRINGFIELD" & State.Code == "Massachusetts") %>%
+  select(Provider.CCN, City, State.Code)
+```
+
+> Review the data. Why does this return 0 rows?
+
+---
+
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* == checks for equivalence and `|` returns rows that meet **either** criteria
+
+```{r}
+hospitals %>%
+  filter(Rural.Versus.Urban == "R" | CCN.Facility.Type == "CAH") %>%
+  select(Hospital.Name, City, State.Code) %>%
+  head()
+```
+
+> CAH refers to a "critical access hospital"
+
+---
+
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* \>, <, >=, <= checks whether values are greater/less/equal to than other values
+
+```{r}
+hospitals %>%
+  filter(Number.of.Beds > 1500) %>%
+  select(Provider.CCN, City, State.Code, Number.of.Beds)
+```
+
+---
+
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* `%in%` checks for values that match at least one value in a vector of values
+
+```{r}
+hospitals %>%
+  filter(CCN.Facility.Type %in% c("STH", "LTCH")) %>%
+  select(Hospital.Name, City, State.Code) %>% 
+  head()
+``` 
+
+---
+
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* `is.na()` checks for `NA` values and `!is.na()` checks for non-`NA` values
+
+```{r}
+hospitals %>%
+  filter(is.na(Number.of.Beds)) %>%
+  select(Hospital.Name, City, State.Code) %>% 
+  nrow()
+``` 
+
+---
+
+# `filter()`
+
+* `filter()` subsets observations (rows) according to a certain criteria that we provide.
+* `str_detect()` checks for values with strings that match a pattern we provide
+
+```{r}
+hospitals %>%
+  filter(str_detect(Hospital.Name, "SHRINERS")) %>%
+  select(Hospital.Name, City, State.Code) %>% 
+  head()
+``` 
+
+---
+
+`arrange()`
+
+* `arrange()` sorts rows according to values in a column 
+* Defaults to sorting from smallest to largest (numeric) or first character to last character (character).
+
+```{r}
+hospitals %>%
+  filter(City == "SPRINGFIELD" & State.Code == "MA") %>%
+  arrange(Number.of.Beds) %>%
+  select(Hospital.Name, Number.of.Beds)
+```
+
+---
+
+`arrange()`
+
+* `arrange()` sorts rows according to values in a column 
+* `desc()` sorts from largest to smallest (numeric) or last character to first character (character).
+
+```{r}
+hospitals %>%
+  filter(City == "SPRINGFIELD" & State.Code == "MA") %>%
+  arrange(desc(Number.of.Beds)) %>%
+  select(Hospital.Name, Number.of.Beds)
+```
+
+---
+
+class: center, middle
+# Quiz Review
+
+---
+
+# What is the y label?
+
+```{r fig.height=3, fig.width=6}
+hospitals %>%
+  ggplot(aes(x = CCN.Facility.Type)) +
+  geom_bar() +
+  coord_flip() +
+  labs(x = "Facility Type", y = "Number of ______")
+```
+
+---
+
+# What is the y label?
+
+```{r fig.height=2.5, fig.width=6, warning=FALSE}
+hospitals %>%
+  ggplot(aes(x = Number.of.Beds)) +
+  geom_histogram(binwidth = 100) +
+  labs(x = "", y = "Number of ______")
+```
+
+---
+
+class: center, middle
+# Other than `CCN.Facility.Type` what other variables would be appropriate to apply to the x aesthetic when calling `geom_bar()`?
+
+---
+
+# Which of visual cues are represented on this plot? Overplotting? Palette?
+
+```{r fig.height=2.5, fig.width=6, warning=FALSE}
+ggplot(hospitals, aes(x = CCN.Facility.Type, Number.of.Beds, col = Rural.Versus.Urban)) +
+  geom_point() +
+  coord_flip()
+```
+
+
