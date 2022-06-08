@@ -160,8 +160,7 @@ summary_hospitals_ma
 
 ---
  
-class: center, middle
-# But there are very different types of hospitals represented in this dataset. Maybe I want to know the number of beds for each type of hospital.
+* But there are very different types of hospitals represented in this dataset. Maybe I want to know the number of beds for each type of hospital.
 
 ---
       
