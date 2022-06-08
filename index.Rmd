@@ -889,9 +889,9 @@ include_graphics("static/images/ASM.png")
 
 ## Today's topics/activities
 
-### 1. Chalk talk
+### 1. Lecture
 
-* None
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec14-SingleTable.html">Class slides: Single Table Analysis</a>
 
 ### 2. In-class exercise
 
