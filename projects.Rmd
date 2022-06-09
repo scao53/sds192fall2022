@@ -233,16 +233,16 @@ contributions
     + All visualizations are mindful of the [data-ink ratio](https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842){target="_blank"}.
     + All code must be visible in your PDF.
     + Citations must be included as footnotes.
-1. **Minimally viable product:** Grade 7/10
+1. **Minimally viable product:** Grade: 7/10
     + Satisfy all "baseline" criteria.
     + Create one data visualization that "follows the money" i.e. involves campaign contributions and include a written analysis.
-1. **Due diligence:** Grade 8/10
+1. **Due diligence:** Grade: 8/10
     + Satisfy all "baseline" and "minimally viable product" criteria.
     + The data visualization from the "minimally viable product" should be based on at least two joined data frames. 
-1. **Point of diminishing returns:** Grade 9/10
+1. **Point of diminishing returns:** Grade: 9/10
     + Satisfy all "baseline", "minimally viable product", and "due diligence" criteria.
     + Create a second data visualization that builds on the first data visualization, but is also non-redundant to the first. Include a written analysis.
-1. **Polishing the cannonball** Grade >9/10
+1. **Polishing the cannonball** Grade: >9/10
     + Satisfy all "baseline", "minimally viable product", "due diligence", and "point of diminishing returns" criteria.
     + Written text does an exceptional job of not only addressing what money-driven effect on politics is being observed, but also attempts to address *why* this money-driven effect on politics is happening.
 
@@ -394,7 +394,7 @@ Here are some arbitrarily chosen examples. Note the topics covered this semester
 
 1. **Baseline:** Projects that do not satisfy all "baseline" criteria can expect to get a grade of less than 8/10.
     + The RMarkdown Website must "build" correctly when someone else builds it. *This is known as producing reproducible research.*
-    + Wherever possible, all visualizations have appropriately labeled axes, legends, titles, etc and are mindful of the [ink/information ratio](https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842){target="_blank"}.    
+    + Wherever possible, all visualizations have appropriately labeled axes, legends, titles, etc and are mindful of the [data-ink ratio](https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842){target="_blank"}.    
     + Your code is clean, commented, and well-indented.
     + From the perspective of both the report reader and potential collaborators who might reproduce your work, no "superfluous" and non-informative inputs or outputs are included. *This is being mindful of the work you create for readers and collaborators, including future you.* Ex: Do not
         1. Include my original instructions in the report.
@@ -411,7 +411,7 @@ Here are some arbitrarily chosen examples. Note the topics covered this semester
 1. **Point of diminishing returns:** Grade: 9.5/10.
     + Satisfy all "baseline", "minimally viable product", and "due diligence" criteria.
     + Complete the second `more_info.html` page with 2-3 visualizations.
-1. **Polishing the cannonball**: Grade: 10/10
+1. **Polishing the cannonball**: Grade: 10/10.
     + Satisfy all "baseline", "minimally viable product", "due diligence", and "point of diminishing returns" criteria.
     + Impress me by using the tools you've learned this semester. Yes, this criteria is deliberately vague. 
 
