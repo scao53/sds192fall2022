@@ -1,6 +1,6 @@
 # SDS 192
 
-Source code to generate the course webpage for 2019-09 Fall Smith College SDS
+Source code to generate the course webpage for 2022 Fall Smith College SDS
 192: Introduction to Data Science <https://scao53.github.io/sds192fall2022/>. Most
 of the content is in either:
 
