@@ -74,7 +74,7 @@ include_graphics("static/images/google_calendar.png")
 1. Identify a question about how you use your time *that you feel comfortable sharing with your partner and me*.
 1. Start the data collection process: start logging time in Google Calendar, macOS Calendar, or Outlook.
 1. Export the calendar to `.ics` file format and then import into R.
-    + The screencast demonstrates how to do this with Google Calendar. 
+    + The screencast created by Prof. Albert Y. Kim demonstrates how to do this with Google Calendar. 
     + Test this early and test this often!
 1. Exchange data! You will pass your question and data to your partner, and they will do an analysis with two non-redundant data visualizations.
 1. Write a joint reflection piece on this experience. In particular
@@ -178,7 +178,7 @@ Words of wisdom from Detective Lester Freamon from The Wire:
 
 ## Basic outline
 
-The theme of your analysis will be **follow the money** as quoted in the video above. You will work with a partner to analyze Federal Election Commission data based on the 2016 federal election cycle, as provided by the Federal Election Commission. We'll be accessing this data in the `fec16` package, which was developed by Prof Ben Baumer, Rana Gahwagy, Irene Ryan, and Marium A. Tapal from Smith College. Check out Marium's poster from the [Women in Statistics and Data Science 2020 conference](https://ww2.amstat.org/meetings/wsds/2020/onlineprogram/AbstractDetails.cfm?AbstractID=309585){target="_blank"}:  
+The theme of your analysis will be **follow the money** as quoted in the video above. You will work with a partner to analyze Federal Election Commission data based on the 2016 federal election cycle, as provided by the Federal Election Commission. We'll be accessing this data in the `fec16` package, which was developed by Prof. Ben Baumer, Rana Gahwagy, Irene Ryan, and Marium A. Tapal from Smith College. Check out Marium's poster from the [Women in Statistics and Data Science 2020 conference](https://ww2.amstat.org/meetings/wsds/2020/onlineprogram/AbstractDetails.cfm?AbstractID=309585){target="_blank"}:  
 
 
 ```{r, echo = FALSE, eval = TRUE}
