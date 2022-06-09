@@ -109,7 +109,7 @@ include_graphics("static/images/google_calendar.png")
 include_graphics("static/images/MVP_2.png")
 ```
 
-IMO when working on any project
+When working on any project
 
 * Don't try to do everything completely and perfectly from the beginning. This leads to perfectionist thinking, which leads to procrastination and "analysis paralysis."
 * Do start by finishing a [minimially viable product](https://www.forbes.com/sites/quora/2018/02/27/what-is-a-minimum-viable-product-and-why-do-companies-need-them/#178bd8a2382c){target="_blank"} (image 1 in the bottom row of the image above). In other words:
