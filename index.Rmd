@@ -747,7 +747,7 @@ No lecture today, instead optional in-class office hours:
 
 ### 2. In-class exercise
 
-
+* <a href="in-class_exercises/Lec18In-classExercise-TidyData.zip" download>Pivot longer, pivot wider, and recode values</a>
 
 ***
 
