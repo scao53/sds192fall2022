@@ -177,7 +177,7 @@ Submission:
 
 
 
-## 2. Solutions {#PS05_solutions}
+<!--## 2. Solutions {#PS05_solutions}
 
 * <a href="static/PS/PS05_solutions.Rmd" download>`PS05_solutions.Rmd`</a> R Markdown "source code" 
 * [`PS05_solutions.pdf`](static/PS/PS05_solutions.pdf){target="_blank"} PDF
@@ -219,7 +219,7 @@ However, using `coord_cartesian(ylim = c(0, 3))` merely zooms in on this part of
 ggplot(example, aes(x = x, y = y)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
-  coord_cartesian(ylim = c(0, 3))
+  coord_cartesian(ylim = c(0, 3))-->
 ```
 
 
