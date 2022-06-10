@@ -68,6 +68,6 @@ Write the `ggplot2` that recreates Figure 2.1 of ModernDive. Do not worry about 
 
 # Question 2
 
-Q: What country had the highest GDP per capita in 2007? Use the sorting arrows next to variable names in RStudio's `View()` function.
+**Question**: What country had the highest GDP per capita in 2007? Use the sorting arrows next to variable names in RStudio's `View()` function.
 
-A: 
+**Answer**: 
