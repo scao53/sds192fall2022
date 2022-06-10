@@ -293,26 +293,26 @@ ggplot(example, aes(x = x, y = y)) +
 
 # Problem Set 02 {#PS02}
 
-*Due Monday 9/20 5pm*
+*Due Monday 9/19 5pm.*
 
 ## 1. R Markdown component {#PS02_R}
 
-* Download the following Rmd template file: <a href="static/PS/PS02.Rmd" download>`PS02.Rmd`</a>.
+* Download the following Rmd template file: <a href="PS/PS02.Rmd" download>`PS02.Rmd`</a>.
 * You will be submitting the resulting `PS02.pdf` file on gradescope. There are two methods to create a PDF:
     1. "Knit to PDF". This is the preferred format (for consistency for the graders). 
-    1. If this doesn't work for you, then "Knit to Word" and then export/save as PDF
+    1. If this doesn't work for you, then "Knit to Word" and then export/save as PDF.
 * Complete the individual questions. Knit early, knit often.
 * If you encounter issues knitting your document, consult the [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"}.
 * Submit on [gradescope](https://www.gradescope.com/courses/308310){target="_blank"}:
-    1. Anytime between Mon 9/13 5pm and Mon 9/20 5pm
-    1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first)
+    1. Anytime between Mon 9/12 5pm and Mon 9/19 5pm.
+    1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first).
 
 
 
-## 2. Solutions {#PS02_solutions}
+<!--## 2. Solutions {#PS02_solutions}
 
 * <a href="static/PS/PS02_solutions.Rmd" download>`PS02_solutions.Rmd`</a> R Markdown "source code" 
-* [`PS02_solutions.pdf`](static/PS/PS02_solutions.pdf){target="_blank"} PDF
+* [`PS02_solutions.pdf`](static/PS/PS02_solutions.pdf){target="_blank"} PDF-->
 
 
 
@@ -322,7 +322,7 @@ ggplot(example, aes(x = x, y = y)) +
 
 # Problem Set 01 {#PS01}
 
-*Due Monday 9/13 5pm*
+*Due Monday 9/12 5pm.*
 
 1. If you haven't already, complete the [intro survey](https://docs.google.com/forms/d/e/1FAIpQLSdA6uWnig5oR3ITCsVBFDxC6IC5Nq1tYzo-atdChe8CVTTqag/viewform){target="_blank"} distributed on Friday.
 1. Complete a syllabus quiz.
@@ -333,7 +333,7 @@ ggplot(example, aes(x = x, y = y)) +
     + Create your account on gradescope via the email sent to you this morning. If you did not receive such an email, add yourself to the course using Entry Code: 6PNXZ5.
     + Log into [gradescope](https://www.gradescope.com/courses/308310){target="_blank"} 
     + **Added after lecture**: You can edit gradescope submissions as many times as you like before the due date/time.
-    + **Added after lecture**: You need to "tag" the 11 individual questions on whatever page(s) they are on (demo on Fri 9/10)
+    + **Added after lecture**: You need to "tag" the 11 individual questions on whatever page(s) they are on (demo on Fri 9/10).
     
 
 
