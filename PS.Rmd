@@ -263,25 +263,25 @@ ggplot(example, aes(x = x, y = y)) +
 
 # Problem Set 03 {#PS03}
 
-*Due Tuesday 9/28 9pm*
+*Due Tuesday 10/12 9pm.*
 
 ## 1. R Markdown component {#PS03_R}
 
-* Download the following Rmd template file: <a href="static/PS/PS03.Rmd" download>`PS03.Rmd`</a>.
+* Download the following Rmd template file: <a href="PS/PS03.Rmd" download>`PS03.Rmd`</a>.
 * You will be submitting the resulting `PS03.pdf` file on gradescope. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
 * Complete the individual questions. Knit early, knit often.
 * If you encounter issues knitting your document, consult the [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"}.
 * Submit on [gradescope](https://www.gradescope.com/courses/308310){target="_blank"}:
-    1. Anytime between Mon 9/20 5pm and Tue 9/29 9pm
-    1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first)
+    1. Anytime between Mon 10/5 5pm and Tue 10/12 9pm.
+    1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first).
     1. You will be asked to tag the honor code question as well.
 
 
 
-## 2. Solutions {#PS03_solutions}
+<!--## 2. Solutions {#PS03_solutions}
 
 * <a href="static/PS/PS03_solutions.Rmd" download>`PS03_solutions.Rmd`</a> R Markdown "source code" 
-* [`PS03_solutions.pdf`](static/PS/PS03_solutions.pdf){target="_blank"} PDF
+* [`PS03_solutions.pdf`](static/PS/PS03_solutions.pdf){target="_blank"} PDF-->
 
 
 
@@ -293,7 +293,7 @@ ggplot(example, aes(x = x, y = y)) +
 
 # Problem Set 02 {#PS02}
 
-*Due Monday 9/19 5pm.*
+*Due Monday 9/19 9pm.*
 
 ## 1. R Markdown component {#PS02_R}
 
@@ -304,8 +304,9 @@ ggplot(example, aes(x = x, y = y)) +
 * Complete the individual questions. Knit early, knit often.
 * If you encounter issues knitting your document, consult the [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"}.
 * Submit on [gradescope](https://www.gradescope.com/courses/308310){target="_blank"}:
-    1. Anytime between Mon 9/12 5pm and Mon 9/19 5pm.
+    1. Anytime between Mon 9/12 5pm and Mon 9/19 9pm.
     1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first).
+    2. You will be asked to tag the honor code question as well.
 
 
 
