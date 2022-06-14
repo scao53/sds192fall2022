@@ -28,13 +28,10 @@ class: center, middle, inverse, title-slide
 
 ---
 
-
-
 # Today's Learning Goals
 
-1. Projections
-2. Coordinate Reference Systems
-3. Point mapping in Leaflet
+* Understand projections.
+* Use `sf` package for static maps in `ggplot2` and loading shapefiles.
 
 ---
 
@@ -83,7 +80,31 @@ https://geohackweek.github.io/visualization/02-projections/
 ]
 
 ---
+      
+<a href="https://en.wikipedia.org/wiki/Mercator_projection">Mercator</a> (preserves angles)
+      
+![](img./Lec26_1280px-Mercator_projection_Square.png) By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Strebe&quot; title=&quot;User:Strebe&quot;&gt;Strebe&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=17700069">Link</a>    
 
+---
+      
+<a href="https://en.wikipedia.org/wiki/Gall%E2%80%93Peters_projection">Gall-Peters</a> (preserves area)
+      
+![](img./Lec26_Gall–Peters_projection_SW.png) By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Strebe&quot; title=&quot;User:Strebe&quot;&gt;Strebe&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=16115242">Link</a>
+
+---
+
+<a href="https://en.wikipedia.org/wiki/Albers_projection">Albers Equal Area</a>
+      
+![](img./Lec26_Albers_projection_SW.png) By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Strebe&quot; title=&quot;User:Strebe&quot;&gt;Strebe&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=16115144">Link</a>      
+ 
+---
+      
+<a href="https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection">Lambert Conformal Conic</a>      
+      
+![](img./Lec26_Lambert_conformal_conic_projection_SW.png) By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Strebe&quot; title=&quot;User:Strebe&quot;&gt;Strebe&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=16115295">Link</a>
+      
+---      
+      
 # Coordinate Reference System (CRS)
 
 * Points are in different locations depending on how we flatten Earth's surface into 2D map. 
@@ -92,137 +113,106 @@ https://geohackweek.github.io/visualization/02-projections/
 * For locations to appear correctly on maps, geographic features and underlying maps need to share same CRS.
 
 ---
+      
+# Spatial Packages in R
+
+* Working with shapefiles
+      * `sf` package for everything
+* Plotting
+      * `ggplot2` for static maps
+      * `leaflet` for interactive maps
+      
+---
 
 # `sf` Package
 
-* Encodes spatial data.
-* Enables setting and transforming CRSs.
-
-
 ```r
 library(sf)
-library(readr)
-nyc_311 &lt;- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$select=latitude,longitude&amp;$limit=4") %&gt;%
-  st_as_sf(coords = c("longitude", "latitude"), crs = 4269) #NAD 83
-
-nyc_311
+nc &lt;- system.file("shape/nc.shp", package = "sf") |>
+  st_read()
 ```
-
+      
 ```
-## Simple feature collection with 4 features and 0 fields
-## Geometry type: POINT
+## Reading layer `nc' from data source `/Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library/sf/shape/nc.shp' using driver `ESRI Shapefile'
+## Simple feature collection with 100 features and 14 fields
+## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
-## Bounding box:  xmin: -73.98197 ymin: 40.61101 xmax: -73.87925 ymax: 40.75435
-## Geodetic CRS:  NAD83
-## # A tibble: 4 × 1
-##               geometry
-## *          &lt;POINT [°]&gt;
-## 1 (-73.98197 40.73083)
-## 2 (-73.87925 40.75435)
-## 3 (-73.97674 40.61101)
-## 4 (-73.95247 40.66224)
+## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## Geodetic CRS:  NAD27
 ```
+     
+```r
+class(nc)
+```
+
+```
+## [1] "sf"         "data.frame"
+```
+      
 ---
-
-# How do I know which to use?
-
-* We pray that it's listed somewhere in data documentation. 
-* Not always the case. 
-
----
-
-# Leaflet
-
-* Start by calling `leaflet()` function, setting the original view, and adding basemap tiles
-
 
 ```r
-library(leaflet)
-
-leaflet() %&gt;%
-  setView(lat = 40.7, lng = -100.0, zoom = 3) %&gt;% 
-  addProviderTiles("OpenStreetMap")
+library(tidyverse)
+nc|>
+  select(AREA, NAME, geometry)
 ```
 
-<div id="htmlwidget-da821219af3b8cfa9774" style="width:504px;height:504px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-da821219af3b8cfa9774">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[40.7,-100],3,[]],"calls":[{"method":"addProviderTiles","args":["OpenStreetMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]}]},"evals":[],"jsHooks":[]}</script>
-
-&gt; Note that you need to look up the coordinates of the geography you wish to center in on.
+```
+## Simple feature collection with 100 features and 2 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## Geodetic CRS:  NAD27
+## First 10 features:
+##     AREA        NAME                       geometry
+## 1  0.114        Ashe MULTIPOLYGON (((-81.47276 3...
+## 2  0.061   Alleghany MULTIPOLYGON (((-81.23989 3...
+## 3  0.143       Surry MULTIPOLYGON (((-80.45634 3...
+## 4  0.070   Currituck MULTIPOLYGON (((-76.00897 3...
+## 5  0.153 Northampton MULTIPOLYGON (((-77.21767 3...
+## 6  0.097    Hertford MULTIPOLYGON (((-76.74506 3...
+## 7  0.062      Camden MULTIPOLYGON (((-76.00897 3...
+## 8  0.091       Gates MULTIPOLYGON (((-76.56251 3...
+## 9  0.118      Warren MULTIPOLYGON (((-78.30876 3...
+## 10 0.124      Stokes MULTIPOLYGON (((-80.02567 3...
+```
 
 ---
-
-# Leaflet, cont.
-
 
 ```r
-library(leaflet)
-
-leaflet() %&gt;%
-  setView(lat = 40.7, lng = -74.0, zoom=10) %&gt;% 
-  addProviderTiles("CartoDB.Positron") %&gt;%
-  addCircleMarkers(data = nyc_311)
+nc|>
+  st_geometry()|>
+  pluck(1)
 ```
 
 ```
-## Warning: sf layer has inconsistent datum (+proj=longlat +datum=NAD83 +no_defs).
-## Need '+proj=longlat +datum=WGS84'
+## MULTIPOLYGON (((-81.47276 36.23436, -81.54084 36.27251, -81.56198 36.27359, -81.63306 36.34069, -81.74107 36.39178, -81.69828 36.47178, -81.7028 36.51934, -81.67 36.58965, -81.3453 36.57286, -81.34754 36.53791, -81.32478 36.51368, -81.31332 36.4807, -81.26624 36.43721, -81.26284 36.40504, -81.24069 36.37942, -81.23989 36.36536, -81.26424 36.35241, -81.32899 36.3635, -81.36137 36.35316, -81.36569 36.33905, -81.35413 36.29972, -81.36745 36.2787, -81.40639 36.28505, -81.41233 36.26729, -81.43104 36.26072, -81.45289 36.23959, -81.47276 36.23436)))
 ```
-
-<div id="htmlwidget-677550cf01b86f258f10" style="width:504px;height:504px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-677550cf01b86f258f10">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[40.7,-74],10,[]],"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[40.7308268506551,40.7543478759237,40.6110082136735,40.6622431739402],[-73.9819702222673,-73.8792548902476,-73.9767369787966,-73.9524686340061],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[40.6110082136735,40.7543478759237],"lng":[-73.9819702222673,-73.8792548902476]}},"evals":[],"jsHooks":[]}</script>
-
-&gt; Notice the issue with the CRS here?
-
+ 
 ---
-
-# Leaflet, cont.
-
 
 ```r
-library(leaflet)
-
-nyc_311 &lt;- nyc_311 %&gt;%
-  st_transform(4326)
-
-leaflet() %&gt;%
-  setView(lat = 40.7, lng = -74.0, zoom=10) %&gt;% 
-  addProviderTiles("CartoDB.Positron") %&gt;%
-  addCircleMarkers(data = nyc_311)
+nc|>
+  select("AREA",geometry)|>
+  plot()
 ```
 
-<div id="htmlwidget-076cc7639b262afd79d0" style="width:504px;height:504px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-076cc7639b262afd79d0">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[40.7,-74],10,[]],"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[40.7308268506551,40.7543478759237,40.6110082136735,40.6622431739402],[-73.9819702222673,-73.8792548902476,-73.9767369787966,-73.9524686340061],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[40.6110082136735,40.7543478759237],"lng":[-73.9819702222673,-73.8792548902476]}},"evals":[],"jsHooks":[]}</script>
-
+![](img./Lec26_map_1.png)
+      
 ---
+      
+# `ggplot2` Support
 
-# Layers
-
-
-
-
-
+* Use `geom_sf()`.
+* Mapping (x, y) to geometry is implied!
+      
 ```r
-leaflet() %&gt;%
-  setView(lat = 40.7, lng = -74.0, zoom=10) %&gt;% 
-  addProviderTiles("CartoDB.Positron") %&gt;%
-  addCircleMarkers(data = nyc_311_rodent,
-                   fillColor = "red") %&gt;%
-  addCircleMarkers(data = nyc_311_litter,
-                   fillColor = "blue")
+ggplot(nc,aes(fill=AREA))+
+  geom_sf()
 ```
 
-<div id="htmlwidget-53997e9886e27d21bf51" style="width:504px;height:504px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-53997e9886e27d21bf51">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[40.7,-74],10,[]],"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[40.8507197436725,40.8052883382011,40.693601026451,40.8052883382011,40.7612035774887],[-73.9315607041388,-73.9138717209844,-73.9643572484352,-73.9138717209844,-73.9618592119613],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[40.8506074789796,-73.8894504999214,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"blue","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[40.693601026451,40.8507197436725],"lng":[-73.9643572484352,-73.8894504999214]}},"evals":[],"jsHooks":[]}</script>
-
----
-
-# Palettes
-
-* `colorNumeric()`: Maps numbers to colors in a specified palette
-* `colorBin()`: Maps numbers into a specified intervals (e.g. 0-10, &gt;10-20, etc.)
-* `colorQuantile()`: Maps numbers into a specified number of buckets (intervals calculated automatically)
-* `colorFactor()`: Maps categories into a specified number of buckets
-
+![](img./Lec26_map_2.png)
+      
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
