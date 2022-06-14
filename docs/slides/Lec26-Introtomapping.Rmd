@@ -1,13 +1,13 @@
 ---
-title: "Day Twenty-Nine: Point Mapping"
+title: "Lec 26: Intro to Mapping"
 subtitle: "SDS 192: Introduction to Data Science"
 author: |
-  Lindsay Poirier<br/>
+  Shiya Cao<br/>
   <span style = 'font-size: 70%;'>
   [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
   </span>
 date: |
-  Spring 2022<br/>
+  Fall 2022<br/>
   `r sds::img_logo(width = 64)`
 output:
   sds::moon_reader:
@@ -22,95 +22,19 @@ output:
 ---
 
 
-# For today
+# Today's Learning Goals
 
-1. Projections
-2. Coordinate Reference Systems
-3. Point mapping in Leaflet
+* Understand projections.
+* Use `sf` package for static maps in `ggplot2` and loading shapefiles.
 
 ---
 
-# Why analyze spatial data?
+# Why Analyze Spatial Data?
 
 * How are features distributed across geographies, and what does this tell us about potential disparities?
 * Where are certain events or features concentrated, and what other conditions might implicate these patterns?
 * What kinds of features are proximate, and what impact might this have?
 * What is the best way to get from point A to point B?
-
----
-
-# Geographic Comparisons
-
-
-```{r message=FALSE, warning=FALSE, include=FALSE}
-library(tidyverse)
-library(leaflet)
-library(tidycensus)
-library(RColorBrewer)
-library(sf)
-
-census <- get_decennial(
-  geography = "tract",
-  state=25,
-  county=15,
-  variables = 'P4_002N', 
-  geometry = TRUE, 
-  year = 2020,
-  summary_var = 'P1_001N'
-) %>%
-  mutate(percent_pop = value/summary_value * 100)
-```
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-
-pal_factor <- colorBin(palette = "YlOrRd", domain = census$percent_pop, bins = 4)
-leaflet() %>%
-  setView(lat = 42.35, lng = -72.66, zoom = 8) %>%
-  addProviderTiles("OpenStreetMap") %>%
-  addPolygons(data = census, 
-              stroke = TRUE,
-              weight = 1,
-              color = "black",
-              fillColor = ~pal_factor(percent_pop), 
-              fillOpacity = 0.8) %>%
-  addLegend(data = census,
-            pal = pal_factor, 
-            values = ~percent_pop,
-            title = "% Pop Hispanic or Latino"
-  )
-  
-```
-
-
----
-
-# Concentrations of Features
-
-## Where are the most were Missed Collections on October 1, 2021?
-
-```{r message=FALSE, warning=FALSE, include=FALSE}
-nyc_311_missed <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$select=x_coordinate_state_plane,y_coordinate_state_plane&$where=complaint_type=%27Missed%20Collection%27%20AND%20date_trunc_ymd(created_date)=%272021-10-01%27&$limit=4000") %>%
-  st_as_sf(coords = c("x_coordinate_state_plane", "y_coordinate_state_plane"), crs = 2263) %>%
-  st_transform(crs = 4326)
-```
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-leaflet() %>%
-  setView(lat = 40.7, lng = -74, zoom = 10) %>%
-  addProviderTiles("OpenStreetMap") %>%
-  addCircleMarkers(data = nyc_311_missed, 
-              stroke = FALSE,
-              fillColor = "blue",
-              radius = 2,
-              fillOpacity = 0.5)
-```
-
----
-
-# Proximity Analysis: [Carceral EJ Mapper](https://critical-data-analysis.org/shiny/proximity/proximity-app/)
-
-![](img/carceral-ej.png)
-
 
 ---
 
@@ -122,9 +46,15 @@ leaflet() %>%
 
 # Projections
 
-* Means by which we convert curved surface of the globe to 2D rectangle
-* Necessarily distorts the surface (e.g. area, distance)
-* Many projections exist, serving different purposes
+* Means by which we convert curved surface of the globe to a 2D representation.
+* Necessarily distorts the surface.
+* Properties:
+      * Area
+      * Shape
+      * Direction
+      * Bearing
+      * Distance
+* Every projection represents a trade-off in accuracy among these properties.
 
 ---
 
@@ -132,126 +62,147 @@ leaflet() %>%
 
 .pull-left[
 * Imagine that you peel an orange
-  * Datum is the original shape of the fruit (e.g. orange, lemon, apple, grapefruit)
-  * Projection is how we go about peeling and flattening the orange
+  * Datum is the original shape of the fruit (e.g. orange, lemon, apple, grapefruit).
+  * Projection is how we go about peeling and flattening the orange.
 ]
   
 .pull-right[
 ![](https://geohackweek.github.io/visualization/assets/img/orange.png)
 
-> https://geohackweek.github.io/visualization/02-projections/
+https://geohackweek.github.io/visualization/02-projections/
 
 ]
 
 ---
 
+# <a href="https://en.wikipedia.org/wiki/Mercator_projection">Mercator</a> (preserves angles)
+      
+![](img./Lec26_1280px-Mercator_projection_Square.png) By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Strebe&quot; title=&quot;User:Strebe&quot;&gt;Strebe&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=17700069">Link</a>    
+
+---
+      
+# <a href="https://en.wikipedia.org/wiki/Gall%E2%80%93Peters_projection">Gall-Peters</a> (preserves area)
+      
+![](img./Lec26_Gall–Peters_projection_SW.png) By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Strebe&quot; title=&quot;User:Strebe&quot;&gt;Strebe&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=16115242">Link</a>
+
+---
+
+# <a href="https://en.wikipedia.org/wiki/Albers_projection">Albers Equal Area</a>
+      
+![](img./Lec26_Albers_projection_SW.png) By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Strebe&quot; title=&quot;User:Strebe&quot;&gt;Strebe&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=16115144">Link</a>      
+ 
+---
+      
+# <a href="https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection">Lambert Conformal Conic</a>      
+      
+![](img./Lec26_Lambert_conformal_conic_projection_SW.png) By &lt;a href=&quot;//commons.wikimedia.org/wiki/User:Strebe&quot; title=&quot;User:Strebe&quot;&gt;Strebe&lt;/a&gt; - &lt;span class=&quot;int-own-work&quot; lang=&quot;en&quot;&gt;Own work&lt;/span&gt;, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=16115295">Link</a>
+      
+---      
+
 # Coordinate Reference System (CRS)
 
-* Points are in different locations depending on how we flatten Earth's surface into 2D map 
-* CRS is a system for locating features on a certain map projection via coordinates 
-* Thousands of CRSs but some are more common than others (e.g. WGS 84 most common)
-* For locations to appear correctly on maps, geographic features and underlying maps need to share same CRS
+* Points are in different locations depending on how we flatten Earth's surface into 2D map. 
+* CRS is a system for locating features on a certain map projection via coordinates. 
+* Thousands of CRSs but some are more common than others (e.g. WGS 84 most common).
+* For locations to appear correctly on maps, geographic features and underlying maps need to share same CRS.
 
+---
+
+# Spatial Packages in R
+
+* Working with shapefiles
+      * `sf` package for everything
+* Plotting
+      * `ggplot2` for static maps
+      * `leaflet` for interactive maps
+      
 ---
 
 # `sf` Package
 
-* Encodes spatial data
-* Enables setting and transforming CRSs
-
-```{r message=FALSE, warning=FALSE}
+```r
 library(sf)
-library(readr)
-nyc_311 <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$select=latitude,longitude&$limit=4") %>%
-  st_as_sf(coords = c("longitude", "latitude"), crs = 4269) #NAD 83
-
-nyc_311
+nc &lt;- system.file("shape/nc.shp", package = "sf") |>
+  st_read()
 ```
----
-
-# How do I know which to use?
-
-* We pray that it's listed somewhere in data documentation. 
-* Not always the case. 
-
----
-
-# Leaflet
-
-* Start by calling `leaflet()` function, setting the original view, and adding basemap tiles
-
-```{r}
-library(leaflet)
-
-leaflet() %>%
-  setView(lat = 40.7, lng = -100.0, zoom = 3) %>% 
-  addProviderTiles("OpenStreetMap")
+      
+```
+## Reading layer `nc' from data source `/Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library/sf/shape/nc.shp' using driver `ESRI Shapefile'
+## Simple feature collection with 100 features and 14 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## Geodetic CRS:  NAD27
+```
+     
+```r
+class(nc)
 ```
 
-> Note that you need to look up the coordinates of the geography you wish to center in on.
-
+```
+## [1] "sf"         "data.frame"
+```
+      
 ---
 
-# Leaflet, cont.
-
-```{r}
-library(leaflet)
-
-leaflet() %>%
-  setView(lat = 40.7, lng = -74.0, zoom=10) %>% 
-  addProviderTiles("CartoDB.Positron") %>%
-  addCircleMarkers(data = nyc_311)
+```r
+library(tidyverse)
+nc|>
+  select(AREA, NAME, geometry)
 ```
 
-> Notice the issue with the CRS here?
-
----
-
-# Leaflet, cont.
-
-```{r}
-library(leaflet)
-
-nyc_311 <- nyc_311 %>%
-  st_transform(4326)
-
-leaflet() %>%
-  setView(lat = 40.7, lng = -74.0, zoom=10) %>% 
-  addProviderTiles("CartoDB.Positron") %>%
-  addCircleMarkers(data = nyc_311)
+```
+## Simple feature collection with 100 features and 2 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## Geodetic CRS:  NAD27
+## First 10 features:
+##     AREA        NAME                       geometry
+## 1  0.114        Ashe MULTIPOLYGON (((-81.47276 3...
+## 2  0.061   Alleghany MULTIPOLYGON (((-81.23989 3...
+## 3  0.143       Surry MULTIPOLYGON (((-80.45634 3...
+## 4  0.070   Currituck MULTIPOLYGON (((-76.00897 3...
+## 5  0.153 Northampton MULTIPOLYGON (((-77.21767 3...
+## 6  0.097    Hertford MULTIPOLYGON (((-76.74506 3...
+## 7  0.062      Camden MULTIPOLYGON (((-76.00897 3...
+## 8  0.091       Gates MULTIPOLYGON (((-76.56251 3...
+## 9  0.118      Warren MULTIPOLYGON (((-78.30876 3...
+## 10 0.124      Stokes MULTIPOLYGON (((-80.02567 3...
 ```
 
 ---
 
-# Layers
-
-```{r include=FALSE}
-library(leaflet)
-
-nyc_311_rodent <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=complaint_type=%27Rodent%27%20AND%20date_trunc_ymd(created_date)=%272022-04-04%27") %>%
-  st_as_sf(coords = c("longitude", "latitude"), crs = 4269) %>%
-  st_transform(4326)
-nyc_311_litter <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=complaint_type=%27Litter%20Basket%20Complaint%27%20AND%20date_trunc_ymd(created_date)=%272022-04-04%27") %>%
-  st_as_sf(coords = c("longitude", "latitude"), crs = 4269) %>%
-  st_transform(4326)
+```r
+nc|>
+  st_geometry()|>
+  pluck(1)
 ```
 
-
-```{r}
-leaflet() %>%
-  setView(lat = 40.7, lng = -74.0, zoom=10) %>% 
-  addProviderTiles("CartoDB.Positron") %>%
-  addCircleMarkers(data = nyc_311_rodent,
-                   fillColor = "red") %>%
-  addCircleMarkers(data = nyc_311_litter,
-                   fillColor = "blue")
 ```
-
+## MULTIPOLYGON (((-81.47276 36.23436, -81.54084 36.27251, -81.56198 36.27359, -81.63306 36.34069, -81.74107 36.39178, -81.69828 36.47178, -81.7028 36.51934, -81.67 36.58965, -81.3453 36.57286, -81.34754 36.53791, -81.32478 36.51368, -81.31332 36.4807, -81.26624 36.43721, -81.26284 36.40504, -81.24069 36.37942, -81.23989 36.36536, -81.26424 36.35241, -81.32899 36.3635, -81.36137 36.35316, -81.36569 36.33905, -81.35413 36.29972, -81.36745 36.2787, -81.40639 36.28505, -81.41233 36.26729, -81.43104 36.26072, -81.45289 36.23959, -81.47276 36.23436)))
+```
+ 
 ---
 
-# Palettes
+```r
+nc|>
+  select("AREA",geometry)|>
+  plot()
+```
 
-* `colorNumeric()`: Maps numbers to colors in a specified palette
-* `colorBin()`: Maps numbers into a specified intervals (e.g. 0-10, >10-20, etc.)
-* `colorQuantile()`: Maps numbers into a specified number of buckets (intervals calculated automatically)
-* `colorFactor()`: Maps categories into a specified number of buckets
+![](img./Lec26_map_1.png)
+      
+---
+      
+# `ggplot2` Support
+
+* Use `geom_sf()`.
+* Mapping (x, y) to geometry is implied!
+      
+```r
+ggplot(nc,aes(fill=AREA))+
+  geom_sf()
+```
+
+![](img./Lec26_map_2.png)
