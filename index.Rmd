@@ -472,19 +472,10 @@ While you are free to work in any order you like, I suggest you:
 
 ## Today's topics/activities
 
-* Download <a href="static/projects/MP3/MP3.zip" download><code>MP3.zip</code></a>
-* Move <code>MP3.zip</code> to your SDS192 folder on your computer
-* Unzip <code>MP3.zip</code>. Windows users: be sure to “Extract all”
-* In the resulting MP3 folder, double-click the RStudio Project <code>MP3.Rproj</code> icon<br />
-<img src="static/images/MP2.png" width="100" /><br />
-* Verify that RStudio opens with MP3 written in the top-right<br />
-<img src="static/images/MP2_2.png" width="100" />
-
-
 ### 1. Chalk talk
 
-1. Example solutions to `examples.Rmd` Section 1 exercise. Code posted in `#sds-192-mp3`; screencast below
-1. Shapefiles
+* Where to find shapefiles?
+* Example solutions to `examples.Rmd` Section 1 exercise. Code posted in `#sds-192-mp3`; screencast below
 <!--
 1. Centroids: [Geographic](https://en.wikipedia.org/wiki/Geographic_center_of_the_contiguous_United_States){target="_blank"} and [population](https://en.wikipedia.org/wiki/Mean_center_of_the_United_States_population){target="_blank"} weighted. Not coincidentally, check out where FedEx and UPS main airport hubs are [located](https://www.google.com/maps/dir/UPS+Worldport,+Grade+Lane,+Louisville,+KY/FedEx+World+Hub,+2903+Sprankel+Ave,+Memphis,+TN+38118/@36.6002171,-90.0693041,7z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x88690c2c6dc6fe95:0xae70a6ac610364fe!2m2!1d-85.7307215!2d38.1657255!1m5!1m1!1s0x887f87b59bc63573:0x37d7df503bee2e8f!2m2!1d-89.9608239!2d35.0674784!3e0){target="_blank"}.
 -->
