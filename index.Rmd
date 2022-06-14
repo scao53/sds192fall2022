@@ -426,7 +426,7 @@ First 10 features:
 ### 2. In-class exercise
 
 * Go over code in MP3 folder -> `examples.Rmd` -> Section 3 on "Choropleth maps using census data"
-* You will need to register an API key from the census bureau. Carefully read warning message to do so. 
+* You will need to register an API key from the census bureau. Carefully read warning message to do so 
 
 
 
