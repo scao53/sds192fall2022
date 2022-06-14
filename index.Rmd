@@ -517,18 +517,16 @@ While you are free to work in any order you like, I suggest you:
 
 ## Today's topics/activities 
     
-
-### 1. Chalk talk
-
 <!--
 * DO THIS: Have all students install Rcpp package before sf package. Otherwise there might be RStudio fatal errors
 * Reading of "On Exactitude in Science" by Borges.
 * Slides on [GIS](https://beanumber.github.io/sds192/lectures/24-shapefiles.html#17){target="_blank"}
 -->
 
-* `sf` package for static maps in `ggplot2` and loading shapefiles. See [Spatial Data Science](https://keen-swartz-3146c4.netlify.com/){target="_blank"} for more.
+### 1. Lecture
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec26-Introtomapping.html">Class slides: Intro to Mapping
 
-
+### 2. In-class exercise
 
 ***
 
