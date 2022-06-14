@@ -508,25 +508,25 @@ While you are free to work in any order you like, I suggest you:
 ## Announcements
 
 * PS06 to be posted by this evening
+
+## Today's topics/activities 
+
+### 1. Chalk talk
 * Compare the following London underground maps. As stated in this [article](https://www.theverge.com/2015/11/11/9712376/london-walk-tube-underground-map){target="_blank"}, the transit map on the right sacrifices accuracy for clarity.
     + The map of stations as they truly exist: 
     ![](static/images/underground_real_map.png){ width=700px }
     + The transit map inside the stations and trains. All lines are either straight or at 45 degrees and futhermore the geographic space is distorted. 
     ![](static/images/underground_transit_map.gif){ width=700px }
-
-
-## Today's topics/activities 
-    
 <!--
 * DO THIS: Have all students install Rcpp package before sf package. Otherwise there might be RStudio fatal errors
 * Reading of "On Exactitude in Science" by Borges.
 * Slides on [GIS](https://beanumber.github.io/sds192/lectures/24-shapefiles.html#17){target="_blank"}
 -->
 
-### 1. Lecture
+### 2. Lecture
 * <a href="https://scao53.github.io/sds192fall2022/slides/Lec26-Introtomapping.html">Class slides: Intro to Mapping
 
-### 2. In-class exercise
+### 3. In-class exercise
 
 ***
 
