@@ -1,0 +1,257 @@
+---
+title: "Day Twenty-Nine: Point Mapping"
+subtitle: "SDS 192: Introduction to Data Science"
+author: |
+  Lindsay Poirier<br/>
+  <span style = 'font-size: 70%;'>
+  [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
+  </span>
+date: |
+  Spring 2022<br/>
+  `r sds::img_logo(width = 64)`
+output:
+  sds::moon_reader:
+    lib_dir: libs
+    css: xaringan-custom.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false    
+      navigation:
+        scroll: false
+---
+
+
+# For today
+
+1. Projections
+2. Coordinate Reference Systems
+3. Point mapping in Leaflet
+
+---
+
+# Why analyze spatial data?
+
+* How are features distributed across geographies, and what does this tell us about potential disparities?
+* Where are certain events or features concentrated, and what other conditions might implicate these patterns?
+* What kinds of features are proximate, and what impact might this have?
+* What is the best way to get from point A to point B?
+
+---
+
+# Geographic Comparisons
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(leaflet)
+library(tidycensus)
+library(RColorBrewer)
+library(sf)
+
+census <- get_decennial(
+  geography = "tract",
+  state=25,
+  county=15,
+  variables = 'P4_002N', 
+  geometry = TRUE, 
+  year = 2020,
+  summary_var = 'P1_001N'
+) %>%
+  mutate(percent_pop = value/summary_value * 100)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+pal_factor <- colorBin(palette = "YlOrRd", domain = census$percent_pop, bins = 4)
+leaflet() %>%
+  setView(lat = 42.35, lng = -72.66, zoom = 8) %>%
+  addProviderTiles("OpenStreetMap") %>%
+  addPolygons(data = census, 
+              stroke = TRUE,
+              weight = 1,
+              color = "black",
+              fillColor = ~pal_factor(percent_pop), 
+              fillOpacity = 0.8) %>%
+  addLegend(data = census,
+            pal = pal_factor, 
+            values = ~percent_pop,
+            title = "% Pop Hispanic or Latino"
+  )
+  
+```
+
+
+---
+
+# Concentrations of Features
+
+## Where are the most were Missed Collections on October 1, 2021?
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+nyc_311_missed <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$select=x_coordinate_state_plane,y_coordinate_state_plane&$where=complaint_type=%27Missed%20Collection%27%20AND%20date_trunc_ymd(created_date)=%272021-10-01%27&$limit=4000") %>%
+  st_as_sf(coords = c("x_coordinate_state_plane", "y_coordinate_state_plane"), crs = 2263) %>%
+  st_transform(crs = 4326)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+leaflet() %>%
+  setView(lat = 40.7, lng = -74, zoom = 10) %>%
+  addProviderTiles("OpenStreetMap") %>%
+  addCircleMarkers(data = nyc_311_missed, 
+              stroke = FALSE,
+              fillColor = "blue",
+              radius = 2,
+              fillOpacity = 0.5)
+```
+
+---
+
+# Proximity Analysis: [Carceral EJ Mapper](https://critical-data-analysis.org/shiny/proximity/proximity-app/)
+
+![](img/carceral-ej.png)
+
+
+---
+
+# Projections
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vVX-PrBRtTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+
+# Projections
+
+* Means by which we convert curved surface of the globe to 2D rectangle
+* Necessarily distorts the surface (e.g. area, distance)
+* Many projections exist, serving different purposes
+
+---
+
+# Orange Peel Example
+
+.pull-left[
+* Imagine that you peel an orange
+  * Datum is the original shape of the fruit (e.g. orange, lemon, apple, grapefruit)
+  * Projection is how we go about peeling and flattening the orange
+]
+  
+.pull-right[
+![](https://geohackweek.github.io/visualization/assets/img/orange.png)
+
+> https://geohackweek.github.io/visualization/02-projections/
+
+]
+
+---
+
+# Coordinate Reference System (CRS)
+
+* Points are in different locations depending on how we flatten Earth's surface into 2D map 
+* CRS is a system for locating features on a certain map projection via coordinates 
+* Thousands of CRSs but some are more common than others (e.g. WGS 84 most common)
+* For locations to appear correctly on maps, geographic features and underlying maps need to share same CRS
+
+---
+
+# `sf` Package
+
+* Encodes spatial data
+* Enables setting and transforming CRSs
+
+```{r message=FALSE, warning=FALSE}
+library(sf)
+library(readr)
+nyc_311 <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$select=latitude,longitude&$limit=4") %>%
+  st_as_sf(coords = c("longitude", "latitude"), crs = 4269) #NAD 83
+
+nyc_311
+```
+---
+
+# How do I know which to use?
+
+* We pray that it's listed somewhere in data documentation. 
+* Not always the case. 
+
+---
+
+# Leaflet
+
+* Start by calling `leaflet()` function, setting the original view, and adding basemap tiles
+
+```{r}
+library(leaflet)
+
+leaflet() %>%
+  setView(lat = 40.7, lng = -100.0, zoom = 3) %>% 
+  addProviderTiles("OpenStreetMap")
+```
+
+> Note that you need to look up the coordinates of the geography you wish to center in on.
+
+---
+
+# Leaflet, cont.
+
+```{r}
+library(leaflet)
+
+leaflet() %>%
+  setView(lat = 40.7, lng = -74.0, zoom=10) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addCircleMarkers(data = nyc_311)
+```
+
+> Notice the issue with the CRS here?
+
+---
+
+# Leaflet, cont.
+
+```{r}
+library(leaflet)
+
+nyc_311 <- nyc_311 %>%
+  st_transform(4326)
+
+leaflet() %>%
+  setView(lat = 40.7, lng = -74.0, zoom=10) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addCircleMarkers(data = nyc_311)
+```
+
+---
+
+# Layers
+
+```{r include=FALSE}
+library(leaflet)
+
+nyc_311_rodent <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=complaint_type=%27Rodent%27%20AND%20date_trunc_ymd(created_date)=%272022-04-04%27") %>%
+  st_as_sf(coords = c("longitude", "latitude"), crs = 4269) %>%
+  st_transform(4326)
+nyc_311_litter <- read_csv("https://data.cityofnewyork.us/resource/erm2-nwe9.csv?$where=complaint_type=%27Litter%20Basket%20Complaint%27%20AND%20date_trunc_ymd(created_date)=%272022-04-04%27") %>%
+  st_as_sf(coords = c("longitude", "latitude"), crs = 4269) %>%
+  st_transform(4326)
+```
+
+
+```{r}
+leaflet() %>%
+  setView(lat = 40.7, lng = -74.0, zoom=10) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addCircleMarkers(data = nyc_311_rodent,
+                   fillColor = "red") %>%
+  addCircleMarkers(data = nyc_311_litter,
+                   fillColor = "blue")
+```
+
+---
+
+# Palettes
+
+* `colorNumeric()`: Maps numbers to colors in a specified palette
+* `colorBin()`: Maps numbers into a specified intervals (e.g. 0-10, >10-20, etc.)
+* `colorQuantile()`: Maps numbers into a specified number of buckets (intervals calculated automatically)
+* `colorFactor()`: Maps categories into a specified number of buckets
