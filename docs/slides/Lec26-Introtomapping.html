@@ -218,8 +218,8 @@ nc|>
 * Mapping (x, y) to geometry is implied!
       
 ```r
-ggplot(nc,aes(fill=AREA))+
-  geom_sf()
+ggplot()+
+  geom_sf(data=nc,aes(fill=AREA))
 ```
 
 &lt;img src="img./Lec26_map_2.png" width="500" /&gt;
