@@ -221,11 +221,11 @@ leaflet() |>
       * `palette` (can be `RColorBrewer` or `viridis`).
       * `domain` (can be `NULL`).
 
----      
-      
+---
+
 # Step 1: Define the Color Palette
 
-.pull-left[      
+.pull-left[
       
 ```r
 wetland_pal <- colorNumeric(
@@ -241,7 +241,7 @@ wetland_pal <- colorNumeric(
       * returns an HTML **color**
 ]
       
-.pull-right[      
+.pull-right[
 
 ```r
 wetland_pal(2000)
@@ -259,8 +259,8 @@ wetland_pal(5000)
 [1] "#3D4D8A"
 ```
 
---- 
-      
+---
+
 # Step 2: Use the Palette to Map to Color
       
 ```r
