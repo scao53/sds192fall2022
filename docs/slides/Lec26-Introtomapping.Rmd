@@ -118,6 +118,14 @@ https://geohackweek.github.io/visualization/02-projections/
       
 ---
 
+# Shapefiles
+
+* File for storing geospatial feature data.
+* Actually a series of files (.shp, .shx, and .dbf) that must **all** be present in the directory for the shapefile to import. 
+* Imported file ends in `.shp` and contains feature geometry.
+
+---
+
 # `sf` Package
 
 ```r
