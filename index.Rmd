@@ -482,9 +482,11 @@ While you are free to work in any order you like, I suggest you:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/esQrPSJfFkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+### 2. Lecture
 
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec27-InteractiveMaps.html">Class slides: Interactive Maps</a>
 
-### 2. In-class exercise
+### 3. In-class exercise
 
 * In MP3 folder -&gt; <code>examples.Rmd</code> -&gt; Section 1 on “Converting data frames to sf objects”, do exercises
 
