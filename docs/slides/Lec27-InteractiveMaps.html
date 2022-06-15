@@ -32,11 +32,11 @@ class: center, middle, inverse, title-slide
 
 # Today's Learning Goals
 
-* Point mapping in Leaflet
+* Create interactive maps in `leaflet`.
 
 ---
 
-# Leaflet for R
+# `leaflet` for R
   
 * Start by calling `leaflet()` function, setting the original view, and adding basemap tiles.
 
@@ -55,64 +55,231 @@ leaflet() |>
 
 ---
       
-# Leaflet Supports `sf`
+# `leaflet` Supports `sf`
+      
+```r
+library(sf)
+nc &lt;- system.file("shape/nc.shp", package = "sf") |>
+  st_read()
+```
+      
+```
+## Reading layer `nc' from data source `/Library/Frameworks/R.framework/Versions/4.1-arm64/Resources/library/sf/shape/nc.shp' using driver `ESRI Shapefile'
+## Simple feature collection with 100 features and 14 fields
+## Geometry type: MULTIPOLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -84.32385 ymin: 33.88199 xmax: -75.45698 ymax: 36.58965
+## Geodetic CRS:  NAD27
+```
+     
+```r
+class(nc)
+```
+
+```
+## [1] "sf"         "data.frame"
+```
+
+---
+
+# Plotting `sf` objects in `leaflet`
       
 ```r
 leaflet() |>
-  setView(lat = 42.3, lng = -72.6, zoom=10) |> 
-  addProviderTiles("CartoDB.Positron") |>
-  addCircleMarkers(data = nyc_311)
+  addTiles()|>
+  addPolygons(data=st_transform(nc,4326))
 ```
-
-```
-## Warning: sf layer has inconsistent datum (+proj=longlat +datum=NAD83 +no_defs).
-## Need '+proj=longlat +datum=WGS84'
-```
-
-&gt; Notice the issue with the CRS here?
 
 ---
+      
+# Projections Checklist
+      
+* Are you using `leaflet`?
+      * Project everything in EPSG 4326.
+* Are you using `ggplot2`?
+      * Choose a projection scheme that is appropriate for your data.
+      * Project everything in that scheme.
 
+---
+      
+# `macleish` Package
+
+* Weather data
+      * Temperature, wind speed, humidity, pressure, rainfall, etc.
+* Spatial data
+      * Buildings, streams, forests, slopes, etc.
+
+      
 ```r
-nyc_311 &lt;- nyc_311 |>
-  st_transform(4326)
+install.packages("macleish")
+```
 
+---
+      
+# Checking Projections
+      
+```r
+macleish_layers |>
+  pluck("buildings") |>
+  st_crs()
+```      
+     
+```
+Coordinate Reference System:
+  User input: EPSG:4326 
+  wkt:
+GEOGCRS["WGS 84",
+    DATUM["World Geodetic System 1984",
+        ELLIPSOID["WGS 84",6378137,298.257223563,
+            LENGTHUNIT["metre",1]]],
+    PRIMEM["Greenwich",0,
+        ANGLEUNIT["degree",0.0174532925199433]],
+    CS[ellipsoidal,2],
+        AXIS["geodetic latitude (Lat)",north,
+            ORDER[1],
+            ANGLEUNIT["degree",0.0174532925199433]],
+        AXIS["geodetic longitude (Lon)",east,
+            ORDER[2],
+            ANGLEUNIT["degree",0.0174532925199433]],
+    USAGE[
+        SCOPE["Horizontal component of 3D system."],
+        AREA["World."],
+        BBOX[-90,-180,90,180]],
+    ID["EPSG",4326]]
+```
+      
+---
+      
+# Projecting Geospatial Data
+      
+```r
+buildings_3857 <- macleish_layers |>
+  pluck("buildings") |>
+  st_transform(3857)
+
+buildings_3857 |>
+  st_crs()
+```      
+     
+```
+Coordinate Reference System:
+  User input: EPSG:3857 
+  wkt:
+PROJCRS["WGS 84 / Pseudo-Mercator",
+    BASEGEOGCRS["WGS 84",
+        DATUM["World Geodetic System 1984",
+            ELLIPSOID["WGS 84",6378137,298.257223563,
+                LENGTHUNIT["metre",1]]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433]],
+        ID["EPSG",4326]],
+    CONVERSION["Popular Visualisation Pseudo-Mercator",
+        METHOD["Popular Visualisation Pseudo Mercator",
+            ID["EPSG",1024]],
+        PARAMETER["Latitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8801]],
+        PARAMETER["Longitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8802]],
+        PARAMETER["False easting",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["easting (X)",east,
+            ORDER[1],
+            LENGTHUNIT["metre",1]],
+        AXIS["northing (Y)",north,
+            ORDER[2],
+            LENGTHUNIT["metre",1]],
+    USAGE[
+        SCOPE["Web mapping and visualisation."],
+        AREA["World between 85.06°S and 85.06°N."],
+        BBOX[-85.06,-180,85.06,180]],
+    ID["EPSG",3857]]
+```      
+
+---
+      
+# Colors in `leaflet`
+      
+```r
+library(macleish)
+      
 leaflet() |>
-  setView(lat = 42.3, lng = -72.6, zoom=10) |> 
-  addProviderTiles("CartoDB.Positron") |>
-  addCircleMarkers(data = nyc_311)
+  addTiles()|>
+  addPolygons(data = pluck(macleish_layers, "wetlands"), 
+              color = ~SHAPE_AREA, popup = ~IT_VALDESC)
 ```
 
 ---
+      
+# `leaflet` Uses Color Palette Functions
+      
+* For numerical variables:
+      * `colorNumeric()`: Maps numbers to colors in a specified palette.
+      * `colorBin()`: Maps numbers into a specified intervals (e.g. 0-10, &gt;10-20, etc.).
+      * `colorQuantile()`: Maps numbers into a specified number of buckets (intervals calculated automatically).
+* For categorical variables:
+      * `colorFactor()`: Maps categories into a specified number of buckets.
+* All take two arguments:
+      * `palette` (can be `RColorBrewer` or `viridis`).
+      * `domain` (can be `NULL`).
 
-# Layers
+---      
+      
+# Step 1: Define the Color Palette
 
+.pull-left[      
+      
+```r
+wetland_pal <- colorNumeric(
+  palette = "viridis", 
+  domain = macleish_layers |>
+    pluck("wetlands") |>
+    pull(SHAPE_AREA)
+)
+```
 
-
-
+* This is now a function that
+      * takes an **area**
+      * returns an HTML **color**
+]
+      
+.pull-right[      
 
 ```r
-leaflet() %&gt;%
-  setView(lat = 40.7, lng = -74.0, zoom=10) %&gt;% 
-  addProviderTiles("CartoDB.Positron") %&gt;%
-  addCircleMarkers(data = nyc_311_rodent,
-                   fillColor = "red") %&gt;%
-  addCircleMarkers(data = nyc_311_litter,
-                   fillColor = "blue")
+wetland_pal(2000)
 ```
 
-<div id="htmlwidget-53997e9886e27d21bf51" style="width:504px;height:504px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-53997e9886e27d21bf51">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[40.7,-74],10,[]],"calls":[{"method":"addProviderTiles","args":["CartoDB.Positron",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[40.8507197436725,40.8052883382011,40.693601026451,40.8052883382011,40.7612035774887],[-73.9315607041388,-73.9138717209844,-73.9643572484352,-73.9138717209844,-73.9618592119613],10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[40.8506074789796,-73.8894504999214,10,null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"blue","fillOpacity":0.2},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[40.693601026451,40.8507197436725],"lng":[-73.9643572484352,-73.8894504999214]}},"evals":[],"jsHooks":[]}</script>
+```
+[1] "#471164"
+``` 
 
----
+```r
+wetland_pal(5000)
+```
 
-# Palettes
+```
+[1] "#3D4D8A"
+```
 
-* `colorNumeric()`: Maps numbers to colors in a specified palette
-* `colorBin()`: Maps numbers into a specified intervals (e.g. 0-10, &gt;10-20, etc.)
-* `colorQuantile()`: Maps numbers into a specified number of buckets (intervals calculated automatically)
-* `colorFactor()`: Maps categories into a specified number of buckets
-
+--- 
+      
+# Step 2: Use the Palette to Map to Color
+      
+```r
+leaflet() |>
+  addTiles() |>
+  addPolygons(data = pluck(macleish_layers, "wetlands"), 
+              color = ~wetland_pal(SHAPE_AREA), 
+              fillOpacity = 0.8, weight = 0.1, 
+              popup = ~IT_VALDESC)
+```      
+      
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
