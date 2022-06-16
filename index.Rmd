@@ -418,13 +418,10 @@ First 10 features:
 ### 1. Chalk talk
 
 * [Application Programmer Interfaces](https://en.wikipedia.org/wiki/Application_programming_interface){target="_blank"}
-* Choropleth maps. In particular, how you set the *bins* corresponding to the color gradient can affect how your map looks. As indicated [here](https://gisgeography.com/choropleth-maps-data-classification/){target="_blank"}, there are two approaches:
-    + Equally sized interval bins
-    + Quantile based bins
 
 ### 2. Lecture
 
-* <a href="https://scao53.github.io/sds192fall2022/slides/Lec29-MappingPolygons.html">Class slides: Mapping Polygons</a>
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec29-MappingPolygons.html">Class slides: Choropleth Maps</a>
 
 ### 3. In-class exercise
 
@@ -453,7 +450,6 @@ First 10 features:
 While you are free to work in any order you like, I suggest you:
 1. Go over solutions to <code>examples.Rmd</code> -&gt; Section 1 and Section 2
 1. Go code for Section 3 “Loading shapefiles into R”. This is direct practice for PS06
-1. Work on PS06. This is direct practice for MP3
 1. Then start on MP3
 
 
@@ -514,7 +510,7 @@ While you are free to work in any order you like, I suggest you:
 -->
 
 ### 2. Lecture
-* <a href="https://scao53.github.io/sds192fall2022/slides/Lec26-Introtomapping.html">Class slides: Intro to Mapping
+* <a href="https://scao53.github.io/sds192fall2022/slides/Lec26-Introtomapping.html">Class slides: Static Maps</a>
 
 ### 3. In-class exercise
 
