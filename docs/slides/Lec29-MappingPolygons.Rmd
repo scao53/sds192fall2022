@@ -1,0 +1,280 @@
+---
+title: "Day Thirty-Two: Polygon Mapping"
+subtitle: "SDS 192: Introduction to Data Science"
+author: |
+  Lindsay Poirier<br/>
+  <span style = 'font-size: 70%;'>
+  [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
+  </span>
+date: |
+  Spring 2022<br/>
+  `r sds::img_logo(width = 64)`
+output:
+  sds::moon_reader:
+    lib_dir: libs
+    css: xaringan-custom.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false    
+      navigation:
+        scroll: false
+---
+
+
+# For today
+
+1. Review: Projections and Coordinate Reference Systems
+2. Mapping Geographic Boundaries
+3. Importing and Mapping Shapefiles
+4. Chloropleth Maps
+
+---
+
+# Coordinate Reference System (CRS)
+
+* Points are in different locations depending on how we flatten Earth's surface into 2D map * CRS is a system for locating features on a certain map projection via coordinates 
+* For locations to appear correctly on maps, geographic features and underlying maps need to share same CRS
+  * Use `st_as_sf(coords = c("FILL_LONGITUDE_VARIABLE", "FILL_LATITUDE_VARIABLE"), crs = FILL_CRS_VALUE)` to create a geometry column and *set* a data frame's CRS 
+  * Use `st_transform(FILL_CRS_VALUE)` to transform a data frame's CRS
+* For mapping in leaflet the CRS should always be transformed to EPSG:4326. 
+
+---
+
+# Mapping Polygons
+
+* Not all cartographic data is encoded as a latitude and longitude!
+* Some cartographic data is encoded as regularly or irregularly shaped polygons
+* Can demarcate:
+  * Administrative boundaries (e.g. census tracts, zip codes, states), 
+  * Feature boundaries (e.g. buildings, bodies of water, etc.)
+  * Buffers (e.g. areas at a specified distance from a point source)
+  
+> When might buffers be useful geometries? Hint: Consider your final project. 
+
+---
+
+# Administrative Boundaries: US Census
+
+![](img/tracts.png)
+
+
+---
+
+# Administrative Boundaries: US Census
+
+![](https://static.socialexplorer.com/pub/help/wp-content/uploads/2013/11/geo_diagram.png)
+
+---
+
+# Administrative Boundaries: US Census
+
+![](img/census.png)
+
+
+---
+
+# Administrative Boundary Soup
+
+![](img/boundaries.png)
+
+
+[NYC Boundaries Map](https://boundaries.beta.nyc/)
+
+---
+
+# Feature Boundaries
+
+![](img/prison_boundaries.png)
+---
+
+# Feature Boundaries
+
+![](img/water_boundaries.png)
+
+---
+
+# Shapefiles
+
+* File for storing geospatial feature data
+* Actually a series of files (.shp, .shx, and .dbf) that must **all** be present in the directory for the shapefile to import. 
+* Imported file ends in `.shp` and contains feature geometry 
+
+---
+
+# Importing Shapefiles
+
+.pull-left[
+
+![](img/files.png)
+
+]
+
+.pull-right[
+```{r warning=FALSE}
+library(sf)
+nyc_cd <- st_read("datasets/nyc_community_districts/nycd.shp")
+```
+
+]
+
+---
+
+# Importing Shapefiles
+
+```{r}
+nyc_cd %>% head(4)
+```
+
+---
+
+# Mapping Polygons with Leaflet
+
+.pull-left[
+```{r eval=FALSE}
+library(leaflet)
+
+nyc_cd <- nyc_cd %>%
+  st_transform(4326)
+
+leaflet(width = "100%") %>%
+  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data = nyc_cd)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+library(leaflet)
+
+nyc_cd <- nyc_cd %>%
+  st_transform(4326)
+
+leaflet(width = "100%") %>%
+  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data = nyc_cd)
+```
+]
+---
+
+# Chloropleth Maps
+
+* Presents a numeric variable aggregated by a geospatial unit
+* Represents the value of the aggregated numeric variable via intensity of color 
+  * Values presented via a sequential or diverging palette 
+
+
+---
+
+# Mapping Population: How to Join?
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+cd_pop <- read_csv("https://data.cityofnewyork.us/resource/xi7c-iiu2.csv?$select=borough,cd_number,_2010_population%20as%20population_2010")
+```
+
+.pull-left[
+```{r message=FALSE, warning=FALSE}
+cd_pop %>% select(borough,cd_number) %>% head(5)
+```
+]
+
+.pull-right[
+```{r}
+nyc_cd %>% select(BoroCD) %>% head(5)
+```
+]
+
+---
+
+# Cleaning Geographic ID Fields
+
+```{r message=FALSE, warning=FALSE}
+cd_pop <- cd_pop %>%
+  mutate(borough_num = case_when( 
+    borough == "Manhattan" ~ 1,
+    borough == "Bronx" ~ 2,
+    borough == "Brooklyn" ~ 3,
+    borough == "Queens" ~ 4,
+    borough == "Staten Island" ~ 5)) %>%
+  mutate(cd = str_pad(cd_number, 2, side="left", "0")) %>%
+  mutate(BoroCD = paste0(borough_num, cd) %>% as.numeric())
+
+nyc_cd <- 
+  nyc_cd %>%
+  left_join(cd_pop, by = c("BoroCD" = "BoroCD"))
+```
+
+---
+
+# NYC Commmunity District Chloropleth
+
+.pull-left[
+```{r eval=FALSE}
+library(RColorBrewer)
+pal_num <- colorNumeric(palette = "YlOrRd", 
+                        domain = nyc_cd$population_2010)
+
+leaflet(width = "100%") %>%
+  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data = nyc_cd,
+              fillColor = ~pal_num(population_2010), 
+              stroke = FALSE,
+              fillOpacity = 0.5)
+```
+]
+
+.pull-right[
+```{r echo=FALSE}
+library(RColorBrewer)
+pal_num <- colorNumeric(palette = "YlOrRd", 
+                        domain = nyc_cd$population_2010)
+
+leaflet(width = "100%") %>%
+  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data = nyc_cd,
+              fillColor = ~pal_num(population_2010), 
+              stroke = FALSE,
+              fillOpacity = 0.5)
+```
+]
+---
+
+# Mapping Categorical Data
+
+.pull-left[
+```{r eval=FALSE}
+pal_factor <- colorFactor(palette = "Dark2", 
+                          domain = nyc_cd$borough)
+
+leaflet(width = "100%") %>%
+  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data = nyc_cd,
+              fillColor = ~pal_factor(borough), 
+              stroke = TRUE,
+              weight = 0.5,
+              fillOpacity = 0.5)
+```
+]
+.pull-right[
+```{r echo=FALSE}
+pal_factor <- colorFactor(palette = "Dark2", 
+                          domain = nyc_cd$borough)
+
+leaflet(width = "100%") %>%
+  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data = nyc_cd,
+              fillColor = ~pal_factor(borough), 
+              stroke = TRUE,
+              weight = 0.5,
+              fillOpacity = 0.5)
+```
+]
+
+
