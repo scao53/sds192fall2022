@@ -1,13 +1,13 @@
 ---
-title: "Day Thirty-Two: Polygon Mapping"
+title: "Lec 29: Choropleth Maps"
 subtitle: "SDS 192: Introduction to Data Science"
 author: |
-  Lindsay Poirier<br/>
+  Shiya Cao<br/>
   <span style = 'font-size: 70%;'>
   [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
   </span>
 date: |
-  Spring 2022<br/>
+  Fall 2022<br/>
   `r sds::img_logo(width = 64)`
 output:
   sds::moon_reader:
@@ -22,259 +22,179 @@ output:
 ---
 
 
-# For today
+# Today's Learning Goals
 
-1. Review: Projections and Coordinate Reference Systems
-2. Mapping Geographic Boundaries
-3. Importing and Mapping Shapefiles
-4. Chloropleth Maps
-
----
-
-# Coordinate Reference System (CRS)
-
-* Points are in different locations depending on how we flatten Earth's surface into 2D map * CRS is a system for locating features on a certain map projection via coordinates 
-* For locations to appear correctly on maps, geographic features and underlying maps need to share same CRS
-  * Use `st_as_sf(coords = c("FILL_LONGITUDE_VARIABLE", "FILL_LATITUDE_VARIABLE"), crs = FILL_CRS_VALUE)` to create a geometry column and *set* a data frame's CRS 
-  * Use `st_transform(FILL_CRS_VALUE)` to transform a data frame's CRS
-* For mapping in leaflet the CRS should always be transformed to EPSG:4326. 
+* Map geographic boundaries in `leaflet`.
+* Create choropleth maps.
 
 ---
 
 # Mapping Polygons
 
 * Not all cartographic data is encoded as a latitude and longitude!
-* Some cartographic data is encoded as regularly or irregularly shaped polygons
+* Some cartographic data is encoded as regularly or irregularly shaped polygons.
 * Can demarcate:
-  * Administrative boundaries (e.g. census tracts, zip codes, states), 
-  * Feature boundaries (e.g. buildings, bodies of water, etc.)
-  * Buffers (e.g. areas at a specified distance from a point source)
-  
-> When might buffers be useful geometries? Hint: Consider your final project. 
+  * Administrative boundaries (e.g. census tracts, zip codes, states). 
+  * Feature boundaries (e.g. buildings, bodies of water).
+  * Buffers (e.g. areas at a specified distance from a point source).
 
 ---
 
 # Administrative Boundaries: US Census
 
-![](img/tracts.png)
+![](img./Lec29_tracts.png)
 
 
 ---
 
 # Administrative Boundaries: US Census
 
-![](https://static.socialexplorer.com/pub/help/wp-content/uploads/2013/11/geo_diagram.png)
+![](img./Lec29_geo_diagram.png)
 
 ---
 
 # Administrative Boundaries: US Census
 
-![](img/census.png)
+![](img./Lec29_census.png)
 
 
 ---
 
-# Administrative Boundary Soup
+# Administrative Boundaries: [NYC Boundaries Map](https://boundaries.beta.nyc/)
 
-![](img/boundaries.png)
-
-
-[NYC Boundaries Map](https://boundaries.beta.nyc/)
+![](img./Lec29_boundaries.png)
 
 ---
 
 # Feature Boundaries
 
-![](img/prison_boundaries.png)
+![](img./Lec29_prison_boundaries.png)
 ---
 
 # Feature Boundaries
 
-![](img/water_boundaries.png)
+![](img./Lec29_water_boundaries.png)
 
 ---
 
-# Shapefiles
+# Mapping Polygons in `leaflet`
 
-* File for storing geospatial feature data
-* Actually a series of files (.shp, .shx, and .dbf) that must **all** be present in the directory for the shapefile to import. 
-* Imported file ends in `.shp` and contains feature geometry 
 
----
-
-# Importing Shapefiles
-
-.pull-left[
-
-![](img/files.png)
-
-]
-
-.pull-right[
-```{r warning=FALSE}
+```r
 library(sf)
-nyc_cd <- st_read("datasets/nyc_community_districts/nycd.shp")
-```
+nc <- system.file("shape/nc.shp", package = "sf") |>
+  st_read()
 
-]
-
----
-
-# Importing Shapefiles
-
-```{r}
-nyc_cd %>% head(4)
+leaflet() |>
+  addTiles()|>
+  addPolygons(data=st_transform(nc,4326))
 ```
 
 ---
+      
+# Choropleth Maps
 
-# Mapping Polygons with Leaflet
+* Use different shading and colors based on numerical data.
+* How you set the bins corresponding to the color gradient can affect how your map looks. Let's introduce two approaches:
+      * Equally sized interval bins. 
+      * Quantile based bins.
+      
+---
+
+# Equal Intervals
+      
+![](img./Lec29_Equal-Intervals-Histogram.png)
+      
+---      
+
+# Quantile
+      
+![](img./Lec29_Quantile-Histogram.png)
+      
+---
+      
+# All Classes Map
+      
+![](img./Lec29_All-Classes-Map.png)
+      
+---
+      
+# Equal Intervals Choropleth Map
+      
+![](img./Lec29_Equal-Intervals-Choropleth-Map-1.png)
+      
+---
+      
+# Quantile Choropleth Map
+      
+![](img./Lec29_Quantile-Choropleth-Map-1.png)
+      
+---
+      
+# Acknowledgements
+
+This part of lecture "How to Lie with Maps" is almost entirely structured based on:
+
+Deluca, Eric, and Sara Nelson. 2017. "7. Lying With Maps." In Mapping, Society, and Technology, edited by Steven Manson. Minneapolis, Minnesota: University of Minnesota Libraries Publishing.
+ [https://open.lib.umn.edu/mapping/chapter/7-lying-with-maps/](https://open.lib.umn.edu/mapping/chapter/7-lying-with-maps/).
+      
+---
+      
+# Symbolization
+
 
 .pull-left[
-```{r eval=FALSE}
-library(leaflet)
 
-nyc_cd <- nyc_cd %>%
-  st_transform(4326)
+![](img/northampton-map.png)
 
-leaflet(width = "100%") %>%
-  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data = nyc_cd)
-```
 ]
 
 .pull-right[
-```{r echo=FALSE}
-library(leaflet)
 
-nyc_cd <- nyc_cd %>%
-  st_transform(4326)
+![](img/northampton-map2.png)
 
-leaflet(width = "100%") %>%
-  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data = nyc_cd)
-```
 ]
+      
 ---
+      
+# Cartograms
 
-# Chloropleth Maps
+![](img./Lec29_HappyPlanetIndexMap2016.png)
 
-* Presents a numeric variable aggregated by a geospatial unit
-* Represents the value of the aggregated numeric variable via intensity of color 
-  * Values presented via a sequential or diverging palette 
-
-
+&gt; Benjamin Hennig, [https://www.viewsoftheworld.net/](https://www.viewsoftheworld.net/)
+      
 ---
-
-# Mapping Population: How to Join?
-
-```{r message=FALSE, warning=FALSE}
-library(tidyverse)
-cd_pop <- read_csv("https://data.cityofnewyork.us/resource/xi7c-iiu2.csv?$select=borough,cd_number,_2010_population%20as%20population_2010")
-```
+      
+# Aggregation
+      
+* Ecological fallacy: Assuming that a value calculated for a group is equivalent to the values for individual members of the group.
+      
+---
+      
+# Zonation
 
 .pull-left[
-```{r message=FALSE, warning=FALSE}
-cd_pop %>% select(borough,cd_number) %>% head(5)
-```
+* Modifiable Aerial Unit Problem.
+* The boundaries we aggregate data into are often arbitrary (i.e. not meaningful for the analysis).
+  * If I'm studying air quality effects of a facility on surrounding populations, air pollution doesn't stop at a zip code even if I aggregate my data by zip code.
+* Drawing boundaries in a different way would produce different results.
+
 ]
 
 .pull-right[
-```{r}
-nyc_cd %>% select(BoroCD) %>% head(5)
-```
-]
 
+![](img./Lec29_Maup_rate_numbers.png)
+
+]
+      
 ---
+      
+# Gerrymandering
 
-# Cleaning Geographic ID Fields
-
-```{r message=FALSE, warning=FALSE}
-cd_pop <- cd_pop %>%
-  mutate(borough_num = case_when( 
-    borough == "Manhattan" ~ 1,
-    borough == "Bronx" ~ 2,
-    borough == "Brooklyn" ~ 3,
-    borough == "Queens" ~ 4,
-    borough == "Staten Island" ~ 5)) %>%
-  mutate(cd = str_pad(cd_number, 2, side="left", "0")) %>%
-  mutate(BoroCD = paste0(borough_num, cd) %>% as.numeric())
-
-nyc_cd <- 
-  nyc_cd %>%
-  left_join(cd_pop, by = c("BoroCD" = "BoroCD"))
-```
-
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/bGLRJ12uqmk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+      
 ---
-
-# NYC Commmunity District Chloropleth
-
-.pull-left[
-```{r eval=FALSE}
-library(RColorBrewer)
-pal_num <- colorNumeric(palette = "YlOrRd", 
-                        domain = nyc_cd$population_2010)
-
-leaflet(width = "100%") %>%
-  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data = nyc_cd,
-              fillColor = ~pal_num(population_2010), 
-              stroke = FALSE,
-              fillOpacity = 0.5)
-```
-]
-
-.pull-right[
-```{r echo=FALSE}
-library(RColorBrewer)
-pal_num <- colorNumeric(palette = "YlOrRd", 
-                        domain = nyc_cd$population_2010)
-
-leaflet(width = "100%") %>%
-  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data = nyc_cd,
-              fillColor = ~pal_num(population_2010), 
-              stroke = FALSE,
-              fillOpacity = 0.5)
-```
-]
----
-
-# Mapping Categorical Data
-
-.pull-left[
-```{r eval=FALSE}
-pal_factor <- colorFactor(palette = "Dark2", 
-                          domain = nyc_cd$borough)
-
-leaflet(width = "100%") %>%
-  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data = nyc_cd,
-              fillColor = ~pal_factor(borough), 
-              stroke = TRUE,
-              weight = 0.5,
-              fillOpacity = 0.5)
-```
-]
-.pull-right[
-```{r echo=FALSE}
-pal_factor <- colorFactor(palette = "Dark2", 
-                          domain = nyc_cd$borough)
-
-leaflet(width = "100%") %>%
-  setView(lat = 40.7, lng = -74.0, zoom = 10) %>% 
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data = nyc_cd,
-              fillColor = ~pal_factor(borough), 
-              stroke = TRUE,
-              weight = 0.5,
-              fillOpacity = 0.5)
-```
-]
-
-
+      
+# Prison-based Gerrymandering
+      
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/xhxWkal1J58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
