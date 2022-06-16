@@ -238,18 +238,12 @@ data_frame_clean
 ### 2. In-class exercise
 
 * Perform 2-3 SQL queries to convince yourself that if you know `dplyr`, you can learn SQL very quickly. This exercise is based on Prof. Baumer's lecture notes ["Intro to SQL"](https://beanumber.github.io/sds192/lectures/mdsr_sql_01-intro.html#1){target="_blank"} and ["Connect to MySQL"](https://beanumber.github.io/sds192/lectures/mdsr_sql_02-connect.html#1).
-
-1. Setup
+* MySQL setup
     1. Install and open [MySQLWorkbench](https://dev.mysql.com/downloads/workbench/){target="_blank"}; this whole process takes about 10 minutes and necessitates creating an account with Oracle.
     1. Close the "Welcome to MySQL Workbench" message
     1. Click the plus sign next to "MySQL Connections" to add a connection to a SQL database.
     1. Setup a new connection" as shown in Page 5 in <a href="https://beanumber.github.io/sds192/lectures/mdsr_sql_02-connect.html#1" target="_blank">"Connect to MySQL"</a>
     1. Click the resulting “scidb-sds192” connection and input the password in Page 5 in <a href="https://beanumber.github.io/sds192/lectures/mdsr_sql_02-connect.html#1" target="_blank">"Connect to MySQL"</a>
-1. Running SQL code
-    1. Copy and paste the code below into the Query window
-    1. For each of the 10 code segments: highlight it and then run it by clicking the "lightning" icon.
-
-<script src="https://gist.github.com/rudeboybert/35098400f4f36c36fc5d0e96cb40786d.js"></script>
 * Work on MP3 (due tomorrow at 9pm), don't forget to submit your Peer Evaluation Google Form
 
 
