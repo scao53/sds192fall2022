@@ -214,7 +214,7 @@ data_frame_clean
 
 ### 2. In-class exercise
 
-* This exercise is based on Prof. Baumer’s lecture notes <a href="https://beanumber.github.io/sds192/lectures/mdsr_sql_04-rmarkdown.html#1" target="_blank">"R Markdown SQL Integration"</a> and <a href="https://beanumber.github.io/sds192/lectures/mdsr_sql_07-dplyr.html#1" target="_blank">"dplyr Integration"</a>
+* This exercise is based on Prof. Baumer’s lecture notes <a href="https://beanumber.github.io/sds192/lectures/mdsr_sql_04-rmarkdown.html#1" target="_blank">"R Markdown SQL Integration"</a>
 
 
 
