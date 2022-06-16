@@ -142,17 +142,17 @@ How do I know if I've successfully completed the assignment?
 
 Getting started:
 
-* Download the following zip file: <a href="static/PS/PS06.zip" download>`PS06.zip`</a>.
-* Move `PS06.zip` to your SDS192 folder on your computer
-* Unzip `PS06.zip`. Windows users: be sure to "Extract all"
-* In the resulting PS06 folder, double-click the RStudio Project `PS06.Rproj` icon. For this PS you sound **always** work in "PS06" RStudio Project mode (See Lec26 Mon 11/8)
+* Download the following zip file: <a href="PS/PS06.zip" download>`PS06.zip`</a>.
+* Move `PS06.zip` to your SDS192 folder on your computer.
+* Unzip `PS06.zip`. Windows users: be sure to "Extract all".
+* In the resulting PS06 folder, double-click the RStudio Project `PS06.Rproj` icon. For this PS you should **always** work in "PS06" RStudio Project mode.
 
 Submission:
 
 * You will only be submitting the resulting `PS06.pdf` file on gradescope. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
 * If you encounter issues knitting your document, consult the [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"}.
 * Submit on [gradescope](https://www.gradescope.com/courses/308310){target="_blank"}:
-    1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first)
+    1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first).
     1. You will be asked to tag the honor code question as well.
 
 
