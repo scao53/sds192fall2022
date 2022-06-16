@@ -1,5 +1,5 @@
 ---
-title: "Lec 26: Intro to Mapping"
+title: "Lec 26: Static Maps"
 subtitle: "SDS 192: Introduction to Data Science"
 author: |
   Shiya Cao<br/>
