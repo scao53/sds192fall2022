@@ -63,7 +63,7 @@ h1{font-weight: 400;}
 Note: The instructor reserves the right to make changes to this schedule throughout the semester. 
 
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbD2Qk0QBwwadcmSHVsJgAgIPs3_2AJ_BTphoE6u8fhV_pxS0qNmV1cG5JY8INK_wbnpaTEFkyemV/pubhtml?gid=0&single=true" width="100%" height="850"></iframe>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTBbD2Qk0QBwwadcmSHVsJgAgIPs3_2AJ_BTphoE6u8fhV_pxS0qNmV1cG5JY8INK_wbnpaTEFkyemV/pubhtml?widget=true&amp;headers=false" width="100%" height="850")></iframe>
 
 <!--
 {target="_blank"}
