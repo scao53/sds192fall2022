@@ -156,7 +156,7 @@ Note: The instructor reserves the right to make changes to this schedule through
 
 ### 2. In-class exercise
 
-* With your MP4 partner, practice using SQL in R Markdown! Complete MDSR 15.8 Exercises Problem 9: Using the <code>lahman</code> package (See <a href="https://en.wikipedia.org/wiki/Baseball_statistics" target="_blank">https://en.wikipedia.org/wiki/Baseball_statistics</a> for explanations of any acronyms)
+* With your MP4 partner, practice using SQL in R Markdown! Complete MDSR 15.8 Exercises Problem 9: Using the <code>lahman</code> package (see <a href="https://en.wikipedia.org/wiki/Baseball_statistics" target="_blank">https://en.wikipedia.org/wiki/Baseball_statistics</a> for explanations of any baseball acronyms)
 
 ***
 
