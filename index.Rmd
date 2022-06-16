@@ -60,11 +60,6 @@ h1{font-weight: 400;}
 
 **Topics**:
 
-1. Data visualization (pink): Grammar of Graphics, Five Named Graphs (5NG), color theory.
-1. Working with data (blue): data wrangling, importing, and formatting
-1. Maps and spatial data (green): Maps and geospatial data.
-1. Learning how to learn new data science tools (yellow): SQL, TBD.
-
 Note: The instructor reserves the right to make changes to this schedule throughout the semester. 
 
 
@@ -78,21 +73,31 @@ Note: The instructor reserves the right to make changes to this schedule through
 
 ***
 
-
-
-# Lec 38: Fri 12/10 {#Lec38}
+# Lec 39: Mon 12/12 {#Lec39}
 
 ## Announcements
 
-* Today: the in-class data assistants will hold office hours
-* **Final project due date/time is Friday 12/17 at 2pm (not 9pm)**
+* **MP4 due date/time is Wednesday 12/21at 2pm (not 9pm)**
+
+
+## Today’s Topics/Activities
+
+### 1. In-class exercise
+
+* Work on MP4
+
+# Lec 38: Fri 12/9 {#Lec38}
+
+## Announcements
+
+* **MP4 due date/time is Wednesday 12/21at 2pm (not 9pm)**
 
 
 ## Today's Topics/Activities
 
 ### 1. In-class exercise
 
-* Work on Final Project
+* Work on MP4
 
 
 
@@ -100,18 +105,16 @@ Note: The instructor reserves the right to make changes to this schedule through
 
 
 
-# Lec 37: Wed 12/8 {#Lec37}
+# Lec 37: Wed 12/7 {#Lec37}
 
 ## Announcements
 
-* ModernDive will always be free, always available at [ModernDive.com](https://moderndive.com/)
-* For Friday's lecture the in-class data assistants will hold office hours
 * Finals week:
-    + I've posted office hours for next week
-    + **Final project due date/time is Friday 12/17 at 2pm (not 9pm)**
+    + I've posted office hours for the finals week
+    + **MP4 due date/time is Wednesday 12/21at 2pm (not 9pm)**
 * Spinelli center notes:
-    + Friday 12/10 is final Spinelli drop-in tutoring hours
-    + Thank you to the in-class data assistants Marium, Emma, Sunni, and Swaha
+    + Friday 12/9 is final Spinelli drop-in tutoring hours
+    + Thank you to the in-class data assistants
     + Thank you to the Spinelli Center tutors
 * Reflection exercise
 * Time to fill out course evaluations
@@ -121,7 +124,7 @@ Note: The instructor reserves the right to make changes to this schedule through
 
 ### 1. In-class exercise
 
-* Work on Final Project
+* Work on MP4
 
 
 
@@ -129,12 +132,10 @@ Note: The instructor reserves the right to make changes to this schedule through
 
 
 
-# Lec 36: Mon 12/6 {#Lec36}
+# Lec 36: Mon 12/5 {#Lec36}
 
 ## Announcements
 
-* Go over final project submission instructions
-* Wednesday is final lecture I'll be present; on Friday the Spinelli data assistants will hold in-class office hours.
 * Note on coding style
     + Check out the [`tidyverse` style guide](https://style.tidyverse.org/){target="_blank"}.
     + Why is it important to write clean code, that is well documented, and actually works? To be mindful of the work you create for your [most important collaborator](https://rmhogervorst.nl/cleancode/blog/2016/05/26/content/post/2016-05-26-your-most-valuable-collaborator-future-you/){target="_blank"}.
@@ -147,7 +148,7 @@ Note: The instructor reserves the right to make changes to this schedule through
 * Test two useful packages below: 
     + `patchwork`: Combine two ggplots together
     + `janitor`: Clean-up messy variable names
-* Work on Final Project
+* Work on MP4
 
 ```{r, eval=FALSE}
 library(tidyverse)
@@ -186,26 +187,57 @@ data_frame_clean
 
 
 
-# Lec 35: Fri 12/3 {#Lec35}
+# Lec 35: Fri 12/2 {#Lec35}
 
 ## Announcements
-
-* Final project:
-    + Open Slack to `#final_project` channel
-    + Group leader: Create a Slack DM with all members AND myself and say "we're a group"
-    + Submission details for Final Project to be posted on Monday.
-* If you haven't already download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/){target="_blank"}
 
 ## Today's Topics/Activities
 
 ### 1. Chalk Talk
 
-* `dplyr` and SQL are very similar. Both based on the same idea of [database normalization](https://en.wikipedia.org/wiki/Database_normalization){target="_blank"} (1970).
-* Moral of the story: If you know the `dplyr` package for data wrangling, you can learn SQL very quickly.
+### 2. In-class exercise
+
+
+
+***
+
+
+
+# Lec 34: Wed 11/30 {#Lec34}
+
+## Announcements
+
+* MP4 assigned today
+* If you haven't already download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/){target="_blank"}
+    
+## Today's topics/activities
+
+
+### 1. Chalk talk
+
 
 ### 2. In-class exercise
 
-Perform 2-3 SQL queries to convince yourself that if you know `dplyr`, you can learn SQL very quickly. This exercise is based on Prof. Baumer's [lecture notes](https://beanumber.github.io/sds192/lectures/29-sql.html#1){target="_blank"}.
+
+
+***
+
+
+
+# Lec 33: Mon 11/28 {#Lec33}
+
+## Announcements
+
+## Today's topics/activities
+
+### 1. Chalk talk
+
+* `dplyr` and SQL are very similar. Both based on the same idea of [database normalization](https://en.wikipedia.org/wiki/Database_normalization){target="_blank"} (1970)
+* Moral of the story: If you know the `dplyr` package for data wrangling, you can learn SQL very quickly
+
+### 2. In-class exercise
+
+* Perform 2-3 SQL queries to convince yourself that if you know `dplyr`, you can learn SQL very quickly. This exercise is based on Prof. Baumer's lecture notes ["Intro to SQL"](https://beanumber.github.io/sds192/lectures/mdsr_sql_01-intro.html#1){target="_blank"} and ["Connect to MySQL"](https://beanumber.github.io/sds192/lectures/mdsr_sql_02-connect.html#1).
 
 1. Setup
     1. Install and open [MySQLWorkbench](https://dev.mysql.com/downloads/workbench/){target="_blank"}; this whole process takes about 10 minutes and necessitates creating an account with Oracle.
@@ -218,93 +250,7 @@ Perform 2-3 SQL queries to convince yourself that if you know `dplyr`, you can l
     1. For each of the 10 code segments: highlight it and then run it by clicking the "lightning" icon.
 
 <script src="https://gist.github.com/rudeboybert/35098400f4f36c36fc5d0e96cb40786d.js"></script>
-
-
-
-***
-
-
-
-# Lec 34: Wed 12/1 {#Lec34}
-
-## Announcements
-
-* Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/){target="_blank"} before Friday's lecture
-* Before chalk talk:
-    1. Download the following zip file: <a href="static/example_webpage.zip" download>`example_webpage.zip`</a>
-    1. Move `example_webpage.zip` to your SDS192 folder on your computer
-    1. Unzip `example_webpage.zip`. Windows users: be sure to "Extract all"
-    1. In the resulting `example_webpage` folder, double-click the RStudio Project `example_webpage.Rproj` icon to open RStudio Project mode
-    
-
-## Today's topics/activities
-
-
-### 1. Chalk talk
-
-`example_webpage` is a portion of the [R Markdown Websites](https://rmarkdown.rstudio.com/lesson-13.html){target="_blank"} code for this course webpage: 
-
-* Inputs: `.Rmd` and `_site.yml` files
-* Output: webpage in `docs/` folder, in particular the `index.html` mainpage
-* "Deploying" your webpage: Many ways
-
-
-### 2. In-class exercise
-
-Today you'll modify the source code for `example_webpage` and then deploying this webpage using [Netlify drop](https://app.netlify.com/drop){target="_blank"}:
-
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-LRlQ_jaLAU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-</br>
-
-1. Create an account on netlify.com using your GitHub account
-    + Log into [GitHub](https://github.com/){target="_blank"} first. If you haven't created an account, do so using **using your Smith email address**.
-    + Sign into [Netlify](https://app.netlify.com/){target="_blank"} using your GitHub account
-1. Change and build your website locally (on your computer)
-    + In `index.Rmd` change the `author` from `"Albert Y. Kim"` to you and change the `title`
-    + Build your R Markdown Website by going to the "Build" panel of RStudio -> Clicking "Build Website".  
-    You can also use the keyboard shortcuts:
-        * macOS: Command+Shift+B
-        * windows: Control+Shift+B
-    + Inspect your webpage in your browser
-1. Deploy your R Markdown Website
-    + Go to [Netlify Drop](https://app.netlify.com/drop){target="_blank"}
-    + Drag-and-drop the `docs/` folder output in your `example_webpage` RStudio Project folder.
-    + If you want to rename your webpage's URL rather than use the default one you've been assigned: Click on "Domain settings" -> Click on the "..." next to your default site name -> Click on "Edit site name" -> Rename your site
-
-
-
-***
-
-
-
-# Lec 33: Mon 11/28 {#Lec33}
-
-## Announcements
-
-* Final project in groups of 2-3 will be assigned on Wednesday and due Fri 12/21 2pm (last day of exams). You can choose your group
-* PS07 posted
-* To do before chalk talk
-    + If you haven't already, create an account on GitHub.com **using your Smith email address**. If you already have a GitHub account, make sure your Smith email is in your Profile settings
-    + Open the GitHub repo for the [`fivethirtyeight`](https://github.com/rudeboybert/fivethirtyeight){target="_blank"} R package
-
-
-## Today's topics/activities
-
-### 1. Chalk talk
-
-GitHub: Theory and terminology
-
-* What is git?
-* What is GitHub?
-* Terminology: Repo, local vs remote, clone, pull, commit/push
-* Most important files in any repo: `README.md`
-
-### 2. In-class exercise
-
 * Work on MP3 (due tomorrow at 9pm), don't forget to submit your Peer Evaluation Google Form
-* Work on PS07
 
 
 
