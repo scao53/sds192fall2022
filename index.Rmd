@@ -136,19 +136,50 @@ Note: The instructor reserves the right to make changes to this schedule through
 
 ## Announcements
 
-* Note on coding style
-    + Check out the [`tidyverse` style guide](https://style.tidyverse.org/){target="_blank"}.
-    + Why is it important to write clean code, that is well documented, and actually works? To be mindful of the work you create for your [most important collaborator](https://rmhogervorst.nl/cleancode/blog/2016/05/26/content/post/2016-05-26-your-most-valuable-collaborator-future-you/){target="_blank"}.
-
-
 ## Today's Topics/Activities
 
 ### 1. In-class exercise
 
+* Work on MP4
+
+***
+
+
+
+# Lec 35: Fri 12/2 {#Lec35}
+
+## Announcements
+
+## Today's Topics/Activities
+
+### 1. Chalk Talk
+
+### 2. In-class exercise
+
+
+
+***
+
+
+
+# Lec 34: Wed 11/30 {#Lec34}
+
+## Announcements
+
+* MP4 assigned today
+* If you haven't already download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/){target="_blank"}
+* Note on coding style
+    + Check out the [`tidyverse` style guide](https://style.tidyverse.org/){target="_blank"}
+    + Why is it important to write clean code, that is well documented, and actually works? To be mindful of the work you create for your [most important collaborator](https://rmhogervorst.nl/cleancode/blog/2016/05/26/content/post/2016-05-26-your-most-valuable-collaborator-future-you/){target="_blank"}
+    
+## Today's topics/activities
+
+
+### 1. Chalk talk
+
 * Test two useful packages below: 
     + `patchwork`: Combine two ggplots together
     + `janitor`: Clean-up messy variable names
-* Work on MP4
 
 ```{r, eval=FALSE}
 library(tidyverse)
@@ -181,42 +212,9 @@ data_frame_clean <- data_frame_ugly %>%
 data_frame_clean
 ```
 
-
-
-***
-
-
-
-# Lec 35: Fri 12/2 {#Lec35}
-
-## Announcements
-
-## Today's Topics/Activities
-
-### 1. Chalk Talk
-
 ### 2. In-class exercise
 
-
-
-***
-
-
-
-# Lec 34: Wed 11/30 {#Lec34}
-
-## Announcements
-
-* MP4 assigned today
-* If you haven't already download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/){target="_blank"}
-    
-## Today's topics/activities
-
-
-### 1. Chalk talk
-
-
-### 2. In-class exercise
+* This exercise is based on Prof. Baumer’s lecture notes <a href="https://beanumber.github.io/sds192/lectures/mdsr_sql_04-rmarkdown.html#1" target="_blank">"R Markdown SQL Integration"</a> and <a href="https://beanumber.github.io/sds192/lectures/mdsr_sql_07-dplyr.html#1" target="_blank">"dplyr Integration"</a>
 
 
 
