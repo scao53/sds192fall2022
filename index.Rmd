@@ -243,8 +243,8 @@ data_frame_clean
     1. Install and open [MySQLWorkbench](https://dev.mysql.com/downloads/workbench/){target="_blank"}; this whole process takes about 10 minutes and necessitates creating an account with Oracle.
     1. Close the "Welcome to MySQL Workbench" message
     1. Click the plus sign next to "MySQL Connections" to add a connection to a SQL database.
-    1. Setup a new connection" as shown in `#general` in Slack
-    1. Click the resulting "Playing with SQL" connection and input the password in `#general` in Slack
+    1. Setup a new connection" as shown in Page 5 in <a href="https://beanumber.github.io/sds192/lectures/mdsr_sql_02-connect.html#1" target="_blank">"Connect to MySQL"</a>
+    1. Click the resulting “scidb-sds192” connection and input the password in `#sds-192-general` in Slack
 1. Running SQL code
     1. Copy and paste the code below into the Query window
     1. For each of the 10 code segments: highlight it and then run it by clicking the "lightning" icon.
