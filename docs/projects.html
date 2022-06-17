@@ -765,73 +765,46 @@ Things to remember for next time:
 </div>
 </div>
 </div>
-<div id="Final" class="section level1">
-<h1>Final Project</h1>
+<div id="MP4" class="section level1">
+<h1>Mini-Project 4</h1>
 <p><em>Due Wednesday 12/21 at 2pm.</em></p>
 <div id="basic-outline-3" class="section level2">
 <h2>Basic outline</h2>
-<p>Using an R Markdown website you will answer any scientific question of your choosing using data:</p>
-<ul>
-<li>Your website must at least have the following two pages:
-<ul>
-<li>An intro <code>index.html</code> page in blog-post style that summarizes your work. It should have
+<p>Your project <strong>must use SQL to query data from <code>scidb</code></strong>. You and your partner will craft a data-driven article of <strong>roughly 300–500 words</strong>. Your deliverable will be written in R Markdown.</p>
+<p>The argument you make in your article must be supported by data stored on <code>scidb</code> in at least one of the six databases listed below. You will write one or more queries in SQL that will pull in data relevant to your question. Examination of that data will inform your response to the question, and you will then formulate your arguments accordingly. You may do some of your data wrangling work in R, but you should use SQL first to retrieve data as efficiently as possible. Your article must include at least one data table or data graphic.</p>
+<p><strong>Databases</strong></p>
 <ol style="list-style-type: decimal">
-<li>One visualization that best summarizes your work.</li>
-<li>No more than 200 words of text</li>
-</ol></li>
-<li>A second <code>more_info.html</code> page going more in-depth for people who want more details. In should have
-<ol style="list-style-type: decimal">
-<li>Between 2-3 more visualizations.</li>
-<li>No more than 500 words of text.</li>
-</ol></li>
-</ul></li>
-<li>Publishing to the web:
-<ul>
-<li>If your data/analysis is not sensitive or private in nature, publish your R Markdown Website using Netlify Drop.</li>
-<li>If your data/analysis is sensitive or private in nature, please DM me on Slack and we’ll work something out.</li>
-</ul></li>
-</ul>
-<p>Here are some arbitrarily chosen examples. Note the topics covered this semester have shifted.</p>
-<ol style="list-style-type: decimal">
-<li><a href="https://ctimmons1.github.io/webpage/index.html" target="_blank">America’s Leaky Pipes: The Environmental Impact of Oil Pipeline Spills</a></li>
-<li><a href="https://estherrose21.github.io/webpage/index.html" target="_blank">💵The Gigantic Gender Pay Gap💵</a></li>
-<li><a href="https://jcflohr.github.io/final-project/index.html" target="_blank">Putting Food on the Table in 50 States</a></li>
-<li><a href="https://lepidopterane-atsmith.github.io/sds192fp/index.html" target="_blank">Who Are The Noisemakers? | Analyzing the Loudest Parties in NYC</a></li>
-<li><a href="https://loblatt.github.io/final_project_webpage/index.html" target="_blank">Bigfoot: True or Real?</a></li>
+<li><code>airlines</code>: on-time flight data from the Bureau of Transportation Statistics</li>
+<li><code>citibike</code>: trip-level data from New York City’s municipal bike rental system</li>
+<li><code>fec</code>: campaign finance data from the Federal Election Commission</li>
+<li><code>imdb</code>: a copy of the Internet Movie Database</li>
+<li><code>lahman</code>: historical season-level baseball statistics</li>
+<li><code>yelp</code>: restaurant reviews in the Phoenix, AZ area</li>
 </ol>
+</div>
+<div id="scope" class="section level2">
+<h2>Scope</h2>
+<p>Due to the compressed time during the finals, you may limit the scope of your analysis to results that can be achieved via <strong>a single query</strong>. In many cases, a simple table of results will be sufficient—you should not feel obligated to create a fancy data graphic.</p>
 </div>
 <div id="getting-started-3" class="section level2">
 <h2>Getting started</h2>
-<ol style="list-style-type: decimal">
-<li>Join <code>#sds-192-final_project</code> Slack channel</li>
-<li>Create groups of 2-3 students from any section and post in Google Sheet in <code>#final_project</code> channel in Slack.</li>
-<li>Finding data. This is often the hardest part of such projects and I suggest you <strong>do this as soon as possible</strong>
 <ul>
-<li>Ideally, determine a research question you are interested in. Then find this data.</li>
-<li>Often however you can’t find data that answers your desired question, but rather only some modified form of your question. This is fine, done is better than perfect.</li>
-<li>If you are still stuck, find data first and then reverse-engineer a question. Not ideal, but again, done is better than perfect.</li>
-<li>Use Smith College data resources. In particular:
+<li>Find your group in the <code>#sds-192-mp4</code> channel. Please identify:
 <ul>
-<li>The Spinelli Center <a href="https://www.smith.edu/qlc/tutoring.html?colDataCnslr=open#PanelDataCnslr" target="_blank">Data Research and Statistics Counselor</a> Osman Keshawarz</li>
-<li>The <a href="http://www.science.smith.edu/sal/" target="_blank">Spatial Analysis Lab</a></li>
+<li>Your group number</li>
+<li>Designate a group leader</li>
 </ul></li>
-</ul></li>
-<li>Setup the Final Project RStudio Project
-<ol style="list-style-type: decimal">
-<li>Download the following zip file: <a href="static/projects/final_project.zip" download><code>final_project.zip</code></a>.</li>
-<li>Move <code>final_project.zip</code> to your SDS192 folder on your computer.</li>
-<li>Unzip <code>final_project.zip</code>. Windows users: be sure to “Extract all”.</li>
-<li>In the resulting <code>final_project</code> folder, double-click the RStudio Project <code>final_project.Rproj</code> icon to open in RStudio Project mode.</li>
-</ol></li>
-</ol>
+<li>Download <a href="projects/MP4/MP4.Rmd" download><code>MP4.Rmd</code></a>.</li>
+<li>Knit the <code>MP4.Rmd</code> file once and read it over.</li>
+</ul>
 </div>
 <div id="submitting-the-project" class="section level2">
 <h2>Submitting the project</h2>
 <ol style="list-style-type: decimal">
-<li>Group leader only: Submit a <code>final_project.zip</code> file of your entire RStudio Project folder on <a href="https://moodle.smith.edu/course/view.php?id=42274" target="_blank">moodle</a>.</li>
+<li>Group leader only: Submit a <code>mp4.zip</code> file of your entire RStudio Project folder on <a href="https://moodle.smith.edu/course/view.php?id=42274" target="_blank">moodle</a>.</li>
 <li>All group members:
 <ul>
-<li>Fill out the peer evaluation <a href="https://docs.google.com/forms/d/e/1FAIpQLSegFq2mD2-twioEq3aniLRnAJQR90vJuKY1VJzN3_ZP0KGQ3g/viewform" target="_blank">Google Form</a>. Note you will need the Netlify Drop URL of the website you deployed on the web (unless your project involves sensitive non-public data).</li>
+<li>Fill out the peer evaluation <a href="https://docs.google.com/forms/d/e/1FAIpQLSegFq2mD2-twioEq3aniLRnAJQR90vJuKY1VJzN3_ZP0KGQ3g/viewform" target="_blank">Google Form</a>.</li>
 <li>Fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcVrUjjPEAM587UKIG_T7Nv7vsb351lcWL8SLZUw3qJ9UWAA/closedform" target="_blank">exit survey</a> Google Form.</li>
 </ul></li>
 </ol>
@@ -841,38 +814,27 @@ Things to remember for next time:
 <ol style="list-style-type: decimal">
 <li><strong>Baseline:</strong> Projects that do not satisfy all “baseline” criteria can expect to get a grade of less than 8/10.
 <ul>
-<li>The RMarkdown Website must “build” correctly when someone else builds it. <em>This is known as producing reproducible research.</em></li>
-<li>Wherever possible, all visualizations have appropriately labeled axes, legends, titles, etc and are mindful of the <a href="https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842" target="_blank">data-ink ratio</a>.<br />
-</li>
+<li>The argument you make in your article is supported by data retrieved from one of the six databases listed above.</li>
+<li>Your SQL query returns the correct results you intend to.</li>
 <li>Your code is clean, commented, and well-indented.</li>
-<li>From the perspective of both the report reader and potential collaborators who might reproduce your work, no “superfluous” and non-informative inputs or outputs are included. <em>This is being mindful of the work you create for readers and collaborators, including future you.</em> Ex: Do not
-<ol style="list-style-type: decimal">
-<li>Include my original instructions in the report.</li>
-<li>Include “Data dumps” like showing all the contents of a 1000 row data frame.</li>
-<li>Submit files in your RStudio Project folder that aren’t relevant to your analysis.</li>
-</ol></li>
+<li>From the article reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader, or your reader will just throw your article in the trash.</li>
 <li>All accompanying write-ups are coherent and respect the word count limit.</li>
 <li>You submit both your peer evaluations and your exit survey responses.</li>
 </ul></li>
 <li><strong>Minimally viable product:</strong> Grade: 8/10.
 <ul>
 <li>Satisfy all “baseline” criteria.</li>
-<li>Complete the intro <code>index.html</code> blog-post page.</li>
+<li>Retrieve data from SQL database server by writing SELECT query from scratch.</li>
 </ul></li>
 <li><strong>Due diligence:</strong> Grade: 9/10.
 <ul>
 <li>Satisfy all “baseline” and “minimally viable product” criteria.</li>
-<li>Complete the second <code>more_info.html</code> page with 1 visualization.</li>
+<li>Write your SQL query to retrieve data as efficiently as possible.</li>
 </ul></li>
-<li><strong>Point of diminishing returns:</strong> Grade: 9.5/10.
+<li><strong>Point of diminishing returns:</strong> Grade: 10/10.
 <ul>
 <li>Satisfy all “baseline”, “minimally viable product”, and “due diligence” criteria.</li>
-<li>Complete the second <code>more_info.html</code> page with 2-3 visualizations.</li>
-</ul></li>
-<li><strong>Polishing the cannonball</strong>: Grade: 10/10.
-<ul>
-<li>Satisfy all “baseline”, “minimally viable product”, “due diligence”, and “point of diminishing returns” criteria.</li>
-<li>Impress me by using the tools you’ve learned this semester. Yes, this criteria is deliberately vague.</li>
+<li>Written text does an exceptional job of making a logical argument supported by your data analysis and communicating your finding effectively.</li>
 </ul></li>
 </ol>
 </div>
