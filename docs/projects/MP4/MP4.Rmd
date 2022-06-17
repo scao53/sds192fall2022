@@ -1,1 +1,69 @@
 
+---
+title: "SDS192 Mini-Project 4"
+output:
+  pdf_document:
+    toc: no
+    df_print: paged
+---
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+# Do not edit this chunk unless you know what you are doing
+knitr::opts_chunk$set(
+  echo = TRUE, message = FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2
+)
+```
+
+```{r, echo=FALSE}
+# Load all packages here
+library(ggplot2)
+library(tidyverse)
+
+```
+
+```{r, echo=FALSE}
+# Use SQL in R Markdown (can change the dbname to the database name you select)
+library(RMySQL)
+db <- dbConnect(
+  MySQL(), host = "scidb.smith.edu",
+  user = "sds192", password = "DSismfc@S", 
+  dbname = "imdb"
+)
+knitr::opts_chunk$set(connection = db, max.print = 20)
+```
+
+## Administrative info:
+
+* Section number: 
+* Group number: 
+* Group leader name: 
+* Group leader academic email: 
+* Partner name: 
+* Partner academic email: 
+
+
+# Q1: Peer evaluation Google Form
+
+Fill out the peer evaluation Google Form to receive credit.
+
+
+
+# Q2: Your Analysis
+
+Write roughly 300-500 words introducing your research question and analyzing data to respond to your question. References should be generated using R Markdown footnotes, as you did in MP2.^[This is an example footnote.]
+
+
+
+# Q3: SQL Query 
+
+Use SQL to query data here (change the "SHOW DATABASES;" query to your SQL query). 
+
+```{sql connection=db}
+SHOW DATABASES;
+```
+
+
+
+# Additional Analysis
+
+(Strictly optional) Add any additional material here. ^[Here is an example footnote to be used as a citation.]
