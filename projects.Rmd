@@ -335,84 +335,66 @@ There are two components to your grade:
 
 
 
-# Final Project {#Final}
-
+# Mini-Project 4 {#MP4}
 *Due Wednesday 12/21 at 2pm.*
 
 ## Basic outline
+Your project **must use SQL to query data from <code>scidb</code>**. You and your partner will craft a data-driven article of **roughly 300–500 words**. Your deliverable will be written in R Markdown.
+The argument you make in your article must be supported by data stored on <code>scidb</code> in at least one of the six databases listed below. You will write one or more queries in SQL that will pull in data relevant to your question. Examination of that data will inform your response to the question, and you will then formulate your arguments accordingly. You may do some of your data wrangling work in R, but you should use SQL first to retrieve data as efficiently as possible. Your article must include at least one data table or data graphic.
+**Databases**
 
-Using an R Markdown website you will answer any scientific question of your choosing using data:
+1.<code>airlines</code>: on-time flight data from the Bureau of Transportation Statistics
+1.<code>citibike</code>: trip-level data from New York City’s municipal bike rental system
+1.<code>fec</code>: campaign finance data from the Federal Election Commission
+1.<code>imdb</code>: a copy of the Internet Movie Database
+1.<code>lahman</code>: historical season-level baseball statistics
+1.<code>yelp</code>: restaurant reviews in the Phoenix, AZ area
 
-* Your website must at least have the following two pages:
-    + An intro `index.html` page in blog-post style that summarizes your work. It should have
-        1. One visualization that best summarizes your work.
-        1. No more than 200 words of text
-    + A second `more_info.html` page going more in-depth for people who want more details. In should have
-        1. Between 2-3 more visualizations.
-        1. No more than 500 words of text
-* Publishing to the web: 
-    + If your data/analysis is not sensitive or private in nature, publish your R Markdown Website using Netlify Drop
-    + If your data/analysis is sensitive or private in nature, please DM me on Slack and we'll work something out.
-
-Here are some arbitrarily chosen examples. Note the topics covered this semester have shifted. 
-
-1. [America’s Leaky Pipes: The Environmental Impact of Oil Pipeline Spills](https://ctimmons1.github.io/webpage/index.html){target="_blank"}
-1. [💵The Gigantic Gender Pay Gap💵](https://estherrose21.github.io/webpage/index.html){target="_blank"}
-1. [Putting Food on the Table in 50 States](https://jcflohr.github.io/final-project/index.html){target="_blank"}
-1. [Who Are The Noisemakers? | Analyzing the Loudest Parties in NYC](https://lepidopterane-atsmith.github.io/sds192fp/index.html){target="_blank"}
-1. [Bigfoot: True or Real?](https://loblatt.github.io/final_project_webpage/index.html){target="_blank"}
-
-
+## Scope
+Due to the compressed time during the finals, you may limit the scope of your analysis to results that can be achieved via **a single query**. In many cases, a simple table of results will be sufficient—you should not feel obligated to create a fancy data graphic.
 
 ## Getting started
 
-1. Join `#final_project` Slack channel
-1. Create groups of 2-3 students from any section and post in Google Sheet in `#final_project` channel in Slack
-1. Finding data. This is often the hardest part of such projects and I suggest you **do this as soon as possible**
-    + Ideally, determine a research question you are interested in. Then find this data.
-    + Often however you can't find data that answers your desired question, but rather only some modified form of your question. This is fine, done is better than perfect.
-    + If you are still stuck, find data first and then reverse-engineer a question. Not ideal, but again, done is better than perfect.
-    + Use Smith College data resources. In particular:
-        + The Spinelli Center [Data Research and Statistics Counselor](https://www.smith.edu/qlc/tutoring.html?colDataCnslr=open#PanelDataCnslr){target="_blank"} Osman Keshawarz
-        + The [Spatial Analysis Lab](http://www.science.smith.edu/sal/){target="_blank"}
-1. Setup the Final Project RStudio Project
-    1. Download the following zip file: <a href="static/projects/final_project.zip" download>`final_project.zip`</a>
-    1. Move `final_project.zip` to your SDS192 folder on your computer
-    1. Unzip `final_project.zip`. Windows users: be sure to "Extract all"
-    1. In the resulting `final_project` folder, double-click the RStudio Project `final_project.Rproj` icon to open in RStudio Project mode
+* Find your group in the <code>#sds-192-mp4</code> channel. Please identify:
 
+    + Your group number
+    + Designate a group leader
+
+* Download <a href="projects/MP4/MP4.Rmd" download><code>MP4.Rmd</code></a>.
+* Knit the <code>MP4.Rmd</code> file once and read it over.
 
 ## Submitting the project
 
-1. Group leader only: Submit a `final_project.zip` file of your entire RStudio Project folder on [moodle](https://moodle.smith.edu/course/view.php?id=42274){target="_blank"}.
-1. All group members:
-    + Fill out the peer evaluation [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSegFq2mD2-twioEq3aniLRnAJQR90vJuKY1VJzN3_ZP0KGQ3g/viewform){target="_blank"}. Note you will need the Netlify Drop URL of the website you deployed on the web (unless your project involves sensitive non-public data).
-    + Fill out [exit survey](https://docs.google.com/forms/d/e/1FAIpQLSdcVrUjjPEAM587UKIG_T7Nv7vsb351lcWL8SLZUw3qJ9UWAA/closedform){target="_blank"} Google Form
+1.Group leader only: Submit a <code>mp4.zip</code> file of your entire RStudio Project folder on <a href="https://moodle.smith.edu/course/view.php?id=42274" target="_blank">moodle</a>.
+1.All group members:
 
+    + Fill out the peer evaluation <a href="https://docs.google.com/forms/d/e/1FAIpQLSegFq2mD2-twioEq3aniLRnAJQR90vJuKY1VJzN3_ZP0KGQ3g/viewform" target="_blank">Google Form</a>.
+    + Fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcVrUjjPEAM587UKIG_T7Nv7vsb351lcWL8SLZUw3qJ9UWAA/closedform" target="_blank">exit survey</a> Google Form.
 
 ## Grading rubric
 
-1. **Baseline:** Projects that do not satisfy all "baseline" criteria can expect to get a grade of less than 8/10.
-    + The RMarkdown Website must "build" correctly when someone else builds it. *This is known as producing reproducible research.*
-    + Wherever possible, all visualizations have appropriately labeled axes, legends, titles, etc and are mindful of the [data-ink ratio](https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842){target="_blank"}.    
+1.**Baseline:** Projects that do not satisfy all “baseline” criteria can expect to get a grade of less than 8/10.
+
+    + The argument you make in your article is supported by data retrieved from one of the six databases listed above.
+    + Your SQL query returns the correct results you intend to.
     + Your code is clean, commented, and well-indented.
-    + From the perspective of both the report reader and potential collaborators who might reproduce your work, no "superfluous" and non-informative inputs or outputs are included. *This is being mindful of the work you create for readers and collaborators, including future you.* Ex: Do not
-        1. Include my original instructions in the report.
-        1. Include "Data dumps" like showing all the contents of a 1000 row data frame.
-        1. Submit files in your RStudio Project folder that aren't relevant to your analysis. 
+    + From the article reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader, or your reader will just throw your article in the trash.
     + All accompanying write-ups are coherent and respect the word count limit.
     + You submit both your peer evaluations and your exit survey responses.
-1. **Minimally viable product:** Grade: 8/10.
-    + Satisfy all "baseline" criteria.
-    + Complete the intro `index.html` blog-post page.
-1. **Due diligence:** Grade: 9/10.
-    + Satisfy all "baseline" and "minimally viable product" criteria.
-    + Complete the second `more_info.html` page with 1 visualization.
-1. **Point of diminishing returns:** Grade: 9.5/10.
-    + Satisfy all "baseline", "minimally viable product", and "due diligence" criteria.
-    + Complete the second `more_info.html` page with 2-3 visualizations.
-1. **Polishing the cannonball**: Grade: 10/10.
-    + Satisfy all "baseline", "minimally viable product", "due diligence", and "point of diminishing returns" criteria.
-    + Impress me by using the tools you've learned this semester. Yes, this criteria is deliberately vague. 
+
+1.**Minimally viable product:** Grade: 8/10.
+
+    + Satisfy all “baseline” criteria.
+    + Retrieve data from SQL database server by writing SELECT query from scratch.
+
+1.**Due diligence:** Grade: 9/10.
+
+    + Satisfy all “baseline” and “minimally viable product” criteria.
+    + Write your SQL query to retrieve data as efficiently as possible.
+
+1.**Point of diminishing returns:** Grade: 10/10.
+
+    + Satisfy all “baseline”, “minimally viable product”, and “due diligence” criteria.
+    + Written text does an exceptional job of making a logical argument supported by your data analysis and communicating your finding effectively. 
 
 
