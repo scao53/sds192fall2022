@@ -1,5 +1,5 @@
 ---
-title: "Projects"
+title: "Mini-Projects"
 output:
   html_document:
     toc: yes
@@ -354,12 +354,12 @@ Due to the compressed time during the finals, you may limit the scope of your an
 1.**Minimally viable product:** Grade: 8/10.
 
     + Satisfy all “baseline” criteria.
-    + Retrieve data from SQL database server by writing SELECT query from scratch.
+    + Write your SQL query to retrieve data as efficiently as possible.
 
 1.**Due diligence:** Grade: 9/10.
 
     + Satisfy all “baseline” and “minimally viable product” criteria.
-    + Write your SQL query to retrieve data as efficiently as possible.
+    + Your SQL query is based on at least two joined data frames.
 
 1.**Point of diminishing returns:** Grade: 10/10.
 
