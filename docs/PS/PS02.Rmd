@@ -20,7 +20,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2)
 ```
 
-# Learning goals
+# Learning Goals
 
 * Delve deeper into more data visualizations.
 * Get into the habit of labeling elements of visualizations and adding titles. This helps communicate data's *context*.
@@ -40,14 +40,14 @@ library(lubridate)
 
 
 
-# Getting started
+# Getting Started
 
 * At the top of this document replace `"WRITE YOUR NAME HERE"` with your name, including the quotation marks. Ex: `"Shiya Cao"`
 * Knit this file to PDF and read over the questions
 
 
 
-# Question 1: Honor code
+# Question 1: Honor Code
 
 For this problem set I worked with (please indicate even if with no one):
 

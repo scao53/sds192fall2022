@@ -20,7 +20,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2)
 ```
 
-# Learning goals
+# Learning Goals
 
 * Using more data visualization techniques: changing colors and adding trend lines.
 * Baby's first data wrangling exercise!
@@ -38,7 +38,7 @@ library(babynames)
 
 
 
-# Question 1: Honor code
+# Question 1: Honor Code
 
 For this problem set I worked with (please indicate even if with no one):
 

@@ -1,0 +1,55 @@
+
+---
+title: "Problem Set 05"
+author: "WRITE YOUR NAME HERE"
+output:
+  pdf_document:
+    toc: no
+---
+
+```{r, include=FALSE}
+# Do not edit this code block/chunk
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning = FALSE, fig.width = 16/2, fig.height = 9/2)
+```
+
+# Learning Goals
+
+* Join two tables.
+* Practice pseudocode.
+
+
+# Setup
+
+Load necessary packages:
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+
+```
+
+
+
+# Question 1:  Honor Code
+
+For this problem set I worked with (please indicate even if with no one): 
+
+
+# Question 2: Pseudocode
+
+Study FIGURE 3.7 in ModernDive to understand how the tables in the nycflights13 package are related.
+
+Write down the pseudocode that is going to merge the flights and weather tables so that for each of the 336,776 flights we have merged information on the weather conditions at the time of departure even if no weather was recorded at that time.
+
+
+
+
+
+
+# Question 3: Join Two Tables
+
+Write down your code to achieve the goal in Question 2.
+
+```{r}
+
+```
