@@ -170,90 +170,58 @@ Things to remember for next time:
 
 *Due Friday 10/28 at 9pm.*
 
-Words of wisdom from Detective Lester Freamon from The Wire:
-
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Z7M71wmwWRo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</center>
-
 ## Basic outline
 
-The theme of your analysis will be **follow the money** as quoted in the video above. You will work with a partner to analyze Federal Election Commission data based on the 2016 federal election cycle, as provided by the Federal Election Commission. We'll be accessing this data in the `fec16` package, which was developed by Prof. Ben Baumer, Rana Gahwagy, Irene Ryan, and Marium A. Tapal from Smith College. Check out Marium's poster from the [Women in Statistics and Data Science 2020 conference](https://ww2.amstat.org/meetings/wsds/2020/onlineprogram/AbstractDetails.cfm?AbstractID=309585){target="_blank"}:  
+Your project will **wrangle** the open payments dataset in order to reveal **two findings** about the financial relationships between drug and device companies and certain healthcare providers in MA. You and your partner will then write up your findings in a short data-driven article of **no more than 600 words**. Your deliverable will be written in R Markdown.
+Before producing your analysis, you will watch the video below, and study the <a href="https://www.cms.gov/OpenPayments/Downloads/OpenPaymentsDataDictionary.pdf" target="_blank">data documentation</a>, specifically, review the data dictionary for the open payments dataset that spans pages 22-33 to select variables for your analysis. You can explore the <a href="https://www.cms.gov/OpenPayments/Data" target="_blank">Data Overview</a> page on the Center for Medicare and Medicaid Service's website to learn more. You can also check out ProPublica's <a href="https://projects.propublica.org/docdollars/" target="_blank">Dollars for Docs</a> platform for inspiration on how this dataset can be used in investigate journalism.
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=5f5eIDI0cW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</center>
 
 
-```{r, echo = FALSE, eval = TRUE}
-include_graphics("static/projects/MP2/fec16.png")
-```
+## Getting started
 
-Here are two **randomly** chosen examples to give a **qualitative** sense of the outcome, there are many ways to do this project.
-
-* [Example 1](static/projects/MP2/MP2_example_1.html){target="_blank"}
-* [Example 2](static/projects/MP2/MP2_example_2.html){target="_blank"}
-
-
-## Steps
-
-
-### 1. Getting started
-
-* Find your group in the `#mp2` channel. Please identify:
-    + Your group number
-    + Who your group leader is: whoever in your group is listed as `member_1`
-* Download <a href="projects/MP2/MP2.Rmd" download>`MP2.Rmd`</a>
-* Knit the `MP2.Rmd` file once and read it over
-* Read the `fec16` [poster](projects/MP2/fec16.pdf){target="_blank"} Marium Tapal presented to get an overview of the package, especially the datasets: some include full data by default, others only include a sample for which if you want full data you need to download it from the web (this is because R packages have file size restrictions). See code below.
+* Find your group in the `#sds-192-mp2` channel. Please identify:
+    + Your group number.
+    + Who your group leader is: whoever in your group is listed as `member_1`.
+* Download <a href="projects/MP2.zip" download>`MP2.zip`</a>.
+* Knit the `MP2.Rmd` file once and read it over.
 * This is A LOT of data; it will be easy to get lost
-    + `View()` is your best friend: simply looking at your data is so powerful, but also a step that's so easily neglected
-    + Read the help files for documentation: Know what all the variables mean, and what the values mean.
-    + Start simple: Get that minimally viable first visualization done, then iteratively add complexity. 
-
-```{r, eval = FALSE}
-library(fec16)
-
-# Look at help file
-?contributions
-
-# By default the contributions data frame only contains the first 1000 rows:
-contributions
-
-# Download full contributions data from web and overwrite contributions using:
-# read_all_*() function.
-# You will need to install the usethis package for this line of code to work
-contributions <- read_all_contributions()
-
-# Now contributions has full 516,394 rows
-contributions
-```
+    + Study the <a href="https://www.cms.gov/OpenPayments/Downloads/OpenPaymentsDataDictionary.pdf" target="_blank">data documentation</a>, specifically, review the data dictionary for the open payments dataset that spans pages 22-33: Know what all the variables mean, and what the values mean.
+    + Start off simple, producing an analysis that just touches the surface of the question. You can layer in more complicated analysis as you go along. Remember minimally viable product!
   
 
-### 2. Grading
+## Submitting the project
 
-1. **Baseline:** Projects that do not satisfy all "baseline" criteria can expect to get a grade of less than 7/10.
-    + All visualizations have appropriately labeled axes, legends, titles, etc. Such information gives the data's context.
-    + All visualizations are mindful of the [data-ink ratio](https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842){target="_blank"}.
+1. Group leader only: Submit the `MP2.pdf` of your analysis on moodle.
+1. Both group members: Fill out the peer evaluation [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSeqF7w2Hb1o4e08oYSbndefg3kqHetKL-wLirhUMrfE7sYRuQ/viewform){target="_blank"}.
+
+
+## Grading rubric
+
+1. **Baseline:** Projects that do not satisfy all "baseline" criteria can expect to get a grade of less than 8/10.
     + All code must be visible in your PDF.
+    + Successfully clean data: clean up name variables in the dataset; convert relevant variables into date formats.
+    + Produce two findings with tables or graphs or a combination of both.
+    + Include at least one ethical concern.
+    + Explicitly state the research question motivating your analysis.
+    + The final submission should be production-quality, replete with hyperlinks, images, data tables and/or graphics, and correct spelling and grammar.
+    + All accompanying write-ups are coherent and respect the word count limit.
     + Citations must be included as footnotes.
-1. **Minimally viable product:** Grade: 7/10
+    + If you create graphs, all visualizations have appropriately labeled axes, legends, titles, etc. Such information gives the data’s context.
+    + If you create graphs, all visualizations are mindful of the <a href="https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842" target="_blank">data-ink ratio</a>.
+    + You submit your peer evaluation.
+1. **Minimally viable product:** Grade: 8/10.
     + Satisfy all "baseline" criteria.
-    + Create one data visualization that "follows the money" i.e. involves campaign contributions and include a written analysis.
-1. **Due diligence:** Grade: 8/10
+    + Use the <code>select()</code> or <code>filter()</code> function to effectively subset the data.
+    + Use the <code>group_by()</code> function in combination with other data wrangling verbs to effectively aggregate the data.
+1. **Due diligence:** Grade: 9/10.
     + Satisfy all "baseline" and "minimally viable product" criteria.
-    + The data visualization from the "minimally viable product" should be based on at least two joined data frames. 
-1. **Point of diminishing returns:** Grade: 9/10
+    + Create a second table or graph that builds on the first table or graph, but is also non-redundant to the first. Produce a cohesive and in-depth analysis.
+1. **Point of diminishing returns:** Grade: 10/10.
     + Satisfy all "baseline", "minimally viable product", and "due diligence" criteria.
-    + Create a second data visualization that builds on the first data visualization, but is also non-redundant to the first. Include a written analysis.
-1. **Polishing the cannonball** Grade: >9/10
-    + Satisfy all "baseline", "minimally viable product", "due diligence", and "point of diminishing returns" criteria.
-    + Written text does an exceptional job of not only addressing what money-driven effect on politics is being observed, but also attempts to address *why* this money-driven effect on politics is happening.
-
-
-### 3. What to submit
-
-There are two components to your grade:
-
-1. Group leader only: Submit the `MP2.pdf` of your analysis on gradescope
-1. Both group members: Fill out the peer evaluation [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSeqF7w2Hb1o4e08oYSbndefg3kqHetKL-wLirhUMrfE7sYRuQ/viewform){target="_blank"}
-
+    + Written text does an exceptional job of not only addressing the financial relationships represented in the data, but also attempting to address the implications of these financial relationships.
 
 
 ***
@@ -304,7 +272,7 @@ include_graphics("static/images/MVP_2.png")
 1. **Baseline:** Projects that do not satisfy all "baseline" criteria can expect to get a grade of less than 8/10.
     + **This will be strictly evaluated**: The `MP3.Rmd` R Markdown file must "knit" correctly when *someone else* knits it. This is known as producing *reproducible research*.
     + Wherever possible, all maps have appropriately labeled axes, legends, and titles and all maps are mindful of the [ink/information ratio](https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842){target="_blank"}.
-    + From the report reader's perspective, there should be no "superfluous" and non-informative output (e.g. instructions text). You must be empathetic to your reader, or your reader will just throw your report in the trash. 
+    + From the report reader's perspective, there should be no "superfluous" and non-informative output (e.g. instructions text). You must be empathetic to your reader! 
     + You submit your peer evaluation.
 1. **Minimally viable product:** Grade: 8/10.
     + Satisfy all "baseline" criteria.
@@ -378,7 +346,8 @@ Due to the compressed time during the finals, you may limit the scope of your an
     + The argument you make in your article is supported by data retrieved from one of the six databases listed above.
     + Your SQL query returns the correct results you intend to.
     + Your code is clean, commented, and well-indented.
-    + From the article reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader, or your reader will just throw your article in the trash.
+    + Explicitly state your research question.
+    + From the article reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader!
     + All accompanying write-ups are coherent and respect the word count limit.
     + You submit both your peer evaluations and your exit survey responses.
 
