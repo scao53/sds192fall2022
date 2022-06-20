@@ -187,7 +187,7 @@ Before producing your analysis, you will watch the video below, and study the <a
     + Who your group leader is: whoever in your group is listed as `member_1`.
 * Download <a href="projects/MP2.zip" download>`MP2.zip`</a>.
 * Knit the `MP2.Rmd` file once and read it over.
-* Suggestion:
+* Suggestions:
     + Study the <a href="https://www.cms.gov/OpenPayments/Downloads/OpenPaymentsDataDictionary.pdf" target="_blank">data documentation</a>, specifically, review the data dictionary for the open payments dataset that spans pages 22-33: Know what all the variables mean, and what the values mean.
     + Start off simple, producing an analysis that just touches the surface of the question. You can layer in more complicated analysis as you go along. Remember minimally viable product!
   
