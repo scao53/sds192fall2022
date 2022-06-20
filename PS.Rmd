@@ -149,9 +149,9 @@ Getting started:
 
 Submission:
 
-* You will only be submitting the resulting `PS06.pdf` file on gradescope. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
+* You will only be submitting the resulting `PS06.pdf` file on moodle. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
 * If you encounter issues knitting your document, consult the [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"}.
-* Submit on [gradescope](https://www.gradescope.com/courses/308310){target="_blank"}:
+* Submit on moodle:
     1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first).
     1. You will be asked to tag the honor code question as well.
 
@@ -163,16 +163,15 @@ Submission:
 
 # Problem Set 05 {#PS05}
 
-*Due Monday 10/25 9pm*
+*Due Monday 10/24 9pm*
 
 ## 1. R Markdown component {#PS05_R}
 
-* Download the following Rmd template file: <a href="static/PS/PS05.Rmd" download>`PS05.Rmd`</a>.
-* You will be submitting the resulting `PS05.pdf` file on gradescope. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
-* Complete the individual questions. Knit early, knit often.
+* Download the following Rmd template file: <a href="PS/PS05.Rmd" download>`PS05.Rmd`</a>.
+* You will be submitting the resulting `PS05.pdf` file on moodle. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
 * If you encounter issues knitting your document, consult the [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"}.
-* Submit on [gradescope](https://www.gradescope.com/courses/308310){target="_blank"}:
-    1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first)
+* Submit on moodle:
+    1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first).
     1. You will be asked to tag the honor code question as well.
 
 
@@ -237,11 +236,10 @@ ggplot(example, aes(x = x, y = y)) +
 ## 1. R Markdown component {#PS04_R}
 
 * Download the following Rmd template file: <a href="static/PS/PS04.zip" download>`PS04.zip`</a>.
-* You will be submitting the resulting `PS04.pdf` file on gradescope. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
+* You will be submitting the resulting `PS04.pdf` file on moodle. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
 * Complete the individual questions. Knit early, knit often.
 * If you encounter issues knitting your document, consult the [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"}.
-* Submit on [gradescope](https://www.gradescope.com/courses/308310){target="_blank"}:
-    1. Anytime between Wed 10/12 5pm and Mon 10/17 9pm.
+* Submit on moodle:
     1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first).
     1. You will be asked to tag the honor code question as well.
 
@@ -263,16 +261,15 @@ ggplot(example, aes(x = x, y = y)) +
 
 # Problem Set 03 {#PS03}
 
-*Due Tuesday 10/12 9pm.*
+*Due Wednesday 10/12 9pm.*
 
 ## 1. R Markdown component {#PS03_R}
 
 * Download the following Rmd template file: <a href="PS/PS03.Rmd" download>`PS03.Rmd`</a>.
-* You will be submitting the resulting `PS03.pdf` file on gradescope. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
+* You will be submitting the resulting `PS03.pdf` file on moodle. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
 * Complete the individual questions. Knit early, knit often.
 * If you encounter issues knitting your document, consult the [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"}.
-* Submit on [gradescope](https://www.gradescope.com/courses/308310){target="_blank"}:
-    1. Anytime between Mon 10/5 5pm and Tue 10/12 9pm.
+* Submit on moodle:
     1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first).
     1. You will be asked to tag the honor code question as well.
 
@@ -298,13 +295,12 @@ ggplot(example, aes(x = x, y = y)) +
 ## 1. R Markdown component {#PS02_R}
 
 * Download the following Rmd template file: <a href="PS/PS02.Rmd" download>`PS02.Rmd`</a>.
-* You will be submitting the resulting `PS02.pdf` file on gradescope. There are two methods to create a PDF:
+* You will be submitting the resulting `PS02.pdf` file on moodle. There are two methods to create a PDF:
     1. "Knit to PDF". This is the preferred format (for consistency for the graders). 
     1. If this doesn't work for you, then "Knit to Word" and then export/save as PDF.
 * Complete the individual questions. Knit early, knit often.
 * If you encounter issues knitting your document, consult the [6 R Markdown Fixes](https://docs.google.com/document/d/1P7IyZ4On9OlrCOhygFxjC7XhQqyw8OludwChz-uFd_o/){target="_blank"}.
-* Submit on [gradescope](https://www.gradescope.com/courses/308310){target="_blank"}:
-    1. Anytime between Mon 9/12 5pm and Mon 9/19 9pm.
+* Submit on moodle:
     1. For each questions, tag **all** pages of your PDF that relate to that question (not just the first).
     2. You will be asked to tag the honor code question as well.
 
@@ -323,18 +319,13 @@ ggplot(example, aes(x = x, y = y)) +
 
 # Problem Set 01 {#PS01}
 
-*Due Monday 9/12 5pm.*
+*Due Monday 9/12 9pm.*
 
 1. If you haven't already, complete the [intro survey](https://docs.google.com/forms/d/e/1FAIpQLSdA6uWnig5oR3ITCsVBFDxC6IC5Nq1tYzo-atdChe8CVTTqag/viewform){target="_blank"} distributed on Friday.
 1. Complete a syllabus quiz.
     + Open the following [Google Doc](https://docs.google.com/document/d/1WknUhbtDeTGw8vvO8ytTURkF1_72ve4UXF5-SPk5NO8/){target="_blank"} and in the menu bar click "File -> Make a copy..."
     + Answer the questions based on information in the [syllabus](syllabus.html).
-1. Submit a PDF of your syllabus quiz responses on gradescope:
-    + Your gradescope account is based on your Smith, 5 College, or other official email.
-    + Create your account on gradescope via the email sent to you this morning. If you did not receive such an email, add yourself to the course using Entry Code: 6PNXZ5.
-    + Log into [gradescope](https://www.gradescope.com/courses/308310){target="_blank"} 
-    + **Added after lecture**: You can edit gradescope submissions as many times as you like before the due date/time.
-    + **Added after lecture**: You need to "tag" the 11 individual questions on whatever page(s) they are on (demo on Fri 9/10).
+1. Submit a PDF of your syllabus quiz responses on moodle.
     
 
 
