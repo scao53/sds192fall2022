@@ -585,96 +585,72 @@ Things to remember for next time:
     + SSL errors
     + Some datasets are just too huge
 -->
-<p><em>Due Friday 10/28 at 9pm.</em></p>
-<p>Words of wisdom from Detective Lester Freamon from The Wire:</p>
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Z7M71wmwWRo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</center>
 <div id="basic-outline-1" class="section level2">
 <h2>Basic outline</h2>
-<p>The theme of your analysis will be <strong>follow the money</strong> as quoted in the video above. You will work with a partner to analyze Federal Election Commission data based on the 2016 federal election cycle, as provided by the Federal Election Commission. We’ll be accessing this data in the <code>fec16</code> package, which was developed by Prof. Ben Baumer, Rana Gahwagy, Irene Ryan, and Marium A. Tapal from Smith College. Check out Marium’s poster from the <a href="https://ww2.amstat.org/meetings/wsds/2020/onlineprogram/AbstractDetails.cfm?AbstractID=309585" target="_blank">Women in Statistics and Data Science 2020 conference</a>:</p>
-<p><img src="static/projects/MP2/fec16.png" width="1314" style="display: block; margin: auto;" /></p>
-<p>Here are two <strong>randomly</strong> chosen examples to give a <strong>qualitative</strong> sense of the outcome, there are many ways to do this project.</p>
-<ul>
-<li><a href="static/projects/MP2/MP2_example_1.html" target="_blank">Example 1</a></li>
-<li><a href="static/projects/MP2/MP2_example_2.html" target="_blank">Example 2</a></li>
-</ul>
+<p>Your project will <strong>wrangle</strong> the open payments dataset in order to reveal <strong>two findings</strong> about the financial relationships between drug and device companies and certain healthcare providers in MA. You and your partner will then write up your findings in a short data-driven article of <strong>no more than 600 words</strong>. Your deliverable will be written in R Markdown.</p>
+<p>Before producing your analysis, you will watch the video below, and study the <a href="https://www.cms.gov/OpenPayments/Downloads/OpenPaymentsDataDictionary.pdf" target="_blank">data documentation</a>, specifically, review the data dictionary for the open payments dataset that spans pages 22-33 to select variables for your analysis. You can explore the <a href="https://www.cms.gov/OpenPayments/Data" target="_blank">Data Overview</a> page on the Center for Medicare and Medicaid Service's website to learn more. You can also check out ProPublica's <a href="https://projects.propublica.org/docdollars/" target="_blank">Dollars for Docs</a> platform for inspiration on how this dataset can be used in investigate journalism.</p>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=5f5eIDI0cW8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</center>
 </div>
 <div id="steps-1" class="section level2">
-<h2>Steps</h2>
-<div id="getting-started-1" class="section level3">
-<h3>1. Getting started</h3>
+<h2>Getting started</h2>
 <ul>
 <li>Find your group in the <code>#sds-192-mp2</code> channel. Please identify:
 <ul>
 <li>Your group number.</li>
 <li>Who your group leader is: whoever in your group is listed as <code>member_1</code>.</li>
 </ul></li>
-<li>Download <a href="projects/MP2/MP2.Rmd" download><code>MP2.Rmd</code></a>.</li>
+<li>Download <a href="projects/MP2.zip" download><code>MP2.zip</code></a>.</li>
 <li>Knit the <code>MP2.Rmd</code> file once and read it over.</li>
-<li>Read the <code>fec16</code> <a href="projects/MP2/fec16.pdf" target="_blank">poster</a> Marium Tapal presented to get an overview of the package, especially the datasets: some include full data by default, others only include a sample for which if you want full data you need to download it from the web (this is because R packages have file size restrictions). See code below.</li>
 <li>This is A LOT of data; it will be easy to get lost
 <ul>
-<li><code>View()</code> is your best friend: simply looking at your data is so powerful, but also a step that’s so easily neglected.</li>
-<li>Read the help files for documentation: Know what all the variables mean, and what the values mean.</li>
-<li>Start simple: Get that minimally viable first visualization done, then iteratively add complexity.</li>
+<li>Study the <a href="https://www.cms.gov/OpenPayments/Downloads/OpenPaymentsDataDictionary.pdf" target="_blank">data documentation</a>, specifically, review the data dictionary for the open payments dataset that spans pages 22-33: Know what all the variables mean, and what the values mean.</li>
+<li>Start off simple, producing an analysis that just touches the surface of the question. You can layer in more complicated analysis as you go along. Remember minimally viable product!</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(fec16)</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Look at help file</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a>?contributions</span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># By default the contributions data frame only contains the first 1000 rows:</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>contributions</span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># Download full contributions data from web and overwrite contributions using:</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># read_all_*() function.</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># You will need to install the usethis package for this line of code to work</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a>contributions &lt;-<span class="st"> </span><span class="kw">read_all_contributions</span>()</span>
-<span id="cb1-13"><a href="#cb1-13"></a></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># Now contributions has full 516,394 rows</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a>contributions</span></code></pre></div>
 </div>
-<div id="grading" class="section level3">
-<h3>2. Grading</h3>
+<div id="what-to-submit" class="section level2">
+<h3>Submitting the project</h3>
 <ol style="list-style-type: decimal">
-<li><strong>Baseline:</strong> Projects that do not satisfy all “baseline” criteria can expect to get a grade of less than 7/10.
-<ul>
-<li>All visualizations have appropriately labeled axes, legends, titles, etc. Such information gives the data’s context.</li>
-<li>All visualizations are mindful of the <a href="https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842" target="_blank">data-ink ratio</a>.</li>
-<li>All code must be visible in your PDF.</li>
-<li>Citations must be included as footnotes.</li>
-</ul></li>
-<li><strong>Minimally viable product:</strong> Grade: 7/10.
-<ul>
-<li>Satisfy all “baseline” criteria.</li>
-<li>Create one data visualization that “follows the money” i.e. involves campaign contributions and include a written analysis.</li>
-</ul></li>
-<li><strong>Due diligence:</strong> Grade: 8/10.
-<ul>
-<li>Satisfy all “baseline” and “minimally viable product” criteria.</li>
-<li>The data visualization from the “minimally viable product” should be based on at least two joined data frames.</li>
-</ul></li>
-<li><strong>Point of diminishing returns:</strong> Grade: 9/10.
-<ul>
-<li>Satisfy all “baseline”, “minimally viable product”, and “due diligence” criteria.</li>
-<li>Create a second data visualization that builds on the first data visualization, but is also non-redundant to the first. Include a written analysis.</li>
-</ul></li>
-<li><strong>Polishing the cannonball</strong> Grade: &gt;9/10.
-<ul>
-<li>Satisfy all “baseline”, “minimally viable product”, “due diligence”, and “point of diminishing returns” criteria.</li>
-<li>Written text does an exceptional job of not only addressing what money-driven effect on politics is being observed, but also attempts to address <em>why</em> this money-driven effect on politics is happening.</li>
-</ul></li>
+<li>Group leader only: Submit the <code>MP2.pdf</code> of your analysis on moodle.</li>
+<li>Both group members: Fill out the peer evaluation <a href="https://docs.google.com/forms/d/e/1FAIpQLSeqF7w2Hb1o4e08oYSbndefg3kqHetKL-wLirhUMrfE7sYRuQ/viewform" target="_blank">Google Form</a>.</li>
 </ol>
 </div>
-<div id="what-to-submit" class="section level3">
-<h3>3. What to submit</h3>
-<p>There are two components to your grade:</p>
+<div id="grading" class="section level2">
+<h3>Grading rubric</h3>
 <ol style="list-style-type: decimal">
-<li>Group leader only: Submit the <code>MP2.pdf</code> of your analysis on gradescope.</li>
-<li>Both group members: Fill out the peer evaluation <a href="https://docs.google.com/forms/d/e/1FAIpQLSeqF7w2Hb1o4e08oYSbndefg3kqHetKL-wLirhUMrfE7sYRuQ/viewform" target="_blank">Google Form</a>.</li>
+<li><strong>Baseline:</strong> Projects that do not satisfy all “baseline” criteria can expect to get a grade of less than 8/10.
+<ul>
+<li>All code must be visible in your PDF.</li>
+<li>Successfully clean data: clean up name variables in the dataset; convert relevant variables into date formats.</li>
+<li>Produce two findings with tables or graphs or a combination of both.</li>
+<li>Include at least one ethical concern.</li>
+<li>Explicitly state the research question motivating your analysis.</li>
+<li>The final submission should be production-quality, replete with hyperlinks, images, data tables and/or graphics, and correct spelling and grammar.</li>
+<li>All accompanying write-ups are coherent and respect the word count limit.</li>
+<li>Citations must be included as footnotes.</li>
+<li>If you create graphs, all visualizations have appropriately labeled axes, legends, titles, etc. Such information gives the data’s context.</li>
+<li>If you create graphs, all visualizations are mindful of the <a href="https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842" target="_blank">data-ink ratio</a>.</li>
+<li>You submit your peer evaluation.</li>
+</ul></li>
+<li><strong>Minimally viable product:</strong> Grade: 8/10.
+<ul>
+<li>Satisfy all “baseline” criteria.</li>
+<li>Use the <code>select()</code> or <code>filter()</code> function to effectively subset the data.</li>
+<li>Use the <code>group_by()</code> function in combination with other data wrangling verbs to effectively aggregate the data.</li>
+</ul></li>
+<li><strong>Due diligence:</strong> Grade: 9/10.
+<ul>
+<li>Satisfy all “baseline” and “minimally viable product” criteria.</li>
+<li>Create a second table or graph that builds on the first table or graph, but is also non-redundant to the first. Produce a cohesive and in-depth analysis.</li>
+</ul></li>
+<li><strong>Point of diminishing returns:</strong> Grade: 10/10.
+<ul>
+<li>Satisfy all “baseline”, “minimally viable product”, and “due diligence” criteria.</li>
+<li>Written text does an exceptional job of not only addressing the financial relationships represented in the data, but also attempting to address the implications of these financial relationships.</li>
+</ul>
 </ol>
 <hr />
 </div>
@@ -725,7 +701,7 @@ Things to remember for next time:
 <ul>
 <li><strong>This will be strictly evaluated</strong>: The <code>MP3.Rmd</code> R Markdown file must “knit” correctly when <em>someone else</em> knits it. This is known as producing <em>reproducible research</em>.</li>
 <li>Wherever possible, all maps have appropriately labeled axes, legends, and titles and all maps are mindful of the <a href="https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842" target="_blank">ink/information ratio</a>.</li>
-<li>From the report reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader, or your reader will just throw your report in the trash.</li>
+<li>From the report reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader!</li>
 <li>You submit your peer evaluation.</li>
 </ul></li>
 <li><strong>Minimally viable product:</strong> Grade: 8/10.
@@ -817,7 +793,7 @@ Things to remember for next time:
 <li>The argument you make in your article is supported by data retrieved from one of the six databases listed above.</li>
 <li>Your SQL query returns the correct results you intend to.</li>
 <li>Your code is clean, commented, and well-indented.</li>
-<li>From the article reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader, or your reader will just throw your article in the trash.</li>
+<li>From the article reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader!</li>
 <li>All accompanying write-ups are coherent and respect the word count limit.</li>
 <li>You submit both your peer evaluations and your exit survey responses.</li>
 </ul></li>
