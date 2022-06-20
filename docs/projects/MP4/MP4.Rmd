@@ -42,9 +42,9 @@ knitr::opts_chunk$set(connection = db, max.print = 20)
 * Partner academic email: 
 
 
-# Q1: Peer evaluation Google Form
+# Q1: Peer Evaluation Google Form
 
-Fill out the peer evaluation Google Form to receive credit.
+Fill out the peer evaluation Google form to receive credit.
 
 
 
