@@ -138,7 +138,7 @@ How do I know if I've successfully completed the assignment?
 
 *Due Monday 11/15 9pm*
 
-## 1. R Markdown component {#PS06_R}
+<!--## 1. R Markdown component {#PS06_R}-->
 
 Getting started:
 
@@ -165,7 +165,7 @@ Submission:
 
 *Due Monday 10/24 9pm*
 
-## 1. R Markdown component {#PS05_R}
+<!--## 1. R Markdown component {#PS05_R}-->
 
 * Download the following Rmd template file: <a href="PS/PS05.Rmd" download>`PS05.Rmd`</a>.
 * You will be submitting the resulting `PS05.pdf` file on moodle. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
@@ -233,7 +233,7 @@ ggplot(example, aes(x = x, y = y)) +
 
 *Due Monday 10/17 9pm.*
 
-## 1. R Markdown component {#PS04_R}
+<!--## 1. R Markdown component {#PS04_R}-->
 
 * Download the following Rmd template file: <a href="static/PS/PS04.zip" download>`PS04.zip`</a>.
 * You will be submitting the resulting `PS04.pdf` file on moodle. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
@@ -263,7 +263,7 @@ ggplot(example, aes(x = x, y = y)) +
 
 *Due Wednesday 10/12 9pm.*
 
-## 1. R Markdown component {#PS03_R}
+<!--## 1. R Markdown component {#PS03_R}-->
 
 * Download the following Rmd template file: <a href="PS/PS03.Rmd" download>`PS03.Rmd`</a>.
 * You will be submitting the resulting `PS03.pdf` file on moodle. Please use the "Knit to PDF" method directly, instead of "Knit to Word" and then save to PDF method.
@@ -292,7 +292,7 @@ ggplot(example, aes(x = x, y = y)) +
 
 *Due Monday 9/19 9pm.*
 
-## 1. R Markdown component {#PS02_R}
+<!--## 1. R Markdown component {#PS02_R}-->
 
 * Download the following Rmd template file: <a href="PS/PS02.Rmd" download>`PS02.Rmd`</a>.
 * You will be submitting the resulting `PS02.pdf` file on moodle. There are two methods to create a PDF:
