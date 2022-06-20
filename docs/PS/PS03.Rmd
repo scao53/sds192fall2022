@@ -32,7 +32,7 @@ Load necessary packages:
 
 ```{r}
 library(ggplot2)
-library(dplyr)
+library(tidyverse)
 library(babynames)
 ```
 
@@ -45,7 +45,7 @@ For this problem set I worked with (please indicate even if with no one):
 
 # Question 2
 
-In this exercise, you're going to recreate the figure from Practice Midterm I Question 4 (see `#midterms` channel in Slack), allowing us to visualize the extent to which the names "Casey" and "Riley" were used for babies of both sex male and female.
+In this exercise, you're going to recreate the figure from Practice Midterm I Question 4 (see `#sds-192-midterms` channel in Slack), allowing us to visualize the extent to which the names "Casey" and "Riley" were used for babies of both sex male and female.
 
 ## Part a)
 
@@ -81,7 +81,7 @@ Once again, recreate the visualization from Practice Midterm I Question 4 *exact
 
 # Bonus
 
-In this exercise, you're going to recreate the figure from Practice Midterm I Question 4 (see `#midterms` channel in Slack). This time however, you're going to limit it to years 1960 and later:
+In this exercise, you're going to recreate the figure from Practice Midterm I Question 4 (see `#sds-192-midterms` channel in Slack). This time however, you're going to limit it to years 1960 and later:
 
 ## Part a)
 

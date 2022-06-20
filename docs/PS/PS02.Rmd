@@ -32,7 +32,7 @@ Load necessary packages:
 
 ```{r}
 library(ggplot2)
-library(dplyr)
+library(tidyverse)
 library(fivethirtyeight)
 library(moderndive)
 library(lubridate)
@@ -62,7 +62,7 @@ Before we answer any questions, first let's do a brief exploratory data analysis
 1. Read the "help file" associated with this data frame by running `?pres_2016_trail` directly in the Console. Do not include this code in this `.Rmd` file as it might cause an error. 
 1. Look at the raw values `pres_2016_trail` of by running `View(pres_2016_trail)` directly in the Console. Do not include this code in this `.Rmd` file as it might cause an error. 
 
-Now let's take the `pres_2016_trail` data frame and "wrangle" it (i.e. transform it) to count the number of stops both candidates made per week. To do this we'll use code from the `dplyr` package for data wrangling and the `lubridate` package for working with dates and times. Don't worry if you don't understand this code for now, we'll cover it later in this course. 
+Now let's take the `pres_2016_trail` data frame and "wrangle" it (i.e. transform it) to count the number of stops both candidates made per week. To do this we'll use code from the `tidyverse` package for data wrangling and the `lubridate` package for working with dates and times. Don't worry if you don't understand this code for now, we'll cover it later in this course. 
 
 ```{r}
 weekly_campaign_stops <- pres_2016_trail |> 
