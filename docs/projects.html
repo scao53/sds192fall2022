@@ -661,79 +661,74 @@ Things to remember for next time:
 <p><em>Due Tuesday 11/29 at 9pm.</em></p>
 <div id="basic-outline-2" class="section level2">
 <h2>Basic outline</h2>
-<p>Create maps using the <code>sf</code> package. Here are two <strong>randomly</strong> chosen examples to give a <strong>qualitative</strong> sense of the outcome.</p>
+<p>Your project will create <strong>one static map</strong> using the <code>sf</code> package and <strong>one interactive map</strong> using the <code>leaflet</code> package. You and your partner will craft a short data-driven article of <strong>no more than 600 words</strong>. Your deliverable will be written in R Markdown.</p>
+<p>You and your partner will focus on a topic of your choice in any context such as healthcare, education, climate change, sports, politics, or economics. You will then find a relevant dataset or multiple datasets. Here are a few dataset resources you might be interested in:
+<ul>
+<li>US census data using the <code>tidycensus</code> package as we do in Lec 29</li>
+<li><a href="https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present" target="_blank">Environmental Protection Agency (EPA)'s Toxics Release Inventory (TRI) data</a></li>
+<li><a href="https://chronicdata.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-Census-Tract-D/cwsq-ngmh" target="_blank">Centers for Disease Control and Prevention (CDC)'s health data</a></li>
+<li><a href="https://dsl.richmond.edu/panorama/redlining/#loc=5/39.1/-94.58&text=downloads" target="_blank">Map Inequality shapefile data</a></li>
+</ul>       
+<p>Here are two <strong>randomly</strong> chosen examples to give a <strong>qualitative</strong> sense of the outcome.</p>
 <ul>
 <li><a href="static/projects/MP3/MP3_example_1.html" target="_blank">Example 1</a></li>
 <li><a href="static/projects/MP3/MP3_example_2.html" target="_blank">Example 2</a></li>
 </ul>
-<p>Note you do not need to submit a interactive map, just a static (non-interactive) map generated with the <code>sf</code> package. If you would like to learn how to make interactive maps on your own, check out the <a href="https://rstudio.github.io/leaflet/" target="_blank"><code>leaflet</code> package</a>.</p>
 </div>
 <div id="steps-2" class="section level2">
-<h2>Steps</h2>
-<div id="getting-started-2" class="section level3">
-<h3>1. Getting started</h3>
+<h2>Getting started</h2>
 <ul>
-<li>Find your group in the <code>#mp3</code> channel. Please identify:
+<li>Find your group in the <code>#sds-192-mp3</code> channel. Please identify:
 <ul>
-<li>Your group number</li>
-<li>Designate a group leader</li>
+<li>Your group number.</li>
+<li>Designate a group leader.</li>
 </ul></li>
-<li>Add the following to the folder that has your <code>MP3.Rproj</code> RStudio Project you created in <a href="index.html#Lec26">Lec26</a>:
-<ul>
-<li>Download <a href="static/projects/MP3/MP3.Rmd" download><code>MP3.Rmd</code></a> and add it to the above folder.</li>
-<li>In the above folder create a new directory called <code>data/</code>.</li>
-<li>Download <a href="static/projects/MP3/ma_cities.csv" download><code>ma_cities.csv</code></a> and add it to the <code>data/</code> folder.</li>
-</ul></li>
+<li>Download <a href="projects/MP3.zip" download><code>MP3.zip</code></a>.</li>
 <li>Knit the <code>MP3.Rmd</code> file once and read it over.</li>
 <li>Map making can get very complicated, so start simple. Get that minimally viable first visualization done, then iteratively add complexity.</li>
 </ul>
-<p><img src="static/images/MVP_2.png" width="443" style="display: block; margin: auto;" /></p>
+<p><img src="img./Lec1_mvp.png" width="443" style="display: block; margin: auto;" /></p>
 </div>
-<div id="grading-1" class="section level3">
-<h3>2. Grading</h3>
+<div id="what-to-submit-1" class="section level2">
+<h2>Submitting the project</h2>
+<ol style="list-style-type: decimal">
+<li>Group leader only: Submit the <code>MP3.zip</code> file of your entire RStudio Project folder on moodle.</li>
+<li>Both group members: Fill out the peer evaluation <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf2M_0oYOR8hwUgxoQFeMR5bKvz4FMZs7Z4k1L1uOy3e_dQw/viewform" target="_blank">Google Form</a>.</li>
+</ol>
+</div>
+<div id="grading-1" class="section level2">
+<h2>Grading rubric</h2>
 <ol style="list-style-type: decimal">
 <li><strong>Baseline:</strong> Projects that do not satisfy all “baseline” criteria can expect to get a grade of less than 8/10.
 <ul>
-<li><strong>This will be strictly evaluated</strong>: The <code>MP3.Rmd</code> R Markdown file must “knit” correctly when <em>someone else</em> knits it. This is known as producing <em>reproducible research</em>.</li>
-<li>Wherever possible, all maps have appropriately labeled axes, legends, and titles and all maps are mindful of the <a href="https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842" target="_blank">ink/information ratio</a>.</li>
+<li>All code must be visible in your PDF.</li>
+<li>Successfully acquire your data and convert them to desired objects and/or correctly load them into R.</li>
+<li>Create one static map and one interactive map.</li>
+<li>Wherever possible, all maps have appropriately labeled axes, legends, and titles and all maps are mindful of the <a href="https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842" target="_blank">data-ink ratio</a>.</li>
+<li>Include at least one ethical concern.</li>
+<li>Explicitly state the research question motivating your analysis.</li>
 <li>From the report reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader!</li>
+<li>All accompanying write-ups are coherent and respect the word count limit.</li>
+<li>Citations must be included as footnotes.</li>
 <li>You submit your peer evaluation.</li>
 </ul></li>
 <li><strong>Minimally viable product:</strong> Grade: 8/10.
 <ul>
 <li>Satisfy all “baseline” criteria.</li>
-<li>Include any map generated by the <code>sf</code> package.</li>
+<li>Demonstrate effective binning when coloring maps.</li>
 </ul></li>
 <li><strong>Due diligence:</strong> Grade: 9/10.
 <ul>
 <li>Satisfy all “baseline” and “minimally viable product” criteria.</li>
-<li>Add to the map by layering points on top of it. The points
-<ul>
-<li>Need to be imported from an external <code>.csv</code> file that you will find (cite source).</li>
-<li>Need to overlap the map.</li>
-</ul></li>
+<li>Your static map and interactive map produce a cohesive and in-depth story.</li>
 </ul></li>
 <li><strong>Point of diminishing returns:</strong> Grade: 10/10.
 <ul>
 <li>Satisfy all “baseline”, “minimally viable product”, and “due diligence” criteria.</li>
-<li>Add to the map by also layering data from a shapefile on it. This shapefile data
-<ul>
-<li>Needs to be imported data from a shapefile you will find (cite source).</li>
-<li>Can be points, lines, or polygons.</li>
-<li>Need to overlap the map.</li>
+<li>Written text does an exceptional job of communicating your findings effectively and telling an interesting story.</li>
 </ul></li>
-</ul></li>
-</ol>
-</div>
-<div id="what-to-submit-1" class="section level3">
-<h3>3. What to submit</h3>
-<p>There are two components to your grade:</p>
-<ol style="list-style-type: decimal">
-<li>Group leader only: Submit the <code>MP3.zip</code> file of your entire RStudio Project folder on <a href="https://moodle.smith.edu/course/view.php?id=42274" target="_blank">moodle</a>.</li>
-<li>Both group members: Fill out the peer evaluation <a href="https://docs.google.com/forms/d/e/1FAIpQLSdf2M_0oYOR8hwUgxoQFeMR5bKvz4FMZs7Z4k1L1uOy3e_dQw/viewform" target="_blank">Google Form</a>.</li>
 </ol>
 <hr />
-</div>
 </div>
 </div>
 <div id="MP4" class="section level1">
@@ -788,7 +783,7 @@ Things to remember for next time:
 <li>The argument you make in your article is supported by data retrieved from one of the six databases listed above.</li>
 <li>Your SQL query returns the correct results you intend to.</li>
 <li>Your code is clean, commented, and well-indented.</li>
-<li>Explicitly state your research question.</li>
+<li>Explicitly state your research question motivating your analysis.</li>
 <li>From the article reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader!</li>
 <li>All accompanying write-ups are coherent and respect the word count limit.</li>
 <li>You submit both your peer evaluations and your exit survey responses.</li>
