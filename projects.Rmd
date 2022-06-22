@@ -240,63 +240,62 @@ Things to remember for next time:
 
 ## Basic outline
 
-Create maps using the `sf` package. Here are two **randomly** chosen examples to give a **qualitative** sense of the outcome. 
+Your project will create **one static map** using the <code>sf</code> package and **one interactive map** using the <code>leaflet</code> package. You and your partner will craft a short data-driven article of **no more than 600 words**. Your deliverable will be written in R Markdown.
+
+You and your partner will focus on a topic of your choice in any context such as healthcare, education, climate change, sports, politics, or economics. You will then find a relevant dataset or multiple datasets. Here are a few dataset resources you might be interested in:
+
+* US census data using the <code>tidycensus</code> package as we do in Lec 29
+* <a href="https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present" target="_blank">Environmental Protection Agency (EPA)'s Toxics Release Inventory (TRI) data</a>
+* <a href="https://chronicdata.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-Census-Tract-D/cwsq-ngmh" target="_blank">Centers for Disease Control and Prevention (CDC)'s health data</a>
+* <a href="https://dsl.richmond.edu/panorama/redlining/#loc=5/39.1/-94.58&text=downloads" target="_blank">Map Inequality shapefile data</a>
+
+Here are two **randomly** chosen examples to give a **qualitative** sense of the outcome. 
 
 * [Example 1](static/projects/MP3/MP3_example_1.html){target="_blank"}
 * [Example 2](static/projects/MP3/MP3_example_2.html){target="_blank"}
 
-Note you do not need to submit a interactive map, just a static (non-interactive) map generated with the `sf` package. If you would like to learn how to make interactive maps on your own, check out the [`leaflet` package](https://rstudio.github.io/leaflet/){target="_blank"}.
 
-## Steps
+## Getting started
 
-### 1. Getting started
-
-* Find your group in the `#mp3` channel. Please identify:
-    + Your group number
+* Find your group in the `#sds-192-mp3` channel. Please identify:
+    + Your group number.
     + Designate a group leader.
-* Add the following to the folder that has your `MP3.Rproj` RStudio Project you created in [Lec26](index.html#Lec26):
-    + Download <a href="static/projects/MP3/MP3.Rmd" download>`MP3.Rmd`</a> and add it to the above folder
-    + In the above folder create a new directory called `data/`
-    + Download <a href="static/projects/MP3/ma_cities.csv" download>`ma_cities.csv`</a> and add it to the `data/` folder
-* Knit the `MP3.Rmd` file once and read it over
+* Download <a href="projects/MP3.zip" download><code>MP3.zip</code></a>.
+* Knit the `MP3.Rmd` file once and read it over.
 * Map making can get very complicated, so start simple. Get that minimally viable first visualization done, then iteratively add complexity. 
 
 ```{r, echo = FALSE, eval = TRUE}
-include_graphics("static/images/MVP_2.png")
+include_graphics("img./Lec1_mvp.png")
 ```
 
+## Submitting the project
+
+1. Group leader only: Submit the `MP3.zip` file of your entire RStudio Project folder on [moodle](https://moodle.smith.edu/course/view.php?id=42274){target="_blank"}.
+1. Both group members: Fill out the peer evaluation [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdf2M_0oYOR8hwUgxoQFeMR5bKvz4FMZs7Z4k1L1uOy3e_dQw/viewform){target="_blank"}.
 
 
-### 2. Grading
+## Grading rubric
 
 1. **Baseline:** Projects that do not satisfy all "baseline" criteria can expect to get a grade of less than 8/10.
-    + **This will be strictly evaluated**: The `MP3.Rmd` R Markdown file must "knit" correctly when *someone else* knits it. This is known as producing *reproducible research*.
-    + Wherever possible, all maps have appropriately labeled axes, legends, and titles and all maps are mindful of the [ink/information ratio](https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842){target="_blank"}.
-    + From the report reader's perspective, there should be no "superfluous" and non-informative output (e.g. instructions text). You must be empathetic to your reader! 
+    + All code must be visible in your PDF.
+    + Successfully acquire your data and convert them to desired objects and/or correctly load them into R.
+    + Create one static map and one interactive map.
+    + Wherever possible, all maps have appropriately labeled axes, legends, and titles and all maps are mindful of the [data-ink ratio](https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842){target="_blank"}.
+    + Include at least one ethical concern.
+    + Explicitly state the research question motivating your analysis.
+    + From the report reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader!
+    + All accompanying write-ups are coherent and respect the word count limit.
+    + Citations must be included as footnotes.
     + You submit your peer evaluation.
 1. **Minimally viable product:** Grade: 8/10.
     + Satisfy all "baseline" criteria.
-    + Include any map generated by the `sf` package.
+    + Demonstrate effective binning when coloring maps.
 1. **Due diligence:** Grade: 9/10.
     + Satisfy all "baseline" and "minimally viable product" criteria.
-    + Add to the map by layering points on top of it. The points
-        + Need to be imported from an external `.csv` file that you will find  (cite source).
-        + Need to overlap the map.
+    + Your static map and interactive map produce a cohesive and in-depth story.
 1. **Point of diminishing returns:** Grade: 10/10.
     + Satisfy all "baseline", "minimally viable product", and "due diligence" criteria.
-    + Add to the map by also layering data from a shapefile on it. This shapefile data
-        + Needs to be imported data from a shapefile you will find (cite source). 
-        + Can be points, lines, or polygons.
-        + Need to overlap the map.
-
-
-### 3. What to submit
-
-There are two components to your grade:
-
-1. Group leader only: Submit the `MP3.zip` file of your entire RStudio Project folder on [moodle](https://moodle.smith.edu/course/view.php?id=42274){target="_blank"}.
-1. Both group members: Fill out the peer evaluation [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdf2M_0oYOR8hwUgxoQFeMR5bKvz4FMZs7Z4k1L1uOy3e_dQw/viewform){target="_blank"}
-
+    + Written text does an exceptional job of communicating your findings effectively and telling an interesting story.
 
 
 ***
@@ -325,8 +324,8 @@ Due to the compressed time during the finals, you may limit the scope of your an
 
 * Find your group in the <code>#sds-192-mp4</code> channel. Please identify:
 
-    + Your group number
-    + Designate a group leader
+    + Your group number.
+    + Designate a group leader.
 
 * Download <a href="projects/MP4/MP4.Rmd" download><code>MP4.Rmd</code></a>.
 * Knit the <code>MP4.Rmd</code> file once and read it over.
@@ -346,7 +345,7 @@ Due to the compressed time during the finals, you may limit the scope of your an
     + The argument you make in your article is supported by data retrieved from one of the six databases listed above.
     + Your SQL query returns the correct results you intend to.
     + Your code is clean, commented, and well-indented.
-    + Explicitly state your research question.
+    + Explicitly state your research question motivating your analysis.
     + From the article reader’s perspective, there should be no “superfluous” and non-informative output (e.g. instructions text). You must be empathetic to your reader!
     + All accompanying write-ups are coherent and respect the word count limit.
     + You submit both your peer evaluations and your exit survey responses.
