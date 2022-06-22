@@ -80,7 +80,7 @@ include_graphics("static/images/google_calendar.png")
 1. Write a joint reflection piece on this experience. In particular
     + As someone who provides data: What expectations do you have when you give your data?
     + As someone who analyzes other people's data: What legal and ethical responsibilities do you have?
-    + The joint reflection piece should be of no more than 500 words.
+    + The joint reflection piece should be of **no more than 500 words**.
 
 <center>    
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vLlR4lBWAoc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -88,67 +88,64 @@ include_graphics("static/images/google_calendar.png")
 
 
 
-## Steps
-
-### 1. Getting started
+## Getting started
 
 * Find your group in the `#sds-192-mp1` channel. Please identify:
-    + Your group number
-    + Who your group leader is: whoever in your group is listed as `member_1`
-* Download <a href="projects/MP1.zip" download>`MP1.zip`</a> and double-click it to "unzip" it
-* Knit the `MP1.Rmd` file once and read it over
+    + Your group number.
+    + Who your group leader is: whoever in your group is listed as `member_1`.
+* Download <a href="projects/MP1.zip" download>`MP1.zip`</a> and double-click it to "unzip" it.
+* Knit the `MP1.Rmd` file once and read it over.
 * Group leader only:
-    + Open the template joint reflection piece [Google Doc](https://docs.google.com/document/d/1brhEHGmRRam5SA23O6cH3ZZN7CrShDv5bt6nbZ5zPT0/edit?usp=sharing){target="_blank"}
-    + Go to File (next to blue Google Doc icon) -> Make a copy
-    + Share it with your partner so that you can both edit it
+    + Open the template joint reflection piece [Google Doc](https://docs.google.com/document/d/1brhEHGmRRam5SA23O6cH3ZZN7CrShDv5bt6nbZ5zPT0/edit?usp=sharing){target="_blank"}.
+    + Go to File (next to blue Google Doc icon) -> Make a copy.
+    + Share it with your partner so that you can both edit it.
 
 
-### 2. Suggestion: Complete your Minimally Viable Product
+## Suggestions
 
 ```{r, echo = FALSE, eval = TRUE}
-include_graphics("static/images/MVP_2.png")
+include_graphics("slides/img./Lec1_mvp.png")
 ```
 
-When working on any project
+Complete your minimally viable product! When working on any project
 
 * Don't try to do everything completely and perfectly from the beginning. This leads to perfectionist thinking, which leads to procrastination and "analysis paralysis."
-* Do start by finishing a [minimially viable product](https://www.forbes.com/sites/quora/2018/02/27/what-is-a-minimum-viable-product-and-why-do-companies-need-them/#178bd8a2382c){target="_blank"} (image 1 in the bottom row of the image above). In other words:
+* Do start by finishing a [minimially viable product](https://www.forbes.com/sites/quora/2018/02/27/what-is-a-minimum-viable-product-and-why-do-companies-need-them/#178bd8a2382c){target="_blank"}. In other words:
     + [Done is better than perfect](https://lifehacker.com/done-is-better-than-perfect-5870379){target="_blank"}
     + [Don't let perfect be the enemy of good](https://www.huffpost.com/entry/dont-let-the-perfect-be-t_b_158673){target="_blank"}
 * Once you're done your MVP, gather feedback on how your project works. Based on this feedback, then iterate and improve.
 
 
-### 3. Submit three things
+## Submitting the project
 
-There are three components to your grade:
-
-1. Both group members: Submit the `MP1.pdf` of your analysis of your partner's question on gradescope.
-1. Both group members: Fill out the peer evaluation [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSd6w4CC9-PrWrpupNfosQUBVoCWBihRwdezYb2jJEj7-kNdfg/viewform){target="_blank"}
-1. Group leader only: Submit a PDF of your joint reflection piece on gradescope.
+1. Both group members: Submit the `MP1.pdf` of your analysis of your partner's question on moodle.
+1. Both group members: Fill out the peer evaluation [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSd6w4CC9-PrWrpupNfosQUBVoCWBihRwdezYb2jJEj7-kNdfg/viewform){target="_blank"}.
+1. Group leader only: Submit a PDF of your joint reflection piece on moodle.
 
 
-### 4. Grades
+## Grading rubric
 
-On Moodle where
-
-1. Analysis (gradescope):
-    + Viz 1: 35%
-    + Viz 2: 35%
-1. Joint reflection piece (gradescope): 25%
-1. Peer evaluation (Google Form): 5%
-
-
-
-## Details
-
-- Has to involve intervals of time: a start time and end time. For example, not "I went to sleep at." but "I slept during these times."
-- Enter in at least two types of activities in your calendar. This activity type becomes the summary categorical variable
-with two levels.
-- How long does the analysis need to be? No firm rule, but think: if there are two equally insightful reports, one is 20 pages and the other is 2 pages. which will you read? Or think when you visit a webpage. How long does it take you to decide if you're going to read it.
-- Graphs can't be redundant: Think in terms of ink/information ratio: if the graphs are very redundant, then why not show just one?
-- How many much analysis? 5 sentences or less for analysis of each graph.
-- You need to collect at least 10 days worth of data.
-
+1. **Baseline:** Projects that do not satisfy all "baseline" criteria can expect to get a grade of less than 8/10.
+    + Successfully collect data and import your calendar into R. This data
+        Has to involve intervals of time: a start time and end time. For example, not “I went to sleep at.” but “I slept during these times.”
+        Enter in at least two types of activities in your calendar. This activity type becomes the summary categorical variable with two levels.
+        You need to collect at least 10 days worth of data.
+    + All code must be visible in your PDF.
+    + Create two data visualizations.
+    + Include at least one ethical concern in your joint reflection.
+    + The final submission should be production-quality, replete with data graphics and correct spelling and grammar.
+    + All accompanying write-ups are coherent and respect the word count limit.
+    + You submit your peer evaluation.
+1. **Minimally viable product:** Grade: 8/10.
+    + Satisfy all "baseline" criteria.
+    + Data graphics are customized, making use of two available geoms and/or color palettes.
+1. **Due diligence:** Grade: 9/10.
+    + Satisfy all "baseline" and "minimally viable product" criteria.
+    + All visualizations have appropriately labeled axes, legends, titles, etc. Such information gives the data’s context.
+    + All visualizations are mindful of the <a href="https://medium.com/@sudharsanasai/declutter-your-chart-with-data-ink-ratio-6f6908727842" target="_blank">data-ink ratio</a>.
+1. **Point of diminishing returns:** Grade: 10/10.
+    + Satisfy all "baseline", "minimally viable product", and "due diligence" criteria.
+    + Written text does an exceptional job of not only addressing the calendar analysis, but also attempting to address the ethical implications of such analysis.
 
 
 ***
