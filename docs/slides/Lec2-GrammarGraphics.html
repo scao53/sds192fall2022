@@ -112,6 +112,12 @@ hampshire_census_data &lt;- pioneer_valley_census_data |>
 * data: the dataset containing the variables of interest.
 * aes(): aesthetic mappings (mapped to variables in the dataset). For example, x/y position, color, shape, and size.
   * In a Cartesian plot, we must supply the variables that will appear on the axes (via `x = ` and `y = `)
+      
+
+```r
+ggplot(data=<DATA>)+
+      <GEOM_FUNCTION>(mapping=aes(<MAPPINGS>))
+```
   
 ---
   
