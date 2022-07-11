@@ -77,7 +77,7 @@ Grolemund, Garrett, and Hadley Wickham. n.d. R for Data Science. Accessed March 
 
 
 ```r
-df |> pivot_longer(-Date, 
+df |> pivot_longer(cols = -Date, 
                     names_to = "City", 
                     values_to = "AQI") |>
   mutate(City = str_replace(City, "_AQI", ""))
