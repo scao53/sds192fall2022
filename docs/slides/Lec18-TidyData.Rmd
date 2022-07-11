@@ -94,7 +94,7 @@ df
 # What Will It Look Like When Tidy?
 
 ```{r}
-df |> pivot_longer(-Date, 
+df |> pivot_longer(cols = -Date, 
                     names_to = "City", 
                     values_to = "AQI") |>
   mutate(City = str_replace(City, "_AQI", ""))
