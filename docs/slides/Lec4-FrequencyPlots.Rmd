@@ -220,6 +220,8 @@ ggplot(artist, aes(x = danceability)) +
 * Binwidth indicates the width of the buckets we'd like to categorize our data into.
 * Bins indicates the number of bins to create. 
 * We choose one or the other when creating histograms. 
+
+&gt; How would we describe this distribution?
 ]
 .pull-right[
 
