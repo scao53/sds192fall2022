@@ -36,9 +36,9 @@ sds::mono_light_smith()
 
 # Today's Learning Goals
 
-* Create histograms using ggplot2.
-* Create barplots using ggplot2.
-* Create facets using ggplot2.
+* Create histograms using `ggplot2`.
+* Create barplots using `ggplot2`.
+* Create facets using `ggplot2`.
 
 ---
 
