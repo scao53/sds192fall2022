@@ -308,8 +308,7 @@ ggplot(artist, aes(x = key_name, fill = album_name)) +
   coord_flip() +
   labs(title = "Frequency of Key Modes in Songs by Janelle Monáe", 
        x = "Key Mode", 
-       y = "Count of Songs", 
-       fill = "Album Name") +
+       y = "Count of Songs") +
   scale_fill_brewer(palette = "Dark2")
 ```
 ]
